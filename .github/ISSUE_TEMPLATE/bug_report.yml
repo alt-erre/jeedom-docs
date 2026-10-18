@@ -1,0 +1,79 @@
+name: "🐛 Signaler un bug (Bug Report)"
+description: "Signaler un dysfonctionnement sur l'un des plugins Jeedom alt-erre"
+title: "[BUG] "
+labels: ["bug", "triage", "canal:beta"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler ce problème. Veillez à ne jamais coller de mots de passe, clés `PSK`/`IV` ou jetons privés non masqués dans les journaux (logs).
+
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: "Plugin concerné"
+      description: "Sélectionnez le plugin alt-erre sur lequel vous rencontrez le problème"
+      options:
+        - "altAirMedia (Apple TV & HomePod)"
+        - "altCambridgeAudio (Cambridge Audio StreamMagic)"
+        - "altJvcProjector (Vidéoprojecteurs JVC D-ILA)"
+        - "altSamsungTv (Samsung Smart TV & The Frame)"
+        - "altSiemens (Siemens EQ900 & Home Connect Local)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: channel
+    attributes:
+      label: "Canal du plugin"
+      options:
+        - "Beta (0.x.y-beta.N)"
+        - "Stable (X.Y.Z)"
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_version
+    attributes:
+      label: "Numéro de version du plugin"
+      description: "Visible sur la page de configuration du plugin dans Jeedom"
+      placeholder: "0.1.0-beta.1"
+      value: "0.1.0-beta.1"
+    validations:
+      required: true
+
+  - type: input
+    id: device_model
+    attributes:
+      label: "Modèle exact de l'appareil piloté"
+      placeholder: "Ex: Apple TV 4K Gen 3, Cambridge Evo 150, JVC DLA-NZ9, Samsung The Frame 65LS03B, Siemens EQ900 TQ905..."
+    validations:
+      required: true
+
+  - type: input
+    id: jeedom_env
+    attributes:
+      label: "Environnement Jeedom (Version Core, Box / OS)"
+      placeholder: "Ex: Jeedom 4.4.19 sur Jeedom Luna / Debian 11 (Bullseye)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description du problème et étapes pour le reproduire"
+      description: "Expliquez clairement ce qui se passe et ce qui était attendu"
+      placeholder: |
+        1. Aller dans...
+        2. Cliquer sur...
+        3. Erreur observée : ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Journaux d'événements (Logs Jeedom / Démon en mode Debug)"
+      description: "Collez ici les lignes pertinentes du log du plugin ou du démon (pensez à masquer vos clés/tokens éventuels)"
+      render: shell

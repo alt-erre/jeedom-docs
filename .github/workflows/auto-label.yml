@@ -1,0 +1,48 @@
+name: Auto-Label Plugin & Canal sur les Issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Attribution automatique du label plugin et canal
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const labelsToAdd = [];
+
+            const pluginMap = {
+              'altAirMedia': 'plugin:altAirMedia',
+              'altCambridgeAudio': 'plugin:altCambridgeAudio',
+              'altJvcProjector': 'plugin:altJvcProjector',
+              'altSamsungTv': 'plugin:altSamsungTv',
+              'altSiemens': 'plugin:altSiemens',
+            };
+
+            for (const [key, label] of Object.entries(pluginMap)) {
+              if (body.includes(key)) {
+                labelsToAdd.push(label);
+              }
+            }
+
+            if (body.includes('Stable (X.Y.Z)')) {
+              labelsToAdd.push('canal:stable');
+            } else if (body.includes('Beta (0.x.y-beta.N)')) {
+              labelsToAdd.push('canal:beta');
+            }
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                labels: labelsToAdd
+              });
+            }

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "💬 Forum Communautaire Jeedom"
+    url: "https://community.jeedom.com/"
+    about: "Pour les questions générales d'entraide et de scénarios autour de Jeedom"
+  - name: "📘 Documentation des plugins alt-erre"
+    url: "https://alt-erre.github.io/jeedom-docs/"
+    about: "Consultez la documentation officielle et les changelogs avant d'ouvrir un ticket"

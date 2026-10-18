@@ -1,0 +1,15 @@
+# Changelog — Alt JVC Projector (`altJvcProjector`)
+
+Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
+
+## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
+
+### Ajouté
+- Pilotage et supervision 100 % en local des vidéoprojecteurs Home-Cinéma **JVC D-ILA** via le protocole TCP/IP officiel (port `20554`) : gammes **DLA-NZ9 / NZ8 / NZ7**, **NZ900 / NZ800 / NZ700 / NZ500**, **NP5**, **NX9 / N7 / N5**, **Z1** et **Série X**.
+- Support natif de l'authentification **SHA-256 (`password` + `JVCKWPJ`)** et de l'authentification historique 16 octets / sans mot de passe.
+- Double mode de fonctionnement : **Socket TCP Direct PHP** (sans démon) ou **Démon Python Temps Réel** avec verrouillage de session TCP (`asyncio.Lock`).
+- Contrôle complet : alimentation, entrées HDMI 1/2, télémétrie du signal source (8K60, 4K120, HDR10/HDR10+/HLG, espace colorimétrique), puissance et contrôle dynamique du Laser BLU-Escent, 10 mémoires d'optique motorisée (`Lens Memory 1..10`), modes anamorphiques, `Frame Adapt HDR`, `Theater Optimizer`, `8K e-shiftX`, `Clear Motion Drive` et télécommande OSD.
+
+### Sécurité & Conformité
+- Stockage temporaire de la configuration du démon avec permissions restreintes (`chmod 0600`) et nettoyage automatique à l'arrêt.
+- Documentation complète des mesures de sécurité et de confidentialité (conformité CGU Jeedom Market).

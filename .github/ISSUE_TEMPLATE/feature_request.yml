@@ -1,0 +1,32 @@
+name: "✨ Proposer une amélioration / Nouveau matériel (Feature Request)"
+description: "Suggérer une nouvelle fonctionnalité ou la prise en charge d'un nouvel appareil"
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+body:
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: "Plugin concerné"
+      options:
+        - "altAirMedia (Apple TV & HomePod)"
+        - "altCambridgeAudio (Cambridge Audio StreamMagic)"
+        - "altJvcProjector (Vidéoprojecteurs JVC D-ILA)"
+        - "altSamsungTv (Samsung Smart TV & The Frame)"
+        - "altSiemens (Siemens EQ900 & Home Connect Local)"
+        - "Nouveau plugin / Autre"
+    validations:
+      required: true
+
+  - type: input
+    id: device_model
+    attributes:
+      label: "Modèle de l'appareil concerné (si applicable)"
+      placeholder: "Ex: Siemens Lave-vaisselle SN..., JVC DLA-NZ800, Cambridge CXN100..."
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description de la fonctionnalité souhaitée"
+      placeholder: "Décrivez la commande, l'information ou le comportement que vous aimeriez voir ajouté..."
+    validations:
+      required: true

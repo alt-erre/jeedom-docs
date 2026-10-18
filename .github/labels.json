@@ -1,0 +1,77 @@
+[
+  {
+    "name": "plugin:altAirMedia",
+    "color": "0A84FF",
+    "description": "Plugin Alt Air Média (Apple TV & HomePod)"
+  },
+  {
+    "name": "plugin:altCambridgeAudio",
+    "color": "38BDF8",
+    "description": "Plugin Alt Cambridge Audio (StreamMagic / Evo)"
+  },
+  {
+    "name": "plugin:altJvcProjector",
+    "color": "6366F1",
+    "description": "Plugin Alt JVC Projector (D-ILA / DLA-NZ9)"
+  },
+  {
+    "name": "plugin:altSamsungTv",
+    "color": "0284C7",
+    "description": "Plugin Alt Samsung TV (Tizen & The Frame)"
+  },
+  {
+    "name": "plugin:altSiemens",
+    "color": "0D9488",
+    "description": "Plugin Alt Siemens (EQ900 & Home Connect Local)"
+  },
+  {
+    "name": "canal:beta",
+    "color": "F59E0B",
+    "description": "Concerne une version Beta (0.x.y-beta.N)"
+  },
+  {
+    "name": "canal:stable",
+    "color": "10B981",
+    "description": "Concerne une version Stable (X.Y.Z)"
+  },
+  {
+    "name": "bug",
+    "color": "EF4444",
+    "description": "Anomalie ou dysfonctionnement reproductible"
+  },
+  {
+    "name": "enhancement",
+    "color": "8B5CF6",
+    "description": "Demande de nouvelle fonctionnalité ou support d'un nouvel appareil"
+  },
+  {
+    "name": "documentation",
+    "color": "64748B",
+    "description": "Amélioration ou correction de la documentation"
+  },
+  {
+    "name": "security",
+    "color": "DC2626",
+    "description": "Sécurité ou protection des données"
+  },
+  {
+    "name": "question",
+    "color": "D99B52",
+    "description": "Question sur l'installation ou l'utilisation"
+  },
+  {
+    "name": "triage",
+    "color": "94A3B8",
+    "description": "Ticket en attente de qualification"
+  },
+  {
+    "name": "en-cours",
+    "color": "0A84FF",
+    "description": "Correctif ou évolution en cours de développement"
+  },
+  {
+    "name": "résolu-en-beta",
+    "color": "22C55E",
+    "description": "Corrigé et disponible dans la dernière version Beta"
+  }
+]
