@@ -2,6 +2,19 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-19 (Canal Beta)
+
+### Corrigé
+- **Liste des œuvres du Studio The Frame (Mode Art)** :
+  - Le démon WebSocket (`altSamsungTvd.py`) transmet désormais automatiquement le catalogue complet des œuvres (`art_catalog`, catégories générale, *Mes Photos* `MY-C0002` et *Favoris* `MY-C0004`) vers Jeedom dès la réception des événements `content_list` et `current_artwork` / `image_selected`.
+  - Synchronisation automatique des commandes `art_item_<content_id>` dans `applyTvState()` et alimentation immédiate de la liste déroulante `— Choisir une œuvre —` du widget Dashboard/Mobile (avec prise en charge directe des identifiants `cid:<content_id>` en temps réel sans nécessiter de rechargement ni de clic manuel sur *Sync Galerie Art*).
+- **Sortie de veille prolongée (*Deep Standby*) sur Samsung Smart TV & The Frame** :
+  - Ajout d'une séquence de réveil dédiée multi-étapes (`wake_device` / `_run_wake_sequence()` dans le démon Python et `wakeUpTv()` en PHP) :
+    1. Résolution automatique de l'adresse MAC Ethernet (RJ45) du boîtier *One Connect* via la table ARP locale (`/proc/net/arp`) en complément de l'adresse MAC Wi-Fi retournée par `/api/v2/`.
+    2. Envoi de salves *Wake-on-LAN* (WoL) multi-ondes vers toutes les adresses MAC connues (broadcast global `255.255.255.255`, broadcast de sous-réseau `x.x.x.255` et unicast IP sur les ports UDP `9`, `7` et `2304`).
+    3. Réveil instantané (`_wake_event`) des boucles WebSocket du démon dès la demande d'allumage, avec ouverture de connexions WebSocket *one-shot* à la demande lorsque le téléviseur est en veille réseau (`PowerState="standby"`).
+    4. Dès que l'interface réseau Tizen répond après le WoL (`PowerState="standby"`), envoi automatique de `KEY_POWER` (`Click`) pour allumer la dalle, suivi de la bascule explicite vers la cible souhaitée (`set_artmode_status: off` pour le mode TV ou `on` pour le Mode Art).
+
 ## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
 
 ### Corrigé
