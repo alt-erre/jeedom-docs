@@ -124,6 +124,22 @@ def main() -> None:
             )
             print(f" -> Créé : {name} (#{color}) [{st_cr}]")
 
+    # 3. Activer GitHub Pages sur la branche main (racine /) si le code est déjà poussé
+    st_pg, _ = gh_api("GET", f"/repos/{owner}/{repo}/pages", token)
+    if st_pg == 404:
+        st_en, res_en = gh_api(
+            "POST",
+            f"/repos/{owner}/{repo}/pages",
+            token,
+            {"source": {"branch": "main", "path": "/"}},
+        )
+        if st_en in (200, 201):
+            print(f" -> GitHub Pages activé : https://{owner}.github.io/{repo}/")
+        else:
+            print(f" -> Info GitHub Pages ({st_en}) : {res_en.get('message', '')}")
+    else:
+        print(f" -> GitHub Pages déjà actif : https://{owner}.github.io/{repo}/")
+
     print("Configuration GitHub terminée avec succès !")
 
 
