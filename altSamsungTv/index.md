@@ -39,8 +39,8 @@ Le plugin gère nativement ces 3 états :
 
 ### 4. Contrôle TV complet (Volume UPnP 0-100 %, Sources HDMI, Applications & Télécommande)
 - **Volume exact & Sourdine** : lecture et réglage du volume de `0` à `100 %` (`Volume`, `Volume niveau`, `Volume +`, `Volume -`) et de la sourdine (`Etat Muet`, `Muet`, `Muet On`, `Muet Off`) via l'API locale **UPnP RenderingControl (`:9197`)** sans dépendre du Cloud SmartThings.
-- **Sources HDMI & TV** : `Source : TV / TNT`, `Source : HDMI 1`, `HDMI 2`, `HDMI 3`, `HDMI 4`, `Menu Sources`.
-- **Applications Smart TV Tizen** : lancement direct de `Netflix`, `YouTube`, `Prime Video`, `Disney+`, `Apple TV`, `CANAL+`, `Spotify`, `Plex`, `Molotov`, `OQEE by Free`, `Twitch`, `Internet Browser` (via API REST `/api/v2/applications/` et WebSocket `ed.apps.launch`).
+- **Sources HDMI & TV** : `Source : TV / TNT`, `Source : HDMI (Basculer / Cycle)`, `Source : Menu Sources` (ainsi que `HDMI 1` à `HDMI 4` pour les modèles Tizen compatibles ; sur **Samsung The Frame**, le firmware Tizen bloque les codes discrets `KEY_HDMI1..4` en local et utilise `KEY_HDMI` pour basculer entre les entrées HDMI actives).
+- **Applications Smart TV Tizen** : lancement direct de `Netflix`, `YouTube`, `Prime Video`, `Disney+`, `Apple TV`, `Apple Music`, `CANAL+`, `Free TV` (ex-*OQEE by Free*), `Twitch`, `Spotify`, `Plex`, `Molotov`, `france.tv`, `TF1+`, `ARTE`, `Max`, `Internet Browser` (avec détection automatique de la variante d'identifiant Tizen 2016–2025+ installée sur la TV via API REST `/api/v2/applications/` et WebSocket `ed.apps.launch`).
 - **Télécommande complète** : Pavé directionnel (`Haut`, `Bas`, `Gauche`, `Droite`, `OK / Entrer`, `Retour`, `Accueil Smart Hub`, `Quitter`, `Menu`, `Guide TV`, `Info`, `Mode Ambiant`), chaînes (`Chaîne +`, `Chaîne -`, `Chaîne précédente`, `Aller à la chaîne N°`), transport multimédia (`Play / Pause`, `Lecture`, `Pause`, `Stop`, `Précédent`, `Suivant`) et commande générique `Envoyer Touche (KEY_...)`.
 
 ---
