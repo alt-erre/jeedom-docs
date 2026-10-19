@@ -21,11 +21,15 @@ def get_github_token() -> str:
     env_tok = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
     if env_tok:
         return env_tok.strip()
+    env = dict(os.environ)
+    env["GIT_TERMINAL_PROMPT"] = "0"
     proc = subprocess.run(
         ["git", "credential", "fill"],
         input="protocol=https\nhost=github.com\n\n",
         text=True,
         capture_output=True,
+        env=env,
+        timeout=5,
         check=True,
     )
     for line in proc.stdout.splitlines():
