@@ -2,6 +2,11 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-19 (Canal Beta)
+
+### Corrigé
+- **Conflit de port socket local avec `altAirMedia`** : Changement du port socket interne par défaut de `55089` (déjà utilisé par le démon `altAirMedia`) vers **`55092`** (avec migration automatique de la configuration existante au démarrage du démon et lors de la mise à jour du plugin).
+
 ## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
 
 ### Corrigé
