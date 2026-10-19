@@ -2,6 +2,20 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-19 (Canal Beta)
+
+### Ajouté
+- **Nommage personnalisé des œuvres du Mode Art (The Frame)** :
+  - Ajout d'un bouton **`✏️` (Nommer / Renommer l'œuvre)** directement à côté de la liste déroulante des œuvres dans l'onglet *Studio The Frame* du widget Dashboard (permettant de remplacer les identifiants bruts `MY_F0018`, `MY_F0007`… par un nom lisible tel que *Photo Vacances*, *La Nuit étoilée*, etc.).
+  - Ajout de la commande action `Mode Art : Renommer une œuvre` (`art_rename`), d'un champ facultatif *Nom de l'œuvre* lors du téléversement d'une image vers The Frame, et prise en compte automatique des renommages effectués dans l'onglet *Commandes* de Jeedom.
+
+### Corrigé
+- **Sélecteur « Passe-partout (Matte) » sur Samsung The Frame** :
+  - Ajout de la méthode dédiée `changeMatte()` (`action="change_matte"` dans le démon WebSocket et en PHP) qui résout automatiquement l'identifiant de l'œuvre courante (`art_content_id` / `get_current_artwork` / catalogue), envoie `change_matte` (`matte_id` + `portrait_matte_id`) puis déclenche immédiatement un `select_image` (`show: true`) pour forcer le téléviseur The Frame à redessiner le passe-partout à l'écran, avec aperçu visuel dynamique du cadre dans le widget.
+- **Aperçu miniature de l'œuvre en cours dans le cadre du widget** :
+  - Correction de la prise en charge de l'événement `get_current_artwork` dans le démon WebSocket (`altSamsungTvd.py`), de l'alignement de l'UUID `conn_info.id` / `request_id`, de l'analyse booléenne `secured: "false"` sur le socket TCP D2D Tizen et de la résolution de l'IP locale lorsque le téléviseur renvoie `127.0.0.1` dans `conn_info`.
+  - Ajout d'un contrôleur sécurisé (`core/php/altSamsungTvThumb.php`) pour servir les miniatures Mode Art aux sessions Jeedom authentifiées sans blocage HTTP 403 d'Apache sur le répertoire `/data/`, avec téléchargement D2D automatique à la volée (`ensureLocalThumbnail`) si la vignette n'est pas encore en cache.
+
 ## [0.1.0-beta.3] — 2026-10-19 (Canal Beta)
 
 ### Corrigé

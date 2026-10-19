@@ -31,11 +31,12 @@ Le plugin gère nativement ces 3 états :
 - **Diaporama / Rotation automatique** : info `Diaporama Mode Art (Etat)` + liste déroulante `Diaporama Mode Art` (`Désactivé`, `3 min`, `10 min`, `15 min`, `30 min`, `1 h`, `3 h`, `12 h`, `1 jour`).
 - **Passe-partout (Matte)** : info `Passe-partout (Matte)` + liste déroulante `Changer Passe-partout` (`Aucun`, `Moderne Abricot`, `Moderne Polaire`, `Moderne Blanc Chaud`, `Caisse Américaine Polaire`, `Flexible`, `Panoramique`, etc.).
 
-### 3. Galerie, Favoris & Téléversement d'images locales vers The Frame
-- **Œuvre en cours** : `ID Œuvre affichée` (`SAM-...`, `MY-...`) et récupération automatique de la **vignette (`Vignette Œuvre`)** via le canal D2D de la TV pour l'afficher en direct dans le widget Jeedom.
-- **Navigation Galerie** : commandes `Œuvre précédente`, `Œuvre suivante`, `Afficher Œuvre (ID)` et création dynamique d'une commande par œuvre découverte lors de la synchronisation.
+### 3. Galerie, Favoris, Nommage personnalisé & Téléversement d'images locales vers The Frame
+- **Œuvre en cours & Aperçu en direct** : `ID Œuvre affichée` (`SAM-...`, `MY_F...`) et récupération automatique de la **vignette (`Vignette Œuvre`)** via le canal D2D de la TV pour l'afficher en direct dans le cadre passe-partout du widget Jeedom.
+- **Nommage personnalisé des œuvres (`✏️`)** : cliquez sur le bouton **`✏️`** à côté de la liste déroulante des œuvres dans l'onglet *Studio The Frame* du widget (ou renommez la commande `Œuvre : ...` dans l'onglet *Commandes*) pour attribuer un nom lisible (*La Nuit étoilée*, *Photo Vacances*, etc.) à la place des identifiants bruts `MY_F0018`.
+- **Navigation Galerie** : commandes `Œuvre précédente`, `Œuvre suivante`, `Afficher Œuvre (ID)`, `Mode Art : Renommer une œuvre` et création dynamique d'une commande par œuvre découverte lors de la synchronisation.
 - **Téléversement d'image locale ou URL (`Envoyer image vers Mode Art`)** :
-  - Permet d'envoyer depuis un scénario Jeedom, depuis la page de l'équipement ou depuis le widget n'importe quelle image **JPEG ou PNG** (chemin local `/var/www/...` ou URL `http(s)://...` telle qu'une capture de caméra IP, une carte météo ou une photo) directement vers le Mode Art de The Frame, avec application automatique du passe-partout choisi et affichage immédiat à l'écran !
+  - Permet d'envoyer depuis un scénario Jeedom, depuis la page de l'équipement ou depuis le widget n'importe quelle image **JPEG ou PNG** (chemin local `/var/www/...` ou URL `http(s)://...` telle qu'une capture de caméra IP, une carte météo ou une photo) directement vers le Mode Art de The Frame, avec attribution d'un nom personnalisé, application automatique du passe-partout choisi et affichage immédiat à l'écran !
 
 ### 4. Contrôle TV complet (Volume UPnP 0-100 %, Sources HDMI, Applications & Télécommande)
 - **Volume exact & Sourdine** : lecture et réglage du volume de `0` à `100 %` (`Volume`, `Volume niveau`, `Volume +`, `Volume -`) et de la sourdine (`Etat Muet`, `Muet`, `Muet On`, `Muet Off`) via l'API locale **UPnP RenderingControl (`:9197`)** sans dépendre du Cloud SmartThings.
