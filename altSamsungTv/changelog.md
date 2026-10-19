@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.5] — 2026-10-19 (Canal Beta)
+
+### Corrigé
+- **Maintien de la sélection active dans les menus déroulants « Œuvre » et « Passe-partout (Matte) » du widget** :
+  - L'œuvre en cours (`art_content_id`) est désormais pré-sélectionnée dès le chargement initial du widget (`toHtml()` + `syncArtworkSelectUI()`), reste sélectionnée lorsqu'on choisit une œuvre dans la liste déroulante, et se met à jour automatiquement lorsqu'on utilise les boutons *Précédent* / *Suivant* (`⏮` / `⏭`) ou la télécommande Samsung.
+  - Le menu déroulant *Passe-partout (Matte)* synchronise désormais automatiquement la valeur active (`syncMatteSelectUI()`) et intègre les teintes additionnelles Samsung The Frame (`shadowbox_redorange`, `modern_redorange`, `flexible_redorange`, `shadowbox_black`, `modern_sand`, `modern_sage`, `modern_navy`, `modern_burgundy`).
+
 ## [0.1.0-beta.4] — 2026-10-19 (Canal Beta)
 
 ### Ajouté
