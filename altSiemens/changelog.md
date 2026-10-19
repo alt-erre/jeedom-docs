@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
+
+### Corrigé
+- **Démon Python & Virtualenv (`resources/venv`)** : Préservation du lien symbolique `resources/venv/bin/python3` dans `getPythonBinary()` (évitant sa résolution vers `/usr/bin/python3` par `realpath()`) et auto-injection de `resources/venv/lib/python*/site-packages` dans `altSiemensd.py` et `hc_cloud_helper.py` pour garantir le chargement de `pycryptodome` (`Crypto`) et `aiohttp`.
+- **Supervision du démon & Port Socket (`55089`)** : Remplacement de `ps ax` (tronqué à 80 colonnes sous Linux) par une vérification directe `/proc/<pid>` et `ps auxww` dans `isDaemonRunning()`, reprise automatique du port `55089` si une ancienne instance est en cours d'arrêt, écriture du fichier `deamon.pid` uniquement après acquisition du socket et fermeture garantie de `aiohttp.ClientSession`.
+
+### Modifié
+- **Catégorie Jeedom** : Déplacement du plugin dans la catégorie **Objets connectés** (`devicecommunication`).
+
 ## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
 
 ### Ajouté
