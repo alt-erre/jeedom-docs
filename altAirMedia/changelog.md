@@ -2,6 +2,11 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
+
+### Corrigé
+- **Démon (`Errno 98: address already in use`)** : fermeture immédiate du socket TCP interne dès le début de la séquence d'arrêt du démon Python, activation de `reuse_address=True`, écriture/suppression atomique du fichier PID après ouverture du port et attente active de libération du port dans `deamon_stop()` (avec détection `ps auxww` sans troncature à 80 colonnes).
+
 ## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
 
 ### Ajouté
