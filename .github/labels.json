@@ -5,6 +5,11 @@
     "description": "Plugin Alt Air Média (Apple TV & HomePod)"
   },
   {
+    "name": "plugin:altBambuLab",
+    "color": "14B8A6",
+    "description": "Plugin Alt Bambu Lab (Imprimantes 3D P1S / X1C / A1 & AMS)"
+  },
+  {
     "name": "plugin:altCambridgeAudio",
     "color": "38BDF8",
     "description": "Plugin Alt Cambridge Audio (StreamMagic / Evo)"

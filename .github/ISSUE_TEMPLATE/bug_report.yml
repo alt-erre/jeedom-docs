@@ -15,6 +15,7 @@ body:
       description: "Sélectionnez le plugin alt-erre sur lequel vous rencontrez le problème"
       options:
         - "altAirMedia (Apple TV & HomePod)"
+        - "altBambuLab (Imprimantes 3D Bambu Lab P1S / X1C / A1 & AMS)"
         - "altCambridgeAudio (Cambridge Audio StreamMagic)"
         - "altJvcProjector (Vidéoprojecteurs JVC D-ILA)"
         - "altSamsungTv (Samsung Smart TV & The Frame)"

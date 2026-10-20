@@ -13,6 +13,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
+| **Alt Bambu Lab** | `altBambuLab` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Cambridge Audio** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt JVC Projector** | `altJvcProjector` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
 | **Alt Samsung TV** | `altSamsungTv` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
@@ -27,4 +28,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altCambridgeAudio`, `plugin:altJvcProjector`, `plugin:altSamsungTv`, `plugin:altSiemens`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altJvcProjector`, `plugin:altSamsungTv`, `plugin:altSiemens`) et **par canal** (`canal:beta`, `canal:stable`).
