@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.11] — 2026-10-20 (Canal Beta)
+
+### Ajouté
+- **Ouverture d'URL dans le navigateur Web intégré en plein écran (`open_url`)** :
+  - Ajout de la commande action Jeedom **`Ouvrir URL (Navigateur)`** (`open_url`, sous-type *message*) permettant d'ouvrir n'importe quelle URL (`https://...` ou `http://...`, ex. Design Jeedom, flux caméra, page météo) directement dans le navigateur intégré **Samsung Internet** (`org.tizen.browser`) via l'événement WebSocket local `ed.apps.launch` (`metaTag`).
+  - **Mode plein écran automatique** : sortie automatique du *Mode Art* si actif, puis envoi différé d'une impulsion `KEY_DOWN` après le chargement de la page afin de faire descendre le focus hors de la barre supérieure et déclencher le repli automatique de la barre d'URL et des onglets (désactivable en passant `normal` dans le champ *Titre* de la commande).
+  - Ajout d'un champ rapide **Web (`https://...`)** avec bouton d'ouverture directe dans le widget Dashboard.
+
 ## [0.1.0-beta.10] — 2026-10-20 (Canal Beta)
 
 ### Ajouté
