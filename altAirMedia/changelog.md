@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
+
+### Amélioré
+- **Vignette dynamique par Application / Source dans la Carte État (Dashboard & Mobile)** :
+  - La vignette `.am-artwork-box` s'adapte désormais dynamiquement à l'application active sur l'Apple TV ou le HomePod (`Netflix`, `YouTube`, `Prime Video`, `Disney+`, `CANAL+`, `Molotov`, `Oqee / Free TV`, `Infuse`, `Plex`, `Spotify`, `Apple Music`, `Podcasts`, `Twitch`, `AirPlay`, `Veille`) avec une icône dédiée, un libellé court en capitales et un dégradé coloré.
+  - Lorsqu'une pochette d'album est affichée, un mini-badge d'icône de l'application s'affiche en surimpression dans le coin inférieur droit de la vignette.
+
 ## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
 
 ### Corrigé

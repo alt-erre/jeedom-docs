@@ -2,6 +2,12 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.5] — 2026-10-20 (Canal Beta)
+
+### Amélioré
+- **Vignette dynamique par Boisson / Programme dans la Carte État (Dashboard & Mobile)** :
+  - La vignette `.sie-cup-wrap` adapte dynamiquement son icône, son libellé court (`ESPRESSO`, `RISTRET.`, `CAPPUC.`, `FLAT W.`, `LATTE`, `CREMA`, `AMERIC.`, `LAIT`, `EAU CH.`, `ENTRETIEN`, `VEILLE`) et son dégradé selon la boisson sélectionnée ou en cours de préparation.
+
 ## [0.1.0-beta.4] — 2026-10-20 (Canal Beta)
 
 ### Modifié

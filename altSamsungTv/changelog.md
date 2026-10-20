@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.8] — 2026-10-20 (Canal Beta)
+
+### Amélioré
+- **Vignette au format `16:9` et visuel dynamique par Source / Application dans la Carte État (Dashboard & Mobile)** :
+  - Passage de la vignette de la carte État (`.stv-art-thumb-wrap` sur Dashboard `88×50 px`, `.stvm-art` sur Mobile `72×41 px`) au format écran **`16:9`** (`aspect-ratio: 16 / 9`).
+  - En **Mode TV**, la vignette `16:9` adapte dynamiquement son icône, son libellé et son dégradé selon l'application ou l'entrée active (`Netflix`, `YouTube`, `Prime Video`, `Disney+`, `Apple TV`, `Apple Music`, `CANAL+`, `Oqee / Free TV`, `Molotov`, `Twitch`, `Spotify`, `Deezer`, `Plex`, `HDMI 1` à `HDMI 4`, `TV / TNT`, `Veille`).
+  - En **Mode Art**, la vignette `16:9` affiche la miniature de l'œuvre *The Frame* encadrée du passe-partout (ou le visuel *Mode Art* doré).
+
 ## [0.1.0-beta.7] — 2026-10-20 (Canal Beta)
 
 ### Modifié

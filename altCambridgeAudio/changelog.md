@@ -2,6 +2,18 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
+
+### Corrigé
+- **Liste déroulante des Sources (`#inputs_options#`)** :
+  - Prise en charge des commandes de sources générées avec le préfixe `source_<ID>` (et la configuration `smoip_source_id`) dans `toHtml()`, ainsi que déclenchement automatique de `syncDynamicCommands()` si aucune commande de source n'existe encore sur l'équipement.
+  - Protection du placeholder `#input_id#` (et `#audio_output_id#`) contre l'écrasement par la commande info `input_id` (identifiant technique StreamMagic, désormais exposé sous `#source_tech_id#`).
+
+### Amélioré
+- **Vignette dynamique par Source dans la Carte État (Dashboard & Mobile)** :
+  - La vignette de la carte État affiche désormais un visuel dédié par source active (`TV ARC / eARC`, `Spotify`, `AirPlay`, `Bluetooth`, `TIDAL`, `Qobuz`, `Roon Ready`, `Chromecast`, `Internet Radio`, `Phono MM/MC`, `Optique D1/D2`, `Coaxial`, `USB Audio DAC`, `XLR`, `RCA`, `UPnP`, `Veille`) avec icône, libellé court et dégradé teinté.
+  - Lorsqu'une pochette d'album est affichée, un badge d'icône de la source active apparaît en surimpression dans le coin inférieur droit de la pochette.
+
 ## [0.1.0-beta.2] — 2026-10-20 (Canal Beta)
 
 ### Modifié

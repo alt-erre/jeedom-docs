@@ -2,6 +2,12 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
+
+### Amélioré
+- **Vignette dynamique par Entrée HDMI / État dans la Carte État (Dashboard & Mobile)** :
+  - La vignette `.jvc-art-wrap` s'adapte dynamiquement selon l'entrée active (`HDMI 1`, `HDMI 2`) et l'état d'alimentation du projecteur (`CHAUFFE`, `REFROID.`, `VEILLE`) avec icône, libellé court en capitales et dégradé dédié.
+
 ## [0.1.0-beta.2] — 2026-10-20 (Canal Beta)
 
 ### Modifié
