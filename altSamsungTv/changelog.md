@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.10] — 2026-10-20 (Canal Beta)
+
+### Ajouté
+- **Détection de l'orientation de l'écran (*Paysage* / *Portrait*) et rotation motorisée (The Frame)** :
+  - **Commandes Info Jeedom** : ajout de `Orientation (Code)` (`orientation` : `landscape` ou `portrait`) et `Orientation (Libellé)` (`orientation_label` : `Paysage` ou `Portrait`), alimentées en temps réel via le canal WebSocket `com.samsung.art-app` (`get_current_rotation` / `current_rotation_status` / `rotation_changed`) aussi bien en mode *Démon WebSocket* qu'en mode *Local direct*.
+  - **Adaptation visuelle dynamique des widgets (Dashboard & Mobile)** : bascule automatique du ratio de la vignette d'aperçu entre **`16:9` horizontal** (`landscape`) et **`9:16` vertical** (`portrait`), avec affichage du badge d'orientation (`Paysage` / `Portrait`) dans la carte d'état.
+  - **Commande Action « Pivoter l'écran (Support motorisé) » (`rotate_screen`)** : ajout de l'action Jeedom et du bouton dédié dans l'en-tête *Galerie The Frame* pour piloter les supports muraux et pieds motorisés Samsung *Auto-Rotating* (`VG-ARAB22WMT` / `VG-ARAB43STD`) via un appui maintenu `KEY_MULTI_VIEW` (`Hold` 3,5 s).
+
 ## [0.1.0-beta.9] — 2026-10-20 (Canal Beta)
 
 ### Corrigé
