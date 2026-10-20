@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-20 (Canal Beta)
+
+### Corrigé
+- **Rendu visuel fidèle à la base `altAirMedia` (Contours, Dégradés & Boutons ronds)** :
+  - Alignement exact des variables CSS (`--ca-bg`, `--ca-card`, `--ca-card-border`), ajout du contour extérieur `1px solid rgba(255, 255, 255, 0.20) !important` (`border-radius: 16px !important`), de la barre d'en-tête bord-à-bord avec filet de séparation et verrouillage de `border-radius: 50% !important` sur tous les boutons circulaires face aux surcharges CSS de Jeedom Core.
+  - Inclusion de toutes les commandes `source_*`, `output_*` et `preset_*` dans les menus déroulants du widget personnalisé même lorsque les commandes unitaires sont masquées (`isVisible = 0`), et remplacement du libellé technique `IDLE` en veille par `— Choisir une source —`.
+
 ## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
 
 ### Corrigé

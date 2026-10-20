@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.9] — 2026-10-20 (Canal Beta)
+
+### Corrigé
+- **Rendu visuel fidèle à la base `altAirMedia` (Contours, Dégradés, D-Pad & Boutons ronds)** :
+  - Alignement exact des variables CSS (`--stv-bg`, `--stv-card`, `--stv-card-border`), ajout du contour extérieur `1px solid rgba(255, 255, 255, 0.20) !important` (`border-radius: 16px !important`), de la barre d'en-tête bord-à-bord avec filet de séparation, et verrouillage de `border-radius: 50% !important` sur les boutons circulaires, le D-Pad (`28px !important`) et le bouton central `OK` (`50% !important`) face aux surcharges CSS de Jeedom Core.
+  - Suppression du retour à la ligne sur les libellés `SOURCE` / `APP` (`white-space: nowrap !important`).
+
 ## [0.1.0-beta.8] — 2026-10-20 (Canal Beta)
 
 ### Amélioré
