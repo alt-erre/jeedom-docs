@@ -16,6 +16,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Bambu Lab** | `altBambuLab` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Cambridge Audio** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt JVC Projector** | `altJvcProjector` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
+| **Alt Roborock** | `altRoborock` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
 | **Alt Samsung TV** | `altSamsungTv` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
 | **Alt Siemens** | `altSiemens` | Automatisme | `0.1.0-beta.1` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 
@@ -28,4 +29,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altJvcProjector`, `plugin:altSamsungTv`, `plugin:altSiemens`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altJvcProjector`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`) et **par canal** (`canal:beta`, `canal:stable`).

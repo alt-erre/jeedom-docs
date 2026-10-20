@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Synchronise les fichiers README.md et CHANGELOG.md des 6 plugins privés alt*
+# Synchronise les fichiers README.md et CHANGELOG.md des 7 plugins privés alt*
 # vers le dépôt public jeedom-docs (<plugin>/index.md et <plugin>/changelog.md).
 # ------------------------------------------------------------------------------
 set -euo pipefail
@@ -13,6 +13,7 @@ PLUGINS=(
   "altBambuLab"
   "altCambridgeAudio"
   "altJvcProjector"
+  "altRoborock"
   "altSamsungTv"
   "altSiemens"
 )
