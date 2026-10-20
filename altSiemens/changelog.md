@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-20 (Canal Beta)
+
+### Modifié
+- **Harmonisation graphique des widgets Dashboard et Mobile (`alt-erre` Dark Glass)** :
+  - Adoption du système de design unifié `alt-erre` (sur le modèle d'`altAirMedia`) : en-tête intégré `.sie-header` avec boutons circulaires *Power* et *Refresh*, carte Barista `.sie-status-card` (`58×58 px` + `.sie-conn-dot` + jauge de progression), barre d'actions avec bouton principal *Servir* lumineux, curseur de volume en `ml` `.sie-slider-box` et sélecteurs `.sie-select`.
+  - Ajout du sélecteur de thème couleur par équipement (`Noir Dark Glass`, `Blanc`, `Bleu`, `Jaune`, `Rouge`).
+
 ## [0.1.0-beta.3] — 2026-10-19 (Canal Beta)
 
 ### Corrigé

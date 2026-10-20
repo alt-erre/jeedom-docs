@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-20 (Canal Beta)
+
+### Modifié
+- **Harmonisation graphique des widgets Dashboard et Mobile (`alt-erre` Dark Glass)** :
+  - Adoption du système de design unifié `alt-erre` (sur le modèle d'`altAirMedia`) : en-tête intégré `.jvc-header` avec boutons circulaires *Power On*, *Veille* et *Refresh*, carte statut & signal vidéo `.jvc-now-playing` (`58×58 px` + `.jvc-status-dot`), sélecteurs `.jvc-select` et télécommande OSD repliable avec **D-Pad squircle** et bouton `OK` central circulaire.
+  - Ajout du sélecteur de thème couleur par équipement (`Noir Dark Glass`, `Blanc`, `Bleu`, `Jaune`, `Rouge`).
+
 ## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
 
 ### Ajouté

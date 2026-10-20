@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.7] — 2026-10-20 (Canal Beta)
+
+### Modifié
+- **Harmonisation graphique des widgets Dashboard et Mobile (`alt-erre` Dark Glass)** :
+  - Adoption du système de design unifié `alt-erre` (sur le modèle d'`altAirMedia`) : en-tête intégré `.stv-header`, barre segmentée des 3 états (*TV* / *Mode Art* / *Veille*), carte `.stv-frame-card` (`58×58 px` + `.stv-status-dot` + encadrement *The Frame* en Mode Art), télécommande à **D-Pad squircle central**, barre de volume `.stv-volume-box` et sélecteurs `.stv-select`.
+  - Ajout du sélecteur de thème couleur par équipement (`Noir Dark Glass`, `Blanc`, `Bleu`, `Jaune`, `Rouge`).
+
 ## [0.1.0-beta.6] — 2026-10-20 (Canal Beta)
 
 ### Corrigé

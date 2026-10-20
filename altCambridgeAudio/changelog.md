@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-20 (Canal Beta)
+
+### Modifié
+- **Harmonisation graphique des widgets Dashboard et Mobile (`alt-erre` Dark Glass)** :
+  - Adoption du système de design unifié `alt-erre` (sur le modèle d'`altAirMedia`) : en-tête intégré `.ca-header` avec boutons circulaires *Power* et *Refresh*, carte média `.ca-now-playing` avec vignette `58×58 px` et point lumineux d'état `.ca-status-dot`, barre de transport circulaire avec bouton central *Play/Pause* `40×40 px`, barre de volume `.ca-volume-box` et sélecteurs `.ca-select`.
+  - Ajout du sélecteur de thème couleur par équipement (`Noir Dark Glass`, `Blanc`, `Bleu`, `Jaune`, `Rouge`).
+
 ## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
 
 ### Ajouté
