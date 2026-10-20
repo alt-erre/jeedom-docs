@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.6] — 2026-10-20 (Canal Beta)
+
+### Corrigé
+- **Mode de communication « Local direct (Polling cron HTTP/UPnP/WS, sans démon) »** :
+  - **Isolation par équipement (`shouldUseDaemon()`)** : les méthodes d'action et de rafraîchissement (`sendRemoteKey()`, `launchApp()`, `sendArtRequest()`, `changeMatte()`, `stepArtwork()`, `wakeUpTv()`, `ensureLocalThumbnail()`, `getTvInfo()`) vérifient désormais si l'équipement lui-même est configuré en mode `websocket` (`$this->shouldUseDaemon()`) au lieu de seulement tester si le processus global `altSamsungTvd.py` tourne en tâche de fond. Auparavant, lorsqu'un équipement était placé en mode *Local direct* alors que le démon du plugin était actif, le démon l'ignorait tandis que PHP lui déléguait toutes les commandes et sautait l'interrogation du Mode Art.
+  - **Compatibilité TLS / OpenSSL 3.0+ en PHP (`DEFAULT:@SECLEVEL=0`)** : ajout de `'ciphers' => 'DEFAULT:@SECLEVEL=0'` et `'security_level' => 0` dans `directWsTransaction()` et `requestRestApi()` afin que les connexions WebSocket SSL (`wss://:8002`) et HTTPS directes en PHP vers le certificat auto-signé Samsung Tizen fonctionnent sous Debian 11/12 (OpenSSL 3.0+).
+  - **Protocole WebSocket `com.samsung.art-app` en PHP (`ms.channel.ready` & session groupée)** : attente de l'événement `ms.channel.ready` avant l'envoi des requêtes Mode Art, gestion des trames WebSocket Ping/Pong/Close dans `readWsFrame()`, regroupement des requêtes `get_artmode_status` + `get_current_artwork` (+ `get_content_list`) sur une seule session WebSocket dans `getTvInfo()`, et téléchargement direct des miniatures D2D en PHP (`downloadThumbnailDirect()`) sans dépendre du démon.
+
 ## [0.1.0-beta.5] — 2026-10-19 (Canal Beta)
 
 ### Corrigé
