@@ -52,7 +52,8 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
 1. Connectez-vous à votre espace PRONOTE habituel (Web ou application mobile) avec votre compte **Élève** ou **Parent**.
 2. Cliquez sur l'icône **QR Code** en haut à droite (ou dans *Mon compte $\to$ Générer un QR Code*) et définissez un **code PIN temporaire à 4 chiffres** (ex. `1234`).
 3. Dans Jeedom (*Plugins $\to$ Organisation $\to$ Alt Vie Scolaire (Pronote)*), cliquez sur **Assistant QR Code & Compte**.
-4. Importez la capture d'écran du QR Code (ou collez son contenu JSON), saisissez le code PIN à 4 chiffres et cliquez sur **Appairer le QR Code & Synchroniser l'élève**.
+4. **Faites une capture d'écran du QR Code PRONOTE** et collez-la directement avec **`Cmd+V` / `Ctrl+V`** dans l'assistant (ou sélectionnez le fichier image `.png`/`.jpg`), saisissez le code PIN à 4 chiffres et cliquez sur **Appairer le QR Code & Synchroniser l'élève**.
+   > **Note importante (iPhone / Android) :** Ne scannez pas le QR Code avec l'appareil photo de votre téléphone pour cliquer sur *« Ouvrir dans Safari »* : l'appareil photo n'ouvre que l'URL Web sans le jeton JSON interne et redirige vers la page SAML2 d'ÉduConnect (`educonnect.education.gouv.fr/idp/profile/SAML2/POST/SSO`). Utilisez directement une capture d'écran de l'image du QR Code dans Jeedom.
 5. Vous pouvez à tout moment exporter une sauvegarde `.json` de votre profil de jeton depuis la fiche de l'équipement.
 
 ---

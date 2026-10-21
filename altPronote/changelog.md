@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-21 (Canal Beta)
+
+### Ajouté & Amélioré
+- **Décodage d'image QR Code 100 % côté serveur Python (`opencv-python-headless` Apache-2.0) & Collage direct (`Cmd+V` / `Ctrl+V`)** :
+  - L'assistant QR Code décode désormais automatiquement les captures d'écran (`.png`, `.jpg`, WebP) côté serveur dans `resources/venv` (`cv2.QRCodeDetector` multi-passes : normale, inversée Dark Mode, seuillage Otsu et multi-échelles Retina), rendant la lecture d'image compatible avec **tous les navigateurs (Safari macOS, Firefox, Chrome, Brave)**.
+  - Support du **collage direct du presse-papiers (`Cmd+V` / `Ctrl+V`)** dans la modale de l'assistant juste après une capture d'écran du QR Code PRONOTE.
+  - Détection explicite et message d'aide lorsque l'utilisateur colle par erreur l'URL de redirection SAML2 ÉduConnect (`educonnect.education.gouv.fr/idp/profile/SAML2/POST/SSO`) obtenue en ouvrant le lien du QR Code dans le navigateur mobile (Safari / Chrome iOS/Android).
+
 ## [0.1.0-beta.1] — 2026-10-21 (Canal Beta)
 
 ### Ajouté
