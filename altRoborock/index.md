@@ -61,8 +61,9 @@ Pour dialoguer en local sur le port TCP `58867`, chaque robot Roborock nécessit
    - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**.
    - Saisissez l'adresse e-mail de votre compte Roborock, cliquez sur **1. Recevoir un code par e-mail**, puis saisissez le code à 6 chiffres reçu et cliquez sur **2. Récupérer mes robots & clés locales**.
    - Le plugin récupère automatiquement vos robots (`DUID`, `localKey`, modèle, firmware, protocole `1.0` ou `L01` et noms des pièces), les associe aux adresses IP détectées sur votre réseau local (broadcast UDP `58866` + sonde TCP `58867`) et crée les équipements dans Jeedom.
-2. **Import JSON hors-ligne** :
-   - Collez un export JSON contenant vos appareils (`duid`, `localKey`, `name`, `model`, `ip`, `rooms`).
+2. **Sauvegarde & Import JSON hors-ligne (`localKey`)** :
+   - Dès que vos clés locales sont récupérées (ou à tout moment depuis l'onglet **Méthode 3 : Sauvegarder / Importer les clés (.json)** ou via le bouton **`.json`** sur la fiche d'un robot), vous pouvez **télécharger un fichier `.json` de sauvegarde** contenant vos `localKey`, `DUID`, modèle, protocole (`1.0` / `L01`), IP et pièces.
+   - Conservez ce fichier `.json` de côté : en cas de réinstallation future de Jeedom, il vous suffira de l'importer dans l'onglet **Méthode 3** (ou d'importer un export `python-roborock` / `core.config_entries` Home Assistant) sans jamais avoir à vous reconnecter au Cloud Roborock.
 3. **Saisie manuelle** :
    - Créez un équipement avec **Ajouter un robot** et renseignez directement son **Adresse IP**, son **DUID** et sa **Clé locale (`localKey`)**.
 

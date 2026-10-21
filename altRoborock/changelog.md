@@ -18,8 +18,9 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Station Multifonction 3.0 (Qrevo Curv) & Auto-Empty Dock (S7+)** : *Vider le bac à poussière*, *Laver les serpillères à l'eau chaude*, *Séchage à l'air chaud (Marche/Arrêt)* et diagnostic des bacs d'eau propre/sale et du sac à poussière (`dss`).
   - **Nettoyage par pièces (Segments) & Multi-Cartes (Étages)** : Découverte automatique `get_room_mapping`, sélection multi-pièces avec répétition (`1x`, `2x`, `3x`), nettoyage de zone (`clean_zone`), aller au point cible (`goto_target`) et sélection d'étage (`map_select`).
   - **Consommables & Historique** : Jauge `%` et remise à zéro pour *Brosse principale*, *Brosse latérale*, *Filtre*, *Capteurs* + compteurs cumulés (`m²`, `h`, cycles).
-- **Assistant intégré de récupération unique des clés locales (`localKey`)** :
-  - Connexion éphémère au compte Roborock par **Code e-mail à 6 chiffres (OTP)** ou mot de passe, ou **Import JSON hors-ligne**, récupérant `DUID`, `localKey`, modèle, protocole et noms des pièces.
+- **Assistant intégré de récupération unique et de sauvegarde des clés locales (`localKey`)** :
+  - Connexion éphémère au compte Roborock par **Code e-mail à 6 chiffres (OTP)** ou mot de passe, récupérant `DUID`, `localKey`, modèle, protocole et noms des pièces.
+  - **Export / Téléchargement `.json` en 1 clic** (depuis l'assistant ou la fiche d'un équipement) permettant de mettre de côté ses clés locales (`localKey`, `DUID`, `IP`, `pièces`) hors-ligne et de les réimporter ultérieurement sans aucune reconnexion au Cloud.
 - **Widgets personnalisés Dashboard & Mobile (`alt-erre` Dark Glass)** :
   - Design unifié « Dark Glass » avec 5 thèmes de couleur (*Noir*, *Blanc*, *Bleu*, *Jaune*, *Rouge*), vignette SVG animée LiDAR, contrôles de station, sélecteur interactif de pièces par chips et jauges de consommables.
 
