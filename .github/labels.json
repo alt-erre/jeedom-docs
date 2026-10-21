@@ -40,6 +40,11 @@
     "description": "Plugin Alt Siemens (EQ900 & Home Connect Local)"
   },
   {
+    "name": "plugin:altSonos",
+    "color": "D99B52",
+    "description": "Plugin Alt Multiroom Audio (Sonos) (Amp, Port, Connect, S1/S2)"
+  },
+  {
     "name": "canal:beta",
     "color": "F59E0B",
     "description": "Concerne une version Beta (0.x.y-beta.N)"
