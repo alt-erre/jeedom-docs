@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-21 (Canal Beta)
+
+### Corrigé
+- **Migration vers `paho.mqtt.client.CallbackAPIVersion.VERSION2` (`resources/altBambuLabd.py`)** :
+  - Remplacement de `CallbackAPIVersion.VERSION1` par `CallbackAPIVersion.VERSION2` (avec rétrocompatibilité `paho-mqtt 1.x` et extraction unifiée des objets `ReasonCode` dans `_on_mqtt_connect` et `_on_mqtt_disconnect`) afin de supprimer l'avertissement `DeprecationWarning: Callback API version 1 is deprecated` au démarrage du démon.
+  - Affichage systématique des messages `INFO` de démarrage et d'état de connexion MQTT TLS dans le log `altBambuLab_deamon` même lorsque le niveau de log du plugin est laissé sur `Défaut`.
+
 ## [0.1.0-beta.1] — 2026-10-20 (Canal Beta)
 
 ### Ajouté
