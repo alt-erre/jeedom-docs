@@ -30,6 +30,9 @@ Le plugin gère nativement ces 3 états :
 - **Température de couleur Art** : info `Température couleur Art` (`-5` à `+5`) + curseur `Réglage Température couleur Art` (`-5` à `+5`).
 - **Diaporama / Rotation automatique** : info `Diaporama Mode Art (Etat)` + liste déroulante `Diaporama Mode Art` (`Désactivé`, `3 min`, `10 min`, `15 min`, `30 min`, `1 h`, `3 h`, `12 h`, `1 jour`).
 - **Passe-partout (Matte)** : info `Passe-partout (Matte)` + liste déroulante `Changer Passe-partout` (`Aucun`, `Moderne Abricot`, `Moderne Polaire`, `Moderne Blanc Chaud`, `Caisse Américaine Polaire`, `Flexible`, `Panoramique`, etc.).
+- **Orientation de l'écran & Support motorisé (*Auto-Rotating*)** :
+  - Commandes info `Orientation (Code)` (`landscape` / `portrait`) et `Orientation (Libellé)` (`Paysage` / `Portrait`) mises à jour automatiquement, avec adaptation dynamique du cadre d'aperçu du widget entre le format horizontal **`16:9`** et le format vertical **`9:16`**.
+  - Commande action `Pivoter l'écran (Support motorisé)` (`rotate_screen`) et bouton dédié (<i class="fas fa-sync"></i>) dans l'en-tête *Galerie The Frame* pour piloter les supports muraux et pieds motorisés Samsung (`VG-ARAB22WMT` / `VG-ARAB43STD`).
 
 ### 3. Galerie, Favoris, Nommage personnalisé & Téléversement d'images locales vers The Frame
 - **Œuvre en cours & Aperçu en direct** : `ID Œuvre affichée` (`SAM-...`, `MY_F...`) et récupération automatique de la **vignette (`Vignette Œuvre`)** via le canal D2D de la TV pour l'afficher en direct dans le cadre passe-partout du widget Jeedom.
@@ -53,6 +56,21 @@ Le plugin gère nativement ces 3 états :
 3. **Allumez votre téléviseur Samsung**, puis cliquez sur le bouton orange **« Appairer avec la TV »** en haut à droite de la fiche équipement :
    - Une notification apparaît sur l'écran de votre téléviseur : sélectionnez **« Autoriser »** avec la télécommande Samsung.
    - Le **Jeton d'appairage (Token)**, l'**Adresse MAC (Wake-on-LAN)** et le **Modèle** sont automatiquement récupérés et enregistrés dans Jeedom !
+
+---
+
+## Astuce : Afficher un Design Jeedom ou un Dashboard en plein écran dans le navigateur de la TV
+
+Sur les téléviseurs Samsung Tizen récents (**modèles 2021 à 2025+**), Samsung a verrouillé pour des raisons de sécurité l'injection d'URL externe dynamique (`metaTag`) vers le navigateur intégré **Samsung Internet** (`org.tizen.browser`) : le navigateur ignore les URL passées à la volée sur le réseau local et s'ouvre uniquement sur sa **Page d'accueil**.
+
+Pour afficher automatiquement un **Design Jeedom**, un mur de caméras ou un tableau de bord **100 % en plein écran (sans barre d'adresse ni onglets)** depuis le widget ou un scénario Jeedom :
+
+1. **Sur le téléviseur Samsung**, ouvrez une première fois l'application **Internet** (*Samsung Internet*).
+2. Ouvrez le **Menu** du navigateur (icône en haut à droite) → **Paramètres (Settings)** → onglet **Général** :
+   - Dans **Page d'accueil (Homepage)**, sélectionnez *Personnalisée* et saisissez l'URL de votre Design Jeedom ou tableau de bord (ex. `https://...` ou `http://192.168.1.x/...`).
+   - Activez l'option **« Masquer automatiquement la barre d'outils »** (*Auto-hide toolbar*).
+3. **Dans Jeedom** (depuis le sélecteur **App → Internet Browser** du widget ou via la commande `App : Internet Browser` / `Ouvrir URL (Navigateur)` dans un scénario) :
+   - Le plugin quitte automatiquement le *Mode Art* (si actif), lance **Samsung Internet** au premier plan sur votre page d'accueil, puis envoie automatiquement une impulsion `KEY_DOWN` après le chargement afin de faire descendre le focus dans la page et **replier immédiatement la barre d'URL et les onglets en plein écran**.
 
 ---
 
