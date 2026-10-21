@@ -64,6 +64,7 @@ Pour dialoguer en local sur le port TCP `58867`, chaque robot Roborock nécessit
 2. **Sauvegarde & Import JSON hors-ligne (`localKey`)** :
    - Dès que vos clés locales sont récupérées (ou à tout moment depuis l'onglet **Méthode 3 : Sauvegarder / Importer les clés (.json)** ou via le bouton **`.json`** sur la fiche d'un robot), vous pouvez **télécharger un fichier `.json` de sauvegarde** contenant vos `localKey`, `DUID`, modèle, protocole (`1.0` / `L01`), IP et pièces.
    - Conservez ce fichier `.json` de côté : en cas de réinstallation future de Jeedom, il vous suffira de l'importer dans l'onglet **Méthode 3** (ou d'importer un export `python-roborock` / `core.config_entries` Home Assistant) sans jamais avoir à vous reconnecter au Cloud Roborock.
+   - **Validité permanente de la `localKey`** : tant que vous ne supprimez pas ou ne réappairez pas le robot dans l'application mobile Roborock (et que vous n'effectuez pas une réinitialisation Wi-Fi / usine du robot), sa `localKey` de 16 caractères et son `DUID` **ne changent jamais**. Votre fichier `.json` mis de côté restera donc valable indéfiniment.
 3. **Saisie manuelle** :
    - Créez un équipement avec **Ajouter un robot** et renseignez directement son **Adresse IP**, son **DUID** et sa **Clé locale (`localKey`)**.
 
@@ -81,6 +82,7 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 - **Mesures de sécurité réseau** :
   - Le démon écoute uniquement en local sur `127.0.0.1` (port `55093` par défaut) et vérifie systématiquement la clé API interne Jeedom (`jeedom::apiAccess`).
   - Attribuez un bail DHCP statique (IP fixe) à vos robots Roborock sur votre routeur local et n'exposez jamais les ports `58866` / `58867` de vos robots sur Internet.
+  - **Isolation WAN / VLAN IoT** : vous pouvez couper l'accès Internet sortant de vos robots Roborock dans le pare-feu de votre routeur ; veillez simplement à autoriser le port **UDP `123` (NTP)** vers votre routeur local afin que le robot puisse synchroniser son horloge interne après un redémarrage électrique (le chiffrement local Roborock dérivant ses clés de session à partir de l'horodatage Unix).
 
 ---
 
