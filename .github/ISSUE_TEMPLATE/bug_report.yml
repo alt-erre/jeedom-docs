@@ -19,6 +19,7 @@ body:
         - "altCambridgeAudio (Cambridge Audio StreamMagic)"
         - "altDenon (Amplis Denon & Marantz AVR / HEOS)"
         - "altJvcProjector (Vidéoprojecteurs JVC D-ILA)"
+        - "altPronote (Vie Scolaire PRONOTE — Élève & Parent)"
         - "altRoborock (Robots Aspirateurs Roborock S7 / Qrevo Curv Local)"
         - "altSamsungTv (Samsung Smart TV & The Frame)"
         - "altSiemens (Siemens EQ900 & Home Connect Local)"

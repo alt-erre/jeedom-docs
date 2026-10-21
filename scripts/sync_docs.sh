@@ -14,6 +14,7 @@ PLUGINS=(
   "altCambridgeAudio"
   "altDenon"
   "altJvcProjector"
+  "altPronote"
   "altRoborock"
   "altSamsungTv"
   "altSiemens"
