@@ -17,7 +17,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
-| **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.2` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
+| **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.3` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
 | **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Automatisme | `0.1.0-beta.7` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |

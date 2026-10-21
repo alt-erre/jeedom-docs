@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-21 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Correction de l'erreur `Action not permitted. (onglet is not normally accessible)` lors de l'appairage QR Code (`qrcode_login`)** :
+  - **Détection automatique du type de compte (`Compte Parent` vs `Compte Élève`)** directement à partir de l'URL contenue dans le QR Code (`mobile.parent.html` / `parent.html` vs `mobile.eleve.html` / `eleve.html`), aussi bien dans l'interface de l'assistant que dans le worker Python (`ParentClient` vs `Client`).
+  - **Préservation intégrale des paramètres de l'URL du QR Code (`?login=true`)** lors de l'appel à `qrcode_login`.
+  - **Patch permissif sur `_Communication.post` et `authorized_onglets` dans `pronotepy`** afin d'éviter qu'un onglet désactivé par l'établissement scolaire ne bloque l'initialisation après la consommation du QR Code à usage unique.
+
 ## [0.1.0-beta.2] — 2026-10-21 (Canal Beta)
 
 ### Ajouté & Amélioré
