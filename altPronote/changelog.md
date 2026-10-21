@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-21 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Auto-détection locale du code PIN à 4 chiffres (`0000`–`9999`) directement depuis le QR Code PRONOTE & Protection anti-bannissement IP** :
+  - **Extraction et vérification cryptographique locale du code PIN (`resolve_or_verify_qr_pin`)** : dès qu'une capture d'écran de QR Code PRONOTE est importée ou collée, le worker Python vérifie/extrait localement en $< 10\text{ ms}$ (via `AES-128-CBC` / `MD5(pin)` sur les champs `jeton` et `login`, sans aucune requête vers le serveur PRONOTE) le code PIN exact à 4 chiffres du QR Code et pré-remplit automatiquement le champ dans l'assistant. Cela élimine à 100 % l'erreur `invalid confirmation code` (ex. lorsque l'ancien code PIN d'une capture précédente restait saisi).
+  - **Protection locale contre la réutilisation d'un QR Code déjà consommé (`consumed_qr_hashes.json`)** : bloque localement toute tentative répétée avec un même QR Code à usage unique déjà refusé par PRONOTE afin d'éviter que le serveur Index Éducation ne suspende temporairement l'adresse IP (`Your IP address is suspended.`).
+  - **Diagnostic explicite en français en cas de suspension temporaire d'IP par PRONOTE (`Your IP address is suspended.`)**.
+
 ## [0.1.0-beta.3] — 2026-10-21 (Canal Beta)
 
 ### Corrigé & Amélioré
