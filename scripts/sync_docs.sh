@@ -12,6 +12,7 @@ PLUGINS=(
   "altAirMedia"
   "altBambuLab"
   "altCambridgeAudio"
+  "altDenon"
   "altJvcProjector"
   "altRoborock"
   "altSamsungTv"
