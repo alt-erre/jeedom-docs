@@ -13,7 +13,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Bambu Lab** | `altBambuLab` | Objets connectés | `0.1.0-beta.2` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
+| **Alt Bambu Lab** | `altBambuLab` | Objets connectés | `0.1.0-beta.3` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Cambridge Audio** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt Denon** | `altDenon` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt JVC Projector** | `altJvcProjector` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |

@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-21 (Canal Beta)
+
+### Corrigé
+- **Stabilité de la connexion MQTT TLS et suppression du battement d'état `Prêt` ↔ `Hors-ligne` (`resources/altBambuLabd.py`, `core/class/altBambuLab.class.php`)** :
+  - **Extraction automatique du Numéro de série via le certificat TLS X.509 (`extract_serial_from_tls_cert`)** : lorsque le numéro de série n'est pas encore renseigné dans l'équipement, le démon l'extrait automatiquement depuis le certificat TLS (`Subject CN`) présenté par l'imprimante sur le port `8883` (ou via SSDP unicast/multicast) et l'enregistre dans l'équipement Jeedom avant la souscription MQTT.
+  - **Suppression de la souscription wildcard `device/+/report`** : le broker MQTT embarqué de la Bambu Lab P1S refusant les souscriptions avec joker `+` et fermant immédiatement la connexion TCP, le démon souscrit désormais exclusivement au topic nominal `device/<SERIAL>/report` (avec normalisation automatique en majuscules).
+  - **Filtrage des échos `M-SEARCH` lors du scan SSDP (`discover_bambu_printers_ssdp`)** : ignore les requêtes `M-SEARCH` reçues en écho local sur les ports UDP `2021`/`1990` et n'accepte que les réponses `NOTIFY` / `HTTP/1.1 200 OK` authentiques des imprimantes Bambu Lab.
+  - **Temporisation anti-battement (`_on_connected_async` / `_schedule_offline_state`)** : attend la réception du premier rapport MQTT avant d'émettre l'état initial (évitant l'affichage d'un état `Prêt` à `0°/0°C` factice), espace le `pushall` initial de `400 ms` après le `SUBSCRIBE` pour ménager l'ESP32 de la P1S, et applique un debounce de `8 s` sur les micro-déconnexions Wi-Fi.
+
 ## [0.1.0-beta.2] — 2026-10-21 (Canal Beta)
 
 ### Corrigé
