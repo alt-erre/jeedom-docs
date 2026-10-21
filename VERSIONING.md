@@ -1,6 +1,6 @@
 # Politique de Numérotation de Version (`alt-erre`)
 
-Tous les plugins Jeedom du catalogue **`alt-erre`** (**`altAirMedia`**, **`altCambridgeAudio`**, **`altJvcProjector`**, **`altSamsungTv`**, **`altSiemens`**) suivent une politique stricte de **Versionnement Sémantique ([SemVer 2.0.0](https://semver.org/lang/fr/))** adaptée aux deux canaux de distribution du **Jeedom Market** (**Beta** et **Stable**).
+Tous les plugins Jeedom du catalogue **`alt-erre`** (**`altAirMedia`**, **`altBambuLab`**, **`altCambridgeAudio`**, **`altDenon`**, **`altJvcProjector`**, **`altRoborock`**, **`altSamsungTv`**, **`altSiemens`**) suivent une politique stricte de **Versionnement Sémantique ([SemVer 2.0.0](https://semver.org/lang/fr/))** adaptée aux deux canaux de distribution du **Jeedom Market** (**Beta** et **Stable**).
 
 ---
 
