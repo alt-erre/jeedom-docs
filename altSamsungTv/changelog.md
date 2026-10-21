@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.13] — 2026-10-21 (Canal Beta)
+
+### Modifié
+- **Épuration du widget Dashboard & repli automatique de la barre d'outils du navigateur** :
+  - Suppression de la ligne de saisie `Web (https://...)` dans le widget Dashboard (les firmwares Samsung Tizen 2021–2025 bloquant l'injection d'URL externe `metaTag` dans `org.tizen.browser` au profit de la page d'accueil configurée dans le navigateur).
+  - Envoi automatique de `KEY_DOWN` après le lancement de **Internet Browser** depuis le sélecteur d'applications (`App`) afin de replier la barre d'adresse et d'afficher la page d'accueil en plein écran.
+
 ## [0.1.0-beta.12] — 2026-10-21 (Canal Beta)
 
 ### Corrigé

@@ -2,6 +2,11 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.7] — 2026-10-21 (Canal Beta)
+
+### Ajouté
+- **Sauvegarde & Restauration Hors-Ligne des clés locales (`.json`)** : Ajout d'un bouton de téléchargement `.json` (et d'affichage/masquage `œil` des clés `PSK` et `IV`) directement sur la fiche Équipement ainsi que dans l'Assistant Clés Locales (sur le même principe qu'`altRoborock`). Le fichier `.json` exporté embarque les clés locales (`PSK` + `IV`), l'identifiant `HAID`, l'adresse IP et l'intégralité du dictionnaire XML (`features`, `programs`, `errors`), permettant de restaurer l'équipement 100 % hors-ligne en cas de réinitialisation de Jeedom.
+
 ## [0.1.0-beta.6] — 2026-10-20 (Canal Beta)
 
 ### Corrigé
