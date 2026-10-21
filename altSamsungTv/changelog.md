@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.12] — 2026-10-21 (Canal Beta)
+
+### Corrigé
+- **Ouverture d'URL dans le navigateur Web Samsung Internet (`open_url`) sur Tizen 2020–2025+** :
+  - Ajout de la détection et du lancement au premier plan via l'API REST locale `/api/v2/applications/<id>` sur l'ensemble des identifiants Tizen du navigateur (`org.tizen.browser`, `3201907018784`, `3202010022079`) avant et pendant l'émission WebSocket `ed.apps.launch` (`NATIVE_LAUNCH` + `DEEP_LINK` avec `metaTag`), évitant que la sortie du *Mode Art* ne relance simplement la dernière application TV active (ex. YouTube).
+  - Redémarrage automatique du démon Python (`altSamsungTvd.py`) lors de la mise à jour du plugin (`altSamsungTv_update()`).
+
 ## [0.1.0-beta.11] — 2026-10-20 (Canal Beta)
 
 ### Ajouté
