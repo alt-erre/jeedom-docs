@@ -20,8 +20,11 @@ jobs:
 
             const pluginMap = {
               'altAirMedia': 'plugin:altAirMedia',
+              'altBambuLab': 'plugin:altBambuLab',
               'altCambridgeAudio': 'plugin:altCambridgeAudio',
+              'altDenon': 'plugin:altDenon',
               'altJvcProjector': 'plugin:altJvcProjector',
+              'altRoborock': 'plugin:altRoborock',
               'altSamsungTv': 'plugin:altSamsungTv',
               'altSiemens': 'plugin:altSiemens',
             };
