@@ -18,6 +18,7 @@ body:
         - "altSamsungTv (Samsung Smart TV & The Frame)"
         - "altSiemens (Siemens EQ900 & Home Connect Local)"
         - "altSonos (Alt Multiroom Audio — Sonos Amp, Port, Connect & Enceintes S1/S2)"
+        - "altSwitch (Alt Contrôle Parental — Nintendo Switch, OLED, Lite & Switch 2)"
         - "Nouveau plugin / Autre"
     validations:
       required: true

@@ -22,6 +22,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Automatisme | `0.1.0-beta.7` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
+| **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 
 ---
 
@@ -32,4 +33,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altJvcProjector`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altJvcProjector`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`) et **par canal** (`canal:beta`, `canal:stable`).

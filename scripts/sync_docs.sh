@@ -19,6 +19,7 @@ PLUGINS=(
   "altSamsungTv"
   "altSiemens"
   "altSonos"
+  "altSwitch"
 )
 
 for plugin in "${PLUGINS[@]}"; do
