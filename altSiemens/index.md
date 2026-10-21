@@ -56,18 +56,20 @@ Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone l
 
 ---
 
-## Récupération unique des clés locales (Assistant intégré)
+## Récupération unique des clés locales (`PSK` / `IV`) & Sauvegarde `.json` hors-ligne
 
-Pour dialoguer en local avec un appareil Siemens, ses clés de chiffrement locales (`PSK` et `IV`) ainsi que son profil XML (`_FeatureMapping.xml` et `_DeviceDescription.xml`) sont nécessaires. Le plugin propose **3 méthodes** au choix :
+Pour dialoguer en local sur le port `80` (`AES-CBC + HMAC-SHA256`) ou `443` (`TLS-PSK`), chaque appareil Siemens nécessite ses clés de chiffrement locales (`PSK` et `IV`) ainsi que son dictionnaire XML (`_FeatureMapping.xml` et `_DeviceDescription.xml`). Le plugin propose **3 méthodes** au choix :
 
-1. **Assistant intégré SingleKey ID (OAuth2 PKCE)** :
+1. **Assistant intégré SingleKey ID (1x — OAuth2 PKCE)** :
    - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**.
    - Cliquez sur **1. Générer le lien de connexion SingleKey ID**, identifiez-vous et collez l'URL de redirection `hcauth://auth/prod?code=...`.
-   - Le plugin télécharge automatiquement vos clés locales `PSK`/`IV` et les fichiers XML, puis crée vos équipements Siemens dans Jeedom.
-2. **Import d'une archive `.zip` ou `.json`** :
-   - Importez directement le fichier `.zip` généré par `homeconnect-profile-downloader` ou le fichier `devices.json` de `hcpy`.
+   - Le plugin télécharge automatiquement vos clés locales (`PSK` / `IV`) et les fichiers XML, puis crée vos équipements Siemens dans Jeedom.
+2. **Sauvegarde & Import JSON / ZIP hors-ligne (`PSK` / `IV` / `XML`)** :
+   - Dès que vos clés locales sont récupérées (ou à tout moment depuis l'onglet **Méthode 2 : Sauvegarde & Import Hors-Ligne (.json / .zip)** ou via le bouton **`.json`** situé à droite du champ **Clé locale PSK** sur la fiche d'un équipement), vous pouvez **télécharger un fichier `.json` de sauvegarde autonome** contenant vos clés `PSK` et `IV`, le `HAID`, l'adresse IP et l'intégralité du dictionnaire XML (`features`, `programs`, `errors`).
+   - Conservez précieusement ce fichier `.json` en dehors de Jeedom : en cas de réinitialisation ou de changement de box Jeedom dans le futur, il vous suffira de l'importer dans l'onglet **Méthode 2** (ou d'importer une archive `.zip` / `devices.json` issue de `homeconnect-profile-downloader` ou `hcpy`) pour restaurer votre machine à café **100 % hors-ligne**, sans jamais avoir à vous reconnecter à SingleKey ID.
+   - **Validité permanente des clés locales (`PSK` / `IV`)** : tant que vous ne supprimez pas ou ne réappairez pas l'appareil dans l'application mobile Home Connect (et que vous n'effectuez pas une réinitialisation d'usine de la machine), sa clé `PSK`, son vecteur `IV` et son `HAID` **n'expirent et ne changent jamais**. Votre fichier `.json` mis de côté restera donc valable indéfiniment.
 3. **Saisie manuelle** :
-   - Renseignez directement l'adresse IP, la clé `PSK` et le vecteur `IV` sur la fiche de l'équipement.
+   - Créez un équipement avec **Ajouter** et renseignez directement son **Adresse IP**, sa **Clé locale (`PSK`)**, son **Vecteur d'initialisation (`IV`)** et son **HAID**.
 
 ---
 
@@ -81,8 +83,9 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
   - **Stockage sécurisé des clés locales (`PSK` / `IV`)** : Les clés cryptographiques locales et les fichiers de profils ne servent qu'au chiffrement local avec vos appareils. Ils sont stockés exclusivement sur votre box Jeedom avec des permissions restreintes (`chmod 0600`), protégés contre tout accès HTTP direct par un fichier `.htaccess` (`Require all denied`), et transmis au démon via un fichier temporaire sécurisé (`chmod 0600`, supprimé à l'arrêt du démon).
   - Toutes ces données sont supprimées lors de la suppression de l'équipement ou de la désinstallation du plugin.
 - **Mesures de sécurité réseau** :
-  - Le démon écoute uniquement en local sur `127.0.0.1` (port `55089` par défaut) et vérifie la clé API interne Jeedom.
+  - Le démon écoute uniquement en local sur `127.0.0.1` (port `55092` par défaut) et vérifie systématiquement la clé API interne Jeedom (`jeedom::apiAccess`).
   - Attribuez un bail DHCP statique (IP fixe) à vos appareils Siemens sur votre routeur local et n'exposez jamais leurs ports `80`/`443` sur Internet.
+  - **Isolation WAN / VLAN IoT** : une fois vos clés locales récupérées et sauvegardées en `.json`, vous pouvez couper l'accès Internet sortant de votre machine à café Siemens EQ900 dans le pare-feu de votre routeur tout en maintenant la communication locale avec Jeedom.
 
 ---
 
