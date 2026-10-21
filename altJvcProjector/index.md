@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt JVC Projector (`altJvcProjector`)
+# Plugin Jeedom — Alt Ciné Projector (JVC D-ILA) (`altJvcProjector`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Licence :** Propriétaire — Tous droits réservés  

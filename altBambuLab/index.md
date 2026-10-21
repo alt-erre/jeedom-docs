@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt Bambu Lab (`altBambuLab`)
+# Plugin Jeedom — Alt Print 3D (Bambu Lab) (`altBambuLab`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Licence :** Propriétaire — Tous droits réservés  

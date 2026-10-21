@@ -12,14 +12,14 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Bambu Lab** | `altBambuLab` | Objets connectés | `0.1.0-beta.3` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
-| **Alt Cambridge Audio** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
-| **Alt Denon** | `altDenon` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
-| **Alt JVC Projector** | `altJvcProjector` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
-| **Alt Roborock** | `altRoborock` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
-| **Alt Samsung TV** | `altSamsungTv` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
-| **Alt Siemens** | `altSiemens` | Automatisme | `0.1.0-beta.1` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
+| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
+| **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.3` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
+| **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
+| **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
+| **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
+| **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
+| **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
+| **Alt Café & Home Connect (Siemens)** | `altSiemens` | Automatisme | `0.1.0-beta.7` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 
 ---
 

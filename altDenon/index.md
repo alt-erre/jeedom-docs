@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt Denon (`altDenon`)
+# Plugin Jeedom — Alt AVR Control (Denon / Marantz) (`altDenon`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Licence :** Propriétaire — Tous droits réservés  

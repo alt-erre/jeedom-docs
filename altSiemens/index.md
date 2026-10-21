@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt Siemens (`altSiemens`)
+# Plugin Jeedom — Alt Café & Home Connect (Siemens) (`altSiemens`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Licence :** Propriétaire — Tous droits réservés  

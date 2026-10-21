@@ -1,4 +1,4 @@
-# Plugin Jeedom Alt Samsung TV & The Frame
+# Plugin Jeedom — Alt Frame & Smart TV (Samsung) (`altSamsungTv`)
 
 Plugin Jeedom permettant de piloter **100 % en local** les téléviseurs **Samsung Smart TV (Tizen 2016+)** et plus particulièrement la gamme **Samsung "The Frame" (2018 à 2025+, API Art Mode v1 & v2)**.
 

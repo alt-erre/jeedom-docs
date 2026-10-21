@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt Roborock (`altRoborock`)
+# Plugin Jeedom — Alt Robot Vacuum (Roborock) (`altRoborock`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Licence :** Propriétaire — Tous droits réservés  
