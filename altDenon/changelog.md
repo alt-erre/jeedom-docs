@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
+## `[0.1.0-beta.2]` — 2026-10-21
+
+### Ajouté
+- **Découverte automatique sur le réseau local (`Scanner le réseau`)** : nouveau bouton d'action sur la page d'accueil du plugin combinant la découverte **SSDP / UPnP** et le scan rapide **HEOS CLI (`TCP 1255`)** pour détecter automatiquement les amplificateurs Denon & Marantz sur le LAN, récupérer leur nom, modèle, numéro de série, firmware et `pid` HEOS, créer l'équipement et synchroniser automatiquement ses sources personnalisées et favoris.
+- **Import en 1 clic depuis `denonavr` (`Importer denonavr`)** : nouveau bouton sur la page d'accueil du plugin permettant de migrer automatiquement et **strictement en lecture seule** (conformément à l'Art. 4.4 des CGU Jeedom Market) les équipements configurés dans l'ancien plugin `denonavr` (`MAIN`, `ZONE2`, `ZONE3`) avec synchronisation immédiate des entrées renommées.
+
+---
+
 ## `[0.1.0-beta.1]` — 2026-10-21 (Première publication Beta)
 
 ### Ajouté
