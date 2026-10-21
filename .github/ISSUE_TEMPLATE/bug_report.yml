@@ -23,6 +23,7 @@ body:
         - "altRoborock (Robots Aspirateurs Roborock S7 / Qrevo Curv Local)"
         - "altSamsungTv (Samsung Smart TV & The Frame)"
         - "altSiemens (Siemens EQ900 & Home Connect Local)"
+        - "altSonos (Alt Multiroom Audio — Sonos Amp, Port, Connect & Enceintes S1/S2)"
     validations:
       required: true
 
