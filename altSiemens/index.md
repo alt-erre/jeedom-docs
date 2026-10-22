@@ -61,9 +61,15 @@ Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone l
 Pour dialoguer en local sur le port `80` (`AES-CBC + HMAC-SHA256`) ou `443` (`TLS-PSK`), chaque appareil Siemens nécessite ses clés de chiffrement locales (`PSK` et `IV`) ainsi que son dictionnaire XML (`_FeatureMapping.xml` et `_DeviceDescription.xml`). Le plugin propose **3 méthodes** au choix :
 
 1. **Assistant intégré SingleKey ID (1x — OAuth2 PKCE)** :
-   - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**.
-   - Cliquez sur **1. Générer le lien de connexion SingleKey ID**, identifiez-vous et collez l'URL de redirection `hcauth://auth/prod?code=...`.
-   - Le plugin télécharge automatiquement vos clés locales (`PSK` / `IV`) et les fichiers XML, puis crée vos équipements Siemens dans Jeedom.
+   - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**, puis sur **1. Générer le lien de connexion SingleKey ID** et **Copier le lien**.
+   - **Comment capturer l'adresse `hcauth://auth/prod?code=...` à coup sûr :**
+     - Utilisez **Chrome, Brave, Edge ou Firefox** (évitez Safari sur Mac qui masque les redirections personnalisées `hcauth://`).
+     - Ouvrez manuellement un **nouvel onglet vierge** dans votre navigateur et ouvrez l'inspecteur dans ce nouvel onglet **avant** de coller le lien (**Clic droit → Inspecter**, ou `Cmd + Option + I` sur Mac / `F12` sur PC). *Si vous cliquez directement sur « Ouvrir dans un nouvel onglet » depuis Jeedom, le nouvel onglet s'ouvre sans l'inspecteur et la redirection n'est pas enregistrée.*
+     - **Méthode A — Onglet `Console` (la plus simple)** : Allez dans l'onglet **Console** de l'inspecteur, cliquez sur la roue crantée ⚙️ en haut à droite de la console et cochez **« Preserve log » / « Conserver le journal »**. Collez le lien SingleKey ID dans la barre d'adresse et connectez-vous. Dès la connexion validée (même si la page web reste figée sur SingleKey ID, car la barre d'adresse ne change jamais pour un schéma `hcauth://`), une erreur rouge apparaît dans la **Console** :
+       `Failed to launch 'hcauth://auth/prod?code=...' because the scheme does not have a registered handler.`
+       Copiez cette ligne (ou l'URL `hcauth://auth/prod?code=...`) et collez-la à l'**Étape 2** de l'assistant !
+     - **Méthode B — Onglet `Réseau / Network`** : Allez dans l'onglet **Réseau (`Network`)**, cochez **« Preserve log » / « Conserver le journal »** en haut à gauche et sélectionnez le filtre **`All` (`Tout`)**. Après connexion, tapez `hcauth` dans le champ de filtre, puis faites un **Clic droit** sur la ligne rouge `prod?code=...` → **Copier → Copier l'adresse du lien (`Copy link address`)**.
+   - Le plugin télécharge alors automatiquement vos clés locales (`PSK` / `IV`) et les fichiers XML, puis crée vos équipements Siemens dans Jeedom.
 2. **Sauvegarde & Import JSON / ZIP hors-ligne (`PSK` / `IV` / `XML`)** :
    - Dès que vos clés locales sont récupérées (ou à tout moment depuis l'onglet **Méthode 2 : Sauvegarde & Import Hors-Ligne (.json / .zip)** ou via le bouton **`.json`** situé à droite du champ **Clé locale PSK** sur la fiche d'un équipement), vous pouvez **télécharger un fichier `.json` de sauvegarde autonome** contenant vos clés `PSK` et `IV`, le `HAID`, l'adresse IP et l'intégralité du dictionnaire XML (`features`, `programs`, `errors`).
    - Conservez précieusement ce fichier `.json` en dehors de Jeedom : en cas de réinitialisation ou de changement de box Jeedom dans le futur, il vous suffira de l'importer dans l'onglet **Méthode 2** (ou d'importer une archive `.zip` / `devices.json` issue de `homeconnect-profile-downloader` ou `hcpy`) pour restaurer votre machine à café **100 % hors-ligne**, sans jamais avoir à vous reconnecter à SingleKey ID.

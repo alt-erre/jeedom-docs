@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.8] — 2026-10-22 (Canal Beta)
+
+### Amélioré
+- **Assistant SingleKey ID (PKCE) & Capture de l'URL `hcauth://auth/prod?code=...`** :
+  - Ajout d'un bouton **« Copier le lien (Recommandé) »** à l'Étape 1 de l'assistant pour permettre d'ouvrir manuellement un nouvel onglet vierge avec l'inspecteur (`Cmd + Option + I` sur Mac / `F12` sur PC) et **Preserve log / Conserver le journal** déjà activés avant de charger la page SingleKey ID (évitant la perte de l'historique réseau lors de l'ouverture d'un nouvel onglet).
+  - Ajout de la procédure détaillée via l'onglet **Console** (`Failed to launch 'hcauth://auth/prod?code=...'`) et via l'onglet **Réseau / Network**, ainsi que l'extraction automatique du code même si toute la ligne d'erreur de la Console est collée à l'Étape 2.
+
 ## [0.1.0-beta.7] — 2026-10-21 (Canal Beta)
 
 ### Ajouté
