@@ -20,6 +20,7 @@ PLUGINS=(
   "altSiemens"
   "altSonos"
   "altSwitch"
+  "altTydom"
 )
 
 for plugin in "${PLUGINS[@]}"; do

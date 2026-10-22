@@ -23,6 +23,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.10` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.1` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 
 ---
 
@@ -33,4 +34,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altJvcProjector`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altJvcProjector`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`, `plugin:altTydom`) et **par canal** (`canal:beta`, `canal:stable`).
