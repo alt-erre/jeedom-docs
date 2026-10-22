@@ -5,6 +5,17 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.2] — 2026-10-22 (Canal Beta)
+
+### Corrigé
+- **Retour d'état en temps réel du Volume et des contrôles sur les widgets Dashboard & Mobile** :
+  - Ajout des abonnements `jeedom.cmd.addUpdateFunction` sur l'ensemble des commandes info du widget (`volume`, `mute_state`, `group_volume`, `group_mute_state`, `power_state`, `play_state`, `title`, `artist`, `album`, `art_url`, `audio_format`, `input`, `input_id`, `group_name`, `is_grouped`, `output_fixed_state`, `line_out_mode`, `shuffle_state`, `repeat_state`, `crossfade_state`, `bass`, `treble`, `loudness_state`, `sub_enabled`, `night_mode`, `dialog_level`, `trueplay_state`, `led_state`).
+  - Mise à jour instantanée de la barre de curseur (`slider`) et du pourcentage (`#volume#%`) lors d'un clic sur les boutons **Volume `+` / `-`** (retour visuel immédiat + lecture directe de `<NewVolume>` dans la réponse SOAP `SetRelativeVolume`).
+  - Séparation des jetons `#input_cmd_id#` et `#input_id#` dans `toHtml()` pour éviter toute collision entre la valeur de l'identifiant d'entrée et l'ID numérique de la commande `input`.
+  - Liaison explicite (`setValue`) des commandes `volume_up` / `volume_down` et `group_volume_up` / `group_volume_down` à leurs commandes info respectives.
+
+---
+
 ## [0.1.0-beta.1] — 2026-10-21 (Canal Beta)
 
 ### Ajouté
