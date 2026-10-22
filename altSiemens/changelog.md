@@ -2,6 +2,12 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.10] — 2026-10-22 (Canal Beta)
+
+### Amélioré
+- **Procédure dédiée iOS / iPadOS (iPhone & iPad) dans l'Assistant et la Documentation** :
+  - Ajout des instructions spécifiques pour **iOS / iPadOS** (utilisation de l'extension Safari gratuite *Web Inspector* sur l'App Store et nécessité d'appuyer sur **« Annuler »** lorsque iOS propose *« Ouvrir dans Home Connect ? »* afin que l'application mobile Home Connect ne consomme pas le code à usage unique).
+
 ## [0.1.0-beta.9] — 2026-10-22 (Canal Beta)
 
 ### Ajouté
