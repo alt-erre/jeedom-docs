@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-22 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Correction de l'erreur `HTTP 403` (`GET users/.../devices`) lors de la découverte des consoles (`resources/altSwitch_worker.py`)** :
+  - **Migration complète de `DirectMoonClient` vers l'API Nintendo `znma` v2/v3 (`https://app.lp1.znma.srv.nintendo.net`, build `700`)** : remplacement des anciens points de terminaison `api-lp1.pctl.srv.nintendo.net/moon/v1` (désormais rejetés en `HTTP 403` par Nintendo) par les routes officielles `v2/actions/user/fetchOwnedDevices`, `v2/actions/parentalControlSetting/fetchParentalControlSetting`, `v2/actions/playSummary/fetchDailySummaries`, `v2/actions/device/updateExtraPlayingTime`, `v2/actions/device/confirmExtraPlayingTime`, `v3/actions/parentalControlSetting/updatePlayTimer` et `v2/actions/parentalControlSetting/updateUnlockCode`.
+  - **Gestion automatique du temps bonus actif lors d'une modification de limite ou d'heure du coucher** : annulation transparente (`TO_CANCELED`) d'un éventuel `extraPlayingTime` actif avant l'appel à `updatePlayTimer` afin d'éviter le refus serveur Nintendo.
+  - **Détection matérielle officielle Switch 2 (`platformGeneration: "P01"`)** et agrégation multi-profils des jeux lancés (`whitelistedApplicationList` + `dailySummaries`).
+  - **Réutilisation automatique du `session_token` déjà enregistré dans l'Assistant (`desktop/modal/auth.assistant.php`)** : ajout d'un bouton 1-clic *« Découvrir mes Consoles Switch / Switch 2 maintenant »* lorsque le jeton de session a déjà été échangé et stocké sur la box Jeedom, évitant de devoir refaire l'Étape 1 sur `accounts.nintendo.com`.
+
 ## [0.1.0-beta.3] — 2026-10-22 (Canal Beta)
 
 ### Amélioré
