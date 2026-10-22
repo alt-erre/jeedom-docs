@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-22 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Correction du statut `NOK` des dépendances après l'installation (`resources/install_apt.sh` & `dependancy_info`)** :
+  - **Résolution du conflit `pip` (`ResolutionImpossible`) entre `pynintendoparental` et `pynintendoauth`** : `pynintendoparental` épinglant une version exacte de `pynintendoauth` (`pynintendoauth==1.0.3`), l'installation groupée `pip install --upgrade pynintendoparental pynintendoauth` provoquait un conflit de résolution et interrompait l'installation du `venv`. Les bibliothèques `requests`, `aiohttp` et `certifi` sont désormais installées en première passe dédiée, suivies de `pynintendoparental` en passe séparée.
+  - **Compatibilité multi-versions Python (`Python 3.9` Debian 11 Bullseye $\to$ `Python 3.13`)** : injection automatique de `from __future__ import annotations` dans les modules du `venv` utilisant la syntaxe d'union PEP 604 (`X | Y`) sur Python 3.9, et ajout d'un client REST direct autonome (`DirectMoonClient` via `requests`) dans `altSwitch_worker.py`.
+  - **Fiabilisation de `dependancy_info()`** dans `altSwitch.class.php` avec vérification directe de l'environnement virtuel (`shell_exec`) et droits `755` sur `resources/venv`.
+
 ## [0.1.0-beta.1] — 2026-10-21 (Canal Beta)
 
 ### Ajouté
