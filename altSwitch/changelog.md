@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.3] — 2026-10-22 (Canal Beta)
+
+### Amélioré
+- **Appairage sur iPad / iPhone (iOS / iPadOS) & Android (`desktop/modal/auth.assistant.php`)** :
+  - Prise en charge native du **Glisser-Déposer (*Drag & Drop*)** du bouton rouge **« Sélectionner »** depuis `accounts.nintendo.com` vers le champ de l'assistant Jeedom sur iPadOS et iOS (où WebKit bloque le menu contextuel *Copier le lien* sur les schémas d'URL d'applications `npf54789befb391a838://`).
+  - Tolérance accrue de l'extracteur `extract_session_token_code()` dans `altSwitch_worker.py` (accepte l'URL complète, un dépôt Drag & Drop `text/uri-list` ou un extrait HTML).
+
 ## [0.1.0-beta.2] — 2026-10-22 (Canal Beta)
 
 ### Corrigé & Amélioré

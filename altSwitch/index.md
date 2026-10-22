@@ -51,8 +51,11 @@ Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvr
 
 1. Dans Jeedom (*Plugins $\to$ Multimédia $\to$ Alt Contrôle Parental (Nintendo Switch)*), cliquez sur **Assistant Compte Nintendo**.
 2. Cliquez sur **« 1. Générer & Ouvrir la page de connexion Nintendo »** et connectez-vous sur `accounts.nintendo.com` avec votre **compte Nintendo Parent** (celui lié à l'application mobile *Contrôle parental Nintendo Switch*).
-3. Sur la page Nintendo *« Associer un compte »*, faites un **clic droit sur le bouton rouge « Sélectionner cette personne »** et choisissez **« Copier l'adresse du lien »** (`npf54789befb391a838://auth#session_token_code=...`), collez ce lien dans l'assistant Jeedom et cliquez sur **« 2. Valider & Découvrir mes Consoles Switch / Switch 2 »**.
-4. Toutes vos consoles (**Switch, Switch Lite, Switch OLED, Switch 2**) sont automatiquement créées et synchronisées dans Jeedom !
+3. Sur la page Nintendo *« Associer un compte »*, récupérez l'adresse du bouton rouge **« Sélectionner »** (`npf54789befb391a838://auth#session_token_code=...`) :
+   - **Sur Ordinateur (Mac / PC)** : **Clic droit** sur le bouton rouge **« Sélectionner »** $\to$ **« Copier l'adresse du lien »**, puis collez-le dans Jeedom.
+   - **Sur iPad / iPhone (iOS / iPadOS)** : Safari bloquant le menu *Copier* sur les liens d'applications (`npf...://`), maintenez votre doigt sur le bouton rouge **« Sélectionner »** et **faites-le glisser légèrement (Glisser-Déposer)** jusqu'à ce qu'il se détache sous votre doigt. Fermez la fenêtre Nintendo avec un second doigt (bouton `X`) et **lâchez directement le bouton dans le champ de l'Étape 2 de Jeedom** (ou glissez-le dans la barre d'adresse de Safari).
+   - **Sur Android (Chrome)** : **Appui long** sur le bouton rouge **« Sélectionner »** $\to$ **« Copier l'adresse du lien »**.
+4. Cliquez sur **« 2. Valider & Découvrir mes Consoles Switch / Switch 2 »** : toutes vos consoles (**Switch, Switch Lite, Switch OLED, Switch 2**) sont automatiquement créées et synchronisées dans Jeedom !
 
 ---
 
