@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.9] — 2026-10-22 (Canal Beta)
+
+### Ajouté
+- **Interception automatique « Zéro-F12 » du schéma `hcauth://` (Mac / Windows) & Auto-collage** :
+  - Ajout dans l'Étape 1 de l'assistant d'une option d'activation en 1 clic d'un capteur système `hcauth://` pour **macOS** (AppleScript `AltSiemensHCAuth.app`) et **Windows** (registre utilisateur `HKCU:\Software\Classes\hcauth`). Dès que la connexion SingleKey ID se termine dans n'importe quel navigateur (y compris Safari), l'adresse `hcauth://auth/prod?code=...` est interceptée automatiquement et copiée dans le presse-papiers sans jamais ouvrir `F12`.
+  - Détection et insertion automatiques du contenu du presse-papiers dans le champ de l'Étape 2 dès le retour sur l'onglet Jeedom (et ajout d'un bouton **Coller**).
+
 ## [0.1.0-beta.8] — 2026-10-22 (Canal Beta)
 
 ### Amélioré

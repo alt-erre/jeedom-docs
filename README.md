@@ -20,7 +20,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.4` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.1` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
 | **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
-| **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.8` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
+| **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.9` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 
