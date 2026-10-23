@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.6] - 2026-10-23
+
+### Ajouté
+- **Enregistrement matériel des Positions Favorites dans le moteur Delta Dore (`recFav = FAVORIT1` / `FAVORIT2`)** :
+  - Ajout des boutons **« 🔖 Mémoriser (Moteur) »** directement dans la fiche de l'équipement (`desktop/php/altTydom.php`, `desktop/js/altTydom.js`, `core/ajax/altTydom.ajax.php`) et des commandes d'action **`Mémoriser Favori 1 (Matériel)`** (`rec_favorit1`) et **`Mémoriser Favori 2 (Matériel)`** (`rec_favorit2`) dans [`altTydom.class.php`](file:///Users/aurelienleovant/Developpement/Jeedom/altTydom/core/class/altTydom.class.php).
+  - Permet d'enregistrer directement la position physique actuelle du volet dans la mémoire interne du moteur radio Delta Dore (`PUT /devices/{id}/endpoints/{id}/data` avec `{"name": "recFav", "value": "FAVORIT1"|"FAVORIT2"}`) sans avoir besoin de l'application mobile Tydom.
+
+---
+
 ## [0.1.0-beta.5] - 2026-10-23
 
 ### Ajouté
