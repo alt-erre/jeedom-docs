@@ -4,6 +4,18 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.10] - 2026-10-23
+
+### Corrigé
+- **Pilotage intelligent des Zones de Chauffage & Thermostats (`hvac-boiler` / `hvac` / `thermostat`) basé sur `/devices/meta` (`resources/altTydomd.py`, `core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`)** :
+  - Ajout du moteur CVC adaptatif `_execute_hvac_command()` dans le démon Python inspectant les permissions (`permission: "rw"` vs `"r"`) et les énumérations (`enum_values`) de chaque équipement dans `/devices/meta`.
+  - **Réveil automatique d'une zone éteinte (`STOP` / `ANTI_FROST`)** : un clic sur **Auto**, **Confort**, **Éco** ou une modification de la **Consigne** réactive automatiquement l'autorisation de chauffe (`authorization = "HEATING"` / `comfortMode = "HEATING"`), le mode CVC (`hvacMode` / `localMode` = `"NORMAL"`) et le niveau thermique avant d'appliquer la température cible.
+  - **Prise en charge de Confort / Éco sur les thermostats à consigne (Chaudière / PAC / Tybox)** où `thermicLevel` est en lecture seule (`permission: "r"`) : application automatique des consignes **Confort** (`20 °C` par défaut) et **Éco** (`17 °C` par défaut), personnalisables dans les paramètres de l'équipement.
+  - **Arrêt et Hors-Gel complets** : envoi coordonné sur `authorization`, `comfortMode`, `hvacMode`, `localMode` et `thermicLevel` selon les attributs supportés par la zone.
+  - **Affichage fidèle de l'état sur le widget Dark Glass** : distinction claire entre `Arrêt (Hors-Gel)` / `Zone éteinte` (pastille éteinte, anneau bleu glace/gris) et `Marche / Auto` / `Chauffage actif` (pastille ambre), ajout de la liste déroulante **Marche / Arrêt Zone** (`set_authorization`) et mise en surbrillance dynamique du bouton de mode actif (`aria-pressed`).
+
+---
+
 ## [0.1.0-beta.9] - 2026-10-23
 
 ### Corrigé
