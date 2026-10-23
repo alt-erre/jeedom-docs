@@ -24,7 +24,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.10` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.2` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
-| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.8` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.9` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 
 ---
 

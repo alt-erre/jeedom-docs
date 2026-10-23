@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.9] - 2026-10-23
+
+### Corrigé
+- **Catégories d'usage Tydom pour les Thermostats & Chauffage et affichage contextuel des options (`desktop/php/altTydom.php`, `desktop/js/altTydom.js`, `core/class/altTydom.class.php`)** :
+  - Ajout de toutes les valeurs d'usage thermique renvoyées par l'API Tydom (`hvac`, `sh_hvac`, `hvac-central`, `boiler`, `electric`, `air_conditioner`) ainsi que des variantes d'ouvrants/technique (`ToggleGate`, `ToggleGarageDoor`, `windowSliding`, `klineWindowOthers`, `technical`, `energy`, `weather`) dans la liste déroulante **Catégorie d'usage Tydom** (`#sel_tydomUsage`) pour qu'elle ne soit plus jamais vide sur les thermostats Tybox / zones de chauffage.
+  - Rétablissement automatique de `hvac` dans `printEqLogic()` et `inferUsage()` si un équipement de chauffage avait été sauvegardé avec une catégorie d'usage vide.
+  - Masquage automatique des champs réservés aux volets roulants (**Sens de position**, **Position Favorite 1 (`F1`)** et **Position Favorite 2 (`F2`)**) sur les thermostats, sondes, détecteurs, alarmes et compteurs d'énergie.
+
+---
+
 ## [0.1.0-beta.8] - 2026-10-23
 
 ### Ajouté
