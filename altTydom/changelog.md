@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.4] - 2026-10-23
+
+### Corrigé
+- **Erreur JavaScript à l'ouverture de la fiche d'un équipement sous Jeedom v4.4+ (`desktop/js/altTydom.js`, `desktop/php/altTydom.php`)** :
+  - Suppression de l'appel obsolète `jeedom.cmd.availableGenericType()` dans `addCmdToTable()` qui provoquait l'erreur `TypeError: jeedom.cmd.availableGenericType is not a function` lors du chargement d'un équipement.
+  - Ajout du sélecteur de commande info liée (`data-l1key="value"`), de l'option d'inversion binaire et de la fonction `printEqLogic()` initialisant proprement les listes déroulantes par défaut (`invertPosition`, `widgetType`, `theme`).
+  - Ajout de `preSave()` dans `core/class/altTydom.class.php` pour resynchroniser automatiquement `category_group` lors d'un changement manuel de la catégorie d'usage Tydom.
+
+---
+
 ## [0.1.0-beta.3] - 2026-10-23
 
 ### Corrigé
