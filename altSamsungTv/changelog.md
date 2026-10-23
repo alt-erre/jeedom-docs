@@ -2,6 +2,16 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.14] — 2026-10-23 (Canal Beta)
+
+### Ajouté
+- **Téléversement direct d'une œuvre / photo depuis le widget (Galerie smartphone ou fichier local)** :
+  - Ajout du bouton **`Photo`** (<i class="fas fa-upload"></i>) dans la section *Galerie The Frame* du widget **Dashboard** et du bouton d'envoi (<i class="fas fa-upload"></i>) sur le widget **Mobile**.
+  - Sur **smartphone / tablette (iOS & Android)**, le clic ouvre le sélecteur natif permettant de choisir directement une photo dans la **Photothèque / Galerie de photos**, de **Prendre une photo** ou de **Choisir un fichier** ; sur **ordinateur**, il ouvre l'explorateur de fichiers local.
+  - Barre d'aperçu intégrée au widget avec vignette, saisie d'un **nom personnalisé** (pré-rempli avec le nom du fichier) et reprise automatique du **passe-partout (`Matte`)** sélectionné dans le widget.
+  - **Normalisation automatique côté navigateur (`<canvas>` 4K UHD `3840 px` max, JPEG `90 %`)** : convertit à la volée les photos de galerie smartphone (`HEIC`, `WebP`, photos 12–48 MP volumineuses) en JPEG standard ~1 Mo afin de garantir la compatibilité avec le socket D2D de *The Frame* et d'éviter tout blocage lié à `upload_max_filesize` de PHP.
+  - Mise à jour immédiate après envoi : affichage instantané de l'œuvre sur *The Frame*, ajout automatique dans la liste déroulante `Œuvre` du widget et rafraîchissement en direct de la miniature d'aperçu.
+
 ## [0.1.0-beta.13] — 2026-10-21 (Canal Beta)
 
 ### Modifié
