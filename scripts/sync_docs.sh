@@ -10,6 +10,7 @@ WORKSPACE_ROOT="$(cd "$DOCS_ROOT/.." && pwd)"
 
 PLUGINS=(
   "altAirMedia"
+  "altArlo"
   "altBambuLab"
   "altCambridgeAudio"
   "altDenon"
