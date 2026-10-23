@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.8] - 2026-10-23
+
+### Ajouté
+- **Famille dédiée « Détecteurs de fumée DAAF, Mouvement & Capteurs de sécurité » (`sensor`) et Widget d'alerte dédié (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `resources/altTydomd.py`)** :
+  - Détection et reclassement automatique des détecteurs de fumée (`DFR` / `DAAF` / `smoke`) et de mouvement (`DMB` / `motion`) même lorsque la box Tydom les déclare sous l'usage générique `others` ou `sensorDFR` (avec suppression automatique des commandes d'action génériques `on`/`off`/`toggle` héritées de `other`).
+  - Remplacement des boutons d'action génériques sur le widget par une **grille de supervision temps réel à 4 cellules** (*Capteur Fumée / Présence*, *Autoprotection*, *Alimentation Pile*, *Liaison Radio X3D / Température*).
+  - Mise en évidence visuelle immédiate en cas de déclenchement (`smoke_defect = 1` ou `auto_protect = 1`) : vignette SVG passant au rouge vif avec triangle d'alerte, pastille rouge, illumination rouge de la carte principale via `:has(.alt-status-dot.is-alert)` et tuile `ALERTE FUMÉE !` en rouge lumineux.
+
+---
+
 ## [0.1.0-beta.7] - 2026-10-23
 
 ### Corrigé
