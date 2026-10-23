@@ -2,6 +2,16 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.5] — 2026-10-23 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Récupération complète du catalogue des jeux, des profils joueurs et du temps d'utilisation (`resources/altSwitch_worker.py` & `core/class/altSwitch.class.php`)** :
+  - **Construction du catalogue complet des jeux de la console (`games_today`)** : agrégation systématique de la liste des jeux installés/connus sur la console (`whitelistedApplicationList`), de l'historique glissant sur 30 jours (`fetchDailySummaries`) et du bilan mensuel (`fetchLatestMonthlySummary` / `fetchMonthlySummary`). Même lorsqu'aucun jeu n'a encore été lancé aujourd'hui, l'onglet **Jeux** affiche désormais tous les jeux de la console avec leur jaquette, la date de dernière partie (*Aujourd'hui*, *Hier*, `JJ/MM`) et le cumul sur 30 jours.
+  - **Support intégral du double schéma JSON Nintendo (`Switch V1/V2/Lite/OLED` & `Switch 2`)** : prise en charge des structures imbriquées `players[].profile` (`playerId`, `nickname`, `imageUri`) et `playedGames[].meta` (`applicationId` sous forme de chaîne ou de liste, `title`, `imageUri.small/medium/large`), en plus du schéma historique `devicePlayers` / `playedApps`.
+  - **Fiabilisation du calcul du temps joué aujourd'hui (`time_played_today`)** : alignement explicite de la date du jour sur le fuseau `Europe/Paris` (`X-Moon-TimeZone: Europe/Paris`), consolidation multi-niveaux (`playingTime` journalier, somme des `players` et somme des `playedGames`) et suppression de l'en-tête `Content-Type` sur les requêtes `GET` vers `znma`.
+  - **Affichage de la jaquette et du dernier jeu actif sur le widget** : lorsqu'aucune session n'a encore eu lieu aujourd'hui, la carte principale affiche automatiquement *« Dernier jeu : <Titre> (<Date>) »* avec sa jaquette officielle.
+  - **Rattachement automatique d'un équipement pré-créé manuellement** : lors de la découverte des consoles, si un équipement `altSwitch` avait été créé manuellement au préalable (sans `deviceId`), il est automatiquement hydraté avec la console découverte au lieu de créer un équipement en doublon.
+
 ## [0.1.0-beta.4] — 2026-10-22 (Canal Beta)
 
 ### Corrigé & Amélioré
