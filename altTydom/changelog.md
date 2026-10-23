@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.3] - 2026-10-23
+
+### Corrigé
+- **Timeout sur les callbacks initiaux `configs_file` et `devices_data` lors de la création massive d'équipements (`resources/altTydomd.py`, `core/php/jeeAltTydom.php`, `core/class/altTydom.class.php`)** :
+  - Augmentation du délai d'attente HTTP du démon Python (`send_to_jeedom`) de `10s` à `90s` et ajout de `@ignore_user_abort(true)` / `@set_time_limit(120)` dans `jeeAltTydom.php` pour éviter toute interruption lors de la création simultanée de plusieurs dizaines d'équipements et de leurs commandes au premier appairage.
+  - Optimisation des méthodes `handleConfigsFile()`, `handleDevicesMeta()` et `upsertCommand()` afin de n'effectuer des écritures SQL (`$eqLogic->save()` et `$cmd->save()`) que lorsqu'un équipement ou une commande est créé ou effectivement modifié (zéro écriture SQL redondante lors des reconnexions et rafraîchissements).
+  - Amélioration de la journalisation des exceptions asynchrones dans `send_to_jeedom()` (`TimeoutError` explicitement détaillé).
+
+---
+
 ## [0.1.0-beta.2] - 2026-10-23
 
 ### Ajouté
