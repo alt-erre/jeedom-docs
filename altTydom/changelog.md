@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.11] - 2026-10-23
+
+### Corrigé
+- **Stabilité de l'affichage du statut CVC & correction de la détection d'écriture `/devices/meta` (`resources/altTydomd.py`, `core/class/altTydom.class.php`)** :
+  - Correction d'un défaut dans `_process_devices_meta()` où l'absence de la clé `"permission"` dans `/devices/meta` initialisait par défaut les attributs en lecture seule (`"r"` au lieu de `"rw"`), ce qui empêchait `_is_attr_writable()` d'envoyer les attributs `setpoint`, `authorization` et `thermicLevel` à la box Tydom.
+  - Correction de l'évaluation d'état CVC (`evaluateHvacState()`) sur les thermostats Chaudière / PAC / Tybox : lorsque la zone est active (`hvacMode = "NORMAL"` et/ou `authorization = "HEATING"`) mais que la température ambiante est supérieure à la consigne (ex. `18.2 °C > 17.0 °C`), la valeur `thermicLevel = "STOP"` (relais de chauffe au repos) n'est plus interprétée à tort comme un état `Arrêt (OFF)` / `Zone éteinte`, mais conserve le mode actif (`Confort`, `Éco`, `Marche / Auto`) avec le badge `Consigne atteinte`.
+  - Protection des commandes `hvac_mode` et `authorization` dans `applyRealtimeValues()` pour que les attributs secondaires `localMode = "STOP"` (absence de dérogation locale) et `comfortMode = "STOP"` n'écrasent plus l'état actif `hvacMode = "NORMAL"` ou `authorization = "HEATING"` lors des rafraîchissements `/devices/data`.
+
+---
+
 ## [0.1.0-beta.10] - 2026-10-23
 
 ### Corrigé
