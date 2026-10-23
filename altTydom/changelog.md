@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.12] - 2026-10-23
+
+### Corrigé
+- **Sélection du mode actif (`Confort` / `Éco` / `Auto`) et réactivité X3D des thermostats (`core/class/altTydom.class.php`, `resources/altTydomd.py`, `plugin_info/install.php`)** :
+  - **Correction du retour intempestif sur `Hors-Gel` (`Zone en veille`)** : sur les thermostats à consigne (`Chaudière / PAC` / `Tybox` où `hvacMode = "NORMAL"` et `setpoint > 10.5 °C`), l'attribut Fil Pilote `thermicLevel` reste figé sur `"ANTI_FROST"` dans `/devices/data` même lorsque la zone est allumée. `evaluateHvacState()` ignore désormais `thermicLevel = "ANTI_FROST"` tant que `hvacMode` est en mode actif (`NORMAL`, `AUTO`, `COMFORT`, `ECO`) avec une consigne non nulle, ce qui maintient correctement le bouton **`Confort`** (`20 °C`), **`Éco`** (`17 °C`) ou **`Auto`** sélectionné.
+  - **Envoi unitaire direct sur le bus radio X3D (zéro saturation radio)** : lorsqu'une zone à consigne est déjà allumée (`hvacMode = "NORMAL"`), un clic sur **Confort**, **Éco** ou **+/-** envoie désormais **uniquement un seul `PUT`** (`[{"name": "setpoint", "value": ...}]`) sans ré-envoyer `hvacMode` ni `thermicLevel` et sans interroger prématurément `GET /devices/data` pendant la trame radio X3D (évitant les commandes ignorées ou retardées par la passerelle Tydom).
+  - **Redémarrage automatique du démon lors des mises à jour (`altTydom_update()`)** : ajout de `altTydom::deamon_start()` dans `plugin_info/install.php` afin que toute mise à jour du plugin recharge automatiquement la nouvelle version du démon Python.
+
+---
+
 ## [0.1.0-beta.11] - 2026-10-23
 
 ### Corrigé
