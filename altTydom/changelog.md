@@ -4,6 +4,20 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.13] - 2026-10-24
+
+### Amélioré
+- **Présélection automatique de l'option active dans les 3 menus déroulants CVC (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`)** :
+  - Les 3 listes déroulantes situées au bas du widget Chauffage / Thermostat (**Autorisation Zone** `authorization`, **Mode CVC** `hvac_mode` et **Fil Pilote / Régime** `thermic_level`) présélectionnent désormais automatiquement l'option active remontée par la box Tydom avec un préfixe explicite (`Zone : Chauffage`, `CVC : Normal / Auto`, `Régime : Confort` / `Hors-Gel` / `Arrêt`).
+  - Maintien de l'option sélectionnée après modification manuelle dans le menu déroulant (`tyd-select-state`) au lieu de réinitialiser le sélecteur sur son intitulé vide.
+
+### Corrigé
+- **Mise à jour immédiate de l'état CVC et redémarrage automatique du démon lors d'une modification du script (`core/class/altTydom.class.php`, `resources/altTydomd.py`)** :
+  - Mise à jour instantanée des commandes `info` (`setpoint`, `hvac_mode`, `authorization`, `thermic_level`, `hvacZoneOff`) dès l'exécution d'une commande dans `altTydomCmd::execute()` et nettoyage automatique d'un éventuel état `ANTI_FROST` résiduel lorsqu'une consigne active ($> 10{,}5\,^\circ\text{C}$) est reçue.
+  - Vérification d'empreinte MD5 (`deamon.hash`) dans `deamon_info()` et `sendToDaemon()` permettant de relancer automatiquement le démon Python dès que `resources/altTydomd.py` est mis à jour sur le disque.
+
+---
+
 ## [0.1.0-beta.12] - 2026-10-23
 
 ### Corrigé
