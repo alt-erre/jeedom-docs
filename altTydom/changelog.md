@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.7] - 2026-10-23
+
+### Corrigé
+- **Fermeture propre de la boucle d'événements `asyncio` à l'arrêt du démon (`resources/altTydomd.py`)** :
+  - Ajout d'un événement d'arrêt asynchrone (`_stop_event`) et attente explicite (`asyncio.gather(..., return_exceptions=True)`) de la terminaison des tâches `websocket_loop()`, `ping_loop()` et `StreamWriter.wait_closed()` avant `loop.close()` lors de la réception d'un signal `SIGTERM` / `SIGINT`, supprimant l'avertissement `Task was destroyed but it is pending!` au redémarrage du démon.
+
+---
+
 ## [0.1.0-beta.6] - 2026-10-23
 
 ### Ajouté
