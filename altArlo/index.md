@@ -29,7 +29,7 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
 - **Vignettes Snapshots Sécurisées & Widgets « Dark Glass » (`alt-erre`)** :
   - Téléchargement automatique du dernier snapshot Cloud dans un répertoire local isolé (`data/snapshots/`, permissions `0600`) et diffusion via un proxy PHP interne signé par HMAC (`core/php/snapshot.php`) ;
   - Bouton **📸 Photo** sur le widget permettant de demander un nouvel instantané à la caméra ;
-  - 5 thèmes de couleur sélectionnables par équipement (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Ambre / Or*, *Rouge / Carmin*).
+  - 9 thèmes de couleur sélectionnables par équipement (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
 
 ---
 

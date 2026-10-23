@@ -4,6 +4,20 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.5] - 2026-10-23
+
+### Ajouté
+- **Personnalisation en pourcentage des Positions Favorites `F1` et `F2` (`desktop/php/altTydom.php`, `core/class/altTydom.class.php`)** :
+  - Ajout de deux champs optionnels **Position Favorite 1 (`F1`)** et **Position Favorite 2 (`F2`)** (`0` à `100 %`) dans les paramètres de chaque équipement.
+  - S'ils sont laissés vides, les boutons `F1` / `F2` appellent la position favorite matérielle enregistrée dans le moteur Delta Dore (`FAVORIT1` / `FAVORIT2`). S'ils sont renseignés (ex. `20 %` et `80 %`), Jeedom positionne directement le volet ou le variateur au pourcentage défini.
+
+### Corrigé
+- **Affichage conditionnel du bouton « Basculer lames BSO » et des commandes masquées sur les widgets (`core/class/altTydom.class.php`)** :
+  - Le bouton **Basculer lames BSO** (`slope_toggle`) n'est désormais affiché que sur les équipements de type **Brise-soleil orientable (`bso`)** et masqué automatiquement sur les volets roulants classiques (`shutter`, `klineShutter`, `swingShutter`, `awning`).
+  - Prise en compte de la case **« Afficher »** (`isVisible`) des commandes d'action sur le widget personnalisé Dark Glass (décocher « Afficher » sur `F1`, `F2` ou `Identifier` masque automatiquement le bouton correspondant sur le widget) et rafraîchissement temps réel du widget (`refreshWidget()` / `postToHtml()`).
+
+---
+
 ## [0.1.0-beta.4] - 2026-10-23
 
 ### Corrigé

@@ -57,7 +57,7 @@ Conçu **100 % en Python 3 natif asynchrone** (sans aucun binaire `.NET` lourd n
 
 ## 3. Widget Personnalisé « Dark Glass » Adaptatif
 
-Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (avec 5 thèmes de couleur : *Noir / Sombre*, *Blanc / Clair*, *Bleu Profond*, *Ambre / Or*, *Rouge / Carmin*, ou bascule vers les widgets standards Jeedom Core v4) qui adapte automatiquement son interface et sa vignette vectorielle SVG temps réel à la nature de l'équipement (*Volet*, *Portail/Ouvrant*, *Éclairage/Prise*, *Chauffage/Thermostat*, *Alarme Tyxal+*, *Compteur d'énergie*, *Passerelle Box* ou *Scénario*).
+Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (avec 9 thèmes de couleur : *Noir / Sombre*, *Blanc / Clair*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*, ou bascule vers les widgets standards Jeedom Core v4) qui adapte automatiquement son interface et sa vignette vectorielle SVG temps réel à la nature de l'équipement (*Volet*, *Portail/Ouvrant*, *Éclairage/Prise*, *Chauffage/Thermostat*, *Alarme Tyxal+*, *Compteur d'énergie*, *Passerelle Box* ou *Scénario*).
 
 ---
 

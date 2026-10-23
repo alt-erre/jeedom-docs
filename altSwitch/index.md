@@ -39,7 +39,7 @@ Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvr
    - Statistiques mensuelles (`Jours joués ce mois-ci`, `Temps joué ce mois-ci`).
 
 4. **Widget Personnalisé « Dark Glass » (`alt-erre`) Dashboard & Mobile** :
-   - Architecture unifiée **Dark Glass** supportant **5 thèmes de couleur** (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Ambre / Or*, *Rouge / Carmin*).
+   - Architecture unifiée **Dark Glass** supportant **9 thèmes de couleur** (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
    - Vignette `58×58 px` affichant dynamiquement la **jaquette du jeu joué aujourd'hui** (ou le badge du modèle *SWITCH*, *OLED*, *LITE*, *SWITCH 2*), jauge de progression colorée et **4 onglets interactifs** (*Contrôles*, *Jeux*, *Profils*, *PIN / Infos*).
 
 5. **Synergie native avec `Alt Vie Scolaire (Pronote)` (`altPronote`)** :

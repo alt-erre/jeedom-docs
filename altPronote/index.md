@@ -41,7 +41,7 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
    - **Informations & Sondages** de l'établissement (`Informations non lues`, `Dernière information établissement`).
 
 5. **Widget Personnalisé « Dark Glass » (`alt-erre`) Dashboard & Mobile** :
-   - Architecture unifiée **Dark Glass** supportant **5 thèmes de couleur** (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Ambre / Or*, *Rouge / Carmin*).
+   - Architecture unifiée **Dark Glass** supportant **9 thèmes de couleur** (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
    - Carte d'état supérieure avec statut temps réel de la journée (*En cours*, *Avant les cours*, *Intercours*, *Journée terminée*, *Repos*), salle actuelle/prochaine et horaire du premier cours du lendemain.
    - Bandeau de 4 compteurs rapides et **5 onglets interactifs** (*Aujourd'hui*, *Demain*, *Devoirs*, *Notes*, *Vie / Menu*).
 
