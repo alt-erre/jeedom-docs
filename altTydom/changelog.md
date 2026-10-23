@@ -4,6 +4,19 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.2] - 2026-10-23
+
+### Ajouté
+- **Assistant ponctuel d'extraction du mot de passe local de la box Tydom (`plugin_info/configuration.php`)** :
+  - Ajout du bouton **« 🔑 Récupérer via compte Delta Dore »** permettant d'extraire automatiquement en 1 clic le mot de passe technique local de la passerelle Tydom (`sites[0].gateway.password`) depuis le compte unifié de l'application mobile Tydom (`deltadoreadb2ciot.b2clogin.com` + `prod.iotdeltadore.com`).
+  - **Conformité stricte Art. 4.3 CGU Market (Zéro conservation Cloud)** : l'adresse e-mail, le mot de passe du compte Delta Dore et le jeton OAuth2 éphémère sont utilisés exclusivement en mémoire le temps de la requête d'extraction puis immédiatement détruits (`unset` serveur et effacement DOM client), sans jamais être stockés ni journalisés dans Jeedom.
+
+### Amélioré
+- **Accessibilité & Ergonomie des Formulaires et Widgets (`modern-web-guidance`)** :
+  - Association explicite `<label for="...">`, désactivation de la correction automatique sur les identifiants réseau (`autocorrect="off" autocapitalize="off" spellcheck="false"` sur IP, MAC et e-mail) et clavier numérique sur le code PIN d'alarme Tyxal+ (`inputmode="numeric"`).
+
+---
+
 ## [0.1.0-beta.1] - 2026-10-22
 
 ### Ajouté

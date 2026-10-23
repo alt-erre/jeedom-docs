@@ -49,7 +49,7 @@ Conçu **100 % en Python 3 natif asynchrone** (sans aucun binaire `.NET` lourd n
 2. Sur la page de configuration du plugin :
    - Choisissez le **Mode de connexion** : **Local LAN (Recommandé, Zéro Cloud)** ou **Distant (`mediation.tydom.com`)**.
    - Cliquez sur le bouton **Découvrir sur le LAN** pour détecter automatiquement l'adresse IP et l'adresse MAC (`00:1A:25:...`) de votre box Tydom, ou saisissez-les manuellement.
-   - Renseignez le **Mot de passe de connexion Tydom** (celui défini pour votre box dans l'application mobile Tydom) et, optionnellement, le **Code PIN de l'alarme Tyxal+**.
+   - Renseignez le **Mot de passe de connexion Tydom** de votre box, ou cliquez sur le bouton **🔑 Récupérer via compte Delta Dore** pour extraire automatiquement en 1 clic le mot de passe technique local de votre box à partir de votre compte de l'application mobile Tydom (sans qu'aucun identifiant ni jeton Cloud ne soit conservé par le plugin). Renseignez optionnellement le **Code PIN de l'alarme Tyxal+**.
    - Sauvegardez : le démon Python démarre et ouvre immédiatement la session WebSocket TLS avec votre box Tydom.
 3. Rendez-vous dans **Plugins → Protocole domotique → Alt Habitat & Domotique (Delta Dore Tydom)** puis cliquez sur **Synchroniser Tydom** : tous vos équipements, commandes et états remontent automatiquement !
 
@@ -65,6 +65,7 @@ Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (av
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
 - **Fonctionnement 100 % Local privilégié** : En mode *Local LAN*, toutes les communications s'effectuent directement sur votre réseau local entre Jeedom et votre box Tydom via un tunnel WebSocket chiffré TLS (`wss://<IP_LOCALE>:443`), sans transiter par Internet.
+- **Assistant ponctuel d'extraction du mot de passe de box (Zéro conservation Cloud)** : Si vous utilisez l'assistant *« Récupérer via compte Delta Dore »* pour extraire le mot de passe technique local de votre passerelle Tydom, votre adresse e-mail, le mot de passe de votre compte Delta Dore et le jeton OAuth2 éphémère sont utilisés exclusivement en mémoire le temps de la requête d'extraction et sont immédiatement détruits (ils ne sont jamais enregistrés en base de données ni dans les journaux Jeedom).
 - **Protection stricte des secrets (Zéro secret dans `ps aux`)** : Le mot de passe Tydom, le code PIN de l'alarme Tyxal+ et la clé API interne Jeedom ne sont **jamais** passés en argument de ligne de commande ni inscrits en clair dans les journaux (`logs`). Ils sont transmis au démon Python via le fichier éphémère `/tmp/jeedom/altTydom/daemon_config.json` verrouillé avec les permissions strictes `0600` et supprimé automatiquement à l'arrêt du démon.
 - **Isolation technique** : Le plugin n'écrit aucun fichier en dehors de son répertoire, de `/tmp/jeedom/altTydom` et de ses propres journaux Jeedom, et utilise uniquement un environnement virtuel Python isolé (`resources/venv`) composé de bibliothèques sous licences permissives compatibles.
 - **Recommandations réseau** : Attribuez un bail DHCP fixe à votre box Tydom sur votre routeur local et conservez un code PIN dédié pour le pilotage éventuel de votre centrale d'alarme Tyxal+.
