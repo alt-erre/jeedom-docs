@@ -4,6 +4,22 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.15] - 2026-10-27
+
+### Ajouté
+- **Journal multi-lignes déroulant pour l'Alarme Tyxal+ (`.tyd-histo-box`, `histo_alarm_log`)** :
+  - Ajout d'un panneau de journal multi-lignes scrollable directement au bas du widget **Alarme Tyxal+** affichant jusqu'à **20 événements consécutifs** du journal sélectionné (`#1` plus récent en surbrillance ambrée jusqu'à `#15`/`#20`), avec badge de date/heure formaté en français (`JJ/MM/AAAA HH:MM`), intitulé complet non tronqué et bouton d'actualisation rapide (`fa-sync-alt`) dans l'en-tête du journal.
+  - Ajout de la commande info texte **`histo_alarm_log`** (*« Journal d'événements complet »*) contenant l'intégralité des entrées du journal sélectionné (une ligne par événement) exploitable dans les scénarios ou virtuels Jeedom.
+  - Présélection automatique du journal actif dans la liste déroulante **Journal Tyxal+** (`Journal : Tous les événements`, `Journal : Alarmes & Intrusions`, `Journal : Mises en / hors service`, `Journal : Issues ouvertes`, etc.) et prise en charge dynamique des types de journaux annoncés par `/devices/cmeta`.
+
+### Corrigé
+- **Accumulation ordonnée des événements `/devices/cdata` (`histo`) et décodage multi-trames HTTP-over-WebSocket (`resources/altTydomd.py`, `core/class/altTydom.class.php`)** :
+  - Correction d'un défaut où les 15 entrées d'historique (`index = 0` plus récent à `index = 14` plus ancien) renvoyées par la centrale Tyxal+ s'écrasaient successivement, ne laissant visible que la 15e entrée la plus ancienne (`index = 14`). Les événements sont désormais accumulés par `index` et triés du plus récent (`#1`) au plus ancien.
+  - Prise en charge dans `parse_http_over_ws_message()` des trames WebSocket contenant plusieurs messages HTTP concaténés (`PUT /devices/cdata` successifs pour chaque entrée du journal).
+  - Conversion automatique des horodatages ISO (`[YYYY-MM-DDTHH:MM:SS]`) en format français lisible (`[JJ/MM/AAAA HH:MM]`) dans le journal et le sous-titre du widget.
+
+---
+
 ## [0.1.0-beta.14] - 2026-10-27
 
 ### Amélioré
