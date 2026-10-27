@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.6] — 2026-10-27 (Canal Beta)
+
+### Amélioré
+- **Retour visuel d'action, Confirmation explicite & Protection anti-double-clic sur le temps bonus (Charte Graphique `v1.2`)** :
+  - **Protection anti-double-clic et badge de confirmation sur les boutons de temps bonus (`+15 min`, `+30 min`, `+60 min`, `Bloquer`, `Illimité`)** : lors d'un clic sur un bouton d'ajout de temps ou de verrouillage sur les widgets **Dashboard & Mobile**, le bouton affiche immédiatement une onde lumineuse, remplace temporairement son libellé par une confirmation explicite (**`✓ +15m`** / **`✓ Ajouté !`**, **`✓ Bloqué !`**, **`✓ Activé !`**) et verrouille toute nouvelle action pendant **`2 secondes`** (`pointer-events: none`) afin d'éviter d'ajouter accidentellement plusieurs fois du temps bonus avant le retour du Cloud Nintendo.
+  - **Animation de rotation sur le bouton Rafraîchir (`fa-sync-alt`)** : rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond au clic.
+  - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
+
 ## [0.1.0-beta.5] — 2026-10-23 (Canal Beta)
 
 ### Corrigé & Amélioré

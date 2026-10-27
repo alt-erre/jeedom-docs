@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
+
+### Amélioré
+- **Retour visuel d'action & Protection anti-double-clic (Charte Graphique `v1.2`)** :
+  - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) sur tous les boutons des widgets **Dashboard & Mobile** (*Pause*, *Reprendre*, *Stop*, *Vitesses d'impression*, *Éclairage*, *Ventilateurs*).
+  - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`).
+  - Ajout d'un verrouillage anti-double-clic (`1,5 s`) sur les commandes critiques d'impression (*Pause*, *Reprendre*, *Stop*).
+  - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
+
 ## [0.1.0-beta.3] — 2026-10-21 (Canal Beta)
 
 ### Corrigé

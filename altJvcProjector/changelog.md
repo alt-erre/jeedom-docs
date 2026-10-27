@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
+
+### Amélioré
+- **Retour visuel d'action & Protection anti-double-clic (Charte Graphique `v1.2`)** :
+  - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) sur tous les boutons des widgets **Dashboard & Mobile** (Alimentation, entrées HDMI, D-Pad OSD, mémoires d'objectif, modes lampe/laser).
+  - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`).
+  - Ajout d'un verrouillage anti-double-clic (`1,5 s`) sur les commandes d'allumage, d'extinction et de rappel de mémoire d'objectif (`Lens Memory`).
+  - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
+
 ## [0.1.0-beta.4] — 2026-10-20 (Canal Beta)
 
 ### Corrigé

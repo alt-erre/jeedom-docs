@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.15] — 2026-10-27 (Canal Beta)
+
+### Amélioré
+- **Retour visuel d'action (Animations de clic & Rafraîchissement — Charte Graphique `v1.2`)** :
+  - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) au clic sur tous les boutons des widgets **Dashboard & Mobile** (Alimentation, Mode Art, D-Pad, pavé numérique, volume, chaînes, transport, téléversement Photo et vignettes d'œuvres).
+  - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`) de l'en-tête du widget.
+
 ## [0.1.0-beta.14] — 2026-10-23 (Canal Beta)
 
 ### Ajouté
