@@ -17,6 +17,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.4` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
+| **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
 | **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.2` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |

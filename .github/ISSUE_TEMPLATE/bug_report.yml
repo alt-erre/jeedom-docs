@@ -18,6 +18,7 @@ body:
         - "altBambuLab (Imprimantes 3D Bambu Lab P1S / X1C / A1 & AMS)"
         - "altCambridgeAudio (Cambridge Audio StreamMagic)"
         - "altDenon (Amplis Denon & Marantz AVR / HEOS)"
+        - "altHue (Alt Éclairage & Ambiance — Philips Hue & Hue Play Local)"
         - "altJvcProjector (Vidéoprojecteurs JVC D-ILA)"
         - "altPronote (Vie Scolaire PRONOTE — Élève & Parent)"
         - "altRoborock (Robots Aspirateurs Roborock S7 / Qrevo Curv Local)"

@@ -14,6 +14,7 @@ PLUGINS=(
   "altBambuLab"
   "altCambridgeAudio"
   "altDenon"
+  "altHue"
   "altJvcProjector"
   "altPronote"
   "altRoborock"
