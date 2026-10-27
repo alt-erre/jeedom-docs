@@ -19,6 +19,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
+| **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.1` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
 | **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.2` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
 | **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.16` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
