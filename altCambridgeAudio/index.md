@@ -12,7 +12,7 @@ Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix ent
 
 ### 1. Contrôles de base de l'amplificateur (type `altDenon`)
 - **Alimentation** : `On`, `Off` (veille réseau `NETWORK`), `Basculer Alimentation` (`toggle`), `Etat` (binaire `0`/`1`).
-- **Volume** : `Volume` (info `0` à `100 %`), `Volume niveau` (curseur/slider `0` à `100`), `Volume +`, `Volume -`.
+- **Volume** : `Volume` (info `0` à `100 %`), `Volume niveau` (curseur/slider `0` à `100`), `Volume +`, `Volume -`, ainsi que **`Volume maximum`** (`volume_max`) et **`Volume maximum niveau`** (`volume_max_set`) pour définir dynamiquement un plafond de volume par mode de la maison (ex. *Nuit enfant*) avec abaissement automatique immédiat si le volume de l'ampli dépasse ce plafond.
 - **Muet (Mute)** : `Etat Muet` (info binaire), `Muet` (bascule), `Muet On`, `Muet Off`.
 - **Rafraîchissement** : commande `Rafraîchir` pour interroger immédiatement l'ampli.
 

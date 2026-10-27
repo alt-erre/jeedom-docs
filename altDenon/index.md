@@ -39,6 +39,7 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 - **Double échelle de Volume synchronisée :**
   - **Échelle relative en dB** (`-80.0 dB` à `+18.0 dB` au pas de `0.5 dB` supporté par l'AVC-X8500HA).
   - **Échelle absolue** (`0` à `98`), avec commandes `Volume +`, `Volume -`, `Muet`, `Muet On`, `Muet Off`.
+  - **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** : commandes `volume_max` et `volume_max_set` permettant de définir un plafond de volume selon le mode de la maison (ex. *Nuit enfant*), avec bridage visuel du curseur sur le widget et **abaissement automatique immédiat** si le volume de l'ampli dépasse ce plafond.
 
 ### 2. Entrées (Sources) Dynamiques & Entrée `8K`
 - Synchronisation automatique des entrées actives et de leurs noms personnalisés dans l'ampli (`CBL/SAT`, `DVD`, `Blu-ray`, `Game`, **`8K`**, `Media Player`, `TV Audio`, `AUX1`, `AUX2`, `CD`, `Phono`, `Tuner`, `HEOS Music`, `Bluetooth`, `iPod/USB`).

@@ -55,6 +55,7 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
   - **`Mode Party (Grouper tout le foyer)`** (`party_mode`) : regroupe instantanément toutes les pièces Sonos actives sur cet équipement.
   - **Commandes dynamiques `Grouper avec : <Pièce>`** créées automatiquement pour chaque autre équipement Sonos du foyer + commande scénario `Grouper avec (Nom de pièce)`.
 - **Volume & Sourdine de Groupe :** `Volume Groupe` (`0` à `100 %`), `Volume Groupe niveau` (slider), `Volume Groupe +`, `Volume Groupe -`, `Muet Groupe`.
+- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`) :** commandes `volume_max` et `volume_max_set` permettant d'imposer un plafond de volume selon le mode de la maison (ex. *Nuit enfant*), avec bridage des commandes (`volume_set`, `volume_up`, `group_volume_set`, `group_volume_up`, `tts`), adaptation visuelle du curseur sur le widget et **abaissement automatique en temps réel** si le volume est augmenté depuis l'application Sonos, AirPlay, Spotify Connect ou les boutons physiques de l'enceinte.
 
 ### 4. Favoris Sonos (`FV:2`), Playlists Sonos (`SQ:`) & Contrôles Multimédias
 - **Synchronisation automatique 1 clic** des **Favoris Sonos (`FV:2`)** et des **Playlists Sonos (`SQ:`)** enregistrés dans l'application Sonos (Radios TuneIn / Sonos Radio, Playlists et Albums Spotify, Qobuz, TIDAL, Deezer, Apple Music, Amazon Music, Plex, Bibliothèque NAS).

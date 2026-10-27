@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.16] — 2026-10-27 (Canal Beta)
+
+### Ajouté
+- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
+  - Ajout de la commande info numérique **`Volume maximum`** (`volume_max`, en `%`, par défaut `100 %`) et de la commande action curseur **`Volume maximum niveau`** (`volume_max_set`) utilisables dans les scénarios et le plugin *Mode* (ex. mode *Nuit enfant*).
+  - **Abaissement immédiat & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume du téléviseur via UPnP `RenderingControl` s'il est supérieur au nouveau plafond lors du changement de mode ou si un utilisateur dépasse ce plafond avec la télécommande Samsung.
+  - **Bridage visuel sur le widget Dashboard** : la borne `max` du curseur de volume s'adapte en temps réel au plafond actif.
+
 ## [0.1.0-beta.15] — 2026-10-27 (Canal Beta)
 
 ### Amélioré

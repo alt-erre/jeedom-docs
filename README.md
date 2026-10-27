@@ -12,17 +12,17 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
+| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
 | **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.2` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.4` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
-| **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
-| **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
+| **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
+| **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
 | **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.2` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
-| **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.15` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
+| **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.16` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.11` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
-| **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
+| **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.14` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 

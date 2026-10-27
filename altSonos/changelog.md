@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
+
+### Ajouté
+- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
+  - Ajout de la commande info numérique **`Volume maximum`** (`volume_max`, en `%`, par défaut `100 %`) et de la commande action curseur **`Volume maximum niveau`** (`volume_max_set`) utilisables dans les scénarios et le plugin *Mode* (ex. mode *Nuit enfant*).
+  - **Application immédiate & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume si celui-ci dépasse le nouveau plafond lors du changement de mode, plafonne toutes les commandes Jeedom (`volume_set`, `volume_up`, `group_volume_set`, `group_volume_up`, annonces vocales `tts`) et ramène automatiquement le volume au plafond si quelqu'un le dépasse depuis les boutons physiques de l'enceinte, AirPlay ou Spotify Connect.
+  - **Bridage visuel sur le widget Dashboard** : adaptation dynamique en temps réel de la borne `max` des curseurs de volume pièce, groupe et TTS.
+
 ## [0.1.0-beta.3] — 2026-10-27 (Canal Beta)
 
 ### Amélioré

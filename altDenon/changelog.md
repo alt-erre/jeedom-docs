@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
+## `[0.1.0-beta.4]` — 2026-10-27
+
+### Ajouté
+- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
+  - Ajout de la commande info numérique **`Volume maximum`** (`volume_max`, de `0` à `98`, par défaut `98`) et de la commande action curseur **`Volume maximum niveau`** (`volume_max_set`) utilisables dans les scénarios et le plugin *Mode* (ex. mode *Nuit enfant*).
+  - **Application immédiate & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume si celui-ci dépasse le nouveau plafond lors de l'activation du mode, plafonne les commandes Jeedom (`volume_set`, `volume_db_set`, `volume_up`, `z2_volume_set`, `z3_volume_set`) et ramène automatiquement le volume au plafond si quelqu'un le dépasse depuis la télécommande IR Denon ou HDMI CEC.
+  - **Bridage visuel sur le widget Dashboard** : adaptation dynamique en temps réel de la borne `max` du curseur de volume.
+
 ## `[0.1.0-beta.3]` — 2026-10-27
 
 ### Amélioré

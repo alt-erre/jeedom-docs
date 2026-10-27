@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.6] — 2026-10-27 (Canal Beta)
+
+### Ajouté
+- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
+  - Ajout de la commande info numérique **`Volume maximum`** (`volume_max`, en `%`, par défaut `100 %`) et de la commande action curseur **`Volume maximum niveau`** (`volume_max_set`) utilisables directement dans les scénarios et le plugin *Mode* (ex. mode *Nuit enfant* à `30 %`, mode *Jour* à `100 %`).
+  - **Abaissement immédiat & Surveillance temps réel (Auto-clamp)** : si le volume de l'ampli est supérieur au nouveau plafond lors de son activation, ou si le volume est monté au-dessus du plafond depuis une télécommande physique, AirPlay, Spotify Connect ou la molette en façade, le plugin ramène automatiquement et instantanément le volume au plafond autorisé.
+  - **Bridage visuel du slider sur le widget Dashboard** : la borne maximale du curseur de volume s'adapte en temps réel au plafond actif (avec indication en infobulle).
+
 ## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
 
 ### Amélioré

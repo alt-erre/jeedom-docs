@@ -21,7 +21,7 @@ Il a été spécialement pensé pour offrir **une empreinte mémoire minimale (~
   - Appairage **AirPlay** et **Companion** directement depuis l'interface web Jeedom (affichage et saisie du code PIN dans une modale dédiée, sans besoin de terminal SSH).
   - Possibilité de saisir/coller manuellement des clés existantes ou d'**importer en 1 clic** ses équipements et clés depuis l'ancien plugin `aTVremote`.
 - **Double mode de Widget au choix par équipement** :
-  - **Widget Télécommande / Lecteur dédié** (en CSS moderne léger : télécommande Apple TV avec D-Pad, lancement d'applications, pochette d'album, volume, ou lecteur HomePod avec thèmes de couleur).
+  - **Widget Télécommande / Lecteur dédié** (en CSS moderne léger : télécommande Apple TV avec D-Pad, lancement d'applications, pochette d'album, volume avec **plafonnement dynamique par mode `Volume maximum` / `Volume maximum niveau`** et abaissement automatique en cas de dépassement, ou lecteur HomePod avec thèmes de couleur).
   - **Widget standard Jeedom Core v4**.
 
 ---
