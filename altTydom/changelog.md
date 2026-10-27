@@ -4,6 +4,17 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.16] - 2026-10-27
+
+### Corrigé
+- **Stabilité du menu déroulant du Journal Tyxal+ et redimensionnement du widget en Mode Édition (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `resources/altTydomd.py`)** :
+  - **Suppression de la tempête de `refreshWidget()` lors du chargement d'un journal Tyxal+** : la centrale Tyxal+ transmettant les entrées d'historique une par une sur le bus radio X3D (`index = 0..14` étalés sur 10 à 15 secondes), l'appel à `$eqLogic->refreshWidget()` sur chaque entrée détruisait et recréait le DOM du widget toutes les secondes, ce qui refermait immédiatement le menu déroulant `<select>` dès son ouverture, réinitialisait la sélection sur le journal en cours de réception (`ALL`) et détruisait les poignées de redimensionnement (`.ui-resizable-handle`) du Mode Édition Jeedom.
+  - **Mise à jour en place du journal via `jeedom.cmd.addUpdateFunction`** : les entrées du journal mettent désormais à jour la liste `.tyd-histo-list` directement dans le DOM via la commande info `histo_alarm_log` sans jamais appeler `refreshWidget()` ni toucher au `<select>` ou aux poignées de redimensionnement.
+  - **Regroupement (debounce) et filtrage du journal actif dans le démon Python (`_schedule_histo_flush`, `active_histo_type`)** : les trames X3D résiduelles d'une requête précédente sont ignorées dès que l'utilisateur change de journal, et `handleDevicesCData()` ne modifie plus jamais `selectedHistoType`.
+  - **Redimensionnement fluide en Mode Édition (`.editingMode`)** : déverrouillage de `overflow: visible !important` et désactivation des interceptions de clic internes (`pointer-events: none` sur `.alt-body`/`.alt-header` uniquement en `.editingMode`) afin que les poignées de redimensionnement `.ui-resizable-handle` restent toujours accessibles, avec adaptation élastique (`flex: 1`) de la hauteur du bloc `.tyd-histo-box`.
+
+---
+
 ## [0.1.0-beta.15] - 2026-10-27
 
 ### Ajouté
