@@ -21,6 +21,7 @@ PLUGINS=(
   "altSiemens"
   "altSonos"
   "altSwitch"
+  "altTwinkly"
   "altTydom"
 )
 

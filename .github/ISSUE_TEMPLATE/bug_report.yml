@@ -25,6 +25,8 @@ body:
         - "altSiemens (Siemens EQ900 & Home Connect Local)"
         - "altSonos (Alt Multiroom Audio — Sonos Amp, Port, Connect & Enceintes S1/S2)"
         - "altSwitch (Alt Contrôle Parental — Nintendo Switch, OLED, Lite & Switch 2)"
+        - "altTwinkly (Alt Éclairages & Effets LED — Twinkly Strings, Squares, Flex, Curtain, Tree)"
+        - "altTydom (Alt Habitat & Domotique — Delta Dore Tydom)"
     validations:
       required: true
 
