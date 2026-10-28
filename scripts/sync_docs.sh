@@ -17,6 +17,7 @@ PLUGINS=(
   "altHue"
   "altJvcProjector"
   "altNuki"
+  "altPlaystation"
   "altPronote"
   "altRoborock"
   "altSamsungTv"
