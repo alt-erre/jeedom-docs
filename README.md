@@ -31,7 +31,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.16` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
-| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
+| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
 
 ---
 

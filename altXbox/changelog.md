@@ -5,6 +5,23 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.6] - 2026-10-28
+
+### Ajouté & Amélioré
+- **Synchronisation bidirectionnelle avec la vraie API Microsoft Family Safety (`mobileaggregator.family.microsoft.com/api`)** :
+  - Échange automatique du jeton OAuth2 Microsoft Live avec le scope officiel `service::familymobile.microsoft.com::MBI_SSL` (`MSAuth1.0 usertoken="...", type="MSACT"`).
+  - **Lecture temps réel des données officielles Microsoft Family Safety** : membres du groupe familial (`/v2/roster`), **temps d'écran Xbox exact du jour** cumulé et par console (`/v4/activityreport/deviceScreenTimeUsage/{id}`), **temps joué exact en minutes aujourd'hui par jeu Xbox** (`/v4/activityReport/appUsage/{id}`) et état de verrouillage parental actif (`/v4/devicelimits/{id}/overrides`).
+  - **Pilotage direct du vrai Contrôle Parental Microsoft Family Safety** en parallèle du moteur local et de SmartGlass :
+    - `Verrouiller aujourd'hui (0 min)` envoie un blocage natif `BlockUntil` sur la plateforme `Xbox` (`/v4/devicelimits/{id}/overrides`) en plus d'éteindre la console (`TurnOff`).
+    - `Bonus +15/+30/+60 min` et `Mode illimité aujourd'hui` annulent tout blocage Xbox actif (`overrideType: "Cancel"`), approuvent automatiquement les éventuelles demandes d'extension en attente (`/v1/pendingRequests/approve/{id}`) et mettent à jour le quota du jour dans le planning Xbox (`/v4/devicelimits/schedules/{id}`).
+    - `Définir limite quotidienne` et `Définir heure du coucher` mettent à jour les quotas (`allowance`) et plages horaires autorisées (`allottedIntervals`) sur les serveurs Microsoft Family Safety.
+- **Support Multi-Consoles Xbox avancé** :
+  - Ajout du sélecteur **« Mode de quota de temps »** (`quotaMode`) sur chaque équipement : **Quota familial partagé multi-Xbox + Microsoft Family Safety** (cumule le temps joué d'une console à l'autre et synchronise instantanément les bonus/verrouillages entre toutes les Xbox du foyer) ou **Quota indépendant propre à cette console Xbox**.
+  - Ajout du sélecteur **« Filtrage des profils sur cette console »** (`profileFilterMode`) permettant d'afficher tous les profils de la famille ou de restreindre une console aux seuls Gamertags qui lui sont dédiés.
+  - **Attribution stricte de l'état d'allumage par console** : en environnement multi-Xbox, une console en veille n'est plus marquée *Allumée (En ligne)* lorsqu'un joueur est en ligne sur une autre console Xbox active du foyer.
+
+---
+
 ## [0.1.0-beta.5] - 2026-10-28
 
 ### Ajouté & Corrigé

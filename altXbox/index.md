@@ -77,6 +77,18 @@ Les opérations suivantes nécessitent un accès Internet vers les serveurs offi
 | **Extinction à distance (`Éteindre la console` / `TurnOff`) & Redémarrage (`Reboot`)** *(ainsi que l'extinction logicielle auto en fin de quota)* | `xccs.xboxlive.com/commands` | L'ordre d'extinction logicielle requiert le Cloud Xbox. *(Astuce 100 % locale : vous pouvez coupler l'état `status_code == 'limit_reached'` dans un scénario Jeedom avec une prise connectée locale Zigbee/Z-Wave après une alerte vocale).* |
 | **Nom du jeu actif en direct (*Presence*)** | `userpresence.xboxlive.com` | Affiche *« Session locale active »* (ou le dernier jeu en cache) tout en continuant de décompter le temps joué via le ping local `UDP 5050`. |
 | **Actualisation du catalogue de jeux, des jaquettes officielles & du profil Gamertag** | `titlehub.xboxlive.com`, `profile.xboxlive.com` & CDN `images-eds-ssl.xboxlive.com` | Conserve et affiche le dernier catalogue de jeux et profil Gamertag mis en cache localement. |
+| **Synchronisation bidirectionnelle avec le vrai Contrôle Parental Microsoft Family Safety** | `mobileaggregator.family.microsoft.com/api` (`/v2/roster`, `/v4/activityreport/deviceScreenTimeUsage`, `/v4/activityReport/appUsage`, `/v4/devicelimits/.../overrides`, `/v4/devicelimits/schedules`) | Lit le temps d'écran réel cumulé sur toutes les Xbox, le temps exact joué aujourd'hui par jeu et pilote le verrouillage/déblocage natif Microsoft Family Safety. En cas de coupure Internet, le moteur local prend le relais sans interruption. |
+
+---
+
+## Gestion Multi-Consoles Xbox & Synchronisation Microsoft Family Safety
+
+Si votre foyer possède **plusieurs consoles Xbox** (ex. *Xbox Series X Salon* + *Xbox Series S Chambre*), le plugin propose deux paramètres dédiés sur chaque équipement :
+1. **Mode de quota de temps (`quotaMode`)** :
+   - **Quota familial partagé multi-Xbox + Microsoft Family Safety (par défaut)** : Le temps joué par votre enfant est **cumulé sur l'ensemble des consoles Xbox** (via l'API officielle *Microsoft Family Safety* `deviceScreenTimeUsage` et la politique familiale partagée). S'il joue $45\text{ min}$ au salon puis passe sur la Xbox de sa chambre, le compteur continue à $45\text{ min}$ et tout ajout de temps bonus (`+15/+30/+60 min`) ou verrouillage s'applique simultanément aux consoles et à Microsoft Family Safety.
+   - **Quota indépendant propre à cette console Xbox** : Chaque console gère son propre compteur et son propre quota indépendamment des autres consoles.
+2. **Filtrage des profils sur cette console (`profileFilterMode`)** :
+   - **Tous les profils de la famille Microsoft / Xbox** (par défaut), ou **Uniquement les Gamertags listés** dans le champ *Profils Gamertag supplémentaires* si chaque enfant possède sa propre console dédiée.
 
 ---
 
