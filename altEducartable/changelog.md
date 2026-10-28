@@ -3,6 +3,14 @@
 Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier.
 Ce projet respecte la politique de versionnement [SemVer](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.5] - 2026-04-17
+
+### Ajouté
+- **Filtre rapide des mots « À signer » dans le Carnet de liaison (`core/template/dashboard/altEducartable.html` & `resources/altEducartable_worker.py`)** :
+  - Un clic sur la tuile KPI **« À signer »** bascule sur l'onglet *Carnet* et filtre automatiquement la liste pour n'afficher que les mots en attente de signature (avec mise en surbrillance ambrée du filtre actif). Un second clic (ou un clic sur l'onglet *Carnet*) réaffiche l'ensemble des messages.
+  - Ajout d'une barre de filtrage rapide en haut de l'onglet *Carnet* (**`Tous (X)`** / **`À signer (Y)`**).
+  - Inclusion garantie dans `messages_json` de tous les messages non signés même s'ils sont antérieurs aux 25 derniers messages du carnet.
+
 ## [0.1.0-beta.4] - 2026-04-17
 
 ### Corrigé
