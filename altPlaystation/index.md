@@ -51,6 +51,60 @@ Grâce à son **Assistant d'Appairage SSO Sony (`npsso`)** et son **Scanner Rés
 
 ---
 
+## Architecture Hybride : Ce qui est 100 % Local (LAN) vs Ce qui dépend d'Internet (Cloud Sony)
+
+Le plugin **Alt Contrôle Parental (PlayStation)** combine deux canaux complémentaires — le **protocole réseau local UDP DDP / Wake-on-LAN** et les **API Cloud Sony (PlayStation Family & PlayStation Network)** — avec un **mode repli LAN automatique** en cas de coupure Internet.
+
+### 🏠 1. Fonctionnalités 100 % Locales (Réseau LAN — Sans Internet)
+
+Lorsque l'adresse IP locale de la console PS5 / PS4 est renseignée (ou découverte via le bouton **Scanner LAN**), les fonctions suivantes s'exécutent **intégralement sur votre réseau local**, sans aucune dépendance à Internet ni aux serveurs Sony :
+
+- **Découverte automatique des consoles sur le LAN (`Scanner LAN`)** : scan par broadcast UDP local sur le port `9302` (PS5 / PS5 Slim / PS5 Pro — protocole DDP `00030010`) et le port `987` (PS4 / PS4 Pro — protocole DDP `00020020`).
+- **État électrique matériel en temps réel (`console_power_state` & `console_awake`)** :
+  - `Allumée (En ligne LAN)` (réponse DDP `HTTP/1.1 200 Ok`),
+  - `Mode Repos (Veille LAN)` (réponse DDP `HTTP/1.1 620 Server Standby`),
+  - `Éteinte / Hors-ligne LAN` (aucune réponse UDP locale).
+- **Détection en direct du jeu ou de l'application en cours (`current_game_name`)** : lecture directe des en-têtes locaux `running-app-name` et `running-app-titleid` diffusés par la console sur le LAN.
+- **Identification matérielle locale** : récupération du nom d'hôte (`host-name`), du modèle (`host-type` : `PS5` / `PS4`), de l'identifiant matériel (`host-id` / numéro de série) et de la version système (`system-version`).
+- **Réveil à distance de la console (`wake_console`)** : envoi local du *Magic Packet Wake-on-LAN* (UDP ports `9` et `7`) et du paquet `DDP WAKEUP` (UDP ports `9302` et `987`).
+- **Compteur de temps de jeu & règles parentales locales (Mode LAN autonome / Repli hors-ligne)** : suivi du temps joué dans la journée par mesure des sessions actives DDP sur le LAN, calcul du temps restant, gestion des quotas locaux, ajout de temps bonus (`+15 / +30 / +60 min`), verrouillage `0 min` et alarme d'heure du coucher utilisables dans vos scénarios Jeedom (ex. notification, alerte vocale TTS ou coupure prise connectée).
+
+### 🌐 2. Fonctionnalités dépendantes d'Internet (Cloud Sony PSN & PlayStation Family)
+
+Les fonctions suivantes nécessitent une connexion Internet active et un compte PlayStation (`npsso`) :
+
+- **Authentification SSO & Renouvellement OAuth2** : échange initial du jeton `npsso` et rafraîchissement automatique du `refresh_token` auprès de `ca.account.sony.com`.
+- **Contrôle Parental officiel PlayStation Family (`OhanaClient`)** :
+  - Lecture et modification à distance des restrictions sur les **comptes enfants supervisés** : quota journalier Cloud, ajout de temps bonus, verrouillage `0 min`, mode illimité, heure du coucher (`windowEnd`), action en fin de temps (`FORCE_LOGOUT` / `NOTIFY_ONLY`) et niveau d'âge PEGI (`1` à `11`).
+  - *Note technique :* Sur l'écosystème PlayStation, l'application effective d'une restriction ou la déconnexion forcée de la session d'un enfant sur la console passe obligatoirement par les serveurs Cloud de Sony.
+- **Historique de la bibliothèque PSN, Temps cumulés & Trophées (`m.np.playstation.com`)** :
+  - Liste des 15 derniers jeux joués avec leur durée totale cumulée sur le PSN et leur nombre de sessions.
+  - Niveau et compteurs détaillés des **Trophées PSN** (*Platine*, *Or*, *Argent*, *Bronze*).
+  - Présence en ligne Cloud (y compris lorsque le joueur se connecte sur une console hors du domicile).
+- **Jaquettes officielles haute résolution & Avatars PSN** : images chargées depuis les CDN officiels Sony (`image.api.playstation.com`).
+
+### 📊 Tableau récapitulatif (Local LAN vs Cloud Internet)
+
+| Fonctionnalité | 100 % Local (LAN DDP / WoL) | Cloud Internet (PSN / Family) | Comportement si Internet est coupé |
+| :--- | :---: | :---: | :--- |
+| Scan & découverte des consoles PS5 / PS4 sur le réseau | ✅ Oui (UDP `9302` / `987`) | ❌ Non requis | Fonctionne à 100 % en local |
+| État électrique temps réel (`Allumée`, `Mode Repos`, `Éteinte`) | ✅ Oui (DDP `200` / `620`) | ❌ Non requis | Fonctionne à 100 % en local |
+| Nom & ID du jeu en cours d'exécution sur la console | ✅ Oui (`running-app-name`) | ✅ Oui (Présence PSN) | Remonté en direct via le LAN DDP |
+| Réveil de la console en Mode Repos (`wake_console`) | ✅ Oui (WoL + `DDP WAKEUP`) | ❌ Non requis | Fonctionne à 100 % en local |
+| Compteur de temps joué aujourd'hui & Temps restant | ✅ Oui (Compteur session LAN) | ✅ Oui (Family + Delta PSN) | Bascule automatiquement sur le compteur LAN |
+| Quotas, Bonus `+15/+30/+60`, Coucher (Scénarios Jeedom) | ✅ Oui (Moteur local Jeedom) | ✅ Oui (PlayStation Family) | Règles et statuts mis à jour localement dans Jeedom |
+| Déconnexion forcée native de la session enfant par Sony | ❌ Non (Cloud Sony requis) | ✅ Oui (PlayStation Family) | Non envoyé à Sony (gérable par scénario Jeedom local) |
+| Trophées PSN, Temps cumulés globaux & Jaquettes CDN | ❌ Cache local uniquement | ✅ Oui (API PSN & CDN Sony) | Conserve en cache le dernier snapshot Cloud connu |
+
+### 🛡️ 3. Mode Repli LAN Automatique (Résilience Hors-Ligne)
+
+Si votre connexion Internet ou les serveurs Sony PlayStation Network deviennent temporairement indisponibles (ou si vous configurez une console uniquement par son adresse IP locale sans compte PSN) :
+- Le worker Python bascule automatiquement et sans erreur en **Mode Repli LAN (`lan_fallback` / `lan_only`)**.
+- L'état d'alimentation (`Allumée`, `Mode Repos`, `Éteinte`), le jeu en cours (`running-app-name`), le temps joué aujourd'hui et les règles parentales locales continuent d'être mis à jour à chaque cycle.
+- Les derniers profils famille, historiques de jeux et trophées récupérés avant la coupure sont préservés grâce au cache local sécurisé (`cached_cloud_snapshot` chiffré/verrouillé en `0600`).
+
+---
+
 ## Appairage Rapide Compte PlayStation (3 étapes)
 
 1. Dans Jeedom (*Plugins $\to$ Multimédia $\to$ Alt Contrôle Parental (PlayStation)*), cliquez sur **Assistant Compte PlayStation**.
