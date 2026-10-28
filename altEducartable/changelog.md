@@ -3,6 +3,14 @@
 Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier.
 Ce projet respecte la politique de versionnement [SemVer](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.4] - 2026-04-17
+
+### Corrigé
+- **Affichage et téléchargement des pièces jointes images (`core/php/media.php`, `resources/altEducartable_worker.py` & `core/template/dashboard/altEducartable.html`)** :
+  - Ajout d'un proxy média authentifié côté serveur (`core/php/media.php` + action `download_media` dans le worker Python) avec mise en cache temporaire dans `jeedom::getTmpFolder('altEducartable')/media_cache/` (`0600`) pour contourner les restrictions CORS / `SameSite=Lax` / `frame-ancestors` d'Edumoov lors de l'affichage des miniatures et images (PNG, JPEG, WebP, GIF) dans Jeedom.
+  - Repli automatique de `/thumbnail?width=300&mode=cover` vers `/file?cache=1` lorsque la génération de miniature Edumoov n'est pas disponible pour une image jointe (ex. `gouterH.png` dans le Carnet de liaison).
+  - Ajout d'un bouton puce cliquable (`<i class="fas fa-file-image"></i> nom_image.png`) en complément de la miniature et de la visionneuse plein écran (Lightbox), permettant d'ouvrir ou télécharger l'image dans un nouvel onglet exactement comme un PDF.
+
 ## [0.1.0-beta.3] - 2026-04-17
 
 ### Ajouté
