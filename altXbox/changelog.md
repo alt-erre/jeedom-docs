@@ -5,6 +5,19 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.7] - 2026-10-28
+
+### Corrigé
+- **Suppression de l'import des amis Xbox Live dans l'onglet « Profils » et dans le catalogue « Jeux »** :
+  - Correction de l'échange du jeton XSTS `http://accounts.xboxlive.com` (`obtain_accounts_xsts_token`) qui nécessite désormais la signature cryptographique EC P-256 Proof-of-Possession (`ProofKey` + en-tête `Signature` via `XboxRequestSigner`) ainsi que le rafraîchissement automatique du `user_token` expiré. Sans cette signature, l'appel `accounts.xboxlive.com/family/memberXuid(...)` échouait et déclenchait le repli sur le graphe social `PeopleHub`, ce qui importait la liste d'amis Xbox Live (`isFavorite` / `isFollowingCaller`) dans l'onglet **Profils** et polluait l'onglet **Jeux** avec l'historique `TitleHub` de ces amis.
+  - Suppression complète de l'import des amis Xbox Live (`isFavorite` et `isFollowingCaller`) depuis `PeopleHub` : seuls les membres du foyer **Microsoft Family Safety** (`/v2/roster` et `accounts.xboxlive.com/family`), les profils réellement connectés à la console (`xccs.xboxlive.com`) et les Gamertags explicitement renseignés dans l'équipement sont conservés et enrichis.
+  - Purge automatique des anciens profils d'amis éventuellement mis en cache (`Profil associé`, `Enfant / Favori`).
+- **Fiabilisation de la liste des jeux (`TitleHub` + `Microsoft Family Safety`)** :
+  - Filtrage strict des titres `TitleHub` pour exclure les applications système/média (Netflix, YouTube, Disney+, Spotify, Blu-ray, Microsoft Store, etc.) ainsi que les jeux exclusivement **PC (`Win32`)** ou **Mobile** qui ne tournent pas sur console Xbox.
+  - Conversion des horodatages `lastTimePlayed` UTC de `TitleHub` dans le fuseau local `Europe/Paris` avec tri chronologique exact à la seconde (`YYYY-MM-DDTHH:MM:SS`) et suppression du temps forfaitaire fictif de `25 min` lorsque aucun temps Family Safety ou session locale n'est actif.
+
+---
+
 ## [0.1.0-beta.6] - 2026-10-28
 
 ### Ajouté & Amélioré
