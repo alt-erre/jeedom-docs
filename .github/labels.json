@@ -20,6 +20,11 @@
     "description": "Plugin Alt Denon (Amplis Home-Cinéma Denon & Marantz AVR / HEOS)"
   },
   {
+    "name": "plugin:altHue",
+    "color": "A855F7",
+    "description": "Plugin Alt Éclairage & Ambiance (Philips Hue) — Hue Play, Gradient, CLIP v2 & SSE Local"
+  },
+  {
     "name": "plugin:altJvcProjector",
     "color": "6366F1",
     "description": "Plugin Alt JVC Projector (D-ILA / DLA-NZ9)"
