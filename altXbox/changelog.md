@@ -5,6 +5,16 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.5] - 2026-10-28
+
+### Ajouté & Corrigé
+- **Récupération automatique de tous les profils de la famille et des enfants (`accounts.xboxlive.com/family` & `peoplehub.xboxlive.com`)** :
+  - Ajout de la récupération automatique de l'ensemble des membres du groupe **Microsoft Family Safety / Xbox Family** (`accounts.xboxlive.com/family/memberXuid(...)` via jeton XSTS dédié `http://accounts.xboxlive.com`), des profils **Favoris / Associés Xbox** (`peoplehub.xboxlive.com`) et des utilisateurs remontés par la console (`xccs.xboxlive.com`), avec hydratation batch de leurs **Gamertags** et **Gamerpics** officiels (`profile.xboxlive.com/users/batch/profile/settings`).
+  - **Agrégation multi-profils des jeux et de la présence en direct** : le worker interroge désormais la présence temps réel (`userpresence.xboxlive.com`) et l'historique des jeux (`TitleHub`) **pour chaque profil de la famille (parents + enfants)** afin d'afficher le joueur enfant actuellement en ligne, les jeux lancés par les enfants sur leur propre profil ainsi que le temps joué et le dernier jeu de chaque enfant dans l'onglet **Profils**.
+  - Ajout d'un champ optionnel **« Profils Gamertag supplémentaires (Enfants / Console) »** dans la configuration de l'équipement pour permettre d'ajouter manuellement tout Gamertag présent sur la console même s'il ne fait pas partie du groupe Microsoft Family.
+
+---
+
 ## [0.1.0-beta.4] - 2026-10-28
 
 ### Corrigé
