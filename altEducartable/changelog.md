@@ -3,6 +3,14 @@
 Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier.
 Ce projet respecte la politique de versionnement [SemVer](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.2] - 2026-04-17
+
+### Corrigé
+- **Assistant de connexion Parent (`core/ajax/altEducartable.ajax.php` & `core/class/altEducartable.class.php`)** :
+  - Correction d'une erreur `TypeError` sous PHP 8 (`200 : SyntaxError: Unexpected end of JSON input`) lors de la création automatique des équipements enfants après l'authentification OAuth2 Keycloak.
+  - Remplacement de `proc_open` par `exec()` avec extraction de la dernière ligne JSON valide dans `executeWorkerPayload()` et capture complète des exceptions `Throwable` en AJAX.
+  - Encodage Base64 des listes JSON (`#messages_b64#`, `#activities_b64#`, `#homeworks_b64#`, `#notebooks_b64#`) dans le widget Dashboard pour éviter toute altération par `template_replace`.
+
 ## [0.1.0-beta.1] - 2026-04-17
 
 ### Ajouté
