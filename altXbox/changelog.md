@@ -5,6 +5,16 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.4] - 2026-10-28
+
+### Corrigé
+- **Fusion automatique & dédoublonnage des équipements Xbox (Local LAN UDP `5050` $\leftrightarrow$ Compte Microsoft Cloud)** :
+  - Correction de la création en double d'une même console lorsqu'elle était découverte d'une part en **100 % Local LAN (`UDP 5050` — ID matériel `FD00...` / `F400...` + IP locale)** et d'autre part via l'**Assistant Compte Microsoft Cloud (`XBOX-<xuid>`)**.
+  - `sync_all_consoles` combine désormais systématiquement la découverte locale SmartGlass (`UDP 5050`) et la découverte Cloud dans une fiche hybride unique en préservant toujours le `Live Device ID` matériel (`FD00...`) et l'adresse IP locale de la console.
+  - Ajout de `altXbox::deduplicateConsoles()` (exécuté automatiquement à l'ouverture de la page du plugin, lors de la découverte et à chaque synchronisation) pour fusionner automatiquement tout équipement doublon déjà créé en conservant ses paramètres, son adresse IP, son `Live Device ID`, ses jetons et ses états de commandes.
+
+---
+
 ## [0.1.0-beta.3] - 2026-10-28
 
 ### Corrigé
