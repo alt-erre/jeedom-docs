@@ -3,6 +3,14 @@
 Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier.
 Ce projet respecte la politique de versionnement [SemVer](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.3] - 2026-04-17
+
+### Ajouté
+- **Visualisation et téléchargement des pièces jointes & photos (`resources/altEducartable_worker.py` & `core/template/dashboard/altEducartable.html`)** :
+  - Affichage direct des **miniatures photos** dans les messages du **Carnet de liaison**, les activités du **Cahier de vie** et les **Devoirs**.
+  - **Visionneuse plein écran intégrée (Lightbox Dark Glass)** au clic sur une photo avec navigation *Précédent / Suivant*, compteur de diapositives et bouton de téléchargement haute définition.
+  - **Puces interactives cliquables** pour ouvrir ou télécharger directement les documents joints (**PDF**, fichiers, audio, vidéo, liens externes) ainsi que les **livrets scolaires (LSU) & attestations PDF**.
+
 ## [0.1.0-beta.2] - 2026-04-17
 
 ### Corrigé

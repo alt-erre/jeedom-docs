@@ -16,10 +16,12 @@ Plugin pour **Jeedom** permettant le suivi complet de la vie scolaire **Educarta
 - **Carnet de liaison & Annonces d'école (`messages`) :**
   - Nombre de messages non lus (`unread_messages_count`), nombre de mots à signer (`messages_to_sign_count`), nombre total de messages (`messages_count`).
   - Titre, contenu nettoyé (sans balises HTML), auteur, date, catégorie (*Information*, *Événement*, *Important*, *Rendez-vous*, *Annonce école*) et état de signature du dernier message.
+  - **Visualisation directe des pièces jointes (PDF, documents, images)** avec miniatures et visionneuse plein écran (Lightbox) intégrée au widget.
   - **Signature / Accusé de réception en 1 clic (`acknowledge_message`)** directement depuis le widget Dashboard ou par scénario Jeedom.
 - **Cahier de vie & Photos de classe (`activities`) :**
   - Nombre total d'activités publiées (`activities_count`) et nombre d'activités non consultées (`activities_unread_count`).
   - Titre, description, enseignant(e) auteur, date et **nombre de photos jointes** (`last_activity_photos_count`) de la dernière activité de classe.
+  - **Galerie de miniatures photos et visionneuse plein écran (Lightbox)** directement dans le widget Dashboard.
   - **Action « J'aime » (`like_activity`)** directement depuis le widget Dashboard.
 - **Cahier de textes & Devoirs (`tasks` / `lessons`) :**
   - Nombre de devoirs à faire (`homework_todo_count`) et faits (`homework_done_count`) sur l'horizon configuré (par défaut 14 jours).
