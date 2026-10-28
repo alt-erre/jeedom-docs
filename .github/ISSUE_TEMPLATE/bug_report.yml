@@ -28,6 +28,7 @@ body:
         - "altSwitch (Alt Contrôle Parental — Nintendo Switch, OLED, Lite & Switch 2)"
         - "altTwinkly (Alt Éclairages & Effets LED — Twinkly Strings, Squares, Flex, Curtain, Tree)"
         - "altTydom (Alt Habitat & Domotique — Delta Dore Tydom)"
+        - "altXbox (Alt Contrôle Parental — Xbox Series X, Series S & Xbox One)"
     validations:
       required: true
 

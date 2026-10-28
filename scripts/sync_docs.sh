@@ -25,6 +25,7 @@ PLUGINS=(
   "altSwitch"
   "altTwinkly"
   "altTydom"
+  "altXbox"
 )
 
 for plugin in "${PLUGINS[@]}"; do
