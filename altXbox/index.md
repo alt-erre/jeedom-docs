@@ -80,13 +80,14 @@ Les opérations suivantes nécessitent un accès Internet vers les serveurs offi
 
 ---
 
-## Appairage Rapide OAuth2 Microsoft / Xbox (3 étapes)
+## Appairage Rapide Microsoft / Xbox via `microsoft.com/link` (Sans copie d'URL)
 
 1. Sur votre console Xbox (*Paramètres $\to$ Appareils et connexions $\to$ Fonctionnalités à distance*), vérifiez que l'option **« Activer les fonctionnalités à distance »** est cochée et que le mode d'alimentation est sur **Veille (Instant-On)** si vous souhaitez pouvoir l'allumer à distance.
 2. Dans Jeedom (*Plugins $\to$ Multimédia $\to$ Alt Contrôle Parental (Xbox)*), cliquez sur **Assistant Compte Microsoft / Xbox**.
-3. Cliquez sur **« 1. Générer & Ouvrir la page de connexion Microsoft / Xbox »** et connectez-vous sur `login.live.com` avec votre compte Microsoft associé à la console.
-4. Une fois redirigé sur la page blanche finale, **copiez l'URL complète de la barre d'adresse** (`https://login.live.com/oauth20_desktop.srf?code=M...`), collez-la dans l'Étape 2 de Jeedom et cliquez sur **« 2. Valider & Découvrir mes Consoles Xbox Series X|S / Xbox One »** : toutes vos consoles sont automatiquement créées et synchronisées dans Jeedom !
-5. *(Recommandé pour le mode Hybride / 100 % Local LAN)* : Indiquez l'**Adresse IP locale** fixe de votre Xbox dans l'onglet *Équipement* (ou laissez la découverte locale UDP `5050` la remplir automatiquement lorsque la console est allumée).
+3. Dans l'**Onglet 1 (Recommandé)**, cliquez sur **« 1. Générer mon Code d'Appairage & Ouvrir microsoft.com/link »** : un code à 8 caractères s'affiche (et est copié automatiquement) tandis que le portail officiel `https://www.microsoft.com/link` s'ouvre dans un nouvel onglet.
+4. Saisissez ou confirmez ce code sur `microsoft.com/link`, connectez-vous avec votre compte Microsoft associé à la console Xbox et acceptez *(aucune URL n'est à copier)*.
+5. Revenez dans Jeedom et cliquez sur **« 2. J'ai validé le code sur Microsoft — Découvrir mes Consoles Xbox »** : vos consoles sont automatiquement créées et synchronisées dans Jeedom !
+6. *(Recommandé pour le mode Hybride / 100 % Local LAN)* : Indiquez l'**Adresse IP locale** fixe de votre Xbox dans l'onglet *Équipement* (ou laissez la découverte locale UDP `5050` la remplir automatiquement lorsque la console est allumée).
 
 ---
 

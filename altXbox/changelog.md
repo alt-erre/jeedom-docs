@@ -5,6 +5,16 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.3] - 2026-10-28
+
+### Corrigé
+- **Authentification OAuth2 Microsoft Live & Xbox Network (`HTTP 403` & `oauth20_desktop.srf?removed=true`)** :
+  - Ajout du flux officiel **Code d'Appairage Microsoft (`https://www.microsoft.com/link`)** (*OAuth2 Device Code Flow*) dans l'Onglet 1 de l'Assistant d'Appairage : l'utilisateur saisit simplement un code court à 8 caractères sur `microsoft.com/link` sans jamais avoir à copier d'URL dans la barre d'adresse (contournant définitivement la suppression de `?code=...` par `?removed=true` sur `oauth20_desktop.srf`).
+  - Implémentation native de la signature cryptographique **ECDSA NIST P-256 (`ES256` Proof-of-Possession)** (`XboxRequestSigner`), de l'authentification matérielle **`device.auth.xboxlive.com/device/authenticate`** (`DeviceToken`), de l'autorisation officielle **Xbox App SISU (`sisu.xboxlive.com/authorize`)** et du préfixe de ticket **`t=`** sur `user.auth.xboxlive.com/user/authenticate`, corrigeant l'erreur `Échec d'authentification Xbox User Token (HTTP 403)`.
+  - Ajout d'un lien secondaire **PKCE Xbox App (`ms-xal-000000004c12ae6f://auth`)** dans l'Onglet 2 et décodage explicite des codes d'erreur Xbox Live (`XErr`).
+
+---
+
 ## [0.1.0-beta.2] - 2026-10-28
 
 ### Ajouté
