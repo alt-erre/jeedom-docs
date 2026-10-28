@@ -14,6 +14,7 @@ PLUGINS=(
   "altBambuLab"
   "altCambridgeAudio"
   "altDenon"
+  "altEducartable"
   "altHue"
   "altJvcProjector"
   "altNuki"
