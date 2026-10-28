@@ -25,6 +25,7 @@ PLUGINS=(
   "altSiemens"
   "altSonos"
   "altSwitch"
+  "altTvDashboard"
   "altTwinkly"
   "altTydom"
   "altXbox"
