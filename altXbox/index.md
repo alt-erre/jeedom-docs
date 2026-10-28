@@ -15,7 +15,7 @@ Le plugin **Alt Contrôle Parental (Xbox)** (`altXbox`) permet d'intégrer et de
 - **Xbox One S**
 - **Xbox One**
 
-Grâce à son **Assistant d'Appairage OAuth2 Microsoft / Xbox officiel**, le plugin découvre automatiquement toutes les consoles associées à votre compte, remonte l'**état d'alimentation** (*Allumée*, *Veille connectée (Instant-On)*, *Éteinte*), le **temps joué aujourd'hui**, le **temps restant**, les **jeux lancés (avec leurs jaquettes officielles)** et les **profils Gamertag**, et vous permet d'**agir instantanément depuis Jeedom ou vos scénarios** (allumage Wake-on-LAN / SmartGlass, extinction à distance, ajout de temps bonus `+15 / +30 / +60 min`, mode illimité pour la journée, verrouillage immédiat de la console, extinction automatique en fin de temps, modification de l'heure du coucher ou du code PIN).
+Conçu selon une **architecture Hybride (Cloud Xbox Network + Fallback 100 % Local LAN SmartGlass UDP `5050`)**, le plugin combine la richesse des services Cloud Microsoft / Xbox (découverte complète, jeu en cours, jaquettes officielles, profils Gamertag, extinction à distance) et la résilience d'un **moteur local sur votre box Jeedom** capable de détecter l'allumage en `< 50 ms`, de réveiller la console (`Wake` UDP `0xDD02`) et de comptabiliser les quotas journaliers même en cas de coupure d'accès à Internet.
 
 ---
 
@@ -27,7 +27,7 @@ Grâce à son **Assistant d'Appairage OAuth2 Microsoft / Xbox officiel**, le plu
    - Statut synthétique temps réel : *Prête à jouer*, *Console allumée*, *En jeu sur Xbox*, *Temps disponible*, *Bientôt écoulé ($\le 15\text{ min}$)*, *Temps écoulé (Bloquée / Alarme)*, *Heure du coucher*, *Console verrouillée (0 min)*, *Temps libre (Sans limite)*.
 
 2. **Pilotage Instantané, Temps Bonus & Alimentation Console (Scénarios & Dashboard)** :
-   - **Alimentation à distance (SmartGlass Cloud & Local UDP `5050`)** : commandes `Allumer la console (Wake)`, `Éteindre la console`, `Redémarrer la console` et état binaire `Console allumée`.
+   - **Alimentation à distance (SmartGlass Cloud & Local UDP `5050`)** : commandes `Allumer la console (Wake)`, `Éteindre la console`, `Redémarrer la console`, `Console allumée`, `Joignable en local (UDP 5050)` et `Mode de communication`.
    - **Boutons de temps bonus** : `Bonus +15 min`, `Bonus +30 min`, `Bonus +60 min`, `Ajouter temps bonus (slider)` et **`Mode illimité aujourd'hui`**.
    - **Verrouillage immédiat** : commande `Verrouiller aujourd'hui (0 min)` qui passe la limite du jour à `0 min` et éteint immédiatement la console Xbox (idéal pour l'heure des devoirs ou du repas).
    - **Curseur de quota journalier** : commande `Définir limite quotidienne (min)` de `0` à `360 min` par pas de 15 minutes.
@@ -36,7 +36,7 @@ Grâce à son **Assistant d'Appairage OAuth2 Microsoft / Xbox officiel**, le plu
    - **Code PIN Parental de la console** : lecture masquée/révélable au clic dans le widget et commande `Modifier code PIN console` (`4` à `8` chiffres).
 
 3. **Suivi des Jeux Lancés & des Profils Gamertag** :
-   - Remontée du **jeu en cours en direct** (via *Xbox Live Presence*) ou du **jeu principal joué aujourd'hui**, de sa **jaquette officielle** (*Xbox TitleHub*) et du temps passé par titre.
+   - Remontée du **jeu en cours en direct** (via *Xbox Live Presence*) ou du **jeu principal joué aujourd'hui**, de sa **jaquette officielle** (*Xbox TitleHub*) et du temps passé par titre (avec mise en cache locale automatique).
    - Détail du **temps de jeu par profil Gamertag** avec son **Gamerpic Xbox**.
    - Statistiques mensuelles (`Jours joués ce mois-ci`, `Temps joué ce mois-ci`).
 
@@ -49,12 +49,44 @@ Grâce à son **Assistant d'Appairage OAuth2 Microsoft / Xbox officiel**, le plu
 
 ---
 
+## Architecture Hybride : Ce qui est 100 % Local (LAN) vs Ce qui dépend d'Internet (Cloud)
+
+Le plugin `altXbox` combine **deux canaux de communication complémentaires** et bascule automatiquement en **Fallback 100 % Local (LAN)** si votre connexion Internet ou les serveurs Xbox Live sont momentanément indisponibles :
+
+### 1. Fonctionnalités 100 % Locales (Réseau Local LAN — Sans Internet)
+
+Dès lors que la console Xbox est sur le même réseau local que Jeedom (et/ou que son **Adresse IP locale** est renseignée dans l'équipement), les fonctions suivantes s'exécutent **intégralement en local sans aucune dépendance à Internet** :
+
+| Fonctionnalité 100 % Locale | Protocole / Mécanisme local utilisé |
+| :--- | :--- |
+| **Détection instantanée de l'état Allumée / Éteinte (`power_state`, `local_reachable`)** | Sonde binaire UDP *SmartGlass Discovery Request (`0xDD00`)* sur le port **`UDP 5050`** (réponse `< 50 ms` sur le LAN). |
+| **Découverte locale & Extraction automatique du `Live Device ID` et du Nom** | Décodage binaire du paquet *SmartGlass Discovery Response (`0xDD01`)* en Broadcast LAN (`255.255.255.255:5050`) ou IP directe lorsque la console est allumée. |
+| **Allumage de la console (`Allumer la console (Wake)` / `power_on`)** | Envoi direct et broadcast sur le LAN du paquet binaire *SmartGlass PowerOn (`0xDD02`)* sur le port **`UDP 5050`** contenant le `Live Device ID` (`FD00...` / `F400...`) de la console (en mode d'alimentation *Veille / Instant-On*). |
+| **Comptabilisation du Temps joué aujourd'hui & Cumul mensuel** | Calculé et persisté localement sur votre box Jeedom (`data/profiles/eq_<id>.json`) tant que la console répond au ping local `UDP 5050`. |
+| **Moteur de Quotas, Temps Bonus (`+15 / +30 / +60 min`), Mode Illimité, Verrouillage & Heure du coucher** | Évalué à 100 % en local par Jeedom : toutes les commandes d'action parentales et les déclencheurs de scénarios (`time_remaining_today`, `status_code`, `bedtime_alarm_num`) restent opérationnels hors-ligne. |
+| **Affichage des derniers jeux & profils connus** | Conservés dans le cache local chiffré/verrouillé de l'équipement pour rester consultables dans le widget même pendant une coupure Internet. |
+
+### 2. Fonctionnalités dépendantes d'Internet (Cloud Microsoft / Xbox Network)
+
+Les opérations suivantes nécessitent un accès Internet vers les serveurs officiels Microsoft / Xbox Live :
+
+| Fonctionnalité Cloud | Serveur / API sollicité | Comportement en cas de coupure Internet |
+| :--- | :--- | :--- |
+| **Appairage initial OAuth2 & Renouvellement périodique du jeton `XSTS`** | `login.live.com`, `user.auth.xboxlive.com`, `xsts.auth.xboxlive.com` | Le plugin ne bloque pas et bascule automatiquement en mode **`100% Local LAN (Hors-ligne)`** jusqu'au retour d'Internet. |
+| **Découverte Cloud des consoles éteintes** (Modèle exact, n° de série, version OS) | `xccs.xboxlive.com/lists/devices` | Remplacé par la découverte Broadcast UDP `5050` sur le LAN (pour les consoles allumées). |
+| **Extinction à distance (`Éteindre la console` / `TurnOff`) & Redémarrage (`Reboot`)** *(ainsi que l'extinction logicielle auto en fin de quota)* | `xccs.xboxlive.com/commands` | L'ordre d'extinction logicielle requiert le Cloud Xbox. *(Astuce 100 % locale : vous pouvez coupler l'état `status_code == 'limit_reached'` dans un scénario Jeedom avec une prise connectée locale Zigbee/Z-Wave après une alerte vocale).* |
+| **Nom du jeu actif en direct (*Presence*)** | `userpresence.xboxlive.com` | Affiche *« Session locale active »* (ou le dernier jeu en cache) tout en continuant de décompter le temps joué via le ping local `UDP 5050`. |
+| **Actualisation du catalogue de jeux, des jaquettes officielles & du profil Gamertag** | `titlehub.xboxlive.com`, `profile.xboxlive.com` & CDN `images-eds-ssl.xboxlive.com` | Conserve et affiche le dernier catalogue de jeux et profil Gamertag mis en cache localement. |
+
+---
+
 ## Appairage Rapide OAuth2 Microsoft / Xbox (3 étapes)
 
 1. Sur votre console Xbox (*Paramètres $\to$ Appareils et connexions $\to$ Fonctionnalités à distance*), vérifiez que l'option **« Activer les fonctionnalités à distance »** est cochée et que le mode d'alimentation est sur **Veille (Instant-On)** si vous souhaitez pouvoir l'allumer à distance.
 2. Dans Jeedom (*Plugins $\to$ Multimédia $\to$ Alt Contrôle Parental (Xbox)*), cliquez sur **Assistant Compte Microsoft / Xbox**.
 3. Cliquez sur **« 1. Générer & Ouvrir la page de connexion Microsoft / Xbox »** et connectez-vous sur `login.live.com` avec votre compte Microsoft associé à la console.
 4. Une fois redirigé sur la page blanche finale, **copiez l'URL complète de la barre d'adresse** (`https://login.live.com/oauth20_desktop.srf?code=M...`), collez-la dans l'Étape 2 de Jeedom et cliquez sur **« 2. Valider & Découvrir mes Consoles Xbox Series X|S / Xbox One »** : toutes vos consoles sont automatiquement créées et synchronisées dans Jeedom !
+5. *(Recommandé pour le mode Hybride / 100 % Local LAN)* : Indiquez l'**Adresse IP locale** fixe de votre Xbox dans l'onglet *Équipement* (ou laissez la découverte locale UDP `5050` la remplir automatiquement lorsque la console est allumée).
 
 ---
 

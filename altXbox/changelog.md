@@ -5,6 +5,19 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.2] - 2026-10-28
+
+### Ajouté
+- **Mode Fallback 100 % Local LAN (SmartGlass UDP `5050`) sans coupure en cas d'indisponibilité d'Internet** :
+  - Décodage binaire complet du paquet *SmartGlass Discovery Response (`0xDD01`)* sur le port `UDP 5050` permettant d'extraire en 100 % local le **nom de la console**, son **adresse IP** et son **`Live Device ID` (`FD00...` / `F400...`)** sans aucune requête Cloud.
+  - Découverte automatique par **Broadcast LAN (`255.255.255.255:5050`)** des consoles Xbox allumées sur le réseau local même sans connexion Internet.
+  - Bascule transparente du worker Python en mode `100% Local LAN (Hors-ligne)` lorsque Internet ou les serveurs Xbox Live sont injoignables : la détection d'état d'allumage, l'allumage local (`Wake` UDP `0xDD02`), la comptabilisation du temps joué, l'historique mensuel, les quotas, les temps bonus, le verrouillage et l'heure du coucher continuent de fonctionner en 100 % local.
+  - Mise en cache locale automatique du catalogue de jeux et des profils Gamertag pour conserver l'affichage complet du widget hors-ligne.
+  - Ajout des commandes d'information `Joignable en local (UDP 5050)` (`local_reachable`) et `Mode de communication` (`connection_mode`).
+- **Documentation** : Ajout d'une section détaillée dans le `README.md` précisant l'architecture Hybride et distinguant chaque fonctionnalité **100 % Locale (LAN)** de celles **dépendantes d'Internet (Cloud)**.
+
+---
+
 ## [0.1.0-beta.1] - 2026-10-28
 
 ### Ajouté
