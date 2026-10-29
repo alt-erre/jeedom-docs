@@ -5,6 +5,20 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.7] — 2026-10-29
+
+### Amélioré & Corrigé
+- **Correction de l'onglet `🖼️ Studio Frame` sur le téléviseur (`desktop/js/kiosk.js`)** :
+  - Correction de l'erreur `ReferenceError: Can't find variable: p` dans `buildFrameStudioView()` qui empêchait l'affichage du Studio Frame et du configurateur de vues/pièces/widgets sur le téléviseur.
+- **Épuration visuelle des cartes ouvertes (Modales 10-Foot) sur le Dashboard TV (`desktop/js/kiosk.js`)** :
+  - Suppression de la rangée de puces `🔑 Code PIN par commande` et du bouton PIN dans le pied de page des modales d'équipement sur le téléviseur (la configuration fine du PIN par équipement, commande et scénario restant centralisée dans le Back-Office Jeedom). Le pied de modale conserve uniquement les deux actions rapides essentielles : **`⭐ Épingler sur l'Accueil`** et **`🚫 Masquer ce widget`**.
+- **Accélération drastique de l'exécution des commandes et du retour d'état sur les grandes installations Jeedom (`200+` équipements) (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/js/kiosk.js`)** :
+  - **Cache mémoire $O(1)$ des commandes Jeedom (`preloadAllEqCmds`)** : préchargement groupé en une seule requête SQL (`cmd::all()`) au lieu de ~3 000 requêtes SQL individuelles `$eq->getCmd()` lors de la construction du payload sur une installation de plus de 220 équipements, et court-circuitage des équipements masqués avant normalisation.
+  - **Retour visuel optimiste instantané (`0 ms`)** : mise à jour immédiate de la carte, de la modale ouverte et des compteurs de synthèse d'en-tête (`💡 Lumières`, `🪟 Volets`, pièces) dès l'appui sur `OK`, sans attendre l'aller-retour réseau.
+  - **Réponse AJAX ciblée ultra-rapide (`buildFastCommandUpdatePayload` / `getFastEqState`, `< 15 ms`)** : `execKioskCmd` ne reconstruit plus l'intégralité des 220+ équipements de la maison de façon synchrone mais rafraîchit uniquement l'équipement ciblé, suivi d'une confirmation d'état matériel asynchrone à `380 ms` et `1 100 ms` ainsi que du maintien du polling temps réel même lorsqu'une carte d'équipement est ouverte.
+
+---
+
 ## [0.1.0-beta.6] — 2026-10-29
 
 ### Ajouté
