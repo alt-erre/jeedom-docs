@@ -5,6 +5,22 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.3] — 2026-10-29
+
+### Amélioré & Corrigé
+- **Pont Télécommande Tizen — Conversion du pointeur virtuel *Samsung Internet* en vrai D-Pad (`desktop/js/kiosk.js`, `desktop/css/kiosk.css`, `core/php/kiosk.php`)** :
+  - Dans le navigateur natif *Samsung Internet* (`org.tizen.browser`) des téléviseurs Samsung *The Frame*, les flèches physiques de la télécommande déplacent par défaut un pointeur souris virtuel au lieu d'émettre des touches clavier `ArrowUp/Down/Left/Right`.
+  - Ajout du **Piège à Curseur D-Pad (`dpadCursorTrap`, actif par défaut)** : dès la première impulsion directionnelle (`5 px`) de la télécommande, le focus `.is-focused` saute instantanément d'une carte à la suivante sans avoir à déplacer le pointeur jusqu'à la cible.
+  - Ajout d'une **arène de défilement invisible (`20000×20000 px`, `#altKioskScrollArena`)** centrée automatiquement afin de continuer à capter les appuis directionnels (`▲▼◀▶`) même lorsque le pointeur virtuel du navigateur Tizen arrive en butée contre l'un des 4 bords de l'écran TV.
+  - **Routage intelligent du bouton `OK` de la télécommande** : un appui sur `OK` déclenche toujours l'élément actuellement en surbrillance (`.is-focused`), quelle que soit la position où stationne le pointeur virtuel à l'écran.
+  - **Interception du bouton physique `Retour` (`↩`) de la télécommande (`popstate`)** pour fermer une modale ou revenir à la barre de navigation latérale sans quitter la page Kiosk.
+  - Ajout d'un bouton **`🎮 Télécommande D-Pad` $\leftrightarrow$ `🖱️ Mode Pointeur`** dans l'en-tête pour basculer librement si le dashboard est ouvert sur un PC avec souris.
+- **Navigation 10-Foot simplifiée (`1 Carte = 1 Saut D-Pad`) & Modale de Contrôle TV Grand Format** :
+  - Suppression des mini-boutons intermédiaires focusables dans la grille principale : chaque carte d'équipement représente désormais **un seul arrêt D-Pad** pour traverser l'écran en un minimum de clics.
+  - Appuyer sur **`OK`** sur une carte ouvre une **Modale de Contrôle TV Grand Format** dotée de larges boutons 10-Foot (action principale pré-sélectionnée pour qu'un double `OK` bascule immédiatement l'état, paliers directs `0 % / 25 % / 50 % / 75 % / 100 %`, commandes `Ouvrir / Stop / Fermer / Favori`, consignes thermostat, couleurs et scènes).
+
+---
+
 ## [0.1.0-beta.2] — 2026-10-29
 
 ### Corrigé
