@@ -2,6 +2,12 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.6] — 2026-10-29 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Résolution du nom, de la classe et de l'établissement de l'enfant sur les comptes Parent (`ParentClient`)** :
+  - Correction dans `extract_account_overview()` (`resources/altPronote_worker.py`) et `applyPronoteSyncResult()` / `toHtml()` (`core/class/altPronote.class.php`) : sur un compte **Parent** PRONOTE (`ParentClient`), `client.info.name` retourne l'identité du parent titulaire du compte tandis que l'élève suivi est stocké dans `client._selected_child` / `selected_child` (`children`). Le plugin extrait et affiche désormais systématiquement le **nom de l'enfant**, sa **classe** et son **établissement** (et non le nom du parent) dans la commande `student_name`, le widget et le Kiosk TV (`altTvDashboard`).
+
 ## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
 
 ### Amélioré

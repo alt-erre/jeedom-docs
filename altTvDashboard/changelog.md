@@ -5,6 +5,19 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.4] — 2026-10-29
+
+### Amélioré & Corrigé
+- **Cartes Vie Scolaire (`altPronote` / `altEducartable`) — Affichage du prénom/nom de l'enfant & Modale Scolaire Complète 10-Foot (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`)** :
+  - **Résolution prioritaire du nom de l'enfant** : sur les comptes **Parent** PRONOTE, le Kiosk privilégie désormais systématiquement l'enfant suivi (`childName` / `childrenListJson` / correspondance avec le nom de l'équipement Jeedom) afin de ne plus jamais afficher le nom du parent titulaire du compte.
+  - **Enrichissement des cartes Pronote / Educartable** : affichage direct de la classe, de l'établissement, de la moyenne générale (`/20`), de la dernière note, des horaires de début/fin de journée (`08:00 → 16:30`), de l'aperçu des cours du jour et des prochains devoirs.
+  - **Nouvelle Modale Vie Scolaire Grand Écran (`renderSchoolModal`, `980 px`) à l'appui sur `OK`** :
+    - Bandeau de 4 indicateurs synthétiques (*Horaires & cours annulés*, *Devoirs à faire/faits*, *Moyenne élève/classe & dernière note*, *Assiduité & Vie scolaire*).
+    - **5 onglets navigables à la télécommande TV (`▲▼◀▶` + `OK`)** : *Vue d'ensemble*, *Emploi du temps (Aujourd'hui & Demain)*, *Devoirs interactifs* (cocher/décocher un devoir comme fait directement avec `OK`), *Notes & Moyennes par matière*, et *Cantine & Vie scolaire* (menus du jour et du lendemain, absences, retards, punitions, informations établissement et carnet de liaison).
+    - Bouton **`🔄 Actualiser`** intégré pour déclencher une synchronisation immédiate avec Pronote / Educartable depuis le téléviseur.
+
+---
+
 ## [0.1.0-beta.3] — 2026-10-29
 
 ### Amélioré & Corrigé
