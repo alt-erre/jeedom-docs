@@ -5,6 +5,22 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.8] — 2026-10-29
+
+### Ajouté & Amélioré
+- **Moteur Universel de Widgets Kiosk par Défaut (par Lot) — Extraction automatique de toutes les commandes visibles (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`)** :
+  - Correction des cartes d'équipements génériques ou sondes/chauffages qui s'affichaient sans aucune commande lorsque leurs actions ne portaient pas les noms standards `on/off` ou `up/down` : `enrichDescriptorWithVisibleCmds()` inspecte désormais automatiquement toutes les commandes visibles (`isVisible == 1`) de chaque équipement :
+    - **Commandes `action / other`** : génèrent automatiquement de grands boutons 10-Foot (`.kiosk-modal-big-btn`) dans la modale ouverte (avec détection de l'état actif via la commande `info` liée `getValue()`) ainsi qu'une pilule d'aperçu des actions en bas de la carte.
+    - **Commandes `action / slider`** : génèrent automatiquement des barres de réglage par paliers rapides 10-Foot (`-`, `+`, paliers `0 % / 25 % / 50 % / 75 % / 100 %` ou consignes `°C`) avec lecture automatique de l'unité et des bornes `minValue`/`maxValue`.
+    - **Commandes `action / select`** : lisent automatiquement la configuration `listValue` (`valeur|libellé;...`) pour afficher des rangées de puces sélectionnables à la télécommande (`.kiosk-chip`) avec mise en surbrillance de l'option active (idéal pour les modes Fil Pilote *Confort / Éco / Hors-Gel / Arrêt*, programmes, sources…).
+    - **Commandes `action / color`** : affichent la palette de couleurs rapide 10-Foot.
+    - **Commande `refresh`** : ajoute un bouton **`🔄 Actualiser`** dans l'en-tête de la modale.
+    - **Commandes `info` visibles (`kpis`)** : affichées sous forme de pastilles synthétiques sur la carte et dans une grille dédiée **« Informations & Mesures » (`.kiosk-kpi-grid`)** dans la modale.
+- **Système de Délégation de Widgets Kiosk aux Plugins (`getKioskWidgetData`) & Charte de Compatibilité Kiosk TV (`core/class/altTvDashboard.class.php`, `_charte_graphique/CHARTE_COMPATIBILITE_KIOSK_TV.md`)** :
+  - Tout plugin `alt*` (ou tiers) peut désormais implémenter la méthode publique `$eqLogic->getKioskWidgetData(array $kioskContext)` sur sa classe `eqLogic` pour fournir son propre descripteur de carte et de modale 10-Foot (`action_buttons`, `sliders`, `selects`, `kpis`, `custom_modal_html`) tout en bénéficiant nativement de la navigation télécommande D-Pad, du piège à curseur Tizen, du code PIN et des 9 thèmes *Dark Glass*.
+
+---
+
 ## [0.1.0-beta.7] — 2026-10-29
 
 ### Amélioré & Corrigé

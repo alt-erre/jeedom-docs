@@ -64,10 +64,22 @@ Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous po
   - Cliquez sur **`⭐ Accueil`** en face d'un équipement pour l'épingler dans la section **« Mes Widgets Épinglés sur l'Accueil »** en haut de la vue *Accueil*.
   - Cliquez sur **`🔒 PIN`** pour activer/désactiver la demande de code PIN à 4 chiffres sur un **équipement entier** ou un **scénario**, ou cliquez sur **`🔑 N`** pour déplier toutes les commandes d'action de l'équipement et choisir **commande par commande** lesquelles exigent le code PIN.
 - **Directement sur le Téléviseur avec la télécommande** :
-  - Ouvrez n'importe quelle carte avec **`OK`** puis utilisez les boutons **`⭐ Épingler sur l'Accueil`**, **`🔒 Exiger le code PIN`**, les puces **`🔑 Code PIN par commande`** ou **`🚫 Masquer ce widget`** situés en bas de la modale (toute modification des règles PIN depuis la TV requiert la saisie du code PIN actuel).
+  - Ouvrez n'importe quelle carte avec **`OK`** puis utilisez les boutons **`⭐ Épingler sur l'Accueil`** ou **`🚫 Masquer ce widget`** situés en bas de la modale.
   - Rendez-vous dans la vue **`🖼️ Studio & Réglages`** du téléviseur pour afficher ou masquer à la volée n'importe quel onglet, pièce ou widget, ou protéger un scénario par code PIN.
 
-### 6. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
+### 6. Architecture de Widgets Kiosk à 2 Niveaux (Lots par Défaut & Widgets Spécialisés par Plugin)
+Le Kiosk TV fonctionne selon une architecture **10-Foot UI** à deux niveaux :
+1. **Niveau 1 — Widgets Kiosk par Défaut (par Lot / Catégorie)** :
+   - Pour tout équipement Jeedom (plugin tiers, Virtuel, Zigbee, Z-Wave, MQTT, Fil Pilote…), `altTvDashboard` inspecte automatiquement **toutes les commandes visibles (`isVisible == 1`)** de l'équipement :
+     - **`action / other`** $\rightarrow$ grands boutons d'action 10-Foot dans la modale (et aperçu sur la carte).
+     - **`action / slider`** $\rightarrow$ jauge sur la carte et barre de paliers rapides (`-`, `+`, `0 % / 25 % / 50 % / 75 % / 100 %` ou `°C`) dans la modale.
+     - **`action / select`** $\rightarrow$ rangées de puces sélectionnables à la télécommande générées depuis `listValue`.
+     - **`action / color`** $\rightarrow$ palette de couleurs rapide.
+     - **`info` visibles** $\rightarrow$ pastilles d'indicateurs sur la carte et grille **« Informations & Mesures »** dans la modale.
+2. **Niveau 2 — Widgets Kiosk Spécialisés fournis par les Plugins (`getKioskWidgetData()`)** :
+   - Tout plugin respectant la *Charte de Compatibilité Kiosk TV* peut implémenter la méthode publique `$eqLogic->getKioskWidgetData(array $kioskContext)` afin de fournir ses propres contrôles métier, indicateurs ou vues modales 10-Foot sur-mesure tout en bénéficiant nativement de la navigation télécommande D-Pad, du code PIN et des 9 thèmes *Dark Glass*.
+
+### 7. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
 - **Mode Veille Galerie (Ambient Screensaver)** : après $N$ minutes d'inactivité de la télécommande (ou sur appui du bouton *Galerie*), le dashboard laisse place à l'œuvre d'art en plein écran dans son passe-partout, accompagnée d'une horloge typographique fine, de la météo et du titre musical en écoute (avec *pixel-shift* anti-marquage). Un simple appui sur la télécommande réveille le dashboard.
 - **Notifications Toast / Caméra PiP** : envoyez depuis n'importe quel scénario Jeedom une alerte visuelle sur l'écran de la TV (avec possibilité d'inclure l'aperçu d'une caméra `altArlo`, ex : `Mouvement portail | arlo=14 | level=alert`).
 
