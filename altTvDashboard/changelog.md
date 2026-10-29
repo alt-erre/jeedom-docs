@@ -5,6 +5,17 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.10] — 2026-10-29
+
+### Corrigé
+- **Élimination du crénelage typographique global sur tout l'écran (`desktop/css/kiosk.css`, `desktop/js/kiosk.js`)** :
+  - **Suppression de la surface géante `20000×20000px` (`.kiosk-scroll-arena`)** : remplacée par une micro-marge invisible de `+80px` (`calc(100vw + 80px) × calc(100vh + 80px)`, centrée sur `(40, 40)`), évitant que le compositeur GPU (Chromium / WebKit / Samsung Internet) ne réduise l'échelle de rastérisation de la page (`low_res_raster_scale_factor`) pour économiser la mémoire vidéo.
+  - **Héritage typographique sur `<button>`, `<input>`, `<select>` et pile de polices multi-OS complète** : ajout de `button, input, select, textarea { font-family: inherit; ... }` (les dizaines de boutons `.kiosk-nav-btn`, `.kiosk-summary-pill`, `.kiosk-chip`, `.alt-pill-btn` n'héritaient pas de `font-family` et utilisaient la police système brute des contrôles navigateur) et enrichissement de la pile avec `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "SamsungOne", "Noto Sans", "Helvetica Neue", Arial, sans-serif`.
+  - **Lissage sous-pixel adaptatif selon la densité de l'écran (`1x` vs `HiDPI 2x`)** : utilisation de `-webkit-font-smoothing: subpixel-antialiased; text-rendering: optimizeLegibility;` sur les écrans `1x` (Smart TV 1080p/4K à viewport `1920×1080` et moniteurs standards) où le mode `antialiased` en niveaux de gris amincissait et crénelait les petits textes blancs sur fond sombre, tout en conservant `antialiased` uniquement sous `@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx)`.
+  - **Suppression des calques `backdrop-filter: blur(18px)` sur `.kiosk-header` et `.kiosk-nav` et ancrage entier `(0,0)` en rotation Portrait** : évite la création de textures GPU RGBA hors-écran (qui désactivent le lissage sous-pixel du texte) et tout décalage de `0,5 px` lié à `top: 50%; left: 50%; transform: translate(-50%, -50%)`.
+
+---
+
 ## [0.1.0-beta.9] — 2026-10-29
 
 ### Corrigé
