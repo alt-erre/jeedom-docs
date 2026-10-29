@@ -37,9 +37,19 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
 5. **🎵 Audio, TV & Home-Cinéma** : Pilotage `altSonos`, `altCambridgeAudio`, `altDenon`, `altAirMedia`, `altSamsungTv`, `altJvcProjector` avec respect strict du plafond de volume dynamique (`volume_max`).
 6. **👨‍👩‍👧‍👦 Famille, École & Gaming** : Emploi du temps, devoirs et cantine `altPronote` & `altEducartable` + jauges de temps d'écran `altSwitch`, `altPlaystation` et `altXbox` avec boutons rapides `+15 min`, `+30 min`, `Illimité` et `Bloquer`.
 7. **✨ Scénarios & Modes** : Lancement direct des scénarios Jeedom classés par groupe.
-8. **🖼️ Studio The Frame & Personnalisation** : Changement d'œuvre *The Frame*, rotation du support motorisé, choix du **Passe-partout (*Matte*)** (*Aucun*, *Polaire*, *Blanc Chaud*, *Abricot*, *Sable*, *Sauge*, *Bleu Marine*, *Noir Galerie*) et des **9 thèmes `alt-erre`**.
+8. **🖼️ Studio The Frame & Personnalisation** : Changement d'œuvre *The Frame*, rotation du support motorisé, choix du **Passe-partout (*Matte*)** (*Aucun*, *Polaire*, *Blanc Chaud*, *Abricot*, *Sable*, *Sauge*, *Bleu Marine*, *Noir Galerie*), des **9 thèmes `alt-erre`**, et **activation/masquage direct des vues, pièces et widgets à la télécommande**.
 
-### 4. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
+### 4. Configuration des Widgets, Pièces, Vues & Favoris visibles par Téléviseur
+Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous pouvez ainsi afficher tous les équipements sur le téléviseur du Salon et uniquement ceux d'une chambre ou de la cuisine sur un second écran) :
+- **Depuis le Back-Office Jeedom** (*Onglet `🎛️ Widgets, Pièces & Scénarios visibles`*) :
+  - Cochez/décochez les **onglets de navigation**, les **pièces (objets Jeedom)**, les **widgets** (`alt*` et génériques Jeedom, avec recherche et filtre par catégorie) et les **scénarios** à afficher.
+  - Possibilité de forcer l'affichage sur la TV d'un équipement masqué sur le Dashboard web Jeedom, ou inversement de masquer un équipement spécifique.
+  - Cliquez sur **`⭐ Accueil`** en face d'un équipement pour l'épingler dans la section **« Mes Widgets Épinglés sur l'Accueil »** en haut de la vue *Accueil*.
+- **Directement sur le Téléviseur avec la télécommande** :
+  - Ouvrez n'importe quelle carte avec **`OK`** puis utilisez les boutons **`⭐ Épingler sur l'Accueil`** ou **`🚫 Masquer ce widget du Dashboard`** situés en bas de la modale.
+  - Rendez-vous dans la vue **`🖼️ Studio & Réglages`** du téléviseur pour afficher ou masquer à la volée n'importe quel onglet, pièce ou widget.
+
+### 5. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
 - **Mode Veille Galerie (Ambient Screensaver)** : après $N$ minutes d'inactivité de la télécommande (ou sur appui du bouton *Galerie*), le dashboard laisse place à l'œuvre d'art en plein écran dans son passe-partout, accompagnée d'une horloge typographique fine, de la météo et du titre musical en écoute (avec *pixel-shift* anti-marquage). Un simple appui sur la télécommande réveille le dashboard.
 - **Notifications Toast / Caméra PiP** : envoyez depuis n'importe quel scénario Jeedom une alerte visuelle sur l'écran de la TV (avec possibilité d'inclure l'aperçu d'une caméra `altArlo`, ex : `Mouvement portail | arlo=14 | level=alert`).
 

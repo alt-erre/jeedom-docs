@@ -5,6 +5,22 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.5] — 2026-10-29
+
+### Ajouté
+- **Configuration fine des Widgets, Pièces, Scénarios & Vues visibles par Téléviseur (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`, `desktop/js/kiosk.js`)** :
+  - **Nouvel onglet Back-Office Jeedom `🎛️ Widgets, Pièces & Scénarios visibles`** (indépendant pour chaque équipement Kiosk TV, permettant par exemple d'afficher un tableau de bord différent au Salon, dans la Cuisine ou dans la Chambre) :
+    - **Onglets / Vues de la barre de navigation** : possibilité d'afficher ou masquer individuellement chaque vue (*Pièces*, *Éclairages*, *Volets & Accès*, *Climat & Énergie*, *Multimédia*, *Sécurité & Caméras*, *Famille & Maison*, *Scénarios*).
+    - **Pièces (Objets Jeedom)** : sélection en 1 clic des pièces à afficher sur ce téléviseur.
+    - **Équipements & Widgets (`alt*` et génériques Jeedom)** : liste complète groupée par pièce avec recherche instantanée, filtre par catégorie, compteur de widgets actifs, boutons d'action rapide (*Tout afficher*, *Tout masquer*, *Réinitialiser par défaut*), case **`👁️ Visible`** pour afficher/masquer chaque widget (y compris la possibilité de forcer l'affichage sur la TV d'un équipement masqué sur le Dashboard web Jeedom), et bouton **`⭐ Accueil`** pour épingler ses widgets favoris en tête de la vue *Accueil*.
+    - **Scénarios Jeedom** : sélection individuelle des scénarios affichés sur le téléviseur.
+  - **Configuration directe sur le Téléviseur à la télécommande (10-Foot UI)** :
+    - **Dans chaque modale d'équipement (appui sur `OK` sur une carte)** : barre de personnalisation rapide en bas de la modale permettant d'**`⭐ Épingler sur l'Accueil`** ou de **`🚫 Masquer ce widget du Dashboard`** directement avec la télécommande TV.
+    - **Dans la vue `🖼️ Studio & Réglages` sur le téléviseur** : nouvelle section **« Personnalisation des Vues, Pièces & Widgets affichés »** permettant de réafficher ou masquer à tout moment n'importe quel onglet, pièce ou widget d'un simple appui sur `OK`.
+  - **Nouvelle section `⭐ Mes Widgets Épinglés sur l'Accueil`** en haut de la vue *Accueil* lorsqu'au moins un widget est marqué en favori.
+
+---
+
 ## [0.1.0-beta.4] — 2026-10-29
 
 ### Amélioré & Corrigé
