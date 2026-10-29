@@ -39,7 +39,24 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
 7. **✨ Scénarios & Modes** : Lancement direct des scénarios Jeedom classés par groupe.
 8. **🖼️ Studio The Frame & Personnalisation** : Changement d'œuvre *The Frame*, rotation du support motorisé, choix du **Passe-partout (*Matte*)** (*Aucun*, *Polaire*, *Blanc Chaud*, *Abricot*, *Sable*, *Sauge*, *Bleu Marine*, *Noir Galerie*), des **9 thèmes `alt-erre`**, et **activation/masquage direct des vues, pièces et widgets à la télécommande**.
 
-### 4. Configuration des Widgets, Pièces, Vues & Favoris visibles par Téléviseur
+### 4. Organisation automatique de la vue « 🏠 Accueil » (Hub Maison)
+La vue **`🏠 Accueil`** est construite dynamiquement selon **6 blocs successifs**, de haut en bas, en ne prenant que parmi les équipements marqués comme **Visibles (`👁️`)** sur ce téléviseur :
+1. **En-tête & Barre « Actions rapides de la maison »** :
+   - **Tout en haut** : Horloge grand format, météo intérieure/extérieure (première sonde de température intérieure et extérieure détectée) et pilules de synthèse interactives (*Lumières allumées*, *Volets ouverts*, *État de l'alarme/serrures*, *Mode Télécommande D-Pad / Pointeur*, *Bascule Paysage/Portrait*).
+   - **Barre d'actions rapides** : 5 boutons globaux (*Tout éteindre*, *Ambiance Soirée 35 %*, *Ouvrir tous les volets*, *Volets Mi-Hauteur 50 %*, *Fermer tous les volets*).
+2. **Bandeau « Hero » (Média en cours + Caméra principale)** :
+   - **À gauche (`active_media`)** : le premier équipement audio/vidéo (`altSonos`, `altDenon`, `altCambridgeAudio`, `altAirMedia`, `altSamsungTv`, `altJvcProjector`) actuellement **en cours de lecture (`is_playing = true`)**, ou à défaut le premier équipement multimédia **allumé (`is_on = true`)**.
+   - **À droite (`cameras[0]`)** : la **première caméra `altArlo`** visible détectée.
+3. **Section « ⭐ Mes Widgets Épinglés sur l'Accueil » *(Vos favoris)*** :
+   - Affiche tous les widgets sur lesquels l'étoile **`⭐`** a été activée (depuis le Back-Office Jeedom ou via le bouton *« ⭐ Épingler sur l'Accueil »* dans la modale d'un équipement sur la TV). Si aucun widget n'est épinglé, cette section est masquée.
+4. **Section « 🔥 Équipements actifs & Sécurité » *(jusqu'à 8 cartes)*** :
+   - Sélectionne automatiquement les équipements demandant une attention immédiate : **lumières actuellement allumées** (`is_on = true`), **appareils ménagers / robots / imprimantes 3D en cycle** (`altRoborock`, `altSiemens`, `altBambuLab` avec `is_on = true`), ainsi que les **serrures `altNuki`**, l'**alarme `altTydom`** et le **SmartHub `altArlo`**.
+5. **Section « 🎛️ Équipements de la maison » *(jusqu'à 12 cartes)*** :
+   - Affiche les autres équipements visibles de la maison (volets, thermostats, lumières éteintes, etc.) qui ne figurent pas déjà dans la section *« Équipements actifs »*, afin que l'Accueil reste directement utilisable même lorsque tout est éteint.
+6. **Section « 👨‍👩‍👧‍👦 Vie Scolaire & Temps d'écran » *(jusqu'à 6 cartes)*** :
+   - Affiche les cartes **Pronote (`altPronote`)**, **Educartable (`altEducartable`)** et les consoles **Switch / PlayStation / Xbox (`altSwitch`, `altPlaystation`, `altXbox`)**.
+
+### 5. Configuration des Widgets, Pièces, Vues, Favoris & Code PIN par Téléviseur
 Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous pouvez ainsi afficher tous les équipements sur le téléviseur du Salon et uniquement ceux d'une chambre ou de la cuisine sur un second écran) :
 - **Depuis le Back-Office Jeedom** (*Onglet `🎛️ Widgets, Pièces & Scénarios visibles`*) :
   - Cochez/décochez les **onglets de navigation**, les **pièces (objets Jeedom)**, les **widgets** (`alt*` et génériques Jeedom, avec recherche et filtre par catégorie) et les **scénarios** à afficher.
@@ -50,7 +67,7 @@ Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous po
   - Ouvrez n'importe quelle carte avec **`OK`** puis utilisez les boutons **`⭐ Épingler sur l'Accueil`**, **`🔒 Exiger le code PIN`**, les puces **`🔑 Code PIN par commande`** ou **`🚫 Masquer ce widget`** situés en bas de la modale (toute modification des règles PIN depuis la TV requiert la saisie du code PIN actuel).
   - Rendez-vous dans la vue **`🖼️ Studio & Réglages`** du téléviseur pour afficher ou masquer à la volée n'importe quel onglet, pièce ou widget, ou protéger un scénario par code PIN.
 
-### 5. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
+### 6. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
 - **Mode Veille Galerie (Ambient Screensaver)** : après $N$ minutes d'inactivité de la télécommande (ou sur appui du bouton *Galerie*), le dashboard laisse place à l'œuvre d'art en plein écran dans son passe-partout, accompagnée d'une horloge typographique fine, de la météo et du titre musical en écoute (avec *pixel-shift* anti-marquage). Un simple appui sur la télécommande réveille le dashboard.
 - **Notifications Toast / Caméra PiP** : envoyez depuis n'importe quel scénario Jeedom une alerte visuelle sur l'écran de la TV (avec possibilité d'inclure l'aperçu d'une caméra `altArlo`, ex : `Mouvement portail | arlo=14 | level=alert`).
 
