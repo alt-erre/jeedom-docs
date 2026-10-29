@@ -5,6 +5,17 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.6] — 2026-10-29
+
+### Ajouté
+- **Protection par Code PIN à 4 chiffres entièrement personnalisable par Équipement, par Commande et par Scénario (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`, `desktop/js/kiosk.js`)** :
+  - **Niveau Équipement (`pinRequiredEqIds` / `pinExemptEqIds`)** : possibilité d'exiger le code PIN sur toutes les actions de n'importe quel équipement (ex. portail, porte de garage, chauffage, appareil multimédia) ou inversement de désactiver le code PIN par défaut sur un équipement (ex. serrure `altNuki` ou console `altSwitch` / `altPlaystation` / `altXbox`).
+  - **Niveau Commande individuelle (`pinRequiredCmdIds` / `pinExemptCmdIds`)** : bouton **`🔑 Commandes`** sur chaque ligne d'équipement dans le Back-Office (ainsi qu'en bas de chaque modale d'équipement sur le téléviseur) permettant d'activer (`🔒`) ou de désactiver (`🔓`) le code PIN **commande par commande** (ex. protéger uniquement la commande *Ouvrir* d'un portail tout en laissant *Fermer* libre).
+  - **Niveau Scénario (`pinRequiredScenarioIds`)** : bouton **`🔒 PIN`** en face de chaque scénario (dans le Back-Office et dans la vue *Studio & Réglages* de la TV) permettant d'exiger la saisie du code PIN à la télécommande avant l'exécution du scénario.
+  - **Sécurité anti-contournement sur la TV** : toute modification des règles de protection PIN depuis l'interface du téléviseur exige la saisie préalable du code PIN Kiosk actif.
+
+---
+
 ## [0.1.0-beta.5] — 2026-10-29
 
 ### Ajouté
