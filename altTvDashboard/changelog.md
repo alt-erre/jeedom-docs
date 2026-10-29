@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.9] — 2026-10-29
+
+### Corrigé
+- **Netteté 100 % des cartes en surbrillance (`.is-focused`) (`desktop/css/kiosk.css`)** :
+  - Suppression du `transform: translateY(-2px) scale(1.018)` et du `backdrop-filter: blur(14px)` sur `.alt-kcard` / `.is-focused` qui forçaient le compositeur GPU du navigateur (WebKit / Chromium / Tizen) à étirer une texture bitmap de `1,8 %` en sous-pixels et rendaient le texte et les icônes de la carte sélectionnée flous. La surbrillance utilise désormais uniquement l'anneau lumineux `box-shadow` et l'élévation de contraste `background` à l'échelle exacte `1:1`.
+
+---
+
 ## [0.1.0-beta.8] — 2026-10-29
 
 ### Ajouté & Amélioré
