@@ -5,6 +5,17 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.2] — 2026-10-29
+
+### Corrigé
+- **Rendu du Kiosk sur navigateur TV Tizen / Smart TV (`core/php/kiosk.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`, `core/class/altTvDashboard.class.php`)** :
+  - Sécurisation complète de l'encodage JSON initial (`safeJsonEncode` avec nettoyage UTF-8 récursif, filtrage `NAN`/`INF`, échappement `JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT` et balise `<script id="altKioskInitData" type="application/json">`) empêchant toute coupure de bloc `<script>` ou erreur de syntaxe JS sur le navigateur TV.
+  - Intégration directe (*inline*) de `kiosk.css` et `kiosk.js` dans `kiosk.php` pour éviter tout blocage `.htaccess` ou problème de cache sur Samsung Internet (Tizen).
+  - Remplacement de `fetch` / `URLSearchParams` / `closest` par `XMLHttpRequest` et parcours DOM natif compatibles avec toutes les générations de navigateurs Tizen.
+  - Enrichissement de la vue **Accueil** pour afficher également la grille des équipements principaux de la maison lorsqu'aucun éclairage n'est allumé, et élargissement de la détection automatique des équipements génériques Jeedom visibles.
+
+---
+
 ## [0.1.0-beta.1] — 2026-10-28
 
 ### Ajouté
