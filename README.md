@@ -13,7 +13,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.4` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.5` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.5` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |

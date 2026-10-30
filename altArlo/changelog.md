@@ -3,6 +3,14 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.5] - 2026-10-30
+
+### Corrigé
+- **Élimination des timeouts sur le callback interne vers Jeedom (`jeeAltArlo.php` / `altarlod.py`)** :
+  - Rafraîchissement différentiel des widgets (`$this->refreshWidget()`) et de l'état de batterie (`$this->batteryStatus()`) dans `applyDeviceProperties()` et `applyStationModeUpdate()`, déclenché uniquement lorsqu'une valeur a réellement changé (ou toutes les heures pour le suivi de batterie Jeedom), divisant par 20 le temps de traitement des lots SSE de 15+ caméras.
+  - Suppression des appels redondants à `$eqLogic->save()` et `$cmd->save()` dans `inventory_refresh` et `createOrUpdateCmd()` lorsque les définitions de modes et de commandes sont inchangées.
+  - Sérialisation asynchrone des callbacks dans `altarlod.py` (`_callback_lock`, timeout étendu à 45 s, contournement de proxy système et retry automatique en cas de pic de charge Apache/PHP).
+
 ## [0.1.0-beta.4] - 2026-10-30
 
 ### Corrigé
