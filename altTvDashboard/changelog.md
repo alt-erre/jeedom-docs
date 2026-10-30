@@ -5,6 +5,25 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.11] — 2026-10-30
+
+### Corrigé & Optimisé (Protection des Ressources CPU / RAM / Apache de la Box Jeedom)
+- **Suppression du blocage des workers Apache dans `core/php/mediaProxy.php` (Cause principale de saturation serveur sur la vue *Studio Frame*)** :
+  - `mediaProxy.php` n'appelle plus `$tvEq->ensureLocalThumbnail()` de manière synchrone et ne fait plus la boucle bloquante `10 × usleep(120000)` (`1,2 s` par vignette manquante) qui saturait les workers Apache (`mpm_prefork`) lorsque la galerie *Studio Frame* chargeait 25 vignettes simultanément.
+  - Ajout d'en-têtes `Cache-Control: private, max-age=3600` sur les miniatures JPEG servies et `Cache-Control: private, max-age=300` sur le placeholder SVG de secours afin que le navigateur de la TV les mette en cache localement au lieu de les redemander à chaque cycle.
+- **Suppression de `cmd::all()` (`preloadAllEqCmds`) et de `jeeObject::byId()` en boucle dans `buildKioskPayload()` (`core/class/altTvDashboard.class.php`)** :
+  - Suppression de l'appel global `cmd::all()` à chaque poll (qui hydratait en mémoire les 2 000 à 5 000 commandes de toute la base Jeedom, y compris les équipements désactivés) au profit du chargement paresseux par équipement actif `ensureEqCmdsLoaded($eq)`.
+  - Pré-indexation unique des pièces via `jeeObject::all()` au lieu d'exécuter `jeeObject::byId()` dans la boucle des équipements.
+  - Restriction de `enrichDescriptorWithVisibleCmds()` aux seuls équipements génériques Jeedom (`default:`) et aux widgets Kiosk délégués (`getKioskWidgetData()`), évitant de ré-exécuter `$cmd->execCmd()` sur toutes les commandes secondaires des plugins natifs `alt*` (ex. les dizaines de commandes `art_item_*` de `altSamsungTv`).
+- **Cache serveur court (`3 s`) de `buildKioskPayload()` avec invalidation immédiate sur action (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`)** :
+  - Mise en cache mémoire Jeedom (`altTvDashboard::payload::<id>`, TTL `3 s`) du payload Kiosk calculé : si plusieurs écrans (TV + navigateur PC) interrogent le Kiosk ou si un poll se rapproche, la réponse est servie en `< 0,5 ms` avec `0` requête SQL et `0` `execCmd()`.
+  - Toute action exécutée depuis le Kiosk (`execKioskCmd`, `execMasterAction`, `execScenario`, `updateKioskSetting`) invalide immédiatement ce cache (`invalidateKioskPayloadCache()`).
+- **Polling séquentiel anti-empilement (`pollInFlight`) et rendu DOM différentiel par signature dans `desktop/js/kiosk.js`** :
+  - Remplacement du `setInterval` aveugle par une boucle `setTimeout` séquentielle protégée par un verrou `state.pollInFlight` et un `xhr.timeout = 8000 ms` : aucune requête `getKioskState` ne peut plus s'empiler si la box Jeedom ou le Wi-Fi de la TV ralentit, et le polling se met automatiquement en pause lorsque l'onglet est en arrière-plan (`document.hidden`) ou ralentit à `12 s` en mode veille *Tableau d'Art*.
+  - Ajout d'une signature d'état légère (`computePayloadSignature(p)`) dans `applyPayload()` : tant qu'aucun état d'équipement, de pièce ou de configuration n'a changé depuis le poll précédent, `renderAll()` (**reconstruction complète du DOM et rechargement des 25 images du Studio Frame**) n'est plus appelé toutes les 3 secondes.
+
+---
+
 ## [0.1.0-beta.10] — 2026-10-29
 
 ### Corrigé
