@@ -19,10 +19,17 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
   - **`Play / Pause (⏯)`** : Lecture / Pause directe sur l'enceinte `altSonos` ou l'amplificateur actif.
   - **`CH+ / CH-`** : Passer instantanément à la vue suivante ou précédente.
 
-### 2. Adaptation Automatique Paysage (`16:9`) $\leftrightarrow$ Portrait (`9:16`) & Support Motorisé The Frame
-- **Double mise en page adaptative** :
-  - **Mode Paysage (`16:9`)** : En-tête panoramique (Horloge, Météo, Pilules de synthèse maison), barre de navigation latérale à gauche et grille Bento multi-colonnes à droite.
-  - **Mode Portrait (`9:16`)** : Disposition verticale type « Affiche / Totem d'Art » avec en-tête supérieur, barre d'onglets horizontale et grille verticale optimisée.
+### 2. Adaptation Automatique TV (`10-Foot UI`), iPhone Duo Déplié / Tablette (`2-Foot Dual-Pane UI`) & iPhone Duo Replié / Mobile (`1-Foot UI`)
+- **Architecture Multi-Posture intelligente (`data-posture="tv" | "duo" | "mobile"`)** :
+  - **Mode Téléviseur (`10-Foot UI`, Paysage `16:9` & Portrait `9:16`)** :
+    - **Paysage (`16:9`)** : En-tête panoramique (Horloge, Météo, Pilules de synthèse maison), barre de navigation latérale à gauche et grille Bento multi-colonnes à droite.
+    - **Portrait (`9:16`)** : Disposition verticale type « Affiche / Totem d'Art » avec en-tête supérieur, barre d'onglets horizontale et grille verticale optimisée.
+  - **Mode iPhone Duo Replié & Smartphone (`1-Foot UI` — `Right-Edge Thumb Rail`)** :
+    - **Rail de Navigation Vertical Droit au Pouce (`62px`)** : la barre des 8 vues se loge verticalement sur le bord droit de l'écran (sous l'arc naturel du pouce), laissant 100 % de la hauteur verticale à gauche pour les cartes d'équipements.
+    - **Action directe `1-Tap` & *Bottom Sheet*** : toucher l'**icône** d'une carte bascule immédiatement l'équipement (ON/OFF, Ouvrir/Fermer, Play/Pause), tandis que toucher le **corps de la carte** déploie un tiroir inférieur (*Bottom Sheet*) à portée du pouce.
+  - **Mode iPhone Duo Déplié & Tablette (`2-Foot UI` — Double-Volet *Master-Detail* + Rail Droit)** :
+    - **Grille symétrique *Hinge-Safe* à 2 Volets (`minmax(0, 1fr) minmax(0, 1fr) 68px`)** séparés par la gouttière de charnière `env(fold-width, 16px)` afin qu'aucune carte ne soit jamais coupée par le pli central.
+    - **Volet Gauche (*Master*) + Volet Droit (*Inspecteur / Compagnon Permanent*) + Rail Droit au Pouce** : le rail de navigation reste sur la tranche droite comme sur l'écran replié ; toucher une carte sur le volet gauche affiche instantanément tous ses contrôles détaillés (ou Pronote/Educartable/Caméra) dans le volet droit sans superposer de modale, et déplier l'appareil transfère automatiquement toute *Bottom Sheet* ouverte vers le volet droit.
 - **Rotation CSS `90°` forcée pour navigateur Tizen sur support motorisé (`VG-ARAB22WMT` / `VG-ARAB43STD`)** :
   - Lorsque votre téléviseur *The Frame* pivote physiquement en position verticale, si le navigateur intégré *Samsung Internet* conserve un tampon vidéo `1920×1080`, le mode **`Portrait Rotation -90° / +90° (Tizen)`** fait pivoter automatiquement toute l'interface plein écran en `9:16` **et remappe les 4 flèches `▲▼◀▶` de la télécommande** pour que la touche *Haut* monte toujours vers le haut du cadre !
   - Si un téléviseur `altSamsungTv` est associé à l'équipement, la bascule Paysage / Portrait suit automatiquement l'état du support motorisé et permet même de faire pivoter physiquement l'écran depuis l'onglet *Studio The Frame*.

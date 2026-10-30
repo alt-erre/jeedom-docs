@@ -5,6 +5,27 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.13] — 2026-10-30
+
+### Ajouté
+- **Architecture Multi-Posture Adaptative pour iPhone Duo (Replié `1-Foot UI` & Déplié `2-Foot Dual-Pane UI`), Tablette et Mobile (`core/php/kiosk.php`, `desktop/css/kiosk.css`, `desktop/js/kiosk.js`, `core/class/altTvDashboard.class.php`, `desktop/php/altTvDashboard.php`)** :
+  - **Détection automatique de la posture d'écran (`data-posture="tv" | "duo" | "mobile"`)** (et choix explicite dans la configuration Kiosk ou dans la vue *Studio & Réglages*) :
+    1. **Posture iPhone Duo Replié / Smartphone (`data-posture="mobile"`, `1-Foot UI`)** :
+       - **Rail de Navigation Vertical Droit au Pouce (`Right-Edge Thumb Rail`, `62px`)** : la barre des 8 vues est positionnée verticalement le long de la tranche droite de l'écran, directement sous l'arc naturel du pouce droit, libérant 100 % de la hauteur verticale à gauche pour les cartes d'équipements.
+       - **En-tête compact mono-ligne** avec pilules de synthèse défilables horizontalement au doigt et prise en charge des zones de sécurité `env(safe-area-inset-*)` (Dynamic Island & barre d'accueil iOS).
+       - **Modales en Tiroir Inférieur (*Bottom Sheet*)** : toucher le corps d'une carte ouvre ses réglages détaillés en tiroir glissant depuis le bas de l'écran (à portée immédiate du pouce), refermable en touchant l'arrière-plan flouté.
+    2. **Posture iPhone Duo Déplié / Tablette (`data-posture="duo"`, `2-Foot UI` Master-Detail à 2 Volets)** :
+       - **Disposition Double-Volet *Hinge-Safe* + Rail Droit Constant (`grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 68px`, gouttière centrale `env(fold-width, 16px)`)** : aucune carte ni bouton n'est jamais coupé en deux par la charnière centrale.
+       - **Continuité musculaire Replié $\leftrightarrow$ Déplié** : le rail de navigation vertical reste exactement au même endroit sur le bord extérieur droit de l'écran, que l'iPhone Duo soit replié ou déplié.
+       - **Volet Gauche (`#altKioskContent` — *Master*)** : navigation dans les vues, pièces et grilles de cartes.
+       - **Volet Droit (`#altKioskInspector` — *Volet Compagnon / Inspecteur Permanent*)** : affiche par défaut le *Volet Compagnon* (flux caméra en direct, lecteur multimédia actif, équipements allumés et scénarios rapides) et, dès que l'utilisateur touche une carte sur le volet gauche, affiche instantanément tous ses contrôles détaillés (volets, thermostat, couleurs Hue/Twinkly, cahier de textes Pronote/Educartable, caméra) dans le volet droit sans masquer le volet gauche.
+       - **Transition fluide au dépliage** : si une *Bottom Sheet* d'équipement ou de caméra était ouverte sur l'écran replié, déplier l'iPhone Duo transfère automatiquement l'équipement dans le Volet Droit et referme la modale.
+  - **Ergonomie Tactile Native & Bascule Directe `1-Tap` sur l'icône des cartes** :
+    - Sur appareil tactile (`pointer: coarse`), le piège de curseur Tizen (`dpadCursorTrap`) et le badge TV `OK ↵` sont automatiquement désactivés au profit du défilement inertiel natif.
+    - **Toucher l'icône (`.alt-kcard-icon`)** d'une carte exécute immédiatement l'action principale en **1-Tap** (Allumer/Éteindre, Ouvrir/Fermer, Play/Pause), tandis que **toucher le reste de la carte** ouvre ses réglages complets dans le Volet Droit (en mode Duo) ou en *Bottom Sheet* (en mode Replié).
+
+---
+
 ## [0.1.0-beta.12] — 2026-10-30
 
 ### Ajouté
