@@ -56,8 +56,13 @@ La vue **`🏠 Accueil`** est construite dynamiquement selon **6 blocs successif
 6. **Section « 👨‍👩‍👧‍👦 Vie Scolaire & Temps d'écran » *(jusqu'à 6 cartes)*** :
    - Affiche les cartes **Pronote (`altPronote`)**, **Educartable (`altEducartable`)** et les consoles **Switch / PlayStation / Xbox (`altSwitch`, `altPlaystation`, `altXbox`)**.
 
-### 5. Configuration des Widgets, Pièces, Vues, Favoris & Code PIN par Téléviseur
+### 5. Configuration des Widgets, Pièces, Vues, Favoris, Profil Utilisateur Jeedom & Code PIN par Téléviseur
 Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous pouvez ainsi afficher tous les équipements sur le téléviseur du Salon et uniquement ceux d'une chambre ou de la cuisine sur un second écran) :
+- **Association optionnelle à un Profil Utilisateur Jeedom (`Droits r / w`)** (*Onglet `Équipement & Affichage TV` → `Profil utilisateur Jeedom associé`*) :
+  - L'**URL Kiosk dédiée à jeton (`token`) continue de fonctionner sans aucune saisie de mot de passe sur la TV**, mais le Kiosk répercute automatiquement côté serveur les droits Jeedom (*Réglages → Système → Utilisateurs → Droits*) de l'utilisateur sélectionné :
+    - **`Aucun (n)`** : l'équipement ou le scénario est totalement invisible sur ce Kiosk.
+    - **`Visualisation (r)` (ou profil *Visiteur*)** : la carte et la modale s'affichent en **Mode Lecture seule (`👁️ Lecture seule`)** avec toutes leurs informations en temps réel, mais sans aucun bouton d'action et avec blocage strict côté serveur dans `executeKioskCommand()`.
+    - **`Action (w)`** : l'équipement ou le scénario est visible et pilotable normalement.
 - **Depuis le Back-Office Jeedom** (*Onglet `🎛️ Widgets, Pièces & Scénarios visibles`*) :
   - Cochez/décochez les **onglets de navigation**, les **pièces (objets Jeedom)**, les **widgets** (`alt*` et génériques Jeedom, avec recherche et filtre par catégorie) et les **scénarios** à afficher.
   - Possibilité de forcer l'affichage sur la TV d'un équipement masqué sur le Dashboard web Jeedom, ou inversement de masquer un équipement spécifique.

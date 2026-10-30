@@ -5,6 +5,19 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.12] — 2026-10-30
+
+### Ajouté
+- **Association optionnelle d'un Kiosk à un Profil Utilisateur Jeedom (`Droits r / w / n`) (`desktop/php/altTvDashboard.php`, `core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/js/altTvDashboard.js`)** :
+  - Ajout du sélecteur **« Profil utilisateur Jeedom associé (Droits r / w) »** (`kioskUserId`) dans la configuration de chaque équipement Kiosk TV (*Par défaut : « Aucun (Droits complets du Kiosk) »*).
+  - **Conservation de l'URL Kiosk dédiée à jeton (`token`) sans connexion** : l'accès depuis le téléviseur reste instantané et sans saisie de mot de passe, tandis que le serveur Jeedom applique automatiquement la matrice de droits de l'utilisateur sélectionné :
+    - **`Aucun (n)`** : équipements et scénarios non autorisés totalement filtrés côté serveur (`checkUserEquipmentRight('r')` / `checkUserScenarioRight('r')`).
+    - **`Visualisation (r)` (ou profil *Visiteur*)** : affichage des cartes et modales en **Mode Lecture seule (`👁️ Lecture seule`)** (`stripDescriptorActionsForReadOnly()`) et verrouillage strict côté serveur dans `executeKioskCommand()` et `executeKioskScenario()`.
+    - **`Action (w)`** : consultation et exécution normales des commandes et scénarios (avec traçabilité `kiosk_tv:<login>` lors du lancement des scénarios).
+    - Si le compte utilisateur Jeedom associé est désactivé dans Jeedom (`getEnable() == 0`), l'accès aux équipements et actions du Kiosk est automatiquement suspendu.
+
+---
+
 ## [0.1.0-beta.11] — 2026-10-30
 
 ### Corrigé & Optimisé (Protection des Ressources CPU / RAM / Apache de la Box Jeedom)
