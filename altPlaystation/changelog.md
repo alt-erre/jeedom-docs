@@ -2,6 +2,18 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.2] — 2026-10-30 (Canal Beta)
+
+### Ajouté
+- **Association locale par Code PIN à 8 chiffres (*Lecture à distance / Remote Play LAN*) (`desktop/modal/auth.assistant.php` & `resources/altPlaystation_worker.py`)** :
+  - Nouvel assistant d'appairage local permettant d'associer une PS5 ou PS4 avec le code PIN à 8 chiffres affiché dans *Paramètres $\to$ Système $\to$ Lecture à distance $\to$ Associer un périphérique* (`pyremoteplay` MIT + protocole natif TCP `9295` `/sce/rp/regist` & DDP).
+  - Stockage chiffré/verrouillé en `chmod 0600` des identifiants locaux (`user_credential` et `rp_key`) dans `data/profiles/`.
+- **Commande `Mettre en veille la console (Standby LAN)` (`standby_console`) & Bouton Veille dans les Widgets Dashboard/Mobile** :
+  - Permet de basculer à distance une console PS5 ou PS4 en **Mode Repos (`Standby`)** sur le réseau local, **quel que soit le compte utilisé (Adulte ou Enfant) et sans dépendre du contrôle parental Cloud de Sony**.
+  - Enrichissement de la commande `wake_console` avec l'en-tête authentifié `user-credential` issu de l'appairage Remote Play pour un réveil `DDP WAKEUP` natif.
+- **Mise en veille automatique sur le LAN en fin de quota (`0 min`), à l'heure du coucher ou lors d'un verrouillage (`lock_console_today`)** :
+  - Lorsque l'option *Déconnexion forcée / Veille auto* est active (`suspend_software = 1`), le plugin envoie automatiquement l'ordre de mise en veille `Standby LAN` à la console dès que le temps restant atteint `0 min` ou que l'heure du coucher est atteinte (avec anti-rebond de 45 secondes), assurant une coupure effective même sur un compte PSN standard sans *PlayStation Family* ou lors d'une coupure Internet.
+
 ## [0.1.0-beta.1] — 2026-10-28 (Canal Beta)
 
 ### Ajouté

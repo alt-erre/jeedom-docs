@@ -66,8 +66,12 @@ Lorsque l'adresse IP locale de la console PS5 / PS4 est renseignée (ou découve
   - `Éteinte / Hors-ligne LAN` (aucune réponse UDP locale).
 - **Détection en direct du jeu ou de l'application en cours (`current_game_name`)** : lecture directe des en-têtes locaux `running-app-name` et `running-app-titleid` diffusés par la console sur le LAN.
 - **Identification matérielle locale** : récupération du nom d'hôte (`host-name`), du modèle (`host-type` : `PS5` / `PS4`), de l'identifiant matériel (`host-id` / numéro de série) et de la version système (`system-version`).
-- **Réveil à distance de la console (`wake_console`)** : envoi local du *Magic Packet Wake-on-LAN* (UDP ports `9` et `7`) et du paquet `DDP WAKEUP` (UDP ports `9302` et `987`).
-- **Compteur de temps de jeu & règles parentales locales (Mode LAN autonome / Repli hors-ligne)** : suivi du temps joué dans la journée par mesure des sessions actives DDP sur le LAN, calcul du temps restant, gestion des quotas locaux, ajout de temps bonus (`+15 / +30 / +60 min`), verrouillage `0 min` et alarme d'heure du coucher utilisables dans vos scénarios Jeedom (ex. notification, alerte vocale TTS ou coupure prise connectée).
+- **Réveil à distance de la console (`wake_console`)** : envoi local du *Magic Packet Wake-on-LAN* (UDP ports `9` et `7`) et du paquet `DDP WAKEUP` authentifié (UDP ports `9302` et `987`).
+- **Association locale par Code PIN à 8 chiffres (*Lecture à distance / Remote Play LAN*) & Mise en veille (`standby_console`)** :
+  - Depuis l'onglet 2 de l'**Assistant Compte PlayStation** (*Paramètres $\to$ Système $\to$ Lecture à distance $\to$ Associer un périphérique* sur la PS5 / PS4), associez une seule fois la console avec son code PIN à 8 chiffres.
+  - Active la commande **`Mettre en veille la console (Standby LAN)`** (`standby_console`) et le bouton **Veille (<i class="fas fa-moon"></i>)** du widget sur **tous les comptes (Adultes comme Enfants, sans dépendre de PlayStation Family)**.
+  - Active la **mise en veille automatique sur le LAN** dès que le temps restant journalier tombe à `0 min`, que l'heure du coucher est atteinte ou lors d'un clic sur **`Verrouiller aujourd'hui (0 min)`** !
+- **Compteur de temps de jeu & règles parentales locales (Mode LAN autonome / Repli hors-ligne)** : suivi du temps joué dans la journée par mesure des sessions actives DDP sur le LAN, calcul du temps restant, gestion des quotas locaux, ajout de temps bonus (`+15 / +30 / +60 min`), verrouillage `0 min` et alarme d'heure du coucher.
 
 ### 🌐 2. Fonctionnalités dépendantes d'Internet (Cloud Sony PSN & PlayStation Family)
 
@@ -91,9 +95,10 @@ Les fonctions suivantes nécessitent une connexion Internet active et un compte 
 | État électrique temps réel (`Allumée`, `Mode Repos`, `Éteinte`) | ✅ Oui (DDP `200` / `620`) | ❌ Non requis | Fonctionne à 100 % en local |
 | Nom & ID du jeu en cours d'exécution sur la console | ✅ Oui (`running-app-name`) | ✅ Oui (Présence PSN) | Remonté en direct via le LAN DDP |
 | Réveil de la console en Mode Repos (`wake_console`) | ✅ Oui (WoL + `DDP WAKEUP`) | ❌ Non requis | Fonctionne à 100 % en local |
+| Mise en veille manuelle ou auto à `0 min` (`standby_console`) | ✅ Oui (Remote Play / DDP LAN) | ✅ Oui (Family sur compte Enfant) | Mise en veille LAN active (tous comptes Adultes & Enfants) |
 | Compteur de temps joué aujourd'hui & Temps restant | ✅ Oui (Compteur session LAN) | ✅ Oui (Family + Delta PSN) | Bascule automatiquement sur le compteur LAN |
 | Quotas, Bonus `+15/+30/+60`, Coucher (Scénarios Jeedom) | ✅ Oui (Moteur local Jeedom) | ✅ Oui (PlayStation Family) | Règles et statuts mis à jour localement dans Jeedom |
-| Déconnexion forcée native de la session enfant par Sony | ❌ Non (Cloud Sony requis) | ✅ Oui (PlayStation Family) | Non envoyé à Sony (gérable par scénario Jeedom local) |
+| Déconnexion forcée Cloud de la session enfant par Sony | ❌ Non (Cloud Sony requis) | ✅ Oui (PlayStation Family) | Remplacée en local par la Mise en veille auto LAN (`Standby`) |
 | Trophées PSN, Temps cumulés globaux & Jaquettes CDN | ❌ Cache local uniquement | ✅ Oui (API PSN & CDN Sony) | Conserve en cache le dernier snapshot Cloud connu |
 
 ### 🛡️ 3. Mode Repli LAN Automatique (Résilience Hors-Ligne)
