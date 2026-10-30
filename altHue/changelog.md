@@ -5,6 +5,11 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.2] - 2026-10-30 (Canal Beta)
+
+### Corrigé
+- **Port socket interne dédié `55103` (`core/class/altHue.class.php`, `plugin_info/install.php`)** : attribution du port TCP local dédié **`55103`** au démon `althued.py` et migration automatique de l'ancien port `55100` (réservé au serveur Webhook Nuki Bridge dans `altNuki`).
+
 ## [0.1.0-beta.1] - 2026-10-27 (Canal Beta)
 
 ### Ajouté
