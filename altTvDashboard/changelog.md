@@ -5,6 +5,22 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.14] — 2026-10-30
+
+### Ajouté
+- **Capture Automatique des Notifications & Nouvel Onglet « 🔔 Centre de Notifications » (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/js/kiosk.js`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`)** :
+  - **Agrégation temps réel de 3 sources de notifications** (`getKioskNotificationsFeed()`) :
+    1. **Centre de Messages & Notifications natif de Jeedom (`message::all()`)** : capture automatique des notifications et alertes système/scénarios Jeedom avec **déclenchement automatique d'un bandeau Toast flottant (`#altKioskToast`)** dès qu'un nouveau message Jeedom apparaît.
+    2. **Journal persistant des Notifications Kiosk (`send_notification` / `altTvDashboard::notif_history::<id>`)** : chaque notification poussée par un scénario Jeedom (avec ou sans caméra Arlo Picture-in-Picture `arlo=<id>`) est affichée en Toast flottant **et** archivée dans l'historique du Kiosk (jusqu'aux 50 dernières notifications conservées).
+    3. **Alertes métier en direct sur les équipements visibles (`source = 'live'`)** : détection de mouvement sur caméra `altArlo`, alarme `altTydom` en alerte, serrure `altNuki` déverrouillée, cours annulés du jour ou devoirs à faire pour demain (`altPronote` / `altEducartable`).
+  - **Nouvel Onglet dédié `🔔 Notifications` (`id: 'notifications'`)** dans la barre de navigation (TV, Rail Droit iPhone Duo Replié/Déplié et Tablette) :
+    - Pastille de compteur en temps réel sur l'icône `🔔` de la barre de navigation, pilule `🔔 X Notif(s)` dans l'en-tête supérieur et section dédiée en tête du **Volet Compagnon Duo**.
+    - Filtres rapides : **Toutes**, **Alertes Maison**, **Notifications Kiosk** et **Centre de Messages Jeedom**.
+    - Actions d'acquittement : suppression/acquittement unitaire sur chaque carte (`Effacer` / `Acquitter`) et boutons globaux **`🗑️ Vider l'historique Kiosk`** et **`🧹 Acquitter Messages Jeedom`** (avec respect des droits du profil utilisateur Jeedom associé au Kiosk).
+    - Boutons d'accès direct **`📹 Voir Caméra`** ou **`🎛️ Ouvrir Équipement`** depuis chaque carte de notification.
+
+---
+
 ## [0.1.0-beta.13] — 2026-10-30
 
 ### Ajouté

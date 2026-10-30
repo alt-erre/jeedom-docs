@@ -34,8 +34,8 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
   - Lorsque votre téléviseur *The Frame* pivote physiquement en position verticale, si le navigateur intégré *Samsung Internet* conserve un tampon vidéo `1920×1080`, le mode **`Portrait Rotation -90° / +90° (Tizen)`** fait pivoter automatiquement toute l'interface plein écran en `9:16` **et remappe les 4 flèches `▲▼◀▶` de la télécommande** pour que la touche *Haut* monte toujours vers le haut du cadre !
   - Si un téléviseur `altSamsungTv` est associé à l'équipement, la bascule Paysage / Portrait suit automatiquement l'état du support motorisé et permet même de faire pivoter physiquement l'écran depuis l'onglet *Studio The Frame*.
 
-### 3. Les 8 Vues Thématiques & Filtres par Catégorie / Métier
-1. **🏠 Accueil (Hub Maison)** : Horloge grand format, météo intérieure/extérieure, pilules de synthèse interactives (*Lumières allumées*, *Volets ouverts*, *Alarme/Serrures*, *Devoirs*, *Consoles*), commandes générales rapides, lecteur multimédia actif et caméra principale.
+### 3. Les 9 Vues Thématiques, Centre de Notifications & Filtres par Catégorie / Métier
+1. **🏠 Accueil (Hub Maison)** : Horloge grand format, météo intérieure/extérieure, pilules de synthèse interactives (*Lumières allumées*, *Volets ouverts*, *Alarme/Serrures*, *Notifications*, *Devoirs*, *Consoles*), commandes générales rapides, lecteur multimédia actif et caméra principale.
 2. **🚪 Par Pièce (Objets Jeedom)** : Filtrage par pièce avec température/humidité de la pièce et commandes groupées (*Éteindre la pièce*, *Ouvrir/Fermer les volets de la pièce*).
 3. **🎛️ Par Catégorie / Métier (Classé par Pièce)** :
    - Filtres dédiés : **💡 Éclairages & Ambiances**, **🪟 Volets, BSO & Ouvrants**, **🌡️ Climat, Chauffage & Énergie**, **🛡️ Sécurité & Accès**, **🎵 Audio & TV**, **👨‍👩‍👧‍👦 Famille & Gaming**, **🤖 Robots, Café & Atelier 3D**.
@@ -44,7 +44,10 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
 5. **🎵 Audio, TV & Home-Cinéma** : Pilotage `altSonos`, `altCambridgeAudio`, `altDenon`, `altAirMedia`, `altSamsungTv`, `altJvcProjector` avec respect strict du plafond de volume dynamique (`volume_max`).
 6. **👨‍👩‍👧‍👦 Famille, École & Gaming** : Emploi du temps, devoirs et cantine `altPronote` & `altEducartable` + jauges de temps d'écran `altSwitch`, `altPlaystation` et `altXbox` avec boutons rapides `+15 min`, `+30 min`, `Illimité` et `Bloquer`.
 7. **✨ Scénarios & Modes** : Lancement direct des scénarios Jeedom classés par groupe.
-8. **🖼️ Studio The Frame & Personnalisation** : Changement d'œuvre *The Frame*, rotation du support motorisé, choix du **Passe-partout (*Matte*)** (*Aucun*, *Polaire*, *Blanc Chaud*, *Abricot*, *Sable*, *Sauge*, *Bleu Marine*, *Noir Galerie*), des **9 thèmes `alt-erre`**, et **activation/masquage direct des vues, pièces et widgets à la télécommande**.
+8. **🔔 Centre de Notifications (Kiosk, Jeedom & Alertes en direct)** :
+   - Agrège automatiquement **3 sources** : le **Centre de Messages natif de Jeedom (`message::all()`)** (avec affichage automatique d'un bandeau Toast flottant dès l'arrivée d'un nouveau message), l'**historique des notifications poussées au Kiosk** (`send_notification` depuis vos scénarios, avec aperçu photo caméra `arlo=<id>` si lié) et les **alertes en direct de la maison** (mouvement caméra `altArlo`, alarme `altTydom`, serrure `altNuki` déverrouillée, cours annulés ou devoirs du lendemain `altPronote`/`altEducartable`).
+   - Filtres par source (*Toutes*, *Alertes Maison*, *Notifications Kiosk*, *Messages Jeedom*) et boutons d'acquittement unitaire ou global.
+9. **🖼️ Studio The Frame & Personnalisation** : Changement d'œuvre *The Frame*, rotation du support motorisé, choix du **Passe-partout (*Matte*)** (*Aucun*, *Polaire*, *Blanc Chaud*, *Abricot*, *Sable*, *Sauge*, *Bleu Marine*, *Noir Galerie*), des **9 thèmes `alt-erre`**, et **activation/masquage direct des vues, pièces et widgets à la télécommande**.
 
 ### 4. Organisation automatique de la vue « 🏠 Accueil » (Hub Maison)
 La vue **`🏠 Accueil`** est construite dynamiquement selon **6 blocs successifs**, de haut en bas, en ne prenant que parmi les équipements marqués comme **Visibles (`👁️`)** sur ce téléviseur :
