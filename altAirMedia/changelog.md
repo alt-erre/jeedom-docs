@@ -2,6 +2,11 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.7] — 2026-10-30 (Canal Beta)
+
+### Corrigé
+- **Démon (`Task exception was never retrieved` dans `pyatv/support/knock.py`)** : correction d'un bug interne de la bibliothèque `pyatv` où les tâches de réveil réseau Bonjour (`_async_knock` sur les ports `49152`, `32498`, etc.) terminées avec `OSError(113, EHOSTUNREACH)` (lorsqu'un HomePod ou une Apple TV est débranché ou hors réseau Wi-Fi) n'étaient pas consommées après `asyncio.wait(..., return_when=FIRST_EXCEPTION)`, générant des traces `ERROR Task exception was never retrieved` dans le log du démon.
+
 ## [0.1.0-beta.6] — 2026-10-30 (Canal Beta)
 
 ### Amélioré & Corrigé
