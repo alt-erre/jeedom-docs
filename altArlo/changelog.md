@@ -3,6 +3,12 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.4] - 2026-10-30
+
+### Corrigé
+- **Authentification 2FA Cloud (`ocapi-app.arlo.com`) sous Linux/Debian** : intégration de l'émulation d'empreinte TLS JA3/JA4 et HTTP/2 navigateur via `curl_cffi` (profils Chrome/Safari avec pré-chauffage et persistance des cookies `__cf_bm` entre les étapes `/api/auth`, `/api/getFactors`, `/api/startAuth` et `/api/finishAuth`) et `cloudscraper` en secours pour éviter le blocage Cloudflare (`403 Forbidden`) lors de la demande de code 2FA sur VM Linux.
+- **Auto-installation transparente** de `curl_cffi` et `cloudscraper` (licences MIT) dans `resources/venv` dès la première requête 2FA si la mise à jour du plugin est appliquée sans relancer manuellement les dépendances.
+
 ## [0.1.0-beta.3] - 2026-10-30
 
 ### Corrigé
