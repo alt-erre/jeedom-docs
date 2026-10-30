@@ -18,6 +18,7 @@ PLUGINS=(
   "altHue"
   "altIos"
   "altJvcProjector"
+  "altNetGuard"
   "altNuki"
   "altPlaystation"
   "altPronote"
