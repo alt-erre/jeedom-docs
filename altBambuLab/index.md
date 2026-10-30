@@ -80,7 +80,7 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
   - Le répertoire `data/snapshots` est protégé contre tout accès HTTP direct non authentifié par un fichier `.htaccess` (`Require all denied`). L'affichage dans l'interface passe par le contrôleur sécurisé `core/php/snapshot.php` qui vérifie systématiquement la session utilisateur Jeedom ou la clé API.
   - Toutes les captures et données associées sont supprimées lors de la suppression de l'équipement ou de la désinstallation du plugin.
 - **Mesures de sécurité réseau** :
-  - Le démon écoute uniquement en local sur `127.0.0.1` (port `55093` par défaut) et vérifie la clé API interne Jeedom.
+  - Le démon écoute uniquement en local sur `127.0.0.1` (port `55101` par défaut) et vérifie la clé API interne Jeedom.
   - Attribuez un bail DHCP statique (IP fixe) à votre imprimante Bambu Lab sur votre routeur local et n'exposez jamais ses ports `8883`, `6000` ou `990` sur Internet.
 
 ---

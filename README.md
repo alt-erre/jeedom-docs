@@ -14,7 +14,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
 | **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.2` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
-| **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.4` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
+| **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.5` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
@@ -31,7 +31,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.14` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
-| **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
+| **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.2` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.16` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 | **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
 

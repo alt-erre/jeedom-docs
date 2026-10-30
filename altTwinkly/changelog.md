@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.2] — 2026-10-30 (Canal Beta)
+
+### Corrigé
+- **Compatibilité Python 3.9 (`Debian 11 Bullseye`) du démon `altTwinklyd.py`** :
+  - Correction de l'erreur `RuntimeError: Task <Task pending coro=<TwinklyDaemon.run()>> got Future <Future pending> attached to a different loop` en instanciant les objets `asyncio.Event()` (`_stop_event`) directement au sein de la boucle d'événements active créée par `asyncio.run()` au lieu du constructeur `__init__()`.
+
+---
+
 ## [0.1.0-beta.1] — 2026-10-27 (Canal Beta)
 
 ### Ajouté

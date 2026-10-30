@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.5] — 2026-10-30 (Canal Beta)
+
+### Corrigé
+- **Port socket interne dédié `55101` et migration automatique anti-conflit (`core/class/altBambuLab.class.php`, `plugin_info/install.php`)** :
+  - Attribution du port TCP local dédié **`55101`** (`DEFAULT_SOCKET_PORT = 55101`) au démon `altBambuLabd.py` afin d'éviter toute collision de port (`[Errno 98] address already in use`) avec les démons des autres plugins de la gamme `alt-erre` (`55093` utilisé par `altRoborock`, `55099` utilisé par `altNuki`).
+  - Migration transparente et automatique des ports `55093` et `55099` vers `55101` dès l'appel à `altBambuLab::getSocketPort()` au démarrage du démon ou lors de la mise à jour du plugin.
+
 ## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
 
 ### Amélioré
