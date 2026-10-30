@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.6] — 2026-10-30 (Canal Beta)
+
+### Amélioré & Corrigé
+- **Métadonnées & Jaquettes des applications vidéo tvOS (Netflix, séries TV, flux `media_type = unknown`)** :
+  - Prise en charge des champs spécifiques aux séries et contenus vidéo dans `pyatv` (`series_name`, `season_number`, `episode_number`) pour formater automatiquement le titre et le sous-titre (`SxxExx`).
+  - Suppression du blocage qui ignorait le téléchargement de la jaquette lorsque l'application tvOS remontait `media_type = unknown` (cas fréquent sur les lecteurs vidéo tiers).
+  - Ajout d'une clé de cache composite (`hash` + `artwork_id` + `title`) et d'une re-vérification asynchrone différée (`+2,5 s` et `+6,5 s` après le démarrage du flux) lorsque les métadonnées MRP (`ContentItemUpdate`) sont publiées après le buffering vidéo.
+
 ## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
 
 ### Ajouté
