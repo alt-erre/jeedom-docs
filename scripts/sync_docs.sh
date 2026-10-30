@@ -16,6 +16,7 @@ PLUGINS=(
   "altDenon"
   "altEducartable"
   "altHue"
+  "altIos"
   "altJvcProjector"
   "altNuki"
   "altPlaystation"

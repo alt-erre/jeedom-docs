@@ -5,6 +5,19 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.8] - 2026-10-30
+
+### Ajouté & Amélioré
+- **Extinction directe sur le réseau local LAN (`UDP 5050` — Session chiffrée SmartGlass `0xCC00` $\to$ `0x0039 PowerOff`)** :
+  - Implémentation de [`smartglass_local_power_off()`](file:///Users/aurelienleovant/Developpement/Jeedom/altXbox/resources/altXbox_worker.py) sur le port local **`UDP 5050`** en complément de l'extinction Cloud (`xccs.xboxlive.com`) :
+    1. Extraction du certificat X.509 DER de la console et de son `Live Device ID` (`FD00...` / `F400...`) depuis le paquet local `Discovery Response` (`0xDD01`).
+    2. Échange de clés **ECDH** (`P-256` / `P-384` / `P-521`) avec la clé publique du certificat de la console et dérivation des clés de session via `SHA-512` (`AES-128-CBC` + `IV` + `HMAC-SHA256`).
+    3. Ouverture de la session locale `ConnectRequest` (`0xCC00` $\to$ `0xCC01 ConnectResponse`) en utilisant le jeton `uhs` + `xsts_token` mis en cache localement (ainsi qu'un repli en mode anonyme si la console autorise les connexions de tout appareil), puis envoi sur le canal `Core (0)` des messages chiffrés `LocalJoin` (`0xD00D / 0x0003`) et **`PowerOff` (`0xD00D / 0x0039`)**.
+  - Permet d'éteindre la console Xbox directement via le réseau local (commande manuelle `power_off`, verrouillage immédiat `lock_console_today` et extinction automatique en fin de quota ou à l'heure du coucher) même en cas de coupure d'Internet !
+  - Correction de l'alignement de l'octet nul final (`\x00`) des chaînes `SGString` lors du décodage de `0xDD01` (`parse_smartglass_discovery_response`) et envoi bi-format (`v2` + `v0`) pour l'allumage local `0xDD02` (`smartglass_local_power_on`).
+
+---
+
 ## [0.1.0-beta.7] - 2026-10-28
 
 ### Corrigé

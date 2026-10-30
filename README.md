@@ -19,6 +19,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
 | **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
+| **Alt Contrôle Parental (iPhone & iPad)** | `altIos` | Multimédia | `0.1.0-beta.1` | `Beta` | [Documentation](altIos/) · [Changelog](altIos/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
 | **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.1` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
 | **Alt Contrôle Parental (PlayStation)** | `altPlaystation` | Multimédia | `0.1.0-beta.2` | `Beta` | [Documentation](altPlaystation/) · [Changelog](altPlaystation/changelog) |
@@ -31,7 +32,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.1` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.16` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
-| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
+| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
 
 ---
 
@@ -42,4 +43,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altArlo`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altEducartable`, `plugin:altHue`, `plugin:altJvcProjector`, `plugin:altNuki`, `plugin:altPlaystation`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`, `plugin:altTvDashboard`, `plugin:altTwinkly`, `plugin:altTydom`, `plugin:altXbox`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altArlo`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altEducartable`, `plugin:altHue`, `plugin:altIos`, `plugin:altJvcProjector`, `plugin:altNuki`, `plugin:altPlaystation`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`, `plugin:altTvDashboard`, `plugin:altTwinkly`, `plugin:altTydom`, `plugin:altXbox`) et **par canal** (`canal:beta`, `canal:stable`).
