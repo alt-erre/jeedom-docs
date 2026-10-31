@@ -42,9 +42,15 @@ Arlo impose la double authentification (2FA) et n'autorise qu'**un seul flux tem
 2. Invitez une adresse e-mail dédiée à votre domotique Jeedom en lui accordant les droits d'administration sur vos caméras et votre station.
 3. Utilisez ce compte dédié dans la configuration du plugin `altArlo` : ainsi, votre application mobile Arlo et votre box Jeedom disposent chacune de leur propre session permanente sans jamais se déconnecter mutuellement.
 
-### Deux méthodes de connexion intégrées dans la configuration du plugin
+### Deux méthodes de connexion initiale dans la configuration du plugin
 - **Méthode 1 — Connexion interactive 2FA** : Saisissez l'adresse e-mail et le mot de passe du compte Arlo, choisissez le canal de réception (*E-mail* ou *SMS*), cliquez sur **1. Demander un code 2FA**, puis saisissez le code à 6 chiffres reçu et cliquez sur **2. Valider le code 2FA**.
 - **Méthode 2 — Import rapide de session / Commande cURL (`my.arlo.com`)** : Depuis un navigateur connecté à `https://my.arlo.com`, ouvrez l'onglet *Réseau (F12)*, faites un clic droit sur une requête `devices` $\rightarrow$ *Copier en tant que cURL* (ou copiez l'en-tête `Authorization`) et collez-le dans la zone dédiée.
+
+### Reconnexion Automatique 2FA 100 % autonome (Module 4G / SMS Jeedom & E-mail IMAP SSL)
+Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14 jours), le plugin intègre un moteur d'**Auto-Reconnexion 2FA** capable de renouveler tout seul la session dès qu'un jeton expire (`error: 2015` ou déconnexion SSE `action: logout`) :
+1. **Via le Module 4G / SMS de la box Jeedom (`SMS`)** : si le numéro de téléphone de votre carte SIM 4G Jeedom est enregistré comme facteur 2FA SMS sur le compte Arlo dédié, le démon demande un SMS à Arlo et lit automatiquement le code à 6 chiffres reçu par votre équipement SMS/4G Jeedom (auto-détecté ou sélectionné via `#[Objet][Modem 4G][Message]#`).
+2. **Via E-mail IMAP SSL (`EMAIL`)** : le démon se connecte en IMAP SSL (`port 993`) à la boîte mail du compte Arlo pour extraire le code à 6 chiffres envoyé par `do_not_reply@arlo.com`.
+3. **Modes hybrides avec bascule automatique** (*SMS 4G en priorité puis E-mail IMAP en secours* ou inversement) et bouton **Tester le renouvellement automatique maintenant** directement dans la page de configuration.
 
 ---
 

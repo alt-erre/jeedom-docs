@@ -3,6 +3,16 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.7] - 2026-10-31
+
+### Ajouté
+- **Reconnexion Automatique 2FA 100 % autonome (Module 4G / SMS Jeedom & E-mail IMAP SSL)** :
+  - Ajout d'un moteur de renouvellement automatique de session dans `altarlod.py` déclenché dès que les serveurs Arlo révoquent ou font expirer le jeton (`error: 2015 - Invalid Token` ou événement SSE `action: logout`).
+  - **Exploitation native du Module 4G / SMS Jeedom** (`poll_sms_otp`) : déclenchement de l'envoi du SMS 2FA Arlo et lecture automatique du code à 6 chiffres reçu sur la commande Info SMS de Jeedom (sélectionnable via `#[Objet][Modem 4G][Message]#` ou auto-détectée parmi les équipements SMS/4G/Modem/Gammu actifs et leur historique).
+  - **Lecteur E-mail IMAP SSL intégré** (`imaplib.IMAP4_SSL`) : extraction automatique du code à 6 chiffres dans les e-mails de vérification envoyés par `do_not_reply@arlo.com`.
+  - **Double canal avec bascule automatique (Fallback)** : modes *SMS 4G en priorité puis E-mail IMAP en secours*, *E-mail IMAP en priorité puis SMS 4G en secours*, *SMS uniquement* ou *IMAP uniquement*.
+  - Stockage chiffré/isolé des paramètres d'auto-reconnexion dans `data/profiles/auto_auth.json` (`chmod 0600` + `.htaccess`, zéro secret dans `ps aux`) et bouton **« Tester le renouvellement automatique maintenant »** dans la configuration du plugin.
+
 ## [0.1.0-beta.6] - 2026-10-31
 
 ### Corrigé
