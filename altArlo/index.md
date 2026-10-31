@@ -26,9 +26,10 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
   - Allumage, extinction et réglage d'intensité (`0–100 %`) du projecteur **Floodlight** (`FB1001B`) et du **Spotlight LED** intégré (`VMC5040`, `VMC4041PB`, `VMC4060B`) ;
   - Déclenchement et arrêt de la **sirène** (SmartHub ou caméra équipée) ;
   - Activation / Désactivation à distance de chaque caméra (*Privacy Mode*).
-- **Vignettes Snapshots Sécurisées & Widgets « Dark Glass » (`alt-erre`)** :
-  - Téléchargement automatique du dernier snapshot Cloud dans un répertoire local isolé (`data/snapshots/`, permissions `0600`) et diffusion via un proxy PHP interne signé par HMAC (`core/php/snapshot.php`) ;
-  - Bouton **📸 Photo** sur le widget permettant de demander un nouvel instantané à la caméra ;
+- **Vignettes Snapshots, Enregistrement Vidéo, Galerie intégrée & Widgets « Dark Glass » (`alt-erre`)** :
+  - Téléchargement automatique du dernier snapshot Cloud dans `data/snapshots/<deviceId>.jpg` (avec récupération automatique depuis la bibliothèque Arlo `/hmsweb/users/library` si l'URL temporaire `presignedLastImageUrl` a expiré) et archivage horodaté des 20 dernières captures (photos `.jpg` et vidéos `.mp4`) dans `plugins/altArlo/data/media/<deviceId>/` ;
+  - Boutons **📸 Photo** (`take_snapshot`) et **🎥 Vidéo** (`record_video` — enregistrement d'un clip de 15 s et rapatriement automatique du fichier `.mp4`) directement sur le widget ;
+  - **Modale Galerie Photos & Vidéos intégrée** (clic sur l'image 16:9 ou sur le badge **Galerie**) permettant de visionner les photos et vidéos enregistrées (lecteur HTML5 MP4 intégré) et de les télécharger en un clic ;
   - 9 thèmes de couleur sélectionnables par équipement (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
 
 ---
@@ -83,7 +84,8 @@ Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14
 | **Audio / Bruit** | `audio_detected` | `info / binary` | Alerte de détection sonore temps réel |
 | **Caméra active** | `camera_active` | `info / binary` | `1` si la caméra est active, `0` si elle est en mode confidentialité |
 | **Activer / Désactiver caméra** | `camera_on` / `camera_off` | `action / other` | Active ou coupe la caméra (`privacyActive`) |
-| **Prendre un instantané** | `take_snapshot` | `action / other` | Demande un nouveau snapshot et met à jour la vignette locale |
+| **Prendre un instantané** | `take_snapshot` | `action / other` | Demande un nouveau snapshot et l'archive dans `data/media/<deviceId>/` |
+| **Enregistrer une vidéo** | `record_video` | `action / other` | Lance un enregistrement vidéo de 15 s et télécharge le clip `.mp4` dans `data/media/<deviceId>/` |
 | **Projecteur / Floodlight** *(si équipé)* | `light_state`, `light_brightness`, `light_on`, `light_off`, `set_light_brightness` | `info` & `action` | Pilotage ON/OFF et intensité (`0–100 %`) du Spotlight ou Floodlight |
 | **Sirène** *(si équipée)* | `siren_state`, `siren_on`, `siren_off` | `info` & `action` | Pilotage de la sirène intégrée à la caméra |
 | **Sonnette** *(Doorbell)* | `button_pressed`, `silent_mode`, `silent_on`, `silent_off` | `info` & `action` | Événement d'appui bouton et gestion du mode silence |

@@ -13,9 +13,10 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.8` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.9` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.5` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
+| **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.1` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.5` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
 | **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.2` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
@@ -44,4 +45,4 @@ Vous pouvez ouvrir un ticket directement dans l'onglet **[Issues](../../issues)*
 1. **[Signaler un bug (Bug Report)](../../issues/new?template=bug_report.yml)** : sélectionnez le plugin concerné dans le menu déroulant, indiquez sa version (ex. `0.1.0-beta.1`) et joignez les logs Jeedom en mode `Debug`.
 2. **[Proposer une amélioration / Nouveau matériel (Feature Request)](../../issues/new?template=feature_request.yml)** : suggérez l'ajout d'une fonctionnalité ou la prise en charge d'un nouvel appareil.
 
-Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altArlo`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altDenon`, `plugin:altEducartable`, `plugin:altHue`, `plugin:altIos`, `plugin:altJvcProjector`, `plugin:altNetGuard`, `plugin:altNuki`, `plugin:altPlaystation`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`, `plugin:altTvDashboard`, `plugin:altTwinkly`, `plugin:altTydom`, `plugin:altXbox`) et **par canal** (`canal:beta`, `canal:stable`).
+Les tickets sont automatiquement catégorisés à l'aide des **labels par plugin** (`plugin:altAirMedia`, `plugin:altArlo`, `plugin:altBambuLab`, `plugin:altCambridgeAudio`, `plugin:altCellular`, `plugin:altDenon`, `plugin:altEducartable`, `plugin:altHue`, `plugin:altIos`, `plugin:altJvcProjector`, `plugin:altNetGuard`, `plugin:altNuki`, `plugin:altPlaystation`, `plugin:altPronote`, `plugin:altRoborock`, `plugin:altSamsungTv`, `plugin:altSiemens`, `plugin:altSonos`, `plugin:altSwitch`, `plugin:altTvDashboard`, `plugin:altTwinkly`, `plugin:altTydom`, `plugin:altXbox`) et **par canal** (`canal:beta`, `canal:stable`).

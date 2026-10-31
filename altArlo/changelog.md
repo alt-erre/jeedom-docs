@@ -3,6 +3,24 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.9] - 2026-10-31
+
+### Ajouté
+- **Bouton « Vidéo » (`record_video`) & Enregistrement de clips MP4** :
+  - Ajout de la commande action **`record_video`** (**« Enregistrer une vidéo »**) et du bouton **<i class="fas fa-video"></i> Vidéo** à côté du bouton **Photo** sur les widgets Dashboard et Mobile.
+  - Réveil de la caméra (`/hmsweb/users/devices/startStream` + `startRecord` pendant 15 s puis `stopRecord`) et téléchargement automatique du clip `.mp4` et de sa vignette `.jpg` depuis la bibliothèque Cloud Arlo.
+- **Archivage local (`data/media/<deviceId>/`) & Modale Galerie Photos & Vidéos intégrée** :
+  - Chaque photo ou vidéo capturée est archivée avec son horodatage dans `/var/www/html/plugins/altArlo/data/media/<deviceId>/` (rotation automatique sur les 20 dernières captures par caméra, protégées par `.htaccess` et servies via `core/php/snapshot.php`).
+  - Clic sur l'aperçu 16:9 du widget ou sur le bouton **Galerie** pour ouvrir une fenêtre modale permettant de visualiser les photos, lire les vidéos `.mp4` et les télécharger en un clic.
+
+### Corrigé
+- **Affichage des vignettes (Snapshots) sur toutes les caméras** :
+  - Correction des droits d'accès (`0755` sur `data/`, `data/snapshots/` et `data/media/`, `0644` sur les images créées par le démon `root`) qui empêchaient Apache (`www-data`) de lire les snapshots existants.
+  - Validation binaire stricte des en-têtes JPEG/PNG (`\xff\xd8\xff` / `\x89PNG`) lors du téléchargement pour ne plus jamais enregistrer une réponse XML d'expiration AWS S3 (`AccessDenied`) à la place d'une image `.jpg`.
+  - Récupération automatique de secours depuis la bibliothèque Cloud Arlo (`/hmsweb/users/library` sur 30 jours) lorsque l'URL `presignedLastImageUrl` d'une caméra en veille a expiré sur AWS S3, et prise en charge de l'événement SSE `mediaUploadNotification`.
+- **Lisibilité et contraste des textes sur les widgets (`core/template/dashboard/altArlo.html`)** :
+  - Forçage explicite de `color: var(--alt-text) !important` sur tous les textes, badges d'alimentation/signal (`#badge_1#`, `#badge_2#`), statuts (`Surveillance active`, `Batterie critique`) et pourcentages de luminosité afin d'empêcher le thème clair de Jeedom (`core2019_Light`) d'appliquer un texte gris foncé sur le fond sombre *Dark Glass*.
+
 ## [0.1.0-beta.8] - 2026-10-31
 
 ### Ajouté & Sécurité

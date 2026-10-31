@@ -13,6 +13,7 @@ PLUGINS=(
   "altArlo"
   "altBambuLab"
   "altCambridgeAudio"
+  "altCellular"
   "altDenon"
   "altEducartable"
   "altHue"
