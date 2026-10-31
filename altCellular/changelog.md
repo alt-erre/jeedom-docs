@@ -4,6 +4,17 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
+
+### Corrigé
+- **Suppression des accolades `{{...}}` sur le widget Dashboard (`core/template/dashboard/altCellular.html`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
+  - Nettoyage des balises de traduction `{{...}}` non interprétées par `getTemplate()` dans le gabarit HTML du widget (`Touche DTMF`, `Statut MMS`, `Dernier Appel`, `Lancer l'appel vocal TTS`, etc.), passage explicite par `translate::exec()` avec filtre de sécurité `preg_replace` dans `toHtml()` et invalidation automatique du cache de widget (`emptyCacheWidget()`) lors de la mise à jour ou du démarrage du démon.
+- **Élimination de la saturation audio lors des appels vocaux TTS (`resources/altCellulard.py`)** :
+  - **Suppression du compresseur `compand` et du boost EQ `+3 dB`** qui sur-modulaient l'étage d'entrée montant (*uplink*) du modem Quectel EC25 / EG25-G (`AT+QPCMV=1,0`) avant le codeur vocal 3GPP AMR / VoLTE.
+  - **Calibrage au niveau nominal téléphonique ITU-T G.711 / AMR (`-10.5 dBFS`, crête `9800 / 32767`)** : filtrage passe-bande doux `140 Hz – 3400 Hz` avec protection anti-écrêtage SoX (`-G` + `norm -10`), filtre passe-bas anti-repliement FIR 3 points en repli Python, fondu d'entrée/sortie de `20 ms` et abaissement du gain matériel (`AT+CLVL=3`, `AT+QAUDPLAYGAIN=6500`) offrant `10,5 dB` de réserve dynamique (*headroom*) sans aucune saturation.
+
+---
+
 ## [0.1.0-beta.9] — 2026-10-31 (Canal Beta)
 
 ### Corrigé
