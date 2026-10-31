@@ -3,6 +3,10 @@
 Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier.
 Ce projet respecte la politique de versionnement [SemVer](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+
+- **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.6` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
+
 ## [0.1.0-beta.5] - 2026-04-17
 
 ### Ajouté

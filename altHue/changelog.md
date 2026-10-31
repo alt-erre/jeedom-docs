@@ -5,6 +5,10 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
+
+- **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.3` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
+
 ## [0.1.0-beta.2] - 2026-10-30 (Canal Beta)
 
 ### Corrigé
