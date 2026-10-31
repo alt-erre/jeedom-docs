@@ -16,7 +16,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.12` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.6` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
-| **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.1` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
+| **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.2` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
 | **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.6` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
 | **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.3` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |

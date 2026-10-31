@@ -4,6 +4,17 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.2] - 2026-10-31
+
+### Corrigé
+- **Synthèse vocale TTS et injection audio dans l'appel sur Quectel EC25 / EG25-G (`resources/altCellulard.py`, `core/class/altCellular.class.php`, `resources/install_apt.sh`)** :
+  - **Téléversement vers le modem via `AT+QFUPL`** : correction de la commande de téléversement du fichier audio WAV et des pièces jointes MMS vers le stockage interne du modem Quectel (`AT+QFUPL` au lieu de `AT+QFDWL` qui correspond au sens inverse modem $\rightarrow$ hôte), avec pré-téléversement avant la numérotation `ATD` et cache d'empreinte SHA-256 pour éviter tout re-transfert série inutile lors des répétitions.
+  - **Diffusion dans le flux montant de l'appel via `AT+QPSND`** : utilisation des commandes officielles Quectel `AT+QPSND=1,"alt_tts.wav",0,0,0` / `AT+QPSND=1,"alt_tts.wav",0,1,0` / `AT+QPSND=1,"alt_tts.wav",0` (avec repli automatique vers `AT+QAUDPLAY`, `AT+QPLAY` et `AT+QTTS` ASCII/UCS-2) et déblocage systématique du microphone (`AT+CMUT=0`).
+  - **Normalisation WAV 8 kHz 16-bit PCM mono canonique (en-tête RIFF 44 octets strict)** : ajout d'un convertisseur et rééchantillonneur Python natif (`wave` + `array`) supprimant les chunks parasites (`LIST`/`fact`) rejetés par le décodeur matériel Quectel, normalisant le gain audio pour le codec GSM AMR et ajoutant une amorce de silence de `250 ms` pour éviter toute coupure de la première syllabe au décroché.
+  - **Fiabilisation de la détection de décroché (`AT+CLCC`) et des moteurs TTS locaux** : tolérance aux réponses `AT+CLCC` transitoires pendant l'établissement d'appel VoLTE/CSFB, calcul dynamique de l'intervalle de répétition selon la durée réelle du fichier WAV, raccrochage automatique propre en fin de diffusion et vérification/installation résiliente de `espeak-ng` / `pico2wave` dans `dependancy_info()` et `install_apt.sh`.
+
+---
+
 ## [0.1.0-beta.1] - 2026-10-31
 
 ### Ajouté
