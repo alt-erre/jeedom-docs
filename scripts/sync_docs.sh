@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Synchronise les fichiers README.md et CHANGELOG.md des 7 plugins privés alt*
-# vers le dépôt public jeedom-docs (<plugin>/index.md et <plugin>/changelog.md).
+# Synchronise les fichiers README.md et CHANGELOG.md des plugins privés alt*
+# vers le dépôt public jeedom-docs (<plugin>/index.md et <plugin>/changelog.md)
+# et génère le manifeste public versions.json (par identifiant de plugin).
 # ------------------------------------------------------------------------------
 set -euo pipefail
 
@@ -48,11 +49,10 @@ for plugin in "${PLUGINS[@]}"; do
   echo "Synchronisé : $plugin -> jeedom-docs/$plugin/{index.md,changelog.md}"
 done
 
-# Génère également le manifeste public versions.json (versions courantes + historique des commits)
+# Génère également le manifeste public versions.json (versions courantes par ID de plugin)
 python3 - "$WORKSPACE_ROOT" "$DOCS_ROOT/versions.json" <<'PYEOF'
 import json
 import os
-import subprocess
 import sys
 
 workspace_root = sys.argv[1]
@@ -65,12 +65,9 @@ plugins = [
     "altTwinkly", "altTydom", "altXbox",
 ]
 versions = {}
-commits_map = {}
-
 for p in plugins:
-    p_dir = os.path.join(workspace_root, p)
-    ver_file = os.path.join(p_dir, "VERSION")
-    info_file = os.path.join(p_dir, "plugin_info", "info.json")
+    ver_file = os.path.join(workspace_root, p, "VERSION")
+    info_file = os.path.join(workspace_root, p, "plugin_info", "info.json")
     ver = ""
     if os.path.isfile(info_file):
         try:
@@ -84,37 +81,8 @@ for p in plugins:
     if ver:
         versions[p] = ver
 
-    if os.path.isdir(os.path.join(p_dir, ".git")):
-        try:
-            revs = subprocess.check_output(
-                ["git", "-C", p_dir, "rev-list", "--all"], stderr=subprocess.DEVNULL
-            ).decode().splitlines()
-            for rev in revs:
-                short = rev[:7].lower()
-                c_ver = ""
-                try:
-                    c_ver = subprocess.check_output(
-                        ["git", "-C", p_dir, "show", f"{rev}:VERSION"],
-                        stderr=subprocess.DEVNULL,
-                    ).decode().strip()
-                except Exception:
-                    try:
-                        raw_info = subprocess.check_output(
-                            ["git", "-C", p_dir, "show", f"{rev}:plugin_info/info.json"],
-                            stderr=subprocess.DEVNULL,
-                        ).decode()
-                        c_ver = str(json.loads(raw_info).get("pluginVersion", "")).strip()
-                    except Exception:
-                        pass
-                if c_ver:
-                    commits_map[short] = c_ver
-        except Exception:
-            pass
-
-versions["_commits"] = commits_map
-
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(versions, f, indent=2, ensure_ascii=False)
     f.write("\n")
-print(f"Généré : {out_path} ({len(plugins)} plugins, {len(commits_map)} commits indexés)")
+print(f"Généré : {out_path} ({len(versions)} plugins)")
 PYEOF
