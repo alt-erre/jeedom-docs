@@ -2,6 +2,12 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.19] — 2026-10-31 (Canal Beta)
+
+### Ajouté
+- **Sélecteur rapide de Volume Maximum sur le Widget Dashboard (`10 %` à `70 %` par palier de 5)** :
+  - Ajout d'un sélecteur rapide (`Max 10%` à `Max 70%` par pas de `5 %`, ainsi que `Max 100%`) directement sur la barre de volume du widget Dashboard, avec badge ambré `.is-capped` lorsqu'un plafond est actif et création automatique des commandes `volume_max` / `volume_max_set` au rendu.
+
 ## [0.1.0-beta.18] — 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
