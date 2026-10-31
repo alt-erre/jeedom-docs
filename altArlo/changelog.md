@@ -3,6 +3,14 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.10] - 2026-10-31
+
+### Amélioré & Sobriété Matérielle
+- **Stockage 100 % Cloud Arlo pour les vidéos & Galerie en Streaming direct (Zéro saturation du disque Jeedom)** :
+  - Suppression de l'archivage local des vidéos `.mp4` et de l'historique multi-photos dans `data/media/` : les vidéos déclenchées via le bouton ** Vidéo** (`record_video`) restent **exclusivement hébergées sur le Cloud Arlo** (`my.arlo.com`).
+  - Sur la box Jeedom, seule **1 vignette `.jpg` unique par caméra** (`data/snapshots/<deviceId>.jpg`, ~80 Ko écrasée atomiquement) est conservée pour l'aperçu 16:9 du widget, garantissant une empreinte disque fixe ($< 1\text{ Mo}$ au total) et zéro usure eMMC.
+  - La modale **Galerie** (clic sur l'image du widget) interroge désormais en direct la **Bibliothèque Cloud Arlo (`/hmsweb/users/library`)** (`fetch_cloud_library`) et lit les vidéos `.mp4` en streaming directement depuis les serveurs Arlo.
+
 ## [0.1.0-beta.9] - 2026-10-31
 
 ### Ajouté
