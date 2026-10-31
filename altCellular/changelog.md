@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
+
+### Corrigé
+- **Détection d'état du démon lancé via `sudo` (`deamon_info` / `isDaemonRunning`) et masquage `urllib3` dans les logs (`core/class/altCellular.class.php`, `resources/altCellulard.py`)** :
+  - Correction de `deamon_info()` : lorsque `altCellulard.py` est exécuté sous `root` (via `system::getCmdSudo()`), l'appel PHP `posix_kill($pid, 0)` exécuté par `www-data` retournait `false` (`EPERM`) et supprimait par erreur `deamon.pid` alors que le démon venait de démarrer. La vérification s'appuie désormais sur `/proc/<pid>`, le code `EPERM` (`posix_get_last_error() === 1`) et la table des processus (`ps auxww`).
+  - Masquage des logs internes `DEBUG` de `urllib3` / `requests` afin que la clé API interne ne figure jamais dans le fichier de log en mode `Debug` (conformité Art. 4.3 CGU).
+
+---
+
 ## [0.1.0-beta.4] — 2026-10-31 (Canal Beta)
 
 ### Corrigé
