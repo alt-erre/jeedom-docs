@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+
+### Corrigé
+- **Qualité vocale claire sur le pont Voice-over-USB Quectel (`AT+QPCMV=1,0`, `resources/altCellulard.py`)** :
+  - **Cadencement Uplink officiel Quectel (`1600 octets` toutes les `100 ms`)** : remplacement des blocs de 640 octets / 40 ms (taille des paquets descendants *downlink*) par des trames montantes *uplink* strictes de **1600 octets toutes les 100 ms** conformément à la note d'application *Quectel EC2x & EG9x Voice Over USB Application Note*, éliminant les sous-alimentations de tampon DMA qui transformaient la voix en bruits hachés.
+  - **Mode POSIX `termios` 100 % brut (`cfmakeraw`) et écriture atomique 16-bit** : désactivation explicite de `OPOST` / `ONLCR` (`c_oflag = 0`, `c_iflag = 0`, `c_lflag = 0`) sur `/dev/ttyUSB1` pour empêcher le noyau Linux de convertir l'octet PCM `0x0A` en `0x0D 0x0A` (ce qui décalait tout le flux 16-bit Little-Endian d'un octet et produisait du bruit blanc).
+  - **Session audio continue sans coupure et gain nominal téléphonique (`-6 dBFS`)** : maintien du port `/dev/ttyUSB1` ouvert pendant toute la durée de l'appel (avec trames de silence `0x00` entre les répétitions), suppression de la collision avec `AT+QPSND` lorsque `AT+QPCMV=1,0` est actif et normalisation audio à `16000` (`AT+QAUDMOD=0`, `AT+QAUDPLAYGAIN=8192`) sans saturation du codec GSM AMR / VoLTE.
+
+---
+
 ## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
 
 ### Sécurité & Conformité CGU Jeedom Market
