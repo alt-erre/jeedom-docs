@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.8] — 2026-10-31 (Canal Beta)
+
+### Amélioré
+- **Qualité vocale HD hors-ligne : installation automatique de SVOX PicoTTS (`pico2wave` `fr-FR`) & chaîne de mastering téléphonique ITU-T G.712 (`resources/install_apt.sh`, `resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
+  - **Voix humaine naturelle SVOX PicoTTS (`pico2wave`) sur Debian `arm64` (Jeedom Luna)** : sur les systèmes Debian où le dépôt `non-free` n'est pas activé dans `sources.list` (ce qui faisait basculer la synthèse sur la voix robotique `espeak-ng`), `install_apt.sh` télécharge et installe automatiquement les paquets officiels Debian `libttspico-data`, `libttspico0` et `libttspico-utils` (`arm64`/`amd64`/`armhf`, licence Apache-2.0) ainsi que les voix diphones françaises `mbrola-fr4` / `mbrola-fr1`.
+  - **Mastering vocal téléphonique ITU-T G.712 via SoX & DSP Python** : ajout d'un filtre coupe-bas à `180 Hz` (éliminant les basses fréquences qui saturent le filtre LPC du codeur GSM AMR / VoLTE), d'un filtre anti-repliement à `3600 Hz`, d'un rehaussement de présence vocale de `+3 dB` à `2400 Hz` (intelligibilité des consonnes) et d'un compresseur dynamique doux (`compand` + normalisation `-2.5 dBFS`).
+  - **Optimisation DSP Quectel & latence USB (`AT+QSIDET=0`, `latency_timer = 1 ms`)** : coupure de l'effet local sidetone (`AT+QSIDET=0`), abaissement du `latency_timer` du pilote noyau `usb-serial` de `16 ms` à `1 ms` et cadencement sub-milliseconde des trames de 1600 octets.
+
+---
+
 ## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
 
 ### Corrigé
