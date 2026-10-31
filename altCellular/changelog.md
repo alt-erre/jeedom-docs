@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.9] — 2026-10-31 (Canal Beta)
+
+### Corrigé
+- **Sélection du moteur en mode TTS Automatique (`auto`) et prise en compte immédiate sans redémarrage (`resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
+  - **Indexation du cache RAM par moteur réellement résolu (`v6|<moteur_résolu>|...`)** : en mode `Automatique`, l'empreinte de cache SHA-256 était précédemment calculée sur la chaîne `"auto"` au lieu du binaire effectivement exécuté (`pico2wave` ou `espeak-ng`), ce qui pouvait continuer à servir un ancien fichier WAV `espeak-ng` mis en cache avant l'installation de `pico2wave`. Le mode `Automatique` résout désormais `pico2wave` en amont et partage exactement la même clé de cache et le même pipeline que le mode explicite `SVOX PicoTTS`.
+  - **Transmission dynamique de `tts_engine` et `tts_lang` à chaque appel (`triggerVoiceCall`)** : tout changement du moteur ou de la langue TTS dans la configuration du plugin est désormais transmis en temps réel au démon à chaque appel sans nécessiter de redémarrer le démon, avec normalisation automatique des valeurs vides (`auto` / `fr-FR`).
+
+---
+
 ## [0.1.0-beta.8] — 2026-10-31 (Canal Beta)
 
 ### Amélioré
