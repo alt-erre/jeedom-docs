@@ -3,6 +3,19 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.6] - 2026-10-31
+
+### Corrigé
+- **Protection anti-révocation du jeton Cloud Arlo (`error: 2015 - Invalid Token`) lors de la synchronisation** : suppression de l'ouverture d'un second flux SSE concurrent (`/hmsweb/client/subscribe`) dans `synchronizeDevices()` qui entrait en collision avec le flux SSE déjà maintenu par le démon `altarlod.py` et provoquait la déconnexion immédiate de la session par les serveurs Arlo (`action: logout`).
+- **Détection temps réel de l'expiration de session & Maintien de session (`keep-alive`)** :
+  - Détection automatique des événements SSE `action: logout` et des erreurs `2015 / Invalid Token`, marquage immédiat dans `session.json` et passage du statut du démon en `NOK` avec message explicite dans Jeedom et dans la page de configuration.
+  - Ajout d'un appel périodique de maintien de session (`/hmsweb/users/session/v2` toutes les 15 minutes) dans `altarlod.py` et démarrage automatique du démon dès la validation du code 2FA ou l'import de token.
+- **Exécution des actions et rafraîchissement des widgets Dashboard (`altArlo.class.php` / `altarlod.py`)** :
+  - Correction du cache de rendu dans `toHtml()` via `$this->postToHtml(...)` pour garantir la mise à jour instantanée des widgets en Jeedom v4.4+.
+  - Ajout d'un fallback CLI automatique (`exec_cmd`) dans `sendToDaemon()` pour exécuter les actions des widgets même si le démon est en cours de redémarrage, et affichage d'une alerte immédiate sur le Dashboard si la session Arlo a expiré.
+  - Prise en charge complète des stations SmartHub partagées (`uniqueId` propriétaire distinct et double envoi `automation/active` + `notify/{station_id}`) dans `set_station_mode()`.
+  - Amélioration de la capture d'instantané (`take_snapshot` via `/hmsweb/users/devices/fullFrameSnapshot` + polling différé 4 s / 8 s et droits de lecture `0644` dans `data/snapshots/` protégé par `.htaccess`).
+
 ## [0.1.0-beta.5] - 2026-10-30
 
 ### Corrigé
