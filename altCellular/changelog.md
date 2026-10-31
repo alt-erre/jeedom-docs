@@ -4,12 +4,24 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.4] — 2026-10-31 (Canal Beta)
+
+### Corrigé
+- **Moteur Voice-over-USB Quectel (`AT+QPCMV=1,0` / `AT+QPCMV=1,2`) pour modems 4G sans puce codec externe (`resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`, `resources/install_apt.sh`)** :
+  - **Injection PCM directe sur USB (`AT+QPCMV=1,0` + `/dev/ttyUSB1`)** : sur la Jeedom Luna 4G (Dusun DSGW-210 / Quectel EC25 / EG25-G) et les clés 4G USB dépourvues de puce codec audio matérielle I2S externe, activation automatique du pont numérique **Voice-over-USB** (`AT+QGPSCFG="outport","none"` + `AT+QPCMV=1,0` + `AT+QAUDMOD=3`), détection automatique de l'interface USB #01 (`/dev/ttyUSB1`) et injection en temps réel des trames PCM 8000 Hz 16-bit signées mono (640 octets toutes les 40 ms) avec drainage simultané du flux descendant.
+  - **Support USB Audio Class ALSA (`AT+QPCMV=1,2` + `aplay`) & Correction `<ulmute>=1` sur `AT+QPSND` / `AT+QAUDPLAY`** : correction du paramètre `<ulmute>` (`1` = ne pas couper l'émission uplink vers l'appelant distant, au lieu de `0` qui coupait l'uplink), correction de la syntaxe 2/4 paramètres de `AT+QAUDPLAY` et prise en charge des cartes son USB UAC (`alsa-utils`).
+  - **Exécution du démon avec privilèges système (`system::getCmdSudo()`) et redémarrage automatique** : lancement du démon via `sudo` dans `deamon_start()` pour garantir l'accès immédiat aux ports `/dev/ttyUSB*`, `/dev/ttyLuna*`, `/dev/snd/*` et à la détection `fuser` des processus `root` (`ModemManager` / `smsd`), et arrêt/relance automatique de l'ancienne instance du démon à la fin de `install_apt.sh` et `altCellular_update()`.
+
+---
+
 ## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
+
+---
 
 ## [0.1.0-beta.2] - 2026-10-31
 
