@@ -3,6 +3,18 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.8] - 2026-10-31
+
+### Ajouté & Sécurité
+- **Prise en charge sécurisée de l'expéditeur SMS alphanumérique « `Arlo` » lorsque le plugin officiel `SMS` de Jeedom filtre les numéros non autorisés** :
+  - Ajout d'un lecteur de secours en lecture seule native (`pollSmsPluginLogsForArloOtp()` dans `altArlo.class.php`) capable d'extraire le code 2FA à 6 chiffres envoyé par `Arlo` (y compris avec bourrage PDU GSM 7-bit) directement depuis les entrées récentes du journal du plugin `sms` (`Message venant d'un numéro non autorisé : Arlo...` et `Send to jeedom : {'devices': {'Arlo': ...}}`) sans obliger l'utilisateur à autoriser les numéros inconnus dans son plugin `SMS`.
+  - **Durcissement anti-injection de bout en bout** :
+    - Zéro exécution de commande shell (`fopen`/`fseek` binaire borné aux 32 derniers Ko sur liste blanche stricte de logs) ;
+    - Protection mathématique contre le *Log Forging* multi-lignes par vérification de l'apostrophe ASCII littérale `'` hors `secureXSS()` dans `jeeSMS.php` et de l'échappement `repr()` mono-ligne dans `smsd.py`, doublée d'une garde temporelle anti-collision ;
+    - Rejet strict de tout numéro de téléphone mobile personnel (`+336`/`+337`/`06`/`07`) tentant d'usurper le mot-clé `Arlo` dans le corps d'un SMS ;
+    - Validation stricte en sortie (`^\d{6}$`, exclusivement 6 chiffres ASCII `0-9`, taille d'entrée bornée à 512 octets contre tout risque de ReDoS).
+  - **Auto-remplissage du code 2FA SMS lors de la connexion interactive (Méthode 1)** : détection automatique du SMS Arlo entrant dans la page de configuration et pré-remplissage du champ de validation à 6 chiffres.
+
 ## [0.1.0-beta.7] - 2026-10-31
 
 ### Ajouté
