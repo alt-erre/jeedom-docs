@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+
+### Sécurité & Conformité CGU Jeedom Market
+- **Encapsulation de `apikey` dans le corps JSON POST des callbacks (`resources/altCellulard.py`, `core/php/jeeAltCellular.php`)** :
+  - Suppression du paramètre `?apikey=...` de l'URL de callback HTTP (`jeeAltCellular.php`) au profit d'une transmission dans le corps JSON `POST` (`payload["apikey"]`) et l'en-tête HTTP `X-Jeedom-Apikey`, garantissant que la clé API interne n'apparaisse jamais ni dans les logs du plugin ni dans les journaux d'accès Apache (Art. 4.3 CGU).
+- **Confinement strict des opérations `apt` au script `dependancy_install` (`resources/altCellulard.py`, `core/class/altCellular.class.php`)** :
+  - Toute installation de paquet système (`espeak-ng`, `libttspico-utils`, `sox`, `alsa-utils`) est strictement confinée à `resources/install_apt.sh` lors de l'exécution explicite des dépendances par Jeedom Core (`dependancy_install()`), et l'arrêt du démon s'appuie exclusivement sur l'API officielle `system::kill()` du Core Jeedom (Art. 4.4 CGU).
+
+---
+
 ## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
 
 ### Corrigé
