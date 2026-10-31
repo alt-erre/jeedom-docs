@@ -3,63 +3,79 @@
  * Affichage dynamique des versions SemVer pour les plugins alt-erre dans le Centre de mise à jour
  * À coller dans : Système -> Personnalisation avancée -> Desktop (custom.js) -> Activer
  *
- * Zéro hash codé en dur :
- * - "Version installée" : lit directement plugins/<pluginId>/plugin_info/info.json sur votre Jeedom.
- * - "Dernière version"  :
- *     * Si le commit distant = le commit installé (statut OK) : affiche la même version que l'installée.
- *     * Si une mise à jour est disponible (statut UPDATE) : interroge le manifeste public
- *       jeedom-docs/versions.json (indexé par nom de plugin, ex. "altAirMedia": "0.1.0-beta.8").
+ * Fonctionnement (compatible avec le .htaccess et la Content-Security-Policy de Jeedom 4.6) :
+ * - Interroge en local (same-origin PHP) : plugins/<pluginId>/plugin_info/configuration.php?alt_versions_manifest=1
+ *   qui lit sur le disque de votre Jeedom les fichiers info.json de tous les plugins alt* installés ("local")
+ *   et récupère côté serveur (via PHP cURL) le manifeste public jeedom-docs/versions.json ("remote").
+ * - Inclut un repli initial pour l'affichage immédiat avant la première mise à jour des plugins.
  */
 (function () {
   'use strict';
 
-  var localVersionCache = {};
-  var remoteLatestMap = {};
-  var remoteFetchedAt = 0;
+  // Repli initial uniquement tant qu'aucun plugin n'a encore reçu l'endpoint PHP alt_versions_manifest
+  var FALLBACK_LOCAL = {
+    '61753dd': '0.1.0-beta.7', 'ff78bb0': '0.1.0-beta.11', 'dad3df9': '0.1.0-beta.5',
+    '51ec9d7': '0.1.0-beta.6', 'cdd7b1e': '0.1.0-beta.4', '4369555': '0.1.0-beta.5',
+    '3d5c851': '0.1.0-beta.2', 'da50879': '0.1.0-beta.5', '150cb5d': '0.1.0-beta.1',
+    '2616ebc': '0.1.0-beta.2', '333b3cd': '0.1.0-beta.6', 'e16d6bc': '0.1.0-beta.2',
+    '0f08f89': '0.1.0-beta.16', '0f357d3': '0.1.0-beta.11', '03a7774': '0.1.0-beta.4',
+    'b5bcefb': '0.1.0-beta.6', '4f10fe5': '0.1.0-beta.14', 'd41f292': '0.1.0-beta.2',
+    '47be630': '0.1.0-beta.16', '3b17a6a': '0.1.0-beta.8', '30a358f': '0.1.0-beta.2',
+    'f997903': '0.1.0-beta.2'
+  };
+  var FALLBACK_REMOTE = {
+    'altairmedia': '0.1.0-beta.8', 'altarlo': '0.1.0-beta.12', 'altbambulab': '0.1.0-beta.6',
+    'altcambridgeaudio': '0.1.0-beta.7', 'altcellular': '0.1.0-beta.1', 'altdenon': '0.1.0-beta.5',
+    'alteducartable': '0.1.0-beta.6', 'althue': '0.1.0-beta.3', 'altios': '0.1.0-beta.2',
+    'altjvcprojector': '0.1.0-beta.6', 'altnetguard': '0.1.0-beta.2', 'altnuki': '0.1.0-beta.2',
+    'altplaystation': '0.1.0-beta.3', 'altpronote': '0.1.0-beta.7', 'altroborock': '0.1.0-beta.3',
+    'altsamsungtv': '0.1.0-beta.17', 'altsiemens': '0.1.0-beta.12', 'altsonos': '0.1.0-beta.5',
+    'altswitch': '0.1.0-beta.7', 'alttvdashboard': '0.1.0-beta.15', 'alttwinkly': '0.1.0-beta.3',
+    'alttydom': '0.1.0-beta.17', 'altxbox': '0.1.0-beta.9'
+  };
 
-  function fetchLocalPluginVersion(pluginId, shortLocalSha) {
-    var cacheKey = pluginId + ':' + (shortLocalSha || '');
-    if (localVersionCache[cacheKey] !== undefined) {
-      return Promise.resolve(localVersionCache[cacheKey]);
-    }
-    var url = 'plugins/' + pluginId + '/plugin_info/info.json?v=' + encodeURIComponent(shortLocalSha || Date.now());
-    return fetch(url, { cache: 'no-store' })
-      .then(function (r) {
-        if (!r.ok && pluginId === 'altSamsungTV') {
-          return fetch('plugins/altSamsungTv/plugin_info/info.json?v=' + encodeURIComponent(shortLocalSha || Date.now()), { cache: 'no-store' });
-        }
-        return r;
-      })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (info) {
-        var ver = (info && info.pluginVersion) ? String(info.pluginVersion).trim() : '';
-        localVersionCache[cacheKey] = ver;
-        return ver;
-      })
-      .catch(function () {
-        localVersionCache[cacheKey] = '';
-        return '';
-      });
-  }
+  var dynamicLocalMap = {};
+  var dynamicRemoteMap = {};
+  var lastProbeTs = 0;
+  var lastShaSignature = '';
 
-  function ensureRemoteManifest() {
+  function probeServerManifest(pluginIds) {
     var now = Date.now();
-    if (now - remoteFetchedAt < 60000) {
+    if (now - lastProbeTs < 15000 || !pluginIds.length) {
       return;
     }
-    remoteFetchedAt = now;
-    fetch('https://raw.githubusercontent.com/alt-erre/jeedom-docs/main/versions.json?t=' + now, { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (!data || typeof data !== 'object') return;
-        Object.keys(data).forEach(function (k) {
-          if (typeof data[k] === 'string') {
-            remoteLatestMap[k.toLowerCase()] = data[k].trim();
+    lastProbeTs = now;
+
+    var idx = 0;
+    function tryNext() {
+      if (idx >= pluginIds.length) return;
+      var pid = pluginIds[idx++];
+      var url = 'plugins/' + pid + '/plugin_info/configuration.php?alt_versions_manifest=1&_=' + now;
+      fetch(url, { cache: 'no-store', credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.text() : ''; })
+        .then(function (txt) {
+          if (!txt || txt.trim().indexOf('{') !== 0) {
+            tryNext();
+            return;
           }
+          var data = JSON.parse(txt);
+          if (data && data.state === 'ok') {
+            if (data.local && typeof data.local === 'object') {
+              dynamicLocalMap = data.local;
+            }
+            if (data.remote && typeof data.remote === 'object') {
+              dynamicRemoteMap = data.remote;
+            }
+            enhanceUpdateTable(true);
+          } else {
+            tryNext();
+          }
+        })
+        .catch(function () {
+          tryNext();
         });
-        enhanceUpdateTable();
-      })
-      .catch(function () {});
+    }
+    tryNext();
   }
 
   function extractShortSha(rawText) {
@@ -103,15 +119,18 @@
     badge.setAttribute('title', title);
   }
 
-  function enhanceUpdateTable() {
+  function enhanceUpdateTable(skipProbe) {
     var table = document.getElementById('table_update');
     if (!table) return;
-    ensureRemoteManifest();
 
     var rows = table.querySelectorAll('tbody tr');
+    var pluginIds = [];
+    var sigParts = [];
+
     rows.forEach(function (tr) {
       var pluginId = extractPluginIdFromRow(tr);
       if (!pluginId || pluginId.indexOf('alt') !== 0) return;
+      pluginIds.push(pluginId);
 
       var tds = tr.querySelectorAll('td');
       if (tds.length < 4) return;
@@ -124,23 +143,38 @@
       var rawRemote = (remoteOrig.getAttribute('title') || remoteOrig.textContent || '').trim();
       var shortLocal = extractShortSha(rawLocal);
       var shortRemote = extractShortSha(rawRemote);
-
       if (!shortLocal && !shortRemote) return;
 
-      fetchLocalPluginVersion(pluginId, shortLocal).then(function (localSemVer) {
-        if (shortLocal) {
-          renderSemVerBadge(tds[2], localSemVer, shortLocal, rawLocal);
-        }
-        if (shortRemote) {
-          var remoteSemVer = (shortRemote === shortLocal && localSemVer)
-            ? localSemVer
-            : (remoteLatestMap[pluginId.toLowerCase()] || '');
-          renderSemVerBadge(tds[3], remoteSemVer, shortRemote, rawRemote);
-        }
-      });
+      sigParts.push(pluginId + ':' + shortLocal + ':' + shortRemote);
+      var key = pluginId.toLowerCase();
+
+      var localVer = dynamicLocalMap[key]
+        || FALLBACK_LOCAL[shortLocal]
+        || (shortLocal === shortRemote ? (dynamicRemoteMap[key] || FALLBACK_REMOTE[key]) : '')
+        || '';
+
+      var remoteVer = (shortRemote === shortLocal && localVer)
+        ? localVer
+        : (dynamicRemoteMap[key] || FALLBACK_REMOTE[key] || '');
+
+      if (shortLocal) {
+        renderSemVerBadge(tds[2], localVer, shortLocal, rawLocal);
+      }
+      if (shortRemote) {
+        renderSemVerBadge(tds[3], remoteVer, shortRemote, rawRemote);
+      }
     });
+
+    var newSig = sigParts.join('|');
+    if (newSig !== lastShaSignature) {
+      lastShaSignature = newSig;
+      lastProbeTs = 0;
+    }
+    if (!skipProbe && pluginIds.length) {
+      probeServerManifest(pluginIds);
+    }
   }
 
-  setInterval(enhanceUpdateTable, 600);
-  document.addEventListener('DOMContentLoaded', enhanceUpdateTable);
+  setInterval(function () { enhanceUpdateTable(false); }, 600);
+  document.addEventListener('DOMContentLoaded', function () { enhanceUpdateTable(false); });
 })();
