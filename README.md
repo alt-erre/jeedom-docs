@@ -12,29 +12,29 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.12` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
-| **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.6` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
-| **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
-| **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.2` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
-| **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
-| **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.6` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
-| **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.3` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
-| **Alt Contrôle Parental (iPhone & iPad)** | `altIos` | Multimédia | `0.1.0-beta.2` | `Beta` | [Documentation](altIos/) · [Changelog](altIos/changelog) |
-| **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
-| **Alt Radar & Sécurité Réseau** | `altNetGuard` | Sécurité | `0.1.0-beta.2` | `Beta` | [Documentation](altNetGuard/) · [Changelog](altNetGuard/changelog) |
-| **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.2` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
-| **Alt Contrôle Parental (PlayStation)** | `altPlaystation` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altPlaystation/) · [Changelog](altPlaystation/changelog) |
-| **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.7` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
-| **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.3` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
-| **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.17` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
-| **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.12` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
-| **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.5` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
-| **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
-| **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.15` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
-| **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.3` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
-| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.17` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
-| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.9` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
+| **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.9` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.13` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
+| **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.7` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
+| **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
+| **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.3` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
+| **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altDenon/) · [Changelog](altDenon/changelog) |
+| **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.7` | `Beta` | [Documentation](altEducartable/) · [Changelog](altEducartable/changelog) |
+| **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.4` | `Beta` | [Documentation](altHue/) · [Changelog](altHue/changelog) |
+| **Alt Contrôle Parental (iPhone & iPad)** | `altIos` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altIos/) · [Changelog](altIos/changelog) |
+| **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
+| **Alt Radar & Sécurité Réseau** | `altNetGuard` | Sécurité | `0.1.0-beta.3` | `Beta` | [Documentation](altNetGuard/) · [Changelog](altNetGuard/changelog) |
+| **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.3` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
+| **Alt Contrôle Parental (PlayStation)** | `altPlaystation` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altPlaystation/) · [Changelog](altPlaystation/changelog) |
+| **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.8` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
+| **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.4` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
+| **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.18` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
+| **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.13` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
+| **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
+| **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
+| **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.16` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
+| **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.4` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.18` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
+| **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
 
 ---
 

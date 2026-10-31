@@ -14,6 +14,13 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
   - Affichage d'un badge de zone (`Main Zone`, `Zone 2`, `Zone 3`) sur chaque carte d'équipement dans la page d'accueil du plugin.
   - **Adaptation automatique du Widget Cockpit (« Dark Glass ») pour les équipements `Zone 2` et `Zone 3`** : affichage dédié Multiroom (badge `ZONE 2` / `ZONE 3`, sélecteur d'entrée pleine largeur, pas de volume à `1 dB`, Quick Select `Z2QUICK1..4` / `Z3QUICK1..4`, transport et favoris HEOS) et masquage automatique des contrôles propres à la Zone Principale (HDMI Monitor, Surround 13.2ch, Audyssey, OSD).
 
+## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+
+### Ajouté & Corrigé
+- **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
+  - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
+  - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
+
 ## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.5` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
