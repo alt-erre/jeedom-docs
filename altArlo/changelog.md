@@ -3,6 +3,18 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.11] - 2026-10-31
+
+### Ajouté
+- **Exploitation native du Stockage Local de la Base SmartHub Arlo (Carte microSD / Clé USB — `VMB5000`, `VMB4540`, `VMB4500`, `VMB4000`)** :
+  - **Commandes & Bouton Widget sur la Station SmartHub (`basestation`)** :
+    - `local_storage_state` (**« État stockage local (SD/USB) »**, `info/string`) et `local_storage_enabled` (**« Enregistrement local SD/USB actif »**, `info/binary`) synchronisés en temps réel via les notifications SSE `basestation` et `storage` ;
+    - `local_storage_on` / `local_storage_off` (**« Activer / Désactiver enregistrement local SD/USB »**, `action/other`) configurant automatiquement `recordLocally: true`, `overwrite: true` (écrasement circulaire automatique des vidéos les plus anciennes) et `bestLocalResolution: true` (meilleure résolution 2K/4K) sur la base Arlo, avec bouton dédié **<i class="fas fa-sd-card"></i> Stockage local SD/USB** sur le widget de la station.
+  - **Lecture & Streaming LAN direct depuis la Base Arlo (*Direct Storage Access / RATLS*)** :
+    - Négociation automatique du jeton et du port local RATLS (`ratls/connectivity/{hubId}` et `ratls/token/{hubId}`) dans `altarlod.py` (`_fetch_hub_ratls_library`) pour interroger directement le serveur HTTPS local de la base Arlo (`https://<ip_locale_base>:<port_ratls>/hmsweb/users/library`) sur votre réseau local.
+    - Ajout d'un proxy de streaming LAN sécurisé dans `core/php/snapshot.php?type=hub_stream` (validation stricte RFC1918 de l'IP privée LAN et streaming cURL par blocs, **0 Mo stocké sur Jeedom**).
+  - **Modale Galerie Hybride (Cloud Arlo + Base Locale SD/USB)** : fusion automatique et dédoublonnage des enregistrements provenant du **💾 Stockage Local Base SD/USB** et du **☁️ Cloud Arlo**, permettant de visionner et télécharger les vidéos même sans abonnement Cloud Arlo ou après expiration de la rétention Cloud.
+
 ## [0.1.0-beta.10] - 2026-10-31
 
 ### Amélioré & Sobriété Matérielle

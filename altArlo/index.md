@@ -26,10 +26,11 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
   - Allumage, extinction et réglage d'intensité (`0–100 %`) du projecteur **Floodlight** (`FB1001B`) et du **Spotlight LED** intégré (`VMC5040`, `VMC4041PB`, `VMC4060B`) ;
   - Déclenchement et arrêt de la **sirène** (SmartHub ou caméra équipée) ;
   - Activation / Désactivation à distance de chaque caméra (*Privacy Mode*).
-- **Vignettes Snapshots, Enregistrement Vidéo Cloud, Galerie Streaming & Widgets « Dark Glass » (`alt-erre`)** :
-  - **Stockage 100 % Cloud Arlo (Zéro saturation du stockage Jeedom)** : les vidéos déclenchées via le bouton **🎥 Vidéo** (`record_video`) sont enregistrées et hébergées directement dans la **Bibliothèque Cloud Arlo** (`my.arlo.com`). Sur la box Jeedom, seule la vignette d'aperçu courante du widget est conservée (`1 seul fichier .jpg ~80 Ko` écrasé par caméra dans `data/snapshots/<deviceId>.jpg`) ;
-  - Boutons **📸 Photo** (`take_snapshot`) et **🎥 Vidéo** (`record_video` — enregistrement d'un clip de 15 s sur le Cloud Arlo) directement sur le widget ;
-  - **Modale Galerie Cloud intégrée** (clic sur l'image 16:9 ou sur le badge **Galerie**) interrogeant en direct `/hmsweb/users/library` pour lire en streaming vos vidéos et captures depuis le Cloud Arlo sans occuper d'espace disque sur Jeedom ;
+- **Vignettes Snapshots, Enregistrement Vidéo Cloud + Stockage Local SmartHub (Carte microSD / Clé USB) & Widgets « Dark Glass » (`alt-erre`)** :
+  - **Zéro saturation du stockage Jeedom** : les vidéos déclenchées via le bouton **🎥 Vidéo** (`record_video`) ou sur détection de mouvement sont enregistrées directement dans la **Bibliothèque Cloud Arlo** (`my.arlo.com`) **et/ou sur la carte microSD / clé USB de la base SmartHub** (`VMB5000`, `VMB4540`, `VMB4500`, `VMB4000`). Sur la box Jeedom, seule la vignette d'aperçu courante du widget est conservée (`1 seul fichier .jpg ~80 Ko` écrasé par caméra dans `data/snapshots/<deviceId>.jpg`) ;
+  - **Pilotage & Lecture directe du Stockage Local SmartHub (*Direct Storage Access / RATLS LAN*)** : activation/désactivation à distance de l'enregistrement local (`local_storage_on` / `local_storage_off` avec écrasement circulaire `overwrite: true` et résolution maximale `bestLocalResolution: true`) sur le widget de la station de base, et lecture en streaming direct sur le réseau local (`https://<ip_locale_base>:<port_ratls>/hmsweb/users/library` relayé via `core/php/snapshot.php?type=hub_stream`) même sans abonnement Cloud Arlo ;
+  - Boutons **📸 Photo** (`take_snapshot`) et **🎥 Vidéo** (`record_video` — enregistrement d'un clip de 15 s sur le Cloud Arlo et sur le stockage local SmartHub) directement sur le widget ;
+  - **Modale Galerie Hybride (Cloud Arlo + Base Locale SD/USB)** (clic sur l'image 16:9 ou sur le badge **Galerie**) fusionnant automatiquement les vidéos du Cloud Arlo (**☁️ Cloud**) et celles stockées sur la carte microSD / clé USB de la base Arlo (**💾 Base SD/USB**) en streaming direct sans occuper d'espace disque sur Jeedom ;
   - 9 thèmes de couleur sélectionnables par équipement (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
 
 ---
@@ -68,6 +69,9 @@ Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14
 | **Mode : Armé** | `mode_mode1` | `action / other` | Arme la station (`mode1`) |
 | **Mode : \<Nom Custom\>** | `mode_mode2`, `mode_mode3`… | `action / other` | Créée automatiquement pour chaque mode personnalisé configuré dans Arlo |
 | **Planning : \<Nom\>** | `mode_schedule.1`… | `action / other` | Active le planning hebdomadaire Arlo |
+| **État stockage local (SD/USB)** | `local_storage_state` | `info / string` | État du support microSD / USB inséré dans la base (`active`, `ready`, `notAvailable`…) |
+| **Enregistrement local SD/USB actif** | `local_storage_enabled` | `info / binary` | `1` si l'enregistrement local sur la base Arlo est activé, `0` sinon |
+| **Activer / Désactiver enregistrement local SD/USB** | `local_storage_on` / `local_storage_off` | `action / other` | Active ou coupe l'enregistrement local sur la carte microSD / clé USB de la base (avec écrasement automatique des plus anciennes vidéos et résolution maximale) |
 | **Sirène ON / OFF** | `siren_on` / `siren_off` | `action / other` | Déclenche ou arrête la sirène |
 | **Rafraîchir** | `refresh` | `action / other` | Interroge l'état temps réel de la station et de ses caméras |
 
