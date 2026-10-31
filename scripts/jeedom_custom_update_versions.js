@@ -2,11 +2,6 @@
  * Personnalisation avancée Jeedom 4.4 / 4.5 / 4.6 (custom.js)
  * Affichage 100 % dynamique des versions SemVer pour les plugins alt-erre dans le Centre de mise à jour
  * À coller dans : Système -> Personnalisation avancée -> Desktop (custom.js) -> Activer
- *
- * Zéro nom de plugin, zéro version et zéro hash codés en dur :
- * - Interroge en local (same-origin PHP) : plugins/<pluginId>/plugin_info/configuration.php?alt_versions_manifest=1
- * - PHP lit dynamiquement sur le disque de votre Jeedom tous les fichiers plugins/alt*/plugin_info/info.json ("local")
- *   et récupère côté serveur (via PHP cURL) le manifeste public jeedom-docs/versions.json ("remote").
  */
 (function () {
   'use strict';
@@ -31,11 +26,12 @@
       fetch(url, { cache: 'no-store', credentials: 'same-origin' })
         .then(function (r) { return r.ok ? r.text() : ''; })
         .then(function (txt) {
-          if (!txt || txt.trim().indexOf('{') !== 0) {
+          var startIdx = txt ? txt.indexOf('{"state":"ok"') : -1;
+          if (startIdx === -1) {
             tryNext();
             return;
           }
-          var data = JSON.parse(txt);
+          var data = JSON.parse(txt.substring(startIdx));
           if (data && data.state === 'ok') {
             if (data.local && typeof data.local === 'object') {
               dynamicLocalMap = data.local;
@@ -107,7 +103,6 @@
     rows.forEach(function (tr) {
       var pluginId = extractPluginIdFromRow(tr);
       if (!pluginId || pluginId.indexOf('alt') !== 0) return;
-      pluginIds.push(pluginId);
 
       var tds = tr.querySelectorAll('td');
       if (tds.length < 4) return;
@@ -121,6 +116,12 @@
       var shortLocal = extractShortSha(rawLocal);
       var shortRemote = extractShortSha(rawRemote);
       if (!shortLocal && !shortRemote) return;
+
+      if (shortLocal && shortLocal === shortRemote) {
+        pluginIds.unshift(pluginId);
+      } else {
+        pluginIds.push(pluginId);
+      }
 
       sigParts.push(pluginId + ':' + shortLocal + ':' + shortRemote);
       var key = pluginId.toLowerCase();

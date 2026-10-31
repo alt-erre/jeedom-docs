@@ -5,6 +5,15 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
+## `[0.1.0-beta.6]` — 2026-10-31 (Canal Beta)
+
+### Ajouté
+- **Dissociation en 1 clic des zones d'un même amplificateur (`Dissocier les zones (Z2 / Z3)`)** :
+  - Nouveau bouton **`Dissocier les zones (Z2 / Z3)`** dans la barre d'outils de l'équipement permettant de créer automatiquement des équipements Jeedom indépendants pour la **Zone 2** et/ou la **Zone 3** d'un même amplificateur (même adresse IP, connexion TCP `23` et HEOS `1255` mutualisée par `DenonHostHub`).
+  - Héritage instantané du modèle, du thème et des sources personnalisées (`Apple TV`, `XBOX SX`, `PS5`, `Switch 2`…) sans requête HTTP redondante, avec option pour désactiver et nettoyer automatiquement le bandeau `Zone 2 / Zone 3` intégré à l'équipement principal afin d'éviter les doublons.
+  - Affichage d'un badge de zone (`Main Zone`, `Zone 2`, `Zone 3`) sur chaque carte d'équipement dans la page d'accueil du plugin.
+  - **Adaptation automatique du Widget Cockpit (« Dark Glass ») pour les équipements `Zone 2` et `Zone 3`** : affichage dédié Multiroom (badge `ZONE 2` / `ZONE 3`, sélecteur d'entrée pleine largeur, pas de volume à `1 dB`, Quick Select `Z2QUICK1..4` / `Z3QUICK1..4`, transport et favoris HEOS) et masquage automatique des contrôles propres à la Zone Principale (HDMI Monitor, Surround 13.2ch, Audyssey, OSD).
+
 ## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.5` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.

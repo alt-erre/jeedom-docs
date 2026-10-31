@@ -59,7 +59,9 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 
 ### 5. Quick Select 1 à 4, Multi-Zones (Zone 2 & Zone 3), Mode ECO & Télécommande OSD
 - **Quick Select :** Rappel direct et retour d'état des 4 mémoires `Quick Select 1 à 4` (`MSQUICK1..4`).
-- **Multi-Zones flexible :** Pilotage de `Zone 2` et `Zone 3` directement intégré dans l'équipement principal **ou** via des équipements dédiés partageant le même démon TCP.
+- **Multi-Zones flexible (Intégré ou Dissocié en équipements distincts) :**
+  - **Mode intégré** : pilotage rapide de `Zone 2` et `Zone 3` directement depuis le tiroir de l'équipement `Zone Principale (MAIN)`.
+  - **Mode dissocié en 1 clic (`Dissocier les zones (Z2 / Z3)`)** : possibilité de scinder un même amplificateur physique en **2 ou 3 équipements Jeedom indépendants** (`Main Zone`, `Zone 2`, `Zone 3`), chacun affectable à une pièce différente (*Salon*, *Terrasse*, *Chambre*), doté de son propre widget dédié, de son propre plafond de volume (`volume_max`) et de ses sources personnalisées, tout en **partageant une unique connexion TCP `23` / HEOS `1255`** dans le démon (`DenonHostHub`).
 - **Mode ECO & Veille :** Sélection `Auto / On / Off` et minuterie de veille (`Sleep Timer` `0` à `120 min`).
 - **Télécommande OSD intégrée :** Pavé directionnel `Haut`, `Bas`, `Gauche`, `Droite`, `OK / Entrée`, `Menu Setup`, `Retour`, `Info OSD`, `Option`.
 
