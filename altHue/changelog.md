@@ -5,6 +5,13 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.6] - 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Correction des erreurs MySQL `1062 Duplicate entry` lors de la synchronisation des équipements et commandes (`core/class/altHue.class.php`)** :
+  - **Déduplication proactive des noms d'équipements (`resolveUniqueEqLogicName()`)** : vérification préalable de tous les équipements existants dans la même pièce Jeedom (`eqLogic::byObjectId($objectId, false)`, y compris ceux appartenant à un ancien plugin Hue désactivé mais non supprimé) avec ajout automatique du suffixe ` (Hue)` ou ` (2)`, ` (3)`... avant `eqLogic::save()`, et suppression de la boucle de réessai aveugle qui ré-exécutait `postSave()` sur le même équipement.
+  - **Sécurisation de `upsertCmd()` et `postInsert()` contre les collisions sur `UNIQUE(eqLogic_id, name)`** : recherche directe en base via `cmd::byEqLogicIdAndLogicalId()` et `cmd::byEqLogicIdCmdName()` (contournant le cache mémoire interne `$this->_cmds` de Jeedom Core), nettoyage des éventuelles commandes orphelines résiduelles dans `postInsert()`, suppression de l'appel réentrant `postSave()` dans `toHtml()` et déplacement de l'initialisation `checkAndUpdateCmd('brightness_max', 100)` en fin de `postSave()`.
+
 ## [0.1.0-beta.5] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
