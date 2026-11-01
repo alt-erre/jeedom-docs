@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.12] — 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Priorisation automatique de `/dev/ttyUSB-LTE-Quectel` et réservation stricte de `/dev/ttyLuna-Lte` pour le plugin SMS (`resources/altCellulard.py`)** :
+  - Sur Jeedom Luna 4G, `/dev/ttyLuna-Lte` (et sa cible réelle) est désormais inconditionnellement réservé au plugin `SMS` officiel tandis que le mode `Auto` d'`altCellular` sélectionne en priorité `/dev/ttyUSB-LTE-Quectel`, garantissant zéro conflit même en laissant le port sur `Auto`.
+
+---
+
 ## [0.1.0-beta.11] — 2026-11-01 (Canal Beta)
 
 ### Corrigé
