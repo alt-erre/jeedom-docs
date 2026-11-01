@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.11] — 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Cohabitation automatique sans conflit avec le plugin SMS officiel sur Jeedom Luna 4G (`resources/altCellulard.py`, `core/class/altCellular.class.php`)** :
+  - **Réservation automatique du port du plugin `SMS` (`/dev/ttyUSB2` / `/dev/ttyLuna-Lte`)** : en mode `Auto`, lorsque `altCellular` démarrait avant le plugin `SMS`, le tri alphabétique sélectionnait `/dev/ttyLuna-Lte` ou `/dev/ttyUSB2` en premier, ce qui verrouillait le port configuré dans le plugin `SMS` et l'empêchait de démarrer.
+  - **Bascule automatique d'`altCellular` sur le 2e canal AT dédié (`/dev/ttyUSB3`)** : le démon lit désormais (en lecture seule) le port configuré dans le plugin `SMS` et sélectionne systématiquement l'autre canal AT indépendant du modem Quectel (`/dev/ttyUSB3` si `SMS` utilise `/dev/ttyUSB2`, ou inversement), avec détection par inspection directe de `/proc/<pid>/fd` et libération automatique du descripteur au repos si un modem USB mono-canal est utilisé.
+
+---
+
 ## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
 
 ### Corrigé
