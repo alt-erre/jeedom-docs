@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.14] - 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Correction du timeout sur le bouton « Tester & Diagnostiquer le Modem » (`resources/altCellulard.py`)** :
+  - **Cause** : lors du diagnostic, `_probe_single_port_at()` envoyait `AT\r\n` sur `/dev/ttyUSB0` (port binaire Qualcomm DM/Diag) et `/dev/ttyUSB1` (port audio PCM Voice-over-USB). Comme ces deux endpoints USB ne consomment pas les commandes AT hors session, l'appel système `close()` du pilote noyau Linux `usb_wwan` bloquait dans `tty_wait_until_sent()` pendant `30 secondes` (`closing_wait`), dépassant le timeout AJAX de `12 secondes`.
+  - **Correction** : exclusion explicite de `ttyUSB0` (Qualcomm DM) et `ttyUSB1` (Audio PCM 8 kHz) des tests AT, purge systématique du tampon noyau (`termios.tcflush(fd, TCIOFLUSH)`) avant fermeture dans `_probe_single_port_at()`, préservation sans ouverture des ports réservés au plugin `SMS`, et enrichissement du rapport avec la cible réelle des liens symboliques (`-> /dev/ttyUSB*`) et l'état du moteur TTS (`SVOX PicoTTS + SoX`).
+
+---
+
 ## [0.1.0-beta.13] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
