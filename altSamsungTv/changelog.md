@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.20] — 2026-11-01 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max %` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom.
+- **Mise en valeur des œuvres The Frame & vignettes multimédias (Dashboard & Mobile)** :
+  - Agrandissement de la vignette 16:9 de `88×50 px` à **`104×59 px`** sur le Dashboard (`84×47 px` sur Mobile, `44×78 px` en mode Portrait) avec halo d'ambiance flouté renforcé et zoom au survol.
+  - Ajout d'un **aperçu Lightbox plein widget au clic sur l'œuvre** pour admirer le tableau The Frame en grand format.
+
 ## [0.1.0-beta.19] — 2026-10-31 (Canal Beta)
 
 ### Ajouté

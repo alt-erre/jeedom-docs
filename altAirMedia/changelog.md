@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.11] — 2026-11-01 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max %` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom qui étirait le menu déroulant et écrasait le curseur de volume.
+- **Mise en valeur immersive des jaquettes multimédias (Dashboard & Mobile)** :
+  - Agrandissement de la jaquette de `58×58 px` à **`74×74 px`** sur le Dashboard (`56×56 px` sur Mobile) avec ombre portée 3D profonde, liseré lumineux et zoom fluide au survol.
+  - Ajout d'un **halo d'ambiance flouté et saturé (`.am-media-card-bg`)** projetant les couleurs de la jaquette en arrière-plan de la carte média.
+  - Ajout d'une **vue Lightbox plein widget au clic sur la jaquette** permettant d'admirer la pochette en grand format avec le titre et l'artiste.
+
 ## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
 
 ### Ajouté
