@@ -4,10 +4,18 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.21] - 2026-11-01 (Canal Beta)
+
+### Corrigé & Optimisé (Sobriété Jeedom Luna)
+- **Suppression de la surcharge SQL / CPU lors des remontées d'état groupées (`core/class/altTydom.class.php`, `plugin_info/configuration.php`)** :
+  - Appel de `propagateToHostEquipments()` strictement conditionné à un changement effectif de valeur (`$hasChanged === true` dans `applyDeviceData()` et retour positif de `checkAndUpdateCmd()`).
+  - Mise en cache mémoire par requête HTTP (`self::$_activeEquipsCache`) de `self::byType('altTydom', true)` et déclenchement de `refreshWidget()` sur l'équipement hôte uniquement lorsqu'une commande rattachée a réellement changé (`syncLinkedValuesFromChildren(false)`), éliminant les milliers d'hydratations SQL redondantes au démarrage du démon sur Jeedom Luna.
+  - Libération immédiate du verrou de session PHP (`@session_write_close()`) dans `plugin_info/configuration.php` (`alt_versions_manifest=1`).
+
 ## [0.1.0-beta.20] - 2026-11-01 (Canal Beta)
 
 ### Ajouté
-- **Association & Fusion de composants Tydom — « Widgets Combinés » (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`, `desktop/php/altTydom.php`, `desktop/js/altTydom.js`)** :
+- **Association & Fusion de composants Tydom - « Widgets Combinés » (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`, `desktop/php/altTydom.php`, `desktop/js/altTydom.js`)** :
   - **Regroupement d'équipements Tydom Pro / Home dissociés au sein d'un seul widget unifié** : possibilité de rattacher directement depuis la page de configuration d'un équipement principal jusqu'à **3 contacts d'ouvrants** (`linkedOpening1..3` avec détection automatique ou personnalisation du libellé court : *Vantail G*, *Vantail D*, *Portillon*, *Fenêtre*...), un **volet motorisé** (`linkedShutter`), une **sonde / capteur / sous-compteur** (`linkedSensor`) et un **éclairage / actionneur associé** (`linkedLight`), avec option de masquage automatique des équipements secondaires sur le Dashboard (`hideLinkedEquipments`).
   - **Barre de pastilles temps réel (`.tyd-linked-bar` / `.tyd-linked-chip`) & Vignette SVG combinée** :
     - Affichage en temps réel sur le widget (Dashboard & Mobile) de l'état de chaque vantail/ouvrant associé (pastille verte *Fermé* / ambrée *Ouvert* + indicateur de pile faible), des mesures de la sonde rattachée (`°C`, `% HR`, `W/m²`, `W`, présence) et d'un bouton interactif de bascule directe pour l'éclairage associé (`ON` / `OFF`).

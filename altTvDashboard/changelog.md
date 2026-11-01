@@ -5,6 +5,13 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.19] - 2026-11-01 (Canal Beta)
+
+### Corrigé & Optimisé (Sobriété Jeedom Luna)
+- **Protection anti-stampede des workers Apache et déverrouillage de session PHP (`core/class/altTvDashboard.class.php`, `plugin_info/configuration.php`)** :
+  - Ajout d'un verrou d'agrégation en mémoire (`altTvDashboard::building::<id>`) avec repli instantané sur le dernier payload en cache (`stale-while-revalidate` jusqu'à `30 s`) dans `buildKioskPayload()` afin qu'aucune rafale d'appels `getKioskState` simultanés (ex. TV + iPhone Duo pendant une mise à jour système Jeedom) ne puisse empiler plusieurs processus Apache sur la Jeedom Luna.
+  - Libération immédiate du verrou de session PHP (`@session_write_close()`) dans `plugin_info/configuration.php` (`alt_versions_manifest=1`) avant la vérification réseau des versions.
+
 ## [0.1.0-beta.18] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
