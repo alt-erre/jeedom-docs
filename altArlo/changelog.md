@@ -3,6 +3,16 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.18] - 2026-11-01 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Arrêt automatique de l'ancien processus démon en RAM lors d'une mise à jour ou d'une demande 2FA (`plugin_info/install.php`, `core/ajax/altArlo.ajax.php`, `core/class/altArlo.class.php`)** :
+  - Lors d'une mise à jour du plugin (`altArlo_update`) ou d'un clic sur **« 1. Demander un code 2FA »** sans session valide, tout ancien processus `altarlod.py` tournant en mémoire est immédiatement arrêté (`deamon_stop()`), et `deamon_info()` ne relance plus le démon via le watchdog Jeedom tant qu'une pause de sécurité Arlo `1110` ou le disjoncteur d'auto-reconnexion est actif.
+- **Bascule automatique de canal 2FA (`SMS` $\leftrightarrow$ `EMAIL`) en cas de quota `1110` sur un facteur (`resources/altarlod/altarlod.py`, `plugin_info/configuration.php`)** :
+  - Si le canal demandé (ex. `SMS` bloqué par le quota journalier SMS d'Arlo avec l'erreur `1110`) refuse l'envoi dans `/api/startAuth`, `start_2fa_auth()` tente automatiquement et immédiatement le second facteur disponible sur le compte (ex. `EMAIL`) au sein de la même pré-session afin de permettre la connexion immédiate.
+- **Support élargi de la « Méthode 2 : Import rapide Token / Commande cURL »** :
+  - Prise en charge des formats *Copy as cURL (bash)*, *Copy as cURL (cmd Windows `^"`)*, *Copy as fetch* et en-têtes bruts.
+
 ## [0.1.0-beta.17] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Sécurité
