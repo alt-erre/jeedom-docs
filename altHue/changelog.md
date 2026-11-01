@@ -5,6 +5,14 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.5] - 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Correction de l'erreur HTTP 500 lors de la synchronisation automatique post-appairage du Pont Hue (`core/class/altHue.class.php`, `core/ajax/altHue.ajax.php`)** :
+  - Remplacement de l'appel invalide `$cmd->setIsInfoHistorized(...)` par la méthode native Jeedom Core `$cmd->setIsHistorized(...)` dans `upsertCmd()`, qui provoquait une erreur fatale PHP (`HTTP 500 Internal Server Error`) au moment de la création des commandes juste après l'appairage réussi du pont.
+  - Capture complète des exceptions et erreurs fatales PHP (`\Throwable`) dans `core/ajax/altHue.ajax.php` et sécurisation de la relance automatique du démon lors de `synchronizeDevices()`.
+  - Mise à jour dynamique immédiate de la liste des ponts et boîtiers Hue Play HDMI Sync Box appairés dans `plugin_info/configuration.php` et auto-réparation des commandes dans `toHtml()`.
+
 ## [0.1.0-beta.4] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
