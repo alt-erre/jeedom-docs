@@ -3,6 +3,14 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.15] — 2026-11-01 (Canal Beta)
+
+### Ajouté
+- **Contrat natif Kiosk TV 10-Foot (`getKioskWidgetData` — Niveau 2 `altTvDashboard`)** :
+  - Implémentation de la méthode `getKioskWidgetData(array $kioskContext = array())` dans `core/class/altArlo.class.php` conformément à la Charte de Compatibilité Kiosk TV :
+    - **Station SmartHub (`sub_type: 'smarthub'`)** : exposition de l'état de sécurité, du statut du stockage local SD/USB (`SMARTHUB · SD/USB`), des boutons de bascule des modes standards/personnalisés/plannings, des commandes d'activation/désactivation du stockage local SD/USB et des indicateurs KPIs (protégés par code PIN).
+    - **Caméras, Floodlights & Sonnettes (`sub_type: 'camera'`)** : exposition de la vignette `16:9` via le proxy média Kiosk, du badge dynamique d'alimentation (`⚡ SECTEUR`, `☀️ SOLAIRE`, `🔋`, `🚨 MOUVEMENT`), des KPIs (`Batterie`, `Alimentation`, `Signal RF`) et des commandes 10-Foot (`Prendre Photo`, `Vidéo 15s`, `Projecteur ON/OFF`, `Sirène`, `Mettre en veille`).
+
 ## [0.1.0-beta.14] — 2026-11-01 (Canal Beta)
 
 ### Ajouté

@@ -13,7 +13,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | Plugin | ID Market | Catégorie | Version actuelle | Canal | Liens rapides |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.14` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.15` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.7` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.9` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.10` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
@@ -31,7 +31,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.13` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
-| **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.16` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
+| **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.17` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.4` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.18` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 | **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
