@@ -8,9 +8,9 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 ## [0.1.0-beta.17] — 2026-11-01 (Canal Beta)
 
 ### Ajouté & Amélioré
-- **Enrichissement des Widgets Kiosk 10-Foot pour `altArlo` (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/preview_kiosk.html`)** :
-  - Ajout des boutons **`🎬 Vidéo 15s`** (`record_video`) et **`📷 Mettre en veille / Activer caméra`** (`camera_on` / `camera_off`) ainsi que du bandeau de KPIs (`Batterie`, `Alimentation`, `Signal RF`) dans la modale plein écran 10-Foot des caméras Arlo (`openCameraModal`).
-  - Prise en charge du badge d'alimentation (`⚡ SECTEUR`, `☀️ SOLAIRE`, `🔋`) sur les cartes du Mur de Caméras CCTV `16:9` et de l'état du stockage local SD/USB (`SMARTHUB · SD/USB`) sur la carte et la modale de la station SmartHub Arlo.
+- **Conformité Niveau 2 complète du rendu des cartes et modales Caméras 10-Foot (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/preview_kiosk.html`)** :
+  - Généralisation de `buildCameraCard()` et `openCameraModal()` pour interpréter nativement les tableaux standardisés `action_buttons`, `sliders`, `kpis` et `custom_modal_html` fournis par `getKioskWidgetData()` (conformément à la Charte de Compatibilité Kiosk TV) sans aucun couplage spécifique à un plugin tiers dans `altTvDashboard`.
+  - Respect du descripteur `kiosk_schema: 1` dans `enrichDescriptorWithVisibleCmds()` afin de préserver tel quel l'ordonnancement des boutons et curseurs défini par chaque plugin.
 
 ## [0.1.0-beta.16] — 2026-10-31 (Canal Beta)
 
