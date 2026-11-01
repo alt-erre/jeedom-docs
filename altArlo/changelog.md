@@ -3,6 +3,22 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.14] — 2026-11-01 (Canal Beta)
+
+### Ajouté
+- **Mode « 🔴 Live » (Flux vidéo en direct dans le navigateur)** :
+  - Ajout du bouton **« 🔴 Live »** sur le widget de chaque caméra ainsi que de l'onglet **« 🔴 Direct (Live) »** dans la fenêtre modale.
+  - Réveil de la caméra Arlo via `/hmsweb/users/devices/startStream`, négociation du flux temps réel via un relais local Python TCP $\rightarrow$ TLS (`LocalRtspTlsRelay` garantissant zéro secret / `egressToken` dans `ps aux` et contournant les erreurs de certificat TLS de `ffmpeg` sur les flux `rtsps://` Arlo) et diffusion temps réel 100 % en RAM (`/tmp/jeedom/altArlo/live_<deviceId>/`).
+  - Arrêt automatique du flux Live dès la fermeture de la fenêtre modale (ou au bout de 90 s d'inactivité) avec renvoi de `activityState: idle` au SmartHub afin de préserver la batterie des caméras sans fil.
+
+### Corrigé & Amélioré
+- **Refonte complète de la « 🖼️ Galerie Photos & Vidéos » en vraie grille visuelle de vignettes** :
+  - Correction du problème où le clic sur le bouton **Galerie** n'affichait que la dernière capture en grand format : la modale s'ouvre désormais instantanément sur une **grille visuelle de vignettes 16:9** (3 colonnes) avec lecteur vidéo/photo dépliable au clic sur une vignette.
+  - Ajout d'un filtre rapide **« 📷 Cette caméra » / « 🌐 Toutes les caméras »** et de boutons d'action directs (**+ Photo**, **+ Vidéo 15s**, **Actualiser**) dans l'en-tête de la Galerie.
+  - **Historique léger des 12 dernières photos distinctes par caméra** (`data/snapshots/history/<deviceId>/`, dédoublonnage MD5, `< 800 Ko` max par caméra) : comme le Cloud Arlo n'archive pas les photos fixes (`fullFrameSnapshot`) dans `/hmsweb/users/library`, ce tampon circulaire léger permet de retrouver vos 12 dernières photos dans la Galerie sans jamais saturer le disque.
+  - **Connexion effective au flux `rtsps://` lors d'un enregistrement vidéo manuel (`record_video`)** : chez Arlo, la caméra n'émet son flux vers le serveur d'enregistrement que lorsqu'un client se connecte à l'URL `rtsps://` renvoyée par `startStream`. Le démon maintient désormais cette connexion pendant les 15 secondes de l'enregistrement et conserve les 3 derniers clips en RAM (`/tmp/jeedom/altArlo/clips/`), garantissant la disponibilité immédiate de la vidéo dans la Galerie même sans abonnement Cloud Arlo.
+  - Interrogation directe du démon en mémoire via socket synchrone (`queryDaemon` / `sync_reply`) et invalidation automatique du cache de rendu des widgets Jeedom v4.4+ (`emptyCacheWidget`).
+
 ## [0.1.0-beta.13] — 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
