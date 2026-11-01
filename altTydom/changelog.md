@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.19] — 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Suppression des envois multiples de commandes et de la saccade au démarrage des volets roulants (`core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`, `resources/altTydomd.py`, `core/class/altTydom.class.php`)** :
+  - **Nettoyage systématique des écouteurs d'événements sur le conteneur racine du widget (`$root.off('click input change').off('.altTydom')`)** : lors des rafraîchissements du widget (`refreshWidget()` -> `div.empty().html($(html).children())` dans Jeedom Core), la balise racine `#altTydom_#id#` étant conservée en mémoire, chaque remontée d'état (comme la progression `position` d'un volet) empilait un nouvel écouteur `.on('click')` et `.on('change')` supplémentaire sur `#altTydom_#id#`. Un clic sur *Ouvrir* / *Fermer* ou un déplacement du slider déclenchait alors une salve de 2 à 6 ordres identiques consécutifs vers la passerelle Tydom, provoquant une saccade radio X3D du moteur au démarrage de sa course.
+  - **Verrouillage anti-rebond (`data-busy="1"`) généralisé à tous les boutons et curseurs** : application du verrou anti-double-clic sur l'ensemble des boutons d'action (`.tyd-cmd-btn`, `.tyd-step-pos`, `.tyd-preset-pos`, `.tyd-step-lvl`, `.tyd-zone-chip`, `.tyd-m-btn`) ainsi que sur les curseurs (`.tyd-slider-pos`, `.tyd-slider-lvl`, `.tyd-slider-sp`) avec filtrage des événements synthétiques (`!e.originalEvent`).
+  - **Exécution directe unique sur les boutons de préréglage (`0 %`..`100 %`) et de pas (`-10 %` / `+10 %`)** : suppression de l'appel `$root.find('.tyd-slider-pos').trigger('change')` qui déclenchait deux fois la commande `set_position` (une fois sur le slider du panneau `shutter` et une fois sur celui du panneau `door`).
+  - **Filtre anti-doublon dans le démon Python (`last_cmd_sent` dans `execute_device_command`)** : déduplication côté démon de toute commande strictement identique reçue à moins de `0,85 s` d'intervalle sur un même équipement afin de garantir qu'aucune trame radio X3D redondante ne soit émise vers les moteurs de volets.
+
 ## [0.1.0-beta.18] — 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
