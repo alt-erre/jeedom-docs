@@ -3,6 +3,15 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.17] — 2026-11-01 (Canal Beta)
+
+### Corrigé & Sécurité
+- **Protection contre le blocage Arlo `1110 ("Too many requests")` lors de l'Auto-Reconnexion 2FA (`resources/altarlod/altarlod.py`, `core/class/altArlo.class.php`)** :
+  - **Disjoncteur (*Circuit Breaker*) et Cooldown de 30 minutes persistés** : lorsque la session Cloud expire et que l'Auto-Reconnexion 2FA est activée, le démon ne relance plus de demandes `/api/startAuth` en boucle toutes les 60 secondes. Il effectue au maximum 2 tentatives espacées d'au moins **30 minutes** (`1800 s`), puis met l'auto-reconnexion en pause jusqu'à la restauration d'une session ou une sauvegarde manuelle de la configuration.
+  - **Détection immédiate du code `1110` (`Too many requests`)** : dès qu'Arlo renvoie l'erreur `1110`, le démon enregistre une pause de sécurité de 30 minutes (`rate_limited_until`), interrompt immédiatement le cycle multi-canal et affiche un message explicite indiquant comment se connecter immédiatement sans attendre via la **Méthode 2 (Import rapide Token / Commande cURL)**.
+  - **Pré-vérification stricte du serveur IMAP avant envoi de code 2FA (`EMAIL`)** : le démon vérifie désormais que l'authentification IMAP SSL aboutit réellement **avant** d'appeler `/api/startAuth` chez Arlo. Si le mot de passe d'application IMAP est manquant ou refusé (ex. Yahoo Mail / Gmail), aucun code 2FA n'est demandé inutilement à Arlo.
+  - **Non-interférence avec une connexion manuelle** : tant qu'une demande 2FA manuelle (`pending_2fa.json` `< 5 min`) est en cours dans l'interface Jeedom, l'auto-reconnexion du démon en arrière-plan est suspendue.
+
 ## [0.1.0-beta.16] — 2026-11-01 (Canal Beta)
 
 ### Corrigé
