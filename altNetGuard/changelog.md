@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.4] — 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Création d'un équipement « Appareil Réseau Connu » (`Duplicate entry '*-Statut de confiance' for key 'unique'`)** :
+  - Renommage de la commande `action/select` `trust_status_set` en **« Changer statut de confiance »** dans `createDeviceCommands()` afin d'éviter la collision d'unicité MySQL (`UNIQUE(eqLogic_id, name)`) avec la commande `info/string` `trust_status` (**« Statut de confiance »**).
+  - Ajout d'une déduplication automatique du nom d'équipement proposé dans `createOrUpdateKnownEquipment()` (ajout du suffixe MAC ` (XX:YY)` en cas d'homonymie dans la même pièce Jeedom) pour éviter tout conflit lors de l'ajout de plusieurs appareils du même constructeur ou `hostname`.
+  - Désactivation de l'historisation par défaut sur la commande volatile `latency_ms` (`isHistorized = 0`) pour préserver la mémoire flash eMMC (Jeedom Luna).
+
 ## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
