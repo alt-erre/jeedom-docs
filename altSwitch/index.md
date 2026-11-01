@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Contrôle Parental (Nintendo Switch) (`altSwitch`)
+# Plugin Jeedom - Alt Contrôle Parental (Nintendo Switch) (`altSwitch`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Jeux Vidéo & Contrôle Parental  
 
 ---
@@ -64,7 +64,7 @@ Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvr
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :
 
 - **Authentification OAuth2 PKCE officielle sans stockage de mot de passe** : La connexion s'effectue directement sur le serveur officiel `accounts.nintendo.com`. Votre mot de passe Nintendo et vos codes de double authentification (2FA) ne transitent jamais par Jeedom.
-- **Protection absolue des jetons et secrets (Art. 4.3 — Zéro secret dans `ps aux` ni dans les logs)** :
+- **Protection absolue des jetons et secrets (Art. 4.3 - Zéro secret dans `ps aux` ni dans les logs)** :
   - Le jeton `session_token` OAuth2 est stocké exclusivement en local sur votre box Jeedom dans `data/profiles/` avec des permissions système strictes **`chmod 0600`** et un fichier **`.htaccess` (`Require all denied`)** interdisant tout accès HTTP direct.
   - Les échanges entre le moteur PHP Jeedom et le worker Python isolé (`resources/venv`) passent exclusivement par un fichier JSON temporaire dans `jeedom::getTmpFolder('altSwitch')` verrouillé en `0600` et supprimé immédiatement après exécution (`@unlink`). Aucun jeton, code PIN ou clé API n'apparaît jamais dans la liste des processus (`ps aux`) ni dans les logs Jeedom.
   - Toutes les données et fichiers de profils sont intégralement supprimés lors de la suppression de l'équipement ou de la désinstallation du plugin.
@@ -76,5 +76,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Nintendo Co., Ltd.).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Nintendo Co., Ltd.).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

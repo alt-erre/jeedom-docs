@@ -1,11 +1,11 @@
-# Changelog — Plugin Alt Multiroom Audio (Sonos) (`altSonos`)
+# Changelog - Plugin Alt Multiroom Audio (Sonos) (`altSonos`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.8] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.8] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max %` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom.
@@ -13,24 +13,24 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
   - Agrandissement de la pochette de `58×58 px` à **`74×74 px`** sur le Dashboard (`56×56 px` sur Mobile) avec relief 3D et zoom au survol.
   - Ajout d'un **halo d'ambiance flouté (`.sn-now-playing-bg`)** en arrière-plan de la carte de lecture et d'un **aperçu Lightbox plein widget au clic sur la pochette**.
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Ajouté
 - **Sélecteur rapide de Volume Maximum sur le Widget Dashboard (`10 %` à `70 %` par palier de 5)** :
   - Ajout d'un sélecteur rapide (`Max 10%` à `Max 70%` par pas de `5 %`, ainsi que `Max 100%`) directement sur la barre de volume du widget Dashboard, avec badge ambré `.is-capped` lorsqu'un plafond est actif et création automatique des commandes `volume_max` / `volume_max_set` au rendu.
 
-## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.5` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-27 (Canal Beta)
 
 ### Ajouté
 - **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
@@ -38,15 +38,15 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
   - **Application immédiate & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume si celui-ci dépasse le nouveau plafond lors du changement de mode, plafonne toutes les commandes Jeedom (`volume_set`, `volume_up`, `group_volume_set`, `group_volume_up`, annonces vocales `tts`) et ramène automatiquement le volume au plafond si quelqu'un le dépasse depuis les boutons physiques de l'enceinte, AirPlay ou Spotify Connect.
   - **Bridage visuel sur le widget Dashboard** : adaptation dynamique en temps réel de la borne `max` des curseurs de volume pièce, groupe et TTS.
 
-## [0.1.0-beta.3] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-27 (Canal Beta)
 
 ### Amélioré
-- **Retour visuel d'action (Animations de clic & Rafraîchissement — Charte Graphique `v1.2`)** :
+- **Retour visuel d'action (Animations de clic & Rafraîchissement - Charte Graphique `v1.2`)** :
   - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) sur tous les boutons des widgets **Dashboard & Mobile** (transport, volume, muet, modes de lecture, réglages audio *Night Sound* / *Speech Enhancement* / *Sub* / *Loudness*, gestion de groupe).
   - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`).
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
 
-## [0.1.0-beta.2] — 2026-10-22 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-22 (Canal Beta)
 
 ### Corrigé
 - **Retour d'état en temps réel du Volume et des contrôles sur les widgets Dashboard & Mobile** :
@@ -57,7 +57,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.1] — 2026-10-21 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-21 (Canal Beta)
 
 ### Ajouté
 - **Première version Beta publique (`0.1.0-beta.1`)** du plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** pour Jeedom v4.

@@ -1,4 +1,4 @@
-# Alt Téléphonie, MMS & Portail GSM — Plugin Jeedom (`altCellular`)
+# Alt Téléphonie, MMS & Portail GSM - Plugin Jeedom (`altCellular`)
 
 **Alt Téléphonie, MMS & Portail GSM** (`altCellular`) est un plugin Jeedom de téléphonie cellulaire 4G/GSM avancée conçu pour exploiter tout le potentiel du modem 4G interne de la **Jeedom Luna 4G** (module Quectel EC25 / EG25-G) ainsi que des modems 4G USB compatibles (Quectel, SIMCom, Huawei) :
 - **Ouverture de portail et relais GSM par « Ping d'Appel » (reconnaissance CLIP sans décroché)** :
@@ -47,7 +47,7 @@ Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
   2. **Anti-Injection Shell OS** : La synthèse vocale TTS (`pico2wave` / `espeak-ng`) et le ré-échantillonnage audio (`sox`) sont exécutés par le démon Python avec `shell=False` sous forme de tableaux d'arguments isolés, sans jamais invoquer `/bin/sh`.
   3. **Anti-Path Traversal / LFI sur les MMS** : Les fichiers images joints aux MMS sont vérifiés par `realpath()` contre une liste blanche stricte de répertoires de captures (`/tmp/jeedom/`, dossiers `snapshots`), contrôlés par leurs **Magic Bytes** binaires (`JPEG`, `PNG`, `GIF`) et intégralement ré-encodés via `Pillow` avant expédition.
   4. **Liste blanche (Allowlist) des numéros entrants & Quotas anti-hors-forfait** : Tout appel ou SMS entrant provenant d'un numéro non rattaché à un équipement autorisé est bloqué et journalisé. Un limiteur de débit glissant (`SlidingRateLimiter`) protège le forfait contre toute boucle de scénario.
-- **Protection absolue des secrets (Zéro secret dans `ps aux` — Art. 4.3 CGU)** : Le code PIN de la carte SIM et la clé API interne Jeedom ne sont **jamais** passés en argument de ligne de commande (`ps aux`) ni affichés dans les logs. Ils sont encapsulés dans `/tmp/jeedom/altCellular/daemon_config.json` verrouillé par `@chmod(..., 0600)` et supprimé à l'arrêt du démon (`@unlink`).
+- **Protection absolue des secrets (Zéro secret dans `ps aux` - Art. 4.3 CGU)** : Le code PIN de la carte SIM et la clé API interne Jeedom ne sont **jamais** passés en argument de ligne de commande (`ps aux`) ni affichés dans les logs. Ils sont encapsulés dans `/tmp/jeedom/altCellular/daemon_config.json` verrouillé par `@chmod(..., 0600)` et supprimé à l'arrêt du démon (`@unlink`).
 - **Indépendance vis-à-vis des licences Copyleft GPL/AGPL (Art. 5.2 CGU)** : N'utilise ni `gammu` ni aucune bibliothèque GPL. Le démon repose à 100 % sur une implémentation native et des bibliothèques sous licences permissives (`pyserial` BSD-3-Clause, `Pillow` MIT-CMU, `requests` Apache-2.0, `certifi` MPL-2.0) isolées dans `resources/venv`.
 
 ---
@@ -55,5 +55,5 @@ Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
 ## 4. Licence & Mentions Légales
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Licence** : Propriétaire — Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
+- **Licence** : Propriétaire - Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
 - **Non-affiliation** : Ce plugin est une création originale et indépendante. Il n'est ni affilié, ni approuvé, ni édité par Jeedom SAS ou les constructeurs tiers mentionnés. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées uniquement à titre de référence de compatibilité nécessaire (Art. L.713-6 CPI).

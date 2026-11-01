@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Ciné Projector (JVC D-ILA) (`altJvcProjector`)
+# Plugin Jeedom - Alt Ciné Projector (JVC D-ILA) (`altJvcProjector`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Home-Cinéma  
 
 ---
@@ -53,6 +53,6 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à JVCKENWOOD Corporation).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à JVCKENWOOD Corporation).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
 

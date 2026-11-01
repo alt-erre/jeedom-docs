@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt AVR Control (Denon / Marantz) (`altDenon`)
+# Plugin Jeedom - Alt AVR Control (Denon / Marantz) (`altDenon`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Home-Cinéma  
 
 ---
@@ -19,7 +19,7 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 
 ## Architecture Tri-Protocole Locale (Spécial Denon AVC-X8500HA)
 
-1. **Protocole Temps Réel Denon AVR Control (TCP Port `23` — Push `< 50 ms`) :**
+1. **Protocole Temps Réel Denon AVR Control (TCP Port `23` - Push `< 50 ms`) :**
    - Maintient une connexion TCP persistante avec l'amplificateur via un **Hub IP mutualisé (`DenonHostHub`)** : même si plusieurs équipements Jeedom (*Main Zone*, *Zone 2*, *Zone 3*) partagent la même adresse IP, une seule connexion TCP `23` est ouverte vers l'ampli.
    - Remonte **instantanément** chaque changement de volume (molette physique, télécommande IR, HDMI CEC/eARC), de sourdine, d'entrée, de mode surround, de sortie HDMI ou de réglage Audyssey sans attendre un cycle cron.
 2. **API HTTP XML `AppCommand.xml` & `formiPhoneAppDirect.xml` (Port `8080` HEOS & Port `80` Legacy) :**
@@ -47,7 +47,7 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 ### 3. Sorties Vidéo HDMI Dual Monitor (Association TV + Vidéoprojecteur JVC)
 - Sélection directe et retour d'état de la sortie HDMI active :
   - **`Sortie HDMI : Monitor 1 (TV)`** (`VSMONI1`)
-  - **`Sortie HDMI : Monitor 2 (Projecteur)`** (`VSMONI2` — idéal pour basculer vers un vidéoprojecteur Home-Cinéma tel que le **JVC DLA-NZ9**)
+  - **`Sortie HDMI : Monitor 2 (Projecteur)`** (`VSMONI2` - idéal pour basculer vers un vidéoprojecteur Home-Cinéma tel que le **JVC DLA-NZ9**)
   - **`Sortie HDMI : Auto (Dual)`** (`VSMONIAUTO`)
 - Sélection de la sortie Audio HDMI (`Ampli` vs `TV`).
 
@@ -82,5 +82,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur :** Aurélien Léovant (`alt-erre`)
-- **Copyright :** © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS, Denon, Marantz ou Masimo Consumer).
-- **Licence :** Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright :** © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS, Denon, Marantz ou Masimo Consumer).
+- **Licence :** Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

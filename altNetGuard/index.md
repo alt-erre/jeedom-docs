@@ -1,4 +1,4 @@
-# Alt Radar & Sécurité Réseau — Plugin Jeedom (`altNetGuard`)
+# Alt Radar & Sécurité Réseau - Plugin Jeedom (`altNetGuard`)
 
 **Alt Radar & Sécurité Réseau** (`altNetGuard`) est un plugin Jeedom de **surveillance, d'identification et de sécurité réseau 100 % Local LAN (Zéro Cloud)** vous permettant de :
 - **Détecter en temps réel tous les appareils connectés** à votre réseau local (Wi-Fi & Ethernet) grâce à un moteur hybride combinant **table ARP / Neighbor OS**, **Ping Sweep asynchrone**, **mDNS / Bonjour (`.local`)**, **UPnP / SSDP** et **NetBIOS / Reverse DNS**.
@@ -63,5 +63,5 @@ Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
 ## 5. Licence & Mentions Légales
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Licence** : Propriétaire — Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
+- **Licence** : Propriétaire - Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
 - **Non-affiliation** : Ce plugin est une création originale et indépendante. Il n'est ni affilié, ni approuvé, ni édité par Jeedom SAS ou les constructeurs tiers mentionnés. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées uniquement à titre de référence de compatibilité nécessaire (Art. L.713-6 CPI).

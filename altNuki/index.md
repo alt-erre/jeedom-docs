@@ -1,4 +1,4 @@
-# Alt Serrure & Accès (Nuki) — Plugin Jeedom (`altNuki`)
+# Alt Serrure & Accès (Nuki) - Plugin Jeedom (`altNuki`)
 
 **Alt Serrure & Accès (Nuki)** (`altNuki`) est un plugin Jeedom permettant de piloter et de superviser en **temps réel** et en **100 % Local LAN (Zéro Cloud)** l'intégralité de vos équipements **Nuki** :
 - **Serrures connectées Nuki Smart Lock 1.0, 2.0, 3.0, 3.0 Pro, 4.0, 4.0 Pro et Smart Lock Ultra**
@@ -68,5 +68,5 @@ Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
 ## 5. Licence & Mentions Légales
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Licence** : Propriétaire — Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
+- **Licence** : Propriétaire - Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
 - **Non-affiliation** : Ce plugin est une création originale et indépendante. Il n'est ni affilié, ni approuvé, ni édité par Jeedom SAS ou Nuki Home Solutions GmbH. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées uniquement à titre de référence de compatibilité nécessaire (Art. L.713-6 CPI).

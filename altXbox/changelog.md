@@ -1,25 +1,25 @@
-# Changelog — Alt Contrôle Parental (Xbox) (`altXbox`)
+# Changelog - Alt Contrôle Parental (Xbox) (`altXbox`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.10] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.9] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.9] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.9` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
 ## [0.1.0-beta.8] - 2026-10-30
 
 ### Ajouté & Amélioré
-- **Extinction directe sur le réseau local LAN (`UDP 5050` — Session chiffrée SmartGlass `0xCC00` $\to$ `0x0039 PowerOff`)** :
+- **Extinction directe sur le réseau local LAN (`UDP 5050` - Session chiffrée SmartGlass `0xCC00` $\to$ `0x0039 PowerOff`)** :
   - Implémentation de [`smartglass_local_power_off()`](file:///Users/aurelienleovant/Developpement/Jeedom/altXbox/resources/altXbox_worker.py) sur le port local **`UDP 5050`** en complément de l'extinction Cloud (`xccs.xboxlive.com`) :
     1. Extraction du certificat X.509 DER de la console et de son `Live Device ID` (`FD00...` / `F400...`) depuis le paquet local `Discovery Response` (`0xDD01`).
     2. Échange de clés **ECDH** (`P-256` / `P-384` / `P-521`) avec la clé publique du certificat de la console et dérivation des clés de session via `SHA-512` (`AES-128-CBC` + `IV` + `HMAC-SHA256`).
@@ -73,7 +73,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ### Corrigé
 - **Fusion automatique & dédoublonnage des équipements Xbox (Local LAN UDP `5050` $\leftrightarrow$ Compte Microsoft Cloud)** :
-  - Correction de la création en double d'une même console lorsqu'elle était découverte d'une part en **100 % Local LAN (`UDP 5050` — ID matériel `FD00...` / `F400...` + IP locale)** et d'autre part via l'**Assistant Compte Microsoft Cloud (`XBOX-<xuid>`)**.
+  - Correction de la création en double d'une même console lorsqu'elle était découverte d'une part en **100 % Local LAN (`UDP 5050` - ID matériel `FD00...` / `F400...` + IP locale)** et d'autre part via l'**Assistant Compte Microsoft Cloud (`XBOX-<xuid>`)**.
   - `sync_all_consoles` combine désormais systématiquement la découverte locale SmartGlass (`UDP 5050`) et la découverte Cloud dans une fiche hybride unique en préservant toujours le `Live Device ID` matériel (`FD00...`) et l'adresse IP locale de la console.
   - Ajout de `altXbox::deduplicateConsoles()` (exécuté automatiquement à l'ouverture de la page du plugin, lors de la découverte et à chaque synchronisation) pour fusionner automatiquement tout équipement doublon déjà créé en conservant ses paramètres, son adresse IP, son `Live Device ID`, ses jetons et ses états de commandes.
 

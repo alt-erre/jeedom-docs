@@ -30,7 +30,7 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
   - **Bouton « 🔴 Live » (Flux vidéo temps réel dans le navigateur)** : réveil de la caméra Arlo (`/hmsweb/users/devices/startStream`), relais local RTSPS $\rightarrow$ TLS sécurisé (zéro jeton exposé dans `ps aux`) et affichage en direct dans une fenêtre modale dédiée (100 % en RAM `/tmp/jeedom/altArlo/`, avec arrêt automatique à la fermeture de la fenêtre ou au bout de 90 s pour préserver la batterie) ;
   - **Zéro saturation du stockage Jeedom** : les vidéos déclenchées via le bouton **🎥 Vidéo** (`record_video`) ou sur détection de mouvement sont enregistrées dans la **Bibliothèque Cloud Arlo** (`my.arlo.com`), sur la **carte microSD / clé USB de la base SmartHub** (`VMB5000`, `VMB4540`, `VMB4500`, `VMB4000`) et dans un tampon circulaire éphémère en RAM (`/tmp/jeedom/altArlo/clips/`, max 3 clips). Pour les photos, un historique circulaire léger des **12 dernières photos `.jpg` distinctes** (`< 800 Ko` au total par caméra) est maintenu dans `data/snapshots/history/<deviceId>/` ;
   - **Pilotage & Lecture directe du Stockage Local SmartHub (*Direct Storage Access / RATLS LAN*)** : activation/désactivation à distance de l'enregistrement local (`local_storage_on` / `local_storage_off` avec écrasement circulaire `overwrite: true` et résolution maximale `bestLocalResolution: true`) sur le widget de la station de base, et lecture en streaming direct sur le réseau local (`https://<ip_locale_base>:<port_ratls>/hmsweb/users/library` relayé via `core/php/snapshot.php?type=hub_stream`) même sans abonnement Cloud Arlo ;
-  - Boutons **🔴 Live**, **📸 Photo** (`take_snapshot`) et **🎥 Vidéo** (`record_video` — enregistrement d'un clip de 15 s) directement sur le widget ;
+  - Boutons **🔴 Live**, **📸 Photo** (`take_snapshot`) et **🎥 Vidéo** (`record_video` - enregistrement d'un clip de 15 s) directement sur le widget ;
   - **Modale Galerie en Grille de Vignettes & Onglet Direct (Live)** (clic sur l'image 16:9 ou sur le badge **Galerie**) affichant une vraie grille visuelle de vignettes (Cloud Arlo **☁️**, Base SD/USB **💾**, Clips 15s **🎬** et Photos **📸**) avec filtre *« Cette caméra » / « Toutes les caméras »*, lecteur intégré et téléchargement en un clic ;
   - 9 thèmes de couleur sélectionnables par équipement (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
 
@@ -46,8 +46,8 @@ Arlo impose la double authentification (2FA) et n'autorise qu'**un seul flux tem
 3. Utilisez ce compte dédié dans la configuration du plugin `altArlo` : ainsi, votre application mobile Arlo et votre box Jeedom disposent chacune de leur propre session permanente sans jamais se déconnecter mutuellement.
 
 ### Deux méthodes de connexion initiale dans la configuration du plugin
-- **Méthode 1 — Connexion interactive 2FA** : Saisissez l'adresse e-mail et le mot de passe du compte Arlo, choisissez le canal de réception (*E-mail* ou *SMS*), cliquez sur **1. Demander un code 2FA**, puis saisissez le code à 6 chiffres reçu et cliquez sur **2. Valider le code 2FA**.
-- **Méthode 2 — Import rapide de session / Commande cURL (`my.arlo.com`)** : Depuis un navigateur connecté à `https://my.arlo.com`, ouvrez l'onglet *Réseau (F12)*, faites un clic droit sur une requête `devices` $\rightarrow$ *Copier en tant que cURL* (ou copiez l'en-tête `Authorization`) et collez-le dans la zone dédiée.
+- **Méthode 1 - Connexion interactive 2FA** : Saisissez l'adresse e-mail et le mot de passe du compte Arlo, choisissez le canal de réception (*E-mail* ou *SMS*), cliquez sur **1. Demander un code 2FA**, puis saisissez le code à 6 chiffres reçu et cliquez sur **2. Valider le code 2FA**.
+- **Méthode 2 - Import rapide de session / Commande cURL (`my.arlo.com`)** : Depuis un navigateur connecté à `https://my.arlo.com`, ouvrez l'onglet *Réseau (F12)*, faites un clic droit sur une requête `devices` $\rightarrow$ *Copier en tant que cURL* (ou copiez l'en-tête `Authorization`) et collez-le dans la zone dédiée.
 
 ### Reconnexion Automatique 2FA 100 % autonome (Module 4G / SMS Jeedom & E-mail IMAP SSL)
 Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14 jours), le plugin intègre un moteur d'**Auto-Reconnexion 2FA** capable de renouveler tout seul la session dès qu'un jeton expire (`error: 2015` ou déconnexion SSE `action: logout`) :
@@ -59,7 +59,7 @@ Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14
 
 ## 3. Commandes par Type d'Équipement
 
-### A. Station de Base / SmartHub (`basestation` — ex. `VMB5000`)
+### A. Station de Base / SmartHub (`basestation` - ex. `VMB5000`)
 | Nom de la commande | Identifiant logique (`logicalId`) | Type / Sous-type | Description |
 | :--- | :--- | :--- | :--- |
 | **État station** | `state` | `info / string` | État de provisioning (`provisioned`, etc.) |

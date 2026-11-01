@@ -1,10 +1,25 @@
-# Changelog — Alt Habitat & Domotique (Delta Dore Tydom) (`altTydom`)
+# Changelog - Alt Habitat & Domotique (Delta Dore Tydom) (`altTydom`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément à notre [Politique de Numérotation de Version (SemVer)](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.19] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.20] - 2026-11-01 (Canal Beta)
+
+### Ajouté
+- **Association & Fusion de composants Tydom — « Widgets Combinés » (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`, `desktop/php/altTydom.php`, `desktop/js/altTydom.js`)** :
+  - **Regroupement d'équipements Tydom Pro / Home dissociés au sein d'un seul widget unifié** : possibilité de rattacher directement depuis la page de configuration d'un équipement principal jusqu'à **3 contacts d'ouvrants** (`linkedOpening1..3` avec détection automatique ou personnalisation du libellé court : *Vantail G*, *Vantail D*, *Portillon*, *Fenêtre*...), un **volet motorisé** (`linkedShutter`), une **sonde / capteur / sous-compteur** (`linkedSensor`) et un **éclairage / actionneur associé** (`linkedLight`), avec option de masquage automatique des équipements secondaires sur le Dashboard (`hideLinkedEquipments`).
+  - **Barre de pastilles temps réel (`.tyd-linked-bar` / `.tyd-linked-chip`) & Vignette SVG combinée** :
+    - Affichage en temps réel sur le widget (Dashboard & Mobile) de l'état de chaque vantail/ouvrant associé (pastille verte *Fermé* / ambrée *Ouvert* + indicateur de pile faible), des mesures de la sonde rattachée (`°C`, `% HR`, `W/m²`, `W`, présence) et d'un bouton interactif de bascule directe pour l'éclairage associé (`ON` / `OFF`).
+    - Mise à jour dynamique de la vignette vectorielle SVG (`buildCategorySvg`) des volets et fenêtres combinés pour représenter simultanément la hauteur du tablier du volet et l'état ouvert/fermé de chaque vantail en arrière-plan.
+  - **Protection « Vantail Ouvert » sur les volets roulants (`blockShutterIfOpen`)** :
+    - Sécurité matérielle optionnelle (*Recommandé : bloquer la fermeture `< 25 %` / `Fermer`* ou *Strict : bloquer toute descente*) interdisant la fermeture d'un volet depuis Jeedom lorsqu'au moins un des ouvrants associés (*Vantail G*, *Vantail D*, *Porte-fenêtre*...) est détecté ouvert, avec affichage d'une alerte explicite sur le widget et dans les journaux Jeedom.
+  - **Coupure automatique Hors-Gel sur ouverture de fenêtre (`cutHeatingIfOpen`)** :
+    - Sur une zone de chauffage / radiateur fil pilote auquel un ou plusieurs contacts de fenêtre sont associés, passage automatique en mode **Hors-Gel** dès l'ouverture d'un vantail et restauration automatique du mode précédent à la refermeture de tous les ouvrants.
+  - **Synchronisation automatique des commandes `info` & `action` sur l'équipement hôte** :
+    - Création et synchronisation temps réel sur l'équipement hôte des commandes `linked_open_1..3`, de la synthèse binaire `linked_open_any` (*« Ouvrants associés (Synthèse) »* avec `generic_type: OPENING`), ainsi que des mesures déportées (`temperature`, `hygro`, `linked_motion`, `linked_brightness`, `energy_instant`, `energy_index`) et des commandes d'éclairage/volet associés (`linked_light_state`, `linked_light_toggle`, `position`, `set_position`, `up`, `stop`, `down`) pour une utilisation transparente dans les scénarios, historiques et Homebridge.
+
+## [0.1.0-beta.19] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
 - **Suppression des envois multiples de commandes et de la saccade au démarrage des volets roulants (`core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`, `resources/altTydomd.py`, `core/class/altTydom.class.php`)** :
@@ -13,14 +28,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Exécution directe unique sur les boutons de préréglage (`0 %`..`100 %`) et de pas (`-10 %` / `+10 %`)** : suppression de l'appel `$root.find('.tyd-slider-pos').trigger('change')` qui déclenchait deux fois la commande `set_position` (une fois sur le slider du panneau `shutter` et une fois sur celui du panneau `door`).
   - **Filtre anti-doublon dans le démon Python (`last_cmd_sent` dans `execute_device_command`)** : déduplication côté démon de toute commande strictement identique reçue à moins de `0,85 s` d'intervalle sur un même équipement afin de garantir qu'aucune trame radio X3D redondante ne soit émise vers les moteurs de volets.
 
-## [0.1.0-beta.18] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.18] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.17] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.17] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.17` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
@@ -54,7 +69,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 ## [0.1.0-beta.14] - 2026-10-27
 
 ### Amélioré
-- **Retour visuel d'action (Animations de clic & Rafraîchissement — Charte Graphique `v1.2`)** :
+- **Retour visuel d'action (Animations de clic & Rafraîchissement - Charte Graphique `v1.2`)** :
   - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) au clic sur tous les boutons des widgets **Dashboard & Mobile** (volets *Monter* / *Stop* / *Descendre* / favoris, chauffage `+` / `-`, éclairages *ON* / *OFF*, alarme, ouvrants).
   - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`) de l'en-tête du widget.
 

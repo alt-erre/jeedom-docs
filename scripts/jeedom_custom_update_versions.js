@@ -77,7 +77,7 @@
     if (!origSpan) return;
     var verLabel = semver ? (semver.indexOf('v') === 0 ? semver : ('v' + semver)) : '';
     var text = verLabel ? (verLabel + ' (' + shortSha + ')') : shortSha;
-    var title = (verLabel ? ('Version ' + verLabel + ' — ') : '') + 'Commit : ' + rawSha;
+    var title = (verLabel ? ('Version ' + verLabel + ' - ') : '') + 'Commit : ' + rawSha;
 
     var badge = td.querySelector('.alt-semver-badge');
     if (!badge) {

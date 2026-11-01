@@ -1,4 +1,4 @@
-# Alt Éclairage & Ambiance (Philips Hue) (`altHue`) — Plugin Jeedom 100 % Local
+# Alt Éclairage & Ambiance (Philips Hue) (`altHue`) - Plugin Jeedom 100 % Local
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Lumière (`light`)  

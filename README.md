@@ -1,4 +1,4 @@
-# Documentation & Support — Plugins Jeedom `alt-erre`
+# Documentation & Support - Plugins Jeedom `alt-erre`
 
 Bienvenue sur le dépôt public de **documentation**, de **suivi des versions (Changelogs)** et de **support (Issues)** des plugins Jeedom développés par **Aurélien Léovant (`alt-erre`)**.
 
@@ -33,7 +33,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.8` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.17` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.4` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
-| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.19` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.20` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
 | **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altXbox/) · [Changelog](altXbox/changelog) |
 
 ---

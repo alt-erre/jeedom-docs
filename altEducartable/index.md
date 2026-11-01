@@ -1,4 +1,4 @@
-# Alt Vie Scolaire (Educartable) — `altEducartable`
+# Alt Vie Scolaire (Educartable) - `altEducartable`
 
 Plugin pour **Jeedom** permettant le suivi complet de la vie scolaire **Educartable / Edumoov** en école **Maternelle** (*TPS, PS, MS, GS*) et **Élémentaire** (*CP, CE1, CE2, CM1, CM2*) : **carnet de liaison & annonces d'école**, **signature électronique des mots**, **cahier de vie & activités de classe**, **cahier de textes & devoirs à faire** (avec case à cocher interactive), et **livrets scolaires (LSU) & attestations**.
 

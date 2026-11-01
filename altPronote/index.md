@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Vie Scolaire (Pronote) (`altPronote`)
+# Plugin Jeedom - Alt Vie Scolaire (Pronote) (`altPronote`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Organisation / Vie Scolaire, Emploi du Temps & Cahier de Textes  
 
 ---
@@ -19,7 +19,7 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
 1. **Emploi du Temps Temps Réel & Réveil Intelligent Domotique** :
    - Récupération automatique des cours d'**aujourd'hui**, de **demain** et du **prochain jour de cours effectif** (horaires, matière, professeur, salle de classe, code couleur).
    - **Commandes dédiées aux scénarios de réveil Jeedom** :
-     - `Heure 1er cours aujourd'hui` (`08:00`) et `Heure 1er cours aujourd'hui (HHMM)` (`800` — directement utilisable avec `time_op(#[Objet][Élève][Heure 1er cours aujourd'hui (HHMM)]#, -60)` dans un scénario Jeedom).
+     - `Heure 1er cours aujourd'hui` (`08:00`) et `Heure 1er cours aujourd'hui (HHMM)` (`800` - directement utilisable avec `time_op(#[Objet][Élève][Heure 1er cours aujourd'hui (HHMM)]#, -60)` dans un scénario Jeedom).
      - `Heure fin des cours aujourd'hui` / `(HHMM)` et `Heure 1er cours demain` / `(HHMM)` + `Heure fin des cours demain`.
    - **Détection automatique des cours annulés et professeurs absents** :
      - Recalcule automatiquement l'heure réelle du premier et du dernier cours de la journée lorsqu'un cours en début ou en fin de journée est annulé.
@@ -63,7 +63,7 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :
 
 - **Communication directe entre votre box Jeedom et le serveur PRONOTE de votre établissement** : Toutes les requêtes s'effectuent directement en HTTPS chiffré (AES/RSA selon le protocole PRONOTE) entre votre installation Jeedom et le serveur PRONOTE de l'établissement scolaire, sans jamais transiter par un serveur tiers.
-- **Protection absolue des jetons et secrets (Art. 4.3 — Zéro secret dans `ps aux` ni dans les logs)** :
+- **Protection absolue des jetons et secrets (Art. 4.3 - Zéro secret dans `ps aux` ni dans les logs)** :
   - Le code PIN temporaire à 4 chiffres du QR Code n'est utilisé qu'une seule fois lors de l'appairage initial et n'est jamais stocké.
   - Le jeton mobile rotatif (`token`) généré par PRONOTE ainsi que tout mot de passe éventuel sont stockés exclusivement en local dans `data/profiles/eq_<id>.json` avec des permissions système strictes **`chmod 0600`** et un fichier **`.htaccess` (`Require all denied`)** interdisant tout accès HTTP direct.
   - Les échanges entre le moteur PHP Jeedom et le worker Python isolé (`resources/venv`) passent exclusivement par un fichier JSON temporaire dans `jeedom::getTmpFolder('altPronote')` verrouillé en `0600` et supprimé immédiatement après lecture (`@unlink`). Aucun jeton, mot de passe ou clé API n'apparaît jamais dans la liste des processus (`ps aux`) ni dans les journaux d'événements Jeedom.
@@ -76,5 +76,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Index Éducation SAS / PRONOTE).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Index Éducation SAS / PRONOTE).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

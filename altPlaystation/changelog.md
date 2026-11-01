@@ -1,19 +1,19 @@
-# Changelog — Alt Contrôle Parental (PlayStation) (`altPlaystation`)
+# Changelog - Alt Contrôle Parental (PlayStation) (`altPlaystation`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
-## [0.1.0-beta.4] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.3` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.2] — 2026-10-30 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-30 (Canal Beta)
 
 ### Ajouté
 - **Association locale par Code PIN à 8 chiffres (*Lecture à distance / Remote Play LAN*) (`desktop/modal/auth.assistant.php` & `resources/altPlaystation_worker.py`)** :
@@ -25,7 +25,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 - **Mise en veille automatique sur le LAN en fin de quota (`0 min`), à l'heure du coucher ou lors d'un verrouillage (`lock_console_today`)** :
   - Lorsque l'option *Déconnexion forcée / Veille auto* est active (`suspend_software = 1`), le plugin envoie automatiquement l'ordre de mise en veille `Standby LAN` à la console dès que le temps restant atteint `0 min` ou que l'heure du coucher est atteinte (avec anti-rebond de 45 secondes), assurant une coupure effective même sur un compte PSN standard sans *PlayStation Family* ou lors d'une coupure Internet.
 
-## [0.1.0-beta.1] — 2026-10-28 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-28 (Canal Beta)
 
 ### Ajouté
 - **Support complet du Contrôle Parental PlayStation Family, de la supervision PlayStation Network (PSN) et de la détection locale LAN (DDP) dans Jeedom** pour toute la gamme **PS5 (Standard / Digital), PS5 Slim, PS5 Pro, PS4 et PS4 Pro** via un worker Python isolé (`resources/venv` avec bibliothèques permissives `requests` Apache-2.0, `aiohttp` Apache-2.0, `psnfamily` MIT et `psnawp-api` MIT).

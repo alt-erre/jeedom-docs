@@ -1,9 +1,9 @@
-# Plugin Jeedom — Alt Frame & Smart TV (Samsung) (`altSamsungTv`)
+# Plugin Jeedom - Alt Frame & Smart TV (Samsung) (`altSamsungTv`)
 
 Plugin Jeedom permettant de piloter **100 % en local** les téléviseurs **Samsung Smart TV (Tizen 2016+)** et plus particulièrement la gamme **Samsung "The Frame" (2018 à 2025+, API Art Mode v1 & v2)**.
 
 Conçu dans la même philosophie et la même architecture qu'`altCambridgeAudio`, il offre le choix entre deux modes de fonctionnement :
-1. **Mode Local Direct (par défaut, sans démon)** : requêtes locales directes HTTP REST (`:8001`/`:8002`), UPnP RenderingControl (`:9197` pour la lecture et le réglage du volume exact `0` à `100 %` et l'état Muet) et transactions WebSocket à la demande en PHP natif — aucune dépendance ni démon requis pour le contrôle courant.
+1. **Mode Local Direct (par défaut, sans démon)** : requêtes locales directes HTTP REST (`:8001`/`:8002`), UPnP RenderingControl (`:9197` pour la lecture et le réglage du volume exact `0` à `100 %` et l'état Muet) et transactions WebSocket à la demande en PHP natif - aucune dépendance ni démon requis pour le contrôle courant.
 2. **Mode WebSocket Temps Réel (démon Python optionnel)** : maintien d'une connexion WebSocket persistante sur les canaux `samsung.remote.control` et `com.samsung.art-app` (`wss://<ip>:8002` ou `ws://<ip>:8001`) pour une remontée instantanée des changements d'état (Mode TV / Mode Art / Veille, œuvre affichée, vignette en direct, luminosité Art, température de couleur, diaporama, volume UPnP) et l'envoi instantané des commandes sans latence de poignée de main SSL.
 
 ---
@@ -92,5 +92,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Samsung Electronics).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Samsung Electronics).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

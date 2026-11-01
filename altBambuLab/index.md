@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Print 3D (Bambu Lab) (`altBambuLab`)
+# Plugin Jeedom - Alt Print 3D (Bambu Lab) (`altBambuLab`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Objets connectés / Impression 3D Locale  
 
 ---
@@ -35,7 +35,7 @@ Dans la continuité des plugins `altSiemens`, `altCambridgeAudio`, `altJvcProjec
      - *Ventilateur auxiliaire latéral P1S (`aux_fan_speed` / `aux_fan_set`)*
      - *Ventilateur d'extraction / filtre à charbon de chambre P1S (`chamber_fan_speed` / `chamber_fan_set`)*
 
-3. **Unité AMS (1 AMS — 4 Bobines : Slots A1 à A4)** :
+3. **Unité AMS (1 AMS - 4 Bobines : Slots A1 à A4)** :
    - **Bobine active (`ams_active_slot` / `ams_active_label`)** : indique en temps réel quel slot (`1` à `4` ou *Bobine externe*) est chargé dans l'extrudeur.
    - **Détail des 4 emplacements (`Slot 1` à `Slot 4`)** :
      - Matériau (`PLA`, `PLA-CF`, `PETG`, `ABS`, `ASA`, `TPU`, `PA-CF`, `PVA`... ou `Vide`)
@@ -88,5 +88,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Bambu Lab / Shenzhen Tuozhu Technology Co., Ltd.).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Bambu Lab / Shenzhen Tuozhu Technology Co., Ltd.).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

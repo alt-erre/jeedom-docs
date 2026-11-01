@@ -1,4 +1,4 @@
-# Alt Habitat & Domotique (Delta Dore Tydom) — Plugin Jeedom (`altTydom`)
+# Alt Habitat & Domotique (Delta Dore Tydom) - Plugin Jeedom (`altTydom`)
 
 **Alt Habitat & Domotique (Delta Dore Tydom)** (`altTydom`) est un plugin Jeedom de nouvelle génération permettant de piloter et de superviser en **temps réel** l'intégralité de vos équipements domotiques **Delta Dore** et partenaires (**K-Line**, **Bel'M**) connectés à une passerelle **Tydom 1.0**, **Tydom 2.0**, **Tydom Home**, **Tydom Pro** ou **Tywell**.
 
@@ -55,9 +55,24 @@ Conçu **100 % en Python 3 natif asynchrone** (sans aucun binaire `.NET` lourd n
 
 ---
 
-## 3. Widget Personnalisé « Dark Glass » Adaptatif
+## 3. Widget Personnalisé « Dark Glass » Adaptatif & Fusion de Composants (« Widgets Combinés »)
 
 Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (avec 9 thèmes de couleur : *Noir / Sombre*, *Blanc / Clair*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*, ou bascule vers les widgets standards Jeedom Core v4) qui adapte automatiquement son interface et sa vignette vectorielle SVG temps réel à la nature de l'équipement (*Volet*, *Portail/Ouvrant*, *Éclairage/Prise*, *Chauffage/Thermostat*, *Alarme Tyxal+*, *Compteur d'énergie*, *Passerelle Box* ou *Scénario*).
+
+### Association & Fusion de composants Tydom (Widgets Combinés)
+Sur de nombreuses installations **Tydom Pro** ou **Tydom Home** (menuiseries K-Line, contacts magnétiques Tyxal+, sondes déportées, micromodules), les organes d'une même ouverture ou d'une même pièce remontent sous forme d'équipements Tydom distincts (par exemple : un contact **Vantail Gauche**, un contact **Vantail Droit** et un **Volet roulant** séparés).
+
+La section **« Association & Fusion de composants Tydom (Widget Combiné) »** de chaque équipement vous permet de les regrouper en **un seul widget complet et intelligent** :
+- **Volet roulant / BSO + 1 à 3 contacts d'ouvrants (`Vantail G`, `Vantail D`, `Fenêtre`...) — ou inversement Fenêtre + Volet associé** :
+  - Affichage en temps réel des pastilles d'état de chaque battant (`Vantail G : Fermé`, `Vantail D : Ouvert`) et de l'alerte pile faible directement sur le widget du volet.
+  - **Vignette vectorielle SVG combinée** : représentation simultanée de la hauteur du tablier du volet et de l'état ouvert/fermé de chaque vantail de fenêtre en arrière-plan.
+  - **Protection « Vantail Ouvert » (Sécurité anti-enfermement / anti-choc)** : option permettant d'interdire automatiquement la fermeture du volet (`< 25 %` / `Fermer` ou toute descente) depuis Jeedom tant qu'un vantail associé est détecté ouvert.
+- **Portail / Porte de garage + Contact(s) de fin de course / Portillon + Éclairage extérieur associé** :
+  - Supervision de l'état réel d'ouverture sur un portail à impulsion et bouton d'allumage/extinction directe de l'éclairage extérieur intégré au widget.
+- **Zone de Chauffage / Radiateur Fil Pilote + Sonde de température/hygrométrie déportée + Contact(s) de fenêtre** :
+  - Affichage de la température/hygrométrie de la sonde sur un radiateur fil pilote qui en est dépourvu et option de **coupure automatique en Hors-Gel** dès l'ouverture d'une fenêtre associée (avec retour automatique au mode précédent à la fermeture).
+- **Éclairage / Prise connectée + Détecteur de mouvement / luminosité ou sous-compteur d'énergie**.
+- **Synchronisation automatique des commandes sur l'équipement hôte** : toutes les informations des composants rattachés (`linked_open_1..3`, synthèse `linked_open_any`, `temperature`, `hygro`, `linked_motion`, `linked_brightness`, `energy_instant`, `energy_index`, `linked_light_state`, `linked_light_toggle`) sont automatiquement créées et tenues à jour en temps réel sur l'équipement principal pour vos scénarios Jeedom, historiques et passerelles vocales/Homebridge, avec option de masquage automatique des équipements secondaires sur le Dashboard.
 
 ---
 
@@ -75,5 +90,5 @@ Conformément aux Conditions Générales d'Utilisation du Jeedom Market :
 ## 5. Licence & Mentions Légales
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Licence** : Propriétaire — Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
+- **Licence** : Propriétaire - Tous droits réservés (réinstallations illimitées sur les propres équipements de l'acheteur conformément aux CGU du Jeedom Market).
 - **Non-affiliation** : Ce plugin est une création originale et indépendante. Il n'est ni affilié, ni approuvé, ni édité par Jeedom SAS, Delta Dore SAS, K-Line ou Bel'M. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées uniquement à titre de référence de compatibilité nécessaire (Art. L.713-6 CPI).

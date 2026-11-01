@@ -1,29 +1,29 @@
-# Changelog — Alt Dashboard & Kiosk TV (`altTvDashboard`)
+# Changelog - Alt Dashboard & Kiosk TV (`altTvDashboard`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.17] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.17] - 2026-11-01 (Canal Beta)
 
 ### Ajouté & Amélioré
 - **Conformité Niveau 2 complète du rendu des cartes et modales Caméras 10-Foot (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/preview_kiosk.html`)** :
   - Généralisation de `buildCameraCard()` et `openCameraModal()` pour interpréter nativement les tableaux standardisés `action_buttons`, `sliders`, `kpis` et `custom_modal_html` fournis par `getKioskWidgetData()` (conformément à la Charte de Compatibilité Kiosk TV) sans aucun couplage spécifique à un plugin tiers dans `altTvDashboard`.
   - Respect du descripteur `kiosk_schema: 1` dans `enrichDescriptorWithVisibleCmds()` afin de préserver tel quel l'ordonnancement des boutons et curseurs défini par chaque plugin.
 
-## [0.1.0-beta.16] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.16] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.15] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.15] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.15` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.14] — 2026-10-30
+## [0.1.0-beta.14] - 2026-10-30
 
 ### Ajouté
 - **Capture Automatique des Notifications & Nouvel Onglet « 🔔 Centre de Notifications » (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/js/kiosk.js`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`)** :
@@ -39,7 +39,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.13] — 2026-10-30
+## [0.1.0-beta.13] - 2026-10-30
 
 ### Ajouté
 - **Architecture Multi-Posture Adaptative pour iPhone Duo (Replié `1-Foot UI` & Déplié `2-Foot Dual-Pane UI`), Tablette et Mobile (`core/php/kiosk.php`, `desktop/css/kiosk.css`, `desktop/js/kiosk.js`, `core/class/altTvDashboard.class.php`, `desktop/php/altTvDashboard.php`)** :
@@ -51,8 +51,8 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
     2. **Posture iPhone Duo Déplié / Tablette (`data-posture="duo"`, `2-Foot UI` Master-Detail à 2 Volets)** :
        - **Disposition Double-Volet *Hinge-Safe* + Rail Droit Constant (`grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 68px`, gouttière centrale `env(fold-width, 16px)`)** : aucune carte ni bouton n'est jamais coupé en deux par la charnière centrale.
        - **Continuité musculaire Replié $\leftrightarrow$ Déplié** : le rail de navigation vertical reste exactement au même endroit sur le bord extérieur droit de l'écran, que l'iPhone Duo soit replié ou déplié.
-       - **Volet Gauche (`#altKioskContent` — *Master*)** : navigation dans les vues, pièces et grilles de cartes.
-       - **Volet Droit (`#altKioskInspector` — *Volet Compagnon / Inspecteur Permanent*)** : affiche par défaut le *Volet Compagnon* (flux caméra en direct, lecteur multimédia actif, équipements allumés et scénarios rapides) et, dès que l'utilisateur touche une carte sur le volet gauche, affiche instantanément tous ses contrôles détaillés (volets, thermostat, couleurs Hue/Twinkly, cahier de textes Pronote/Educartable, caméra) dans le volet droit sans masquer le volet gauche.
+       - **Volet Gauche (`#altKioskContent` - *Master*)** : navigation dans les vues, pièces et grilles de cartes.
+       - **Volet Droit (`#altKioskInspector` - *Volet Compagnon / Inspecteur Permanent*)** : affiche par défaut le *Volet Compagnon* (flux caméra en direct, lecteur multimédia actif, équipements allumés et scénarios rapides) et, dès que l'utilisateur touche une carte sur le volet gauche, affiche instantanément tous ses contrôles détaillés (volets, thermostat, couleurs Hue/Twinkly, cahier de textes Pronote/Educartable, caméra) dans le volet droit sans masquer le volet gauche.
        - **Transition fluide au dépliage** : si une *Bottom Sheet* d'équipement ou de caméra était ouverte sur l'écran replié, déplier l'iPhone Duo transfère automatiquement l'équipement dans le Volet Droit et referme la modale.
   - **Ergonomie Tactile Native & Bascule Directe `1-Tap` sur l'icône des cartes** :
     - Sur appareil tactile (`pointer: coarse`), le piège de curseur Tizen (`dpadCursorTrap`) et le badge TV `OK ↵` sont automatiquement désactivés au profit du défilement inertiel natif.
@@ -60,7 +60,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.12] — 2026-10-30
+## [0.1.0-beta.12] - 2026-10-30
 
 ### Ajouté
 - **Association optionnelle d'un Kiosk à un Profil Utilisateur Jeedom (`Droits r / w / n`) (`desktop/php/altTvDashboard.php`, `core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/js/altTvDashboard.js`)** :
@@ -73,7 +73,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.11] — 2026-10-30
+## [0.1.0-beta.11] - 2026-10-30
 
 ### Corrigé & Optimisé (Protection des Ressources CPU / RAM / Apache de la Box Jeedom)
 - **Suppression du blocage des workers Apache dans `core/php/mediaProxy.php` (Cause principale de saturation serveur sur la vue *Studio Frame*)** :
@@ -92,7 +92,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.10] — 2026-10-29
+## [0.1.0-beta.10] - 2026-10-29
 
 ### Corrigé
 - **Élimination du crénelage typographique global sur tout l'écran (`desktop/css/kiosk.css`, `desktop/js/kiosk.js`)** :
@@ -103,7 +103,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.9] — 2026-10-29
+## [0.1.0-beta.9] - 2026-10-29
 
 ### Corrigé
 - **Netteté 100 % des cartes en surbrillance (`.is-focused`) (`desktop/css/kiosk.css`)** :
@@ -111,10 +111,10 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.8] — 2026-10-29
+## [0.1.0-beta.8] - 2026-10-29
 
 ### Ajouté & Amélioré
-- **Moteur Universel de Widgets Kiosk par Défaut (par Lot) — Extraction automatique de toutes les commandes visibles (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`)** :
+- **Moteur Universel de Widgets Kiosk par Défaut (par Lot) - Extraction automatique de toutes les commandes visibles (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`)** :
   - Correction des cartes d'équipements génériques ou sondes/chauffages qui s'affichaient sans aucune commande lorsque leurs actions ne portaient pas les noms standards `on/off` ou `up/down` : `enrichDescriptorWithVisibleCmds()` inspecte désormais automatiquement toutes les commandes visibles (`isVisible == 1`) de chaque équipement :
     - **Commandes `action / other`** : génèrent automatiquement de grands boutons 10-Foot (`.kiosk-modal-big-btn`) dans la modale ouverte (avec détection de l'état actif via la commande `info` liée `getValue()`) ainsi qu'une pilule d'aperçu des actions en bas de la carte.
     - **Commandes `action / slider`** : génèrent automatiquement des barres de réglage par paliers rapides 10-Foot (`-`, `+`, paliers `0 % / 25 % / 50 % / 75 % / 100 %` ou consignes `°C`) avec lecture automatique de l'unité et des bornes `minValue`/`maxValue`.
@@ -127,7 +127,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.7] — 2026-10-29
+## [0.1.0-beta.7] - 2026-10-29
 
 ### Amélioré & Corrigé
 - **Correction de l'onglet `🖼️ Studio Frame` sur le téléviseur (`desktop/js/kiosk.js`)** :
@@ -141,7 +141,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.6] — 2026-10-29
+## [0.1.0-beta.6] - 2026-10-29
 
 ### Ajouté
 - **Protection par Code PIN à 4 chiffres entièrement personnalisable par Équipement, par Commande et par Scénario (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`, `desktop/js/kiosk.js`)** :
@@ -152,7 +152,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.5] — 2026-10-29
+## [0.1.0-beta.5] - 2026-10-29
 
 ### Ajouté
 - **Configuration fine des Widgets, Pièces, Scénarios & Vues visibles par Téléviseur (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `desktop/php/altTvDashboard.php`, `desktop/js/altTvDashboard.js`, `desktop/js/kiosk.js`)** :
@@ -168,10 +168,10 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.4] — 2026-10-29
+## [0.1.0-beta.4] - 2026-10-29
 
 ### Amélioré & Corrigé
-- **Cartes Vie Scolaire (`altPronote` / `altEducartable`) — Affichage du prénom/nom de l'enfant & Modale Scolaire Complète 10-Foot (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`)** :
+- **Cartes Vie Scolaire (`altPronote` / `altEducartable`) - Affichage du prénom/nom de l'enfant & Modale Scolaire Complète 10-Foot (`core/class/altTvDashboard.class.php`, `desktop/js/kiosk.js`)** :
   - **Résolution prioritaire du nom de l'enfant** : sur les comptes **Parent** PRONOTE, le Kiosk privilégie désormais systématiquement l'enfant suivi (`childName` / `childrenListJson` / correspondance avec le nom de l'équipement Jeedom) afin de ne plus jamais afficher le nom du parent titulaire du compte.
   - **Enrichissement des cartes Pronote / Educartable** : affichage direct de la classe, de l'établissement, de la moyenne générale (`/20`), de la dernière note, des horaires de début/fin de journée (`08:00 → 16:30`), de l'aperçu des cours du jour et des prochains devoirs.
   - **Nouvelle Modale Vie Scolaire Grand Écran (`renderSchoolModal`, `980 px`) à l'appui sur `OK`** :
@@ -181,10 +181,10 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.3] — 2026-10-29
+## [0.1.0-beta.3] - 2026-10-29
 
 ### Amélioré & Corrigé
-- **Pont Télécommande Tizen — Conversion du pointeur virtuel *Samsung Internet* en vrai D-Pad (`desktop/js/kiosk.js`, `desktop/css/kiosk.css`, `core/php/kiosk.php`)** :
+- **Pont Télécommande Tizen - Conversion du pointeur virtuel *Samsung Internet* en vrai D-Pad (`desktop/js/kiosk.js`, `desktop/css/kiosk.css`, `core/php/kiosk.php`)** :
   - Dans le navigateur natif *Samsung Internet* (`org.tizen.browser`) des téléviseurs Samsung *The Frame*, les flèches physiques de la télécommande déplacent par défaut un pointeur souris virtuel au lieu d'émettre des touches clavier `ArrowUp/Down/Left/Right`.
   - Ajout du **Piège à Curseur D-Pad (`dpadCursorTrap`, actif par défaut)** : dès la première impulsion directionnelle (`5 px`) de la télécommande, le focus `.is-focused` saute instantanément d'une carte à la suivante sans avoir à déplacer le pointeur jusqu'à la cible.
   - Ajout d'une **arène de défilement invisible (`20000×20000 px`, `#altKioskScrollArena`)** centrée automatiquement afin de continuer à capter les appuis directionnels (`▲▼◀▶`) même lorsque le pointeur virtuel du navigateur Tizen arrive en butée contre l'un des 4 bords de l'écran TV.
@@ -197,7 +197,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.2] — 2026-10-29
+## [0.1.0-beta.2] - 2026-10-29
 
 ### Corrigé
 - **Rendu du Kiosk sur navigateur TV Tizen / Smart TV (`core/php/kiosk.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`, `core/class/altTvDashboard.class.php`)** :
@@ -208,7 +208,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
-## [0.1.0-beta.1] — 2026-10-28
+## [0.1.0-beta.1] - 2026-10-28
 
 ### Ajouté
 - **Première version Beta publique (`0.1.0-beta.1`)** du plugin **Alt Dashboard & Kiosk TV (`altTvDashboard`)** pour Jeedom v4.

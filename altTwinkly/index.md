@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)
+# Plugin Jeedom - Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Lumière / Éclairages Connectés & Effets LED  
 
 ---
@@ -23,7 +23,7 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
    - Interroge et pilote directement chaque contrôleur Twinkly sur le port TCP local `80` via l'API locale `/xled/v1/...` en PHP natif (`cURL` + `sockets`).
    - Authentification locale automatique par **Challenge-Response cryptographique (`/xled/v1/login` + `/xled/v1/verify`)** avec mise en cache intelligente du jeton `X-Auth-Token` et renouvellement transparent en cas d'expiration.
    - **Fonctionnel immédiatement** dès l'activation du plugin, sans attendre l'installation de dépendances Python.
-2. **Mode Démon Python Temps Réel & Streaming UDP (`resources/altTwinklyd.py` — Optionnel) :**
+2. **Mode Démon Python Temps Réel & Streaming UDP (`resources/altTwinklyd.py` - Optionnel) :**
    - Maintient une supervision asynchrone haute fréquence (`3` à `10 s` paramétrable) sur l'endpoint unifié `/xled/v1/summary` et remonte **instantanément** à Jeedom tout changement effectué depuis l'application mobile Twinkly ou le bouton physique du contrôleur.
    - Assure la **génération et la diffusion fluide d'animations Temps Réel UDP (`mode: "rt"`, port UDP `7777`, protocole v3 à `15 FPS`)** pour animer vos guirlandes et panneaux avec des ambiances procédurales exclusives (*Aurore Boréale*, *Feu de Cheminée*, *Scintillement Or & Blanc*, *Noël Magique*, *Onde Arc-en-Ciel*, *Cyberpunk*).
 
@@ -61,7 +61,7 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
 - **Programmateur horaire matériel embarqué :** lecture et programmation directe des heures d'allumage et d'extinction autonomes dans le contrôleur Twinkly (`timer_set`, `timer_disable`, `timer_state`, `timer_on`, `timer_off`) depuis un scénario ou depuis le tiroir dédié du widget.
 - **Flash de Notification Visuelle (`alert_flash`) :** commande dédiée aux scénarios domotiques (sonnette, alarme, fin de cycle) faisant clignoter l'éclairage Twinkly dans la couleur choisie (*Rouge*, *Bleu*, *Vert*, *Ambre*, *Blanc*) avant de restaurer automatiquement l'animation ou le mode précédent.
 
-### 5. Widgets Personnalisés « Dark Glass » (Dashboard & Mobile — Charte `alt-erre` v1.2)
+### 5. Widgets Personnalisés « Dark Glass » (Dashboard & Mobile - Charte `alt-erre` v1.2)
 - **Aperçu Matriciel LED `58×58 px` animé** reflétant en temps réel l'état (allumé/éteint), la couleur `#RRGGBB` active ou le scintillement multicolore des modes *Movie / Effet / UDP Temps Réel*, avec badge de famille (`STRINGS`, `SQUARES`, `FLEX`, `LINE`, `CURTAIN`, `ICICLE`, `DOTS`, `TREE`).
 - **9 thèmes de couleur par équipement** (*Noir / Dark Glass*, *Blanc / Light Glass*, *Bleu Profond*, *Cyan / Turquoise*, *Vert Émeraude*, *Ambre / Or*, *Orange / Cuivré*, *Rouge / Carmin*, *Violet / Améthyste*).
 - **Micro-interactions tactiles** : onde lumineuse au clic (`.is-triggered`), rotation fluide du bouton *Rafraîchir* (`.is-refreshing`) et protection anti-double-clic (`.is-confirmed`).
@@ -83,5 +83,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur :** Aurélien Léovant (`alt-erre`)
-- **Copyright :** © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Ledworks S.r.l. / Twinkly).
-- **Licence :** Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright :** © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Ledworks S.r.l. / Twinkly).
+- **Licence :** Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

@@ -1,19 +1,19 @@
-# Changelog — Alt Contrôle Parental (Nintendo Switch) (`altSwitch`)
+# Changelog - Alt Contrôle Parental (Nintendo Switch) (`altSwitch`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
-## [0.1.0-beta.8] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.8] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.7` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.6] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-27 (Canal Beta)
 
 ### Amélioré
 - **Retour visuel d'action, Confirmation explicite & Protection anti-double-clic sur le temps bonus (Charte Graphique `v1.2`)** :
@@ -21,7 +21,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Animation de rotation sur le bouton Rafraîchir (`fa-sync-alt`)** : rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond au clic.
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
 
-## [0.1.0-beta.5] — 2026-10-23 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-23 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Récupération complète du catalogue des jeux, des profils joueurs et du temps d'utilisation (`resources/altSwitch_worker.py` & `core/class/altSwitch.class.php`)** :
@@ -31,7 +31,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Affichage de la jaquette et du dernier jeu actif sur le widget** : lorsqu'aucune session n'a encore eu lieu aujourd'hui, la carte principale affiche automatiquement *« Dernier jeu : <Titre> (<Date>) »* avec sa jaquette officielle.
   - **Rattachement automatique d'un équipement pré-créé manuellement** : lors de la découverte des consoles, si un équipement `altSwitch` avait été créé manuellement au préalable (sans `deviceId`), il est automatiquement hydraté avec la console découverte au lieu de créer un équipement en doublon.
 
-## [0.1.0-beta.4] — 2026-10-22 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-22 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Correction de l'erreur `HTTP 403` (`GET users/.../devices`) lors de la découverte des consoles (`resources/altSwitch_worker.py`)** :
@@ -40,14 +40,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Détection matérielle officielle Switch 2 (`platformGeneration: "P01"`)** et agrégation multi-profils des jeux lancés (`whitelistedApplicationList` + `dailySummaries`).
   - **Réutilisation automatique du `session_token` déjà enregistré dans l'Assistant (`desktop/modal/auth.assistant.php`)** : ajout d'un bouton 1-clic *« Découvrir mes Consoles Switch / Switch 2 maintenant »* lorsque le jeton de session a déjà été échangé et stocké sur la box Jeedom, évitant de devoir refaire l'Étape 1 sur `accounts.nintendo.com`.
 
-## [0.1.0-beta.3] — 2026-10-22 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-22 (Canal Beta)
 
 ### Amélioré
 - **Appairage sur iPad / iPhone (iOS / iPadOS) & Android (`desktop/modal/auth.assistant.php`)** :
   - Prise en charge native du **Glisser-Déposer (*Drag & Drop*)** du bouton rouge **« Sélectionner »** depuis `accounts.nintendo.com` vers le champ de l'assistant Jeedom sur iPadOS et iOS (où WebKit bloque le menu contextuel *Copier le lien* sur les schémas d'URL d'applications `npf54789befb391a838://`).
   - Tolérance accrue de l'extracteur `extract_session_token_code()` dans `altSwitch_worker.py` (accepte l'URL complète, un dépôt Drag & Drop `text/uri-list` ou un extrait HTML).
 
-## [0.1.0-beta.2] — 2026-10-22 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-22 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Correction du statut `NOK` des dépendances après l'installation (`resources/install_apt.sh` & `dependancy_info`)** :
@@ -55,7 +55,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Compatibilité multi-versions Python (`Python 3.9` Debian 11 Bullseye $\to$ `Python 3.13`)** : injection automatique de `from __future__ import annotations` dans les modules du `venv` utilisant la syntaxe d'union PEP 604 (`X | Y`) sur Python 3.9, et ajout d'un client REST direct autonome (`DirectMoonClient` via `requests`) dans `altSwitch_worker.py`.
   - **Fiabilisation de `dependancy_info()`** dans `altSwitch.class.php` avec vérification directe de l'environnement virtuel (`shell_exec`) et droits `755` sur `resources/venv`.
 
-## [0.1.0-beta.1] — 2026-10-21 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-21 (Canal Beta)
 
 ### Ajouté
 - **Support complet du Contrôle Parental Nintendo Switch dans Jeedom** pour toute la gamme **Nintendo Switch (V1/V2), Switch Lite, Switch OLED et Switch 2** via un worker Python isolé (`resources/venv` avec bibliothèques permissives MIT / Apache-2.0).

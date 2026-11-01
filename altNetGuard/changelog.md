@@ -1,10 +1,10 @@
-# Changelog — Alt Radar & Sécurité Réseau (`altNetGuard`)
+# Changelog - Alt Radar & Sécurité Réseau (`altNetGuard`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément à notre [Politique de Numérotation de Version (SemVer)](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.4] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.4] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
 - **Création d'un équipement « Appareil Réseau Connu » (`Duplicate entry '*-Statut de confiance' for key 'unique'`)** :
@@ -12,14 +12,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - Ajout d'une déduplication automatique du nom d'équipement proposé dans `createOrUpdateKnownEquipment()` (ajout du suffixe MAC ` (XX:YY)` en cas d'homonymie dans la même pièce Jeedom) pour éviter tout conflit lors de l'ajout de plusieurs appareils du même constructeur ou `hostname`.
   - Désactivation de l'historisation par défaut sur la commande volatile `latency_ms` (`isHistorized = 0`) pour préserver la mémoire flash eMMC (Jeedom Luna).
 
-## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.2] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.2` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 

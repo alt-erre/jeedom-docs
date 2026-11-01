@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Robot Vacuum (Roborock) (`altRoborock`)
+# Plugin Jeedom - Alt Robot Vacuum (Roborock) (`altRoborock`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Automatisme / Robot Aspirateur & Laveur Connecté Local  
 
 ---
@@ -14,8 +14,8 @@ Le plugin **Alt Roborock** (`altRoborock`) permet de piloter en **100 % local** 
 - **Roborock S8 / S8 Pro Ultra / S8 MaxV Ultra** (`roborock.vacuum.a51`, `a70`, `a97`) ainsi que les séries **S5 Max, S6, Q5, Q7 Max, Q8 Max**.
 
 Comme les plugins `altCambridgeAudio` et `altSiemens`, il repose sur un démon Python asynchrone léger (`resources/altRoborockd.py`) qui maintient une connexion **TCP locale chiffrée sur le port `58867`** directement avec chaque robot sur votre réseau local, en supportant nativement les deux générations de protocole local Roborock :
-- **Protocole `1.0` (AES-128-ECB + CRC32)** — utilisé nativement par le **Roborock S7**, S5 Max, S6, Q7 Max…
-- **Protocole `L01` (AES-256-GCM + Handshake `connect_nonce` / `ack_nonce` + CRC32)** — utilisé nativement par le **Roborock Qrevo Curv**, Qrevo Master, Qrevo Slim, S8 MaxV Ultra…
+- **Protocole `1.0` (AES-128-ECB + CRC32)** - utilisé nativement par le **Roborock S7**, S5 Max, S6, Q7 Max…
+- **Protocole `L01` (AES-256-GCM + Handshake `connect_nonce` / `ack_nonce` + CRC32)** - utilisé nativement par le **Roborock Qrevo Curv**, Qrevo Master, Qrevo Slim, S8 MaxV Ultra…
 - **Négociation automatique (`auto`)** : bascule transparente entre `L01` et `1.0` selon le modèle et la réponse du robot.
 
 ---
@@ -57,7 +57,7 @@ Comme les plugins `altCambridgeAudio` et `altSiemens`, il repose sur un démon P
 
 Pour dialoguer en local sur le port TCP `58867`, chaque robot Roborock nécessite son identifiant unique (`DUID`) et sa clé de chiffrement locale de 16 caractères (`localKey`). Le plugin propose **3 méthodes** au choix :
 
-1. **Assistant Roborock Cloud (1x — Code e-mail OTP ou Mot de passe)** :
+1. **Assistant Roborock Cloud (1x - Code e-mail OTP ou Mot de passe)** :
    - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**.
    - Saisissez l'adresse e-mail de votre compte Roborock, cliquez sur **1. Recevoir un code par e-mail**, puis saisissez le code à 6 chiffres reçu et cliquez sur **2. Récupérer mes robots & clés locales**.
    - Le plugin récupère automatiquement vos robots (`DUID`, `localKey`, modèle, firmware, protocole `1.0` ou `L01` et noms des pièces), les associe aux adresses IP détectées sur votre réseau local (broadcast UDP `58866` + sonde TCP `58867`) et crée les équipements dans Jeedom.
@@ -89,5 +89,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Beijing Roborock Technology Co., Ltd.).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Beijing Roborock Technology Co., Ltd.).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

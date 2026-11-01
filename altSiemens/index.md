@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Café & Home Connect (Siemens) (`altSiemens`)
+# Plugin Jeedom - Alt Café & Home Connect (Siemens) (`altSiemens`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Automatisme / Électroménager Connecté Local  
 
 ---
@@ -11,8 +11,8 @@
 Le plugin **Alt Siemens** (`altSiemens`) permet de piloter en **100 % local** (sans dépendance au cloud ni limite de quota d'appels API) les appareils électroménagers **Siemens / BSH Home Connect** et tout particulièrement la machine à café expresso broyeur **Siemens EQ900** (`TQ903`, `TQ905`, `TQ907`...) ainsi que les séries **EQ700 / EQ.9**.
 
 Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone léger (`resources/altSiemensd.py`) qui maintient une connexion **WebSocket locale chiffrée** directement avec chaque appareil sur votre réseau local :
-- **Mode AES-CBC + HMAC-SHA256** (`ws://<ip>:80/homeconnect`) — utilisé nativement par la **Siemens EQ900**
-- **Mode TLS-PSK** (`wss://<ip>:443/homeconnect`) — utilisé par certains gros électroménagers BSH
+- **Mode AES-CBC + HMAC-SHA256** (`ws://<ip>:80/homeconnect`) - utilisé nativement par la **Siemens EQ900**
+- **Mode TLS-PSK** (`wss://<ip>:443/homeconnect`) - utilisé par certains gros électroménagers BSH
 
 ---
 
@@ -60,10 +60,10 @@ Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone l
 
 Pour dialoguer en local sur le port `80` (`AES-CBC + HMAC-SHA256`) ou `443` (`TLS-PSK`), chaque appareil Siemens nécessite ses clés de chiffrement locales (`PSK` et `IV`) ainsi que son dictionnaire XML (`_FeatureMapping.xml` et `_DeviceDescription.xml`). Le plugin propose **3 méthodes** au choix :
 
-1. **Assistant intégré SingleKey ID (1x — OAuth2 PKCE)** :
+1. **Assistant intégré SingleKey ID (1x - OAuth2 PKCE)** :
    - Depuis la page du plugin, cliquez sur **Assistant Clés Locales**, puis sur **1. Générer le lien de connexion SingleKey ID**.
-   - **Option A (Zéro-F12 — Interception automatique sur Mac ou Windows)** :
-     - Cliquez sur le bouton **« Copier la commande d'activation automatique (Mac — Terminal) »** (ou **Windows — PowerShell**) dans l'Étape 1 et exécutez-la sur votre ordinateur. Elle enregistre localement un mini-capteur pour le protocole `hcauth://`.
+   - **Option A (Zéro-F12 - Interception automatique sur Mac ou Windows)** :
+     - Cliquez sur le bouton **« Copier la commande d'activation automatique (Mac - Terminal) »** (ou **Windows - PowerShell**) dans l'Étape 1 et exécutez-la sur votre ordinateur. Elle enregistre localement un mini-capteur pour le protocole `hcauth://`.
      - Cliquez ensuite simplement sur **« Ouvrir dans un nouvel onglet »** (compatible tous navigateurs, y compris **Safari**) et connectez-vous à SingleKey ID : à la fin de la connexion, votre ordinateur intercepte automatiquement l'URL `hcauth://auth/prod?code=...` et la copie tout seul dans votre presse-papiers !
      - Revenez sur l'onglet Jeedom : le champ de l'**Étape 2** détecte et colle automatiquement la clé (ou cliquez sur **Coller** / `Cmd+V`).
    - **Option B (Manuelle via l'inspecteur du navigateur)** :
@@ -72,7 +72,7 @@ Pour dialoguer en local sur le port `80` (`AES-CBC + HMAC-SHA256`) ou `443` (`TL
      - Allez dans l'onglet **Console** de l'inspecteur, cliquez sur la roue crantée ⚙️ en haut à droite de la console et cochez **« Preserve log » / « Conserver le journal »**. Collez le lien SingleKey ID dans la barre d'adresse et connectez-vous. Dès la connexion validée, une erreur rouge apparaît dans la **Console** :
        `Failed to launch 'hcauth://auth/prod?code=...' because the scheme does not have a registered handler.`
        Copiez cette ligne (ou l'URL `hcauth://auth/prod?code=...`) et collez-la à l'**Étape 2** de l'assistant !
-   - **Option C (Depuis un iPhone ou un iPad — iOS / iPadOS)** :
+   - **Option C (Depuis un iPhone ou un iPad - iOS / iPadOS)** :
      - Sur iOS/iPadOS, Safari ne dispose pas de l'outil `F12` par défaut et, si l'application mobile officielle **Home Connect** est installée sur votre iPhone/iPad, iOS intercepte le lien `hcauth://` pour ouvrir l'application (ce qui consomme et invalide immédiatement le code à usage unique !).
      - Si vous souhaitez réaliser l'opération directement depuis votre iPhone ou iPad : installez l'extension Safari gratuite **[Web Inspector](https://apps.apple.com/fr/app/web-inspector/id1584825745)** sur l'App Store, activez-la via le bouton `aA` / Puzzle de Safari (onglet **Console**), connectez-vous à SingleKey ID, et lorsque iOS affiche la fenêtre *« Ouvrir cette page dans Home Connect ? »*, appuyez impérativement sur **« Annuler »** (jamais sur *Ouvrir*), puis copiez l'adresse `hcauth://auth/prod?code=...` affichée dans la Console de *Web Inspector*.
      - *Astuce :* une fois vos clés récupérées une première fois (depuis Mac/PC ou iOS) et votre sauvegarde `.json` enregistrée dans **iCloud Drive / Fichiers**, vous pourrez toujours restaurer vos équipements en 1 clic depuis votre iPhone ou iPad via l'onglet **Méthode 2 (.json)** sans plus jamais passer par `hcauth://`.
@@ -105,6 +105,6 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS, Siemens AG ni BSH Hausgeräte GmbH).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS, Siemens AG ni BSH Hausgeräte GmbH).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
 

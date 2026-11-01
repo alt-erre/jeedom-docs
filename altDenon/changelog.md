@@ -1,11 +1,11 @@
-# Changelog — Alt Denon (`altDenon`)
+# Changelog - Alt Denon (`altDenon`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
 
 ---
 
-## `[0.1.0-beta.9]` — 2026-11-01 (Canal Beta)
+## `[0.1.0-beta.9]` - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom.
@@ -13,13 +13,13 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
   - Agrandissement de la vignette/jaquette de `58×58 px` à **`74×74 px`** sur le Dashboard (`56×56 px` sur Mobile) avec relief 3D et zoom au survol.
   - Ajout d'un **halo d'ambiance flouté (`.dn-now-playing-bg`)** en arrière-plan de la carte média et d'un **aperçu Lightbox plein widget au clic sur la jaquette**.
 
-## `[0.1.0-beta.8]` — 2026-10-31 (Canal Beta)
+## `[0.1.0-beta.8]` - 2026-10-31 (Canal Beta)
 
 ### Ajouté
 - **Sélecteur rapide de Volume Maximum sur le Widget Dashboard (`10` à `70` par palier de 5)** :
   - Ajout d'un sélecteur rapide (`Max 10%` à `Max 70%` par pas de `5`, ainsi que `Max 98`) directement sur la barre de volume du widget Dashboard, avec badge ambré `.is-capped` lorsqu'un plafond est actif et création automatique des commandes `volume_max` / `volume_max_set` au rendu.
 
-## `[0.1.0-beta.6]` — 2026-10-31 (Canal Beta)
+## `[0.1.0-beta.6]` - 2026-10-31 (Canal Beta)
 
 ### Ajouté
 - **Dissociation en 1 clic des zones d'un même amplificateur (`Dissocier les zones (Z2 / Z3)`)** :
@@ -28,18 +28,18 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
   - Affichage d'un badge de zone (`Main Zone`, `Zone 2`, `Zone 3`) sur chaque carte d'équipement dans la page d'accueil du plugin.
   - **Adaptation automatique du Widget Cockpit (« Dark Glass ») pour les équipements `Zone 2` et `Zone 3`** : affichage dédié Multiroom (badge `ZONE 2` / `ZONE 3`, sélecteur d'entrée pleine largeur, pas de volume à `1 dB`, Quick Select `Z2QUICK1..4` / `Z3QUICK1..4`, transport et favoris HEOS) et masquage automatique des contrôles propres à la Zone Principale (HDMI Monitor, Surround 13.2ch, Audyssey, OSD).
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.5` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## `[0.1.0-beta.4]` — 2026-10-27
+## `[0.1.0-beta.4]` - 2026-10-27
 
 ### Ajouté
 - **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
@@ -47,15 +47,15 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
   - **Application immédiate & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume si celui-ci dépasse le nouveau plafond lors de l'activation du mode, plafonne les commandes Jeedom (`volume_set`, `volume_db_set`, `volume_up`, `z2_volume_set`, `z3_volume_set`) et ramène automatiquement le volume au plafond si quelqu'un le dépasse depuis la télécommande IR Denon ou HDMI CEC.
   - **Bridage visuel sur le widget Dashboard** : adaptation dynamique en temps réel de la borne `max` du curseur de volume.
 
-## `[0.1.0-beta.3]` — 2026-10-27
+## `[0.1.0-beta.3]` - 2026-10-27
 
 ### Amélioré
-- **Retour visuel d'action (Animations de clic & Rafraîchissement — Charte Graphique `v1.2`)** :
+- **Retour visuel d'action (Animations de clic & Rafraîchissement - Charte Graphique `v1.2`)** :
   - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) sur tous les boutons des widgets **Dashboard & Mobile** (transport, volume, muet, D-Pad OSD, modes sonores, Quick Select, alimentation).
   - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`).
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
 
-## `[0.1.0-beta.2]` — 2026-10-21
+## `[0.1.0-beta.2]` - 2026-10-21
 
 ### Ajouté
 - **Découverte automatique sur le réseau local (`Scanner le réseau`)** : nouveau bouton d'action sur la page d'accueil du plugin combinant la découverte **SSDP / UPnP** et le scan rapide **HEOS CLI (`TCP 1255`)** pour détecter automatiquement les amplificateurs Denon & Marantz sur le LAN, récupérer leur nom, modèle, numéro de série, firmware et `pid` HEOS, créer l'équipement et synchroniser automatiquement ses sources personnalisées et favoris.
@@ -63,7 +63,7 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
-## `[0.1.0-beta.1]` — 2026-10-21 (Première publication Beta)
+## `[0.1.0-beta.1]` - 2026-10-21 (Première publication Beta)
 
 ### Ajouté
 - **Architecture Tri-Protocole 100 % locale** spécialement conçue pour le **Denon AVC-X8500HA** et l'ensemble des gammes Denon / Marantz (AVC-A1H, Série X, Série S, Cinema, HEOS) :

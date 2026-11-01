@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Contrôle Parental (Xbox) (`altXbox`)
+# Plugin Jeedom - Alt Contrôle Parental (Xbox) (`altXbox`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Jeux Vidéo & Contrôle Parental  
 
 ---
@@ -53,7 +53,7 @@ Conçu selon une **architecture Hybride (Cloud Xbox Network + Fallback 100 % Loc
 
 Le plugin `altXbox` combine **deux canaux de communication complémentaires** et bascule automatiquement en **Fallback 100 % Local (LAN)** si votre connexion Internet ou les serveurs Xbox Live sont momentanément indisponibles :
 
-### 1. Fonctionnalités 100 % Locales (Réseau Local LAN — Sans Internet)
+### 1. Fonctionnalités 100 % Locales (Réseau Local LAN - Sans Internet)
 
 Dès lors que la console Xbox est sur le même réseau local que Jeedom (et/ou que son **Adresse IP locale** est renseignée dans l'équipement), les fonctions suivantes s'exécutent **intégralement en local sans aucune dépendance à Internet** :
 
@@ -99,7 +99,7 @@ Si votre foyer possède **plusieurs consoles Xbox** (ex. *Xbox Series X Salon* +
 2. Dans Jeedom (*Plugins $\to$ Multimédia $\to$ Alt Contrôle Parental (Xbox)*), cliquez sur **Assistant Compte Microsoft / Xbox**.
 3. Dans l'**Onglet 1 (Recommandé)**, cliquez sur **« 1. Générer mon Code d'Appairage & Ouvrir microsoft.com/link »** : un code à 8 caractères s'affiche (et est copié automatiquement) tandis que le portail officiel `https://www.microsoft.com/link` s'ouvre dans un nouvel onglet.
 4. Saisissez ou confirmez ce code sur `microsoft.com/link`, connectez-vous avec votre compte Microsoft associé à la console Xbox et acceptez *(aucune URL n'est à copier)*.
-5. Revenez dans Jeedom et cliquez sur **« 2. J'ai validé le code sur Microsoft — Découvrir mes Consoles Xbox »** : vos consoles sont automatiquement créées et synchronisées dans Jeedom !
+5. Revenez dans Jeedom et cliquez sur **« 2. J'ai validé le code sur Microsoft - Découvrir mes Consoles Xbox »** : vos consoles sont automatiquement créées et synchronisées dans Jeedom !
 6. *(Recommandé pour le mode Hybride / 100 % Local LAN)* : Indiquez l'**Adresse IP locale** fixe de votre Xbox dans l'onglet *Équipement* (ou laissez la découverte locale UDP `5050` la remplir automatiquement lorsque la console est allumée).
 
 ---
@@ -109,7 +109,7 @@ Si votre foyer possède **plusieurs consoles Xbox** (ex. *Xbox Series X Salon* +
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :
 
 - **Authentification OAuth2 officielle Microsoft Live sans stockage de mot de passe** : La connexion s'effectue directement sur le serveur officiel `login.live.com`. Votre mot de passe Microsoft et vos codes de double authentification (2FA / Microsoft Authenticator / Passkey) ne transitent jamais par Jeedom.
-- **Protection absolue des jetons et secrets (Art. 4.3 — Zéro secret dans `ps aux` ni dans les logs)** :
+- **Protection absolue des jetons et secrets (Art. 4.3 - Zéro secret dans `ps aux` ni dans les logs)** :
   - Les jetons OAuth2 (`refresh_token`) et Xbox Live (`XSTS`) sont stockés exclusivement en local sur votre box Jeedom dans `data/profiles/` avec des permissions système strictes **`chmod 0600`** et un fichier **`.htaccess` (`Require all denied`)** interdisant tout accès HTTP direct.
   - Les échanges entre le moteur PHP Jeedom et le worker Python isolé (`resources/venv`) passent exclusivement par un fichier JSON temporaire dans `jeedom::getTmpFolder('altXbox')` verrouillé en `0600` et supprimé immédiatement après exécution (`@unlink`). Aucun jeton, code PIN ou clé API n'apparaît jamais dans la liste des processus (`ps aux`) ni dans les logs Jeedom.
   - Toutes les données et fichiers de profils sont intégralement supprimés lors de la suppression de l'équipement ou de la désinstallation du plugin.
@@ -121,5 +121,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Microsoft Corporation).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Microsoft Corporation).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

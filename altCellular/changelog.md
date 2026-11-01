@@ -1,10 +1,10 @@
-# Changelog — Alt Téléphonie, MMS & Portail GSM (`altCellular`)
+# Changelog - Alt Téléphonie, MMS & Portail GSM (`altCellular`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément à notre [Politique de Numérotation de Version (SemVer)](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
 
 ---
 
-## [0.1.0-beta.12] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.12] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
 - **Priorisation automatique de `/dev/ttyUSB-LTE-Quectel` et réservation stricte de `/dev/ttyLuna-Lte` pour le plugin SMS (`resources/altCellulard.py`)** :
@@ -12,7 +12,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.11] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.11] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
 - **Cohabitation automatique sans conflit avec le plugin SMS officiel sur Jeedom Luna 4G (`resources/altCellulard.py`, `core/class/altCellular.class.php`)** :
@@ -21,7 +21,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.10] - 2026-10-31 (Canal Beta)
 
 ### Corrigé
 - **Suppression des accolades `{{...}}` sur le widget Dashboard (`core/template/dashboard/altCellular.html`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
@@ -32,7 +32,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.9] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.9] - 2026-10-31 (Canal Beta)
 
 ### Corrigé
 - **Sélection du moteur en mode TTS Automatique (`auto`) et prise en compte immédiate sans redémarrage (`resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
@@ -41,7 +41,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.8] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.8] - 2026-10-31 (Canal Beta)
 
 ### Amélioré
 - **Qualité vocale HD hors-ligne : installation automatique de SVOX PicoTTS (`pico2wave` `fr-FR`) & chaîne de mastering téléphonique ITU-T G.712 (`resources/install_apt.sh`, `resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`)** :
@@ -51,7 +51,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Corrigé
 - **Qualité vocale claire sur le pont Voice-over-USB Quectel (`AT+QPCMV=1,0`, `resources/altCellulard.py`)** :
@@ -61,7 +61,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-31 (Canal Beta)
 
 ### Sécurité & Conformité CGU Jeedom Market
 - **Encapsulation de `apikey` dans le corps JSON POST des callbacks (`resources/altCellulard.py`, `core/php/jeeAltCellular.php`)** :
@@ -71,7 +71,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.5] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-31 (Canal Beta)
 
 ### Corrigé
 - **Détection d'état du démon lancé via `sudo` (`deamon_info` / `isDaemonRunning`) et masquage `urllib3` dans les logs (`core/class/altCellular.class.php`, `resources/altCellulard.py`)** :
@@ -80,7 +80,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.4] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-31 (Canal Beta)
 
 ### Corrigé
 - **Moteur Voice-over-USB Quectel (`AT+QPCMV=1,0` / `AT+QPCMV=1,2`) pour modems 4G sans puce codec externe (`resources/altCellulard.py`, `core/class/altCellular.class.php`, `plugin_info/install.php`, `resources/install_apt.sh`)** :
@@ -90,7 +90,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
-## [0.1.0-beta.3] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :

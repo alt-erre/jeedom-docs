@@ -1,8 +1,8 @@
-# Changelog — Alt Air Média (`altAirMedia`)
+# Changelog - Alt Air Média (`altAirMedia`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
-## [0.1.0-beta.11] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.11] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
 - **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max %` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom qui étirait le menu déroulant et écrasait le curseur de volume.
@@ -11,29 +11,29 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - Ajout d'un **halo d'ambiance flouté et saturé (`.am-media-card-bg`)** projetant les couleurs de la jaquette en arrière-plan de la carte média.
   - Ajout d'une **vue Lightbox plein widget au clic sur la jaquette** permettant d'admirer la pochette en grand format avec le titre et l'artiste.
 
-## [0.1.0-beta.10] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.10] - 2026-10-31 (Canal Beta)
 
 ### Ajouté
 - **Sélecteur rapide de Volume Maximum sur le Widget Dashboard (`10 %` à `70 %` par palier de 5)** :
   - Ajout de l'affichage du pourcentage de volume et d'un sélecteur rapide de plafond (`Max 10%` à `Max 70%` par pas de `5 %`, ainsi que `Max 100%`) directement sur la barre de volume du widget Dashboard, avec badge ambré `.is-capped` lorsqu'un plafond est actif et création automatique des commandes `volume_max` / `volume_max_set` au rendu.
 
-## [0.1.0-beta.9] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.9] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.8] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.8] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.8` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.7] — 2026-10-30 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-30 (Canal Beta)
 
 ### Corrigé
 - **Démon (`Task exception was never retrieved` dans `pyatv/support/knock.py`)** : correction d'un bug interne de la bibliothèque `pyatv` où les tâches de réveil réseau Bonjour (`_async_knock` sur les ports `49152`, `32498`, etc.) terminées avec `OSError(113, EHOSTUNREACH)` (lorsqu'un HomePod ou une Apple TV est débranché ou hors réseau Wi-Fi) n'étaient pas consommées après `asyncio.wait(..., return_when=FIRST_EXCEPTION)`, générant des traces `ERROR Task exception was never retrieved` dans le log du démon.
 
-## [0.1.0-beta.6] — 2026-10-30 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-30 (Canal Beta)
 
 ### Amélioré & Corrigé
 - **Métadonnées & Jaquettes des applications vidéo tvOS (Netflix, séries TV, flux `media_type = unknown`)** :
@@ -41,7 +41,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - Suppression du blocage qui ignorait le téléchargement de la jaquette lorsque l'application tvOS remontait `media_type = unknown` (cas fréquent sur les lecteurs vidéo tiers).
   - Ajout d'une clé de cache composite (`hash` + `artwork_id` + `title`) et d'une re-vérification asynchrone différée (`+2,5 s` et `+6,5 s` après le démarrage du flux) lorsque les métadonnées MRP (`ContentItemUpdate`) sont publiées après le buffering vidéo.
 
-## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-27 (Canal Beta)
 
 ### Ajouté
 - **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
@@ -49,27 +49,27 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Abaissement immédiat & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume de l'Apple TV ou du HomePod s'il dépasse le nouveau plafond lors du changement de mode ou s'il est monté au-dessus du plafond depuis une télécommande Siri Remote / iPhone / AirPlay.
   - **Bridage visuel sur le widget Dashboard** : la borne `max` du curseur de volume s'adapte en temps réel au plafond actif.
 
-## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-27 (Canal Beta)
 
 ### Amélioré
-- **Retour visuel d'action (Animations de clic & Rafraîchissement — Charte Graphique `v1.2`)** :
+- **Retour visuel d'action (Animations de clic & Rafraîchissement - Charte Graphique `v1.2`)** :
   - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) au clic sur tous les boutons interactifs des widgets **Dashboard & Mobile** (D-Pad, transport, volume, puissance).
   - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`) de l'en-tête du widget.
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*) dans la configuration de l'équipement et les templates.
 
-## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-20 (Canal Beta)
 
 ### Amélioré
 - **Vignette dynamique par Application / Source dans la Carte État (Dashboard & Mobile)** :
   - La vignette `.am-artwork-box` s'adapte désormais dynamiquement à l'application active sur l'Apple TV ou le HomePod (`Netflix`, `YouTube`, `Prime Video`, `Disney+`, `CANAL+`, `Molotov`, `Oqee / Free TV`, `Infuse`, `Plex`, `Spotify`, `Apple Music`, `Podcasts`, `Twitch`, `AirPlay`, `Veille`) avec une icône dédiée, un libellé court en capitales et un dégradé coloré.
   - Lorsqu'une pochette d'album est affichée, un mini-badge d'icône de l'application s'affiche en surimpression dans le coin inférieur droit de la vignette.
 
-## [0.1.0-beta.2] — 2026-10-19 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-19 (Canal Beta)
 
 ### Corrigé
 - **Démon (`Errno 98: address already in use`)** : fermeture immédiate du socket TCP interne dès le début de la séquence d'arrêt du démon Python, activation de `reuse_address=True`, écriture/suppression atomique du fichier PID après ouverture du port et attente active de libération du port dans `deamon_stop()` (avec détection `ps auxww` sans troncature à 80 colonnes).
 
-## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-19 (Canal Beta)
 
 ### Ajouté
 - Démon mono-processus 100 % Python `asyncio` (`pyatv`) à très faible empreinte mémoire (~35 Mo RAM, zéro Node.js).

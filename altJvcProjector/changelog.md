@@ -1,19 +1,19 @@
-# Changelog — Alt JVC Projector (`altJvcProjector`)
+# Changelog - Alt JVC Projector (`altJvcProjector`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.6` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.5] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-27 (Canal Beta)
 
 ### Amélioré
 - **Retour visuel d'action & Protection anti-double-clic (Charte Graphique `v1.2`)** :
@@ -22,26 +22,26 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - Ajout d'un verrouillage anti-double-clic (`1,5 s`) sur les commandes d'allumage, d'extinction et de rappel de mémoire d'objectif (`Lens Memory`).
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
 
-## [0.1.0-beta.4] — 2026-10-20 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-20 (Canal Beta)
 
 ### Corrigé
 - **Rendu visuel fidèle à la base `altAirMedia` (Contours, Dégradés & Boutons ronds)** :
   - Alignement exact des variables CSS (`--jvc-bg`, `--jvc-card`, `--jvc-card-border`), ajout du contour extérieur `1px solid rgba(255, 255, 255, 0.20) !important` (`border-radius: 16px !important`), de la barre d'en-tête bord-à-bord avec filet de séparation et verrouillage de `border-radius: 50% !important` sur les boutons d'en-tête et le D-Pad face aux surcharges CSS de Jeedom Core.
 
-## [0.1.0-beta.3] — 2026-10-20 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-20 (Canal Beta)
 
 ### Amélioré
 - **Vignette dynamique par Entrée HDMI / État dans la Carte État (Dashboard & Mobile)** :
   - La vignette `.jvc-art-wrap` s'adapte dynamiquement selon l'entrée active (`HDMI 1`, `HDMI 2`) et l'état d'alimentation du projecteur (`CHAUFFE`, `REFROID.`, `VEILLE`) avec icône, libellé court en capitales et dégradé dédié.
 
-## [0.1.0-beta.2] — 2026-10-20 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-20 (Canal Beta)
 
 ### Modifié
 - **Harmonisation graphique des widgets Dashboard et Mobile (`alt-erre` Dark Glass)** :
   - Adoption du système de design unifié `alt-erre` (sur le modèle d'`altAirMedia`) : en-tête intégré `.jvc-header` avec boutons circulaires *Power On*, *Veille* et *Refresh*, carte statut & signal vidéo `.jvc-now-playing` (`58×58 px` + `.jvc-status-dot`), sélecteurs `.jvc-select` et télécommande OSD repliable avec **D-Pad squircle** et bouton `OK` central circulaire.
   - Ajout du sélecteur de thème couleur par équipement (`Noir Dark Glass`, `Blanc`, `Bleu`, `Jaune`, `Rouge`).
 
-## [0.1.0-beta.1] — 2026-10-19 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-19 (Canal Beta)
 
 ### Ajouté
 - Pilotage et supervision 100 % en local des vidéoprojecteurs Home-Cinéma **JVC D-ILA** via le protocole TCP/IP officiel (port `20554`) : gammes **DLA-NZ9 / NZ8 / NZ7**, **NZ900 / NZ800 / NZ700 / NZ500**, **NP5**, **NX9 / N7 / N5**, **Z1** et **Série X**.

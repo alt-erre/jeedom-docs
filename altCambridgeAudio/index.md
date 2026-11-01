@@ -1,9 +1,9 @@
-# Plugin Jeedom — Alt Audio (Cambridge) (`altCambridgeAudio`)
+# Plugin Jeedom - Alt Audio (Cambridge) (`altCambridgeAudio`)
 
 Plugin Jeedom permettant de piloter **100 % en local** les amplificateurs et lecteurs réseau **Cambridge Audio** utilisant la plateforme **StreamMagic (SMOIP)**, et plus particulièrement le **Cambridge Audio Evo 150** (ainsi que les modèles **Evo 75**, **Evo One**, **CXN**, **CXN v2**, **CXN100**, **MXN10**, **AXN10**, **EXN100**, **Edge NQ**, **851N**).
 
 Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix entre deux modes de fonctionnement :
-1. **Mode HTTP local direct (par défaut, sans démon)** : requêtes HTTP locales directes sur le port `80` (`/smoip/...`) et actualisation périodique par cron (`1`, `5` ou `15` minutes) — aucune dépendance ni démon requis.
+1. **Mode HTTP local direct (par défaut, sans démon)** : requêtes HTTP locales directes sur le port `80` (`/smoip/...`) et actualisation périodique par cron (`1`, `5` ou `15` minutes) - aucune dépendance ni démon requis.
 2. **Mode WebSocket temps réel (démon Python optionnel)** : maintien d'une connexion WebSocket persistante (`ws://<ip>:80/smoip`) avec chaque ampli configuré en mode `websocket` pour une remontée instantanée des changements de volume, d'entrée, d'alimentation, de sortie enceintes et de piste en cours, avec **bascule automatique (fallback) en HTTP** si le démon est arrêté.
 
 ---
@@ -83,7 +83,7 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Cambridge Audio).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Cambridge Audio).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
 
 

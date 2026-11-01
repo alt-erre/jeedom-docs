@@ -1,9 +1,9 @@
-# Changelog — Alt Caméras & Sécurité (Arlo) (`altArlo`)
+# Changelog - Alt Caméras & Sécurité (Arlo) (`altArlo`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
-## [0.1.0-beta.17] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.17] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Sécurité
 - **Protection contre le blocage Arlo `1110 ("Too many requests")` lors de l'Auto-Reconnexion 2FA (`resources/altarlod/altarlod.py`, `core/class/altArlo.class.php`)** :
@@ -12,22 +12,22 @@ Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.o
   - **Pré-vérification stricte du serveur IMAP avant envoi de code 2FA (`EMAIL`)** : le démon vérifie désormais que l'authentification IMAP SSL aboutit réellement **avant** d'appeler `/api/startAuth` chez Arlo. Si le mot de passe d'application IMAP est manquant ou refusé (ex. Yahoo Mail / Gmail), aucun code 2FA n'est demandé inutilement à Arlo.
   - **Non-interférence avec une connexion manuelle** : tant qu'une demande 2FA manuelle (`pending_2fa.json` `< 5 min`) est en cours dans l'interface Jeedom, l'auto-reconnexion du démon en arrière-plan est suspendue.
 
-## [0.1.0-beta.16] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.16] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
 - **Arrêt propre du démon sans trace `cffi callback buffer_callback (SystemExit: 0)` (`resources/altarlod/altarlod.py`)** :
   - Correction du gestionnaire de signal `stop()` (`SIGTERM` / `SIGINT`) qui appelait `sys.exit(0)` alors que le thread principal pouvait se trouver au milieu d'un callback C de `curl_cffi` (`@ffi.def_extern() buffer_callback`).
   - Remplacement par un nettoyage explicite (arrêt des flux Live, terminaison du sous-processus SSE, suppression du fichier PID, vidage des tampons de logs) suivi de `os._exit(0)`, éliminant l'avertissement `Exception ignored from cffi callback` et garantissant l'arrêt immédiat du démon.
 
-## [0.1.0-beta.15] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.15] - 2026-11-01 (Canal Beta)
 
 ### Ajouté
-- **Contrat natif Kiosk TV 10-Foot (`getKioskWidgetData` — Niveau 2 `altTvDashboard`)** :
+- **Contrat natif Kiosk TV 10-Foot (`getKioskWidgetData` - Niveau 2 `altTvDashboard`)** :
   - Implémentation de la méthode `getKioskWidgetData(array $kioskContext = array())` dans `core/class/altArlo.class.php` conformément à la Charte de Compatibilité Kiosk TV :
     - **Station SmartHub (`sub_type: 'smarthub'`)** : exposition de l'état de sécurité, du statut du stockage local SD/USB (`SMARTHUB · SD/USB`), des boutons de bascule des modes standards/personnalisés/plannings, des commandes d'activation/désactivation du stockage local SD/USB et des indicateurs KPIs (protégés par code PIN).
     - **Caméras, Floodlights & Sonnettes (`sub_type: 'camera'`)** : exposition de la vignette `16:9` via le proxy média Kiosk, du badge dynamique d'alimentation (`⚡ SECTEUR`, `☀️ SOLAIRE`, `🔋`, `🚨 MOUVEMENT`), des KPIs (`Batterie`, `Alimentation`, `Signal RF`) et des commandes 10-Foot (`Prendre Photo`, `Vidéo 15s`, `Projecteur ON/OFF`, `Sirène`, `Mettre en veille`).
 
-## [0.1.0-beta.14] — 2026-11-01 (Canal Beta)
+## [0.1.0-beta.14] - 2026-11-01 (Canal Beta)
 
 ### Ajouté
 - **Mode « 🔴 Live » (Flux vidéo en direct dans le navigateur)** :
@@ -43,21 +43,21 @@ Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.o
   - **Connexion effective au flux `rtsps://` lors d'un enregistrement vidéo manuel (`record_video`)** : chez Arlo, la caméra n'émet son flux vers le serveur d'enregistrement que lorsqu'un client se connecte à l'URL `rtsps://` renvoyée par `startStream`. Le démon maintient désormais cette connexion pendant les 15 secondes de l'enregistrement et conserve les 3 derniers clips en RAM (`/tmp/jeedom/altArlo/clips/`), garantissant la disponibilité immédiate de la vidéo dans la Galerie même sans abonnement Cloud Arlo.
   - Interrogation directe du démon en mémoire via socket synchrone (`queryDaemon` / `sync_reply`) et invalidation automatique du cache de rendu des widgets Jeedom v4.4+ (`emptyCacheWidget`).
 
-## [0.1.0-beta.13] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.13] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.12] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.12] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.12` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
 ## [0.1.0-beta.11] - 2026-10-31
 
 ### Ajouté
-- **Exploitation native du Stockage Local de la Base SmartHub Arlo (Carte microSD / Clé USB — `VMB5000`, `VMB4540`, `VMB4500`, `VMB4000`)** :
+- **Exploitation native du Stockage Local de la Base SmartHub Arlo (Carte microSD / Clé USB - `VMB5000`, `VMB4540`, `VMB4500`, `VMB4000`)** :
   - **Commandes & Bouton Widget sur la Station SmartHub (`basestation`)** :
     - `local_storage_state` (**« État stockage local (SD/USB) »**, `info/string`) et `local_storage_enabled` (**« Enregistrement local SD/USB actif »**, `info/binary`) synchronisés en temps réel via les notifications SSE `basestation` et `storage` ;
     - `local_storage_on` / `local_storage_off` (**« Activer / Désactiver enregistrement local SD/USB »**, `action/other`) configurant automatiquement `recordLocally: true`, `overwrite: true` (écrasement circulaire automatique des vidéos les plus anciennes) et `bestLocalResolution: true` (meilleure résolution 2K/4K) sur la base Arlo, avec bouton dédié **<i class="fas fa-sd-card"></i> Stockage local SD/USB** sur le widget de la station.

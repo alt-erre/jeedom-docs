@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Contrôle Parental (iPhone & iPad) (`altIos`)
+# Plugin Jeedom - Alt Contrôle Parental (iPhone & iPad) (`altIos`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Appareils Mobiles & Contrôle Parental  
 
 ---
@@ -31,7 +31,7 @@ Conçu selon une **architecture Hybride 100 % Autonome (Apple $\leftrightarrow$ 
    - **Curseur de quota journalier** : commande `Définir limite quotidienne (min)` de `0` à `360 min` par pas de 15 minutes.
    - **Action en fin du temps imparti** : commandes `Activer verrouillage écran auto (Fin de temps)` (`Lock Screen` natif iOS) et `Désactiver verrouillage écran auto (Alerte seule)`.
    - **Heure du coucher** : commandes `Définir heure du coucher (HH:MM)` (ex. `21:00`), `Désactiver heure du coucher` et info numérique `Heure du coucher (HHMM)` (`2100`) pour vos scénarios Jeedom.
-   - **Sonnerie à distance (`Faire sonner l'appareil — iCloud Find My`)** : fait sonner l'iPhone ou l'iPad à distance **même s'il est en mode Silencieux / Vibreur** (idéal pour signaler la fin du temps d'écran ou appeler un enfant à table).
+   - **Sonnerie à distance (`Faire sonner l'appareil - iCloud Find My`)** : fait sonner l'iPhone ou l'iPad à distance **même s'il est en mode Silencieux / Vibreur** (idéal pour signaler la fin du temps d'écran ou appeler un enfant à table).
    - **Bouclier Anti-Sabotage & Mode Maintenance Parent (`5 min`)** : empêche l'enfant d'ouvrir l'application *Raccourcis* ou *Fichiers* tant que le parent n'a pas activé `Déverrouiller Maintenance Parent (5 min)` dans Jeedom.
 
 3. **Suivi des Applications & Jeux Ouverts (Icônes Officielles App Store)** :
@@ -52,7 +52,7 @@ Conçu selon une **architecture Hybride 100 % Autonome (Apple $\leftrightarrow$ 
 
 Contrairement aux consoles de jeux, Apple chiffre son système interne *Screen Time* de bout en bout sans API Web directe. Le plugin **Alt Contrôle Parental (iPhone & iPad)** combine **3 canaux natifs 100 % autonomes** (sans dépendre d'aucun service tiers) :
 
-### 📱 Canal 1 — Le Pont « Raccourcis iOS / iPadOS » (*Apple Shortcuts Bridge*) & Sceau `SHA-256`
+### 📱 Canal 1 - Le Pont « Raccourcis iOS / iPadOS » (*Apple Shortcuts Bridge*) & Sceau `SHA-256`
 - **Suivi temps réel & Verrouillage d'écran natif (`Lock Screen`)** :
   - Utilise l'application officielle **Raccourcis (*Shortcuts*)** préinstallée sur tous les iPhone et iPad (avec une automatisation silencieuse *« Quand l'app est ouverte »* $\to$ *« Exécuter immédiatement sans notifier »*).
   - À chaque ouverture d'application, l'iPhone/iPad interroge en `< 50 ms` le Webhook local ou externe de votre box Jeedom (`jeeIos.php`).
@@ -65,12 +65,12 @@ Contrairement aux consoles de jeux, Apple chiffre son système interne *Screen T
   - Pour les déplacements hors réseau (ex. iPad Wi-Fi en voiture), Jeedom génère un paquet de quota signé par une empreinte cryptographique **`SHA-256`** ($\text{SHA-256}(\text{Clé secrète} \mid \text{Date} \mid \text{Limite} \mid \text{Temps joué})$).
   - En voyage sans connexion, le Raccourci iOS vérifie et recalcule cette empreinte via la brique native d'Apple **`Générer le hachage (SHA-256)`**. Si l'enfant modifie un seul chiffre dans le fichier JSON local, la signature `SHA-256` devient invalide : le Raccourci verrouille immédiatement l'iPad et remonte une **`Alerte falsification SHA-256`** à Jeedom dès le retour du Wi-Fi !
 
-### ☁️ Canal 2 — Le Cloud Apple iCloud (`Localiser / Find My` & Partage Familial)
+### ☁️ Canal 2 - Le Cloud Apple iCloud (`Localiser / Find My` & Partage Familial)
 - **Découverte automatique en 1 clic** de tous les **iPhone, iPad (Normal / Air / Pro / mini) et Mac** associés à votre compte Apple (validation 2FA unique à 6 chiffres dans l'Assistant Jeedom).
 - **Télémétrie matérielle continue** : remontée du **niveau de batterie (`%`)**, de l'**état de charge** (*En charge ⚡*, *Sur batterie*, *Batterie pleine*) et de la **présence**.
 - **Action parentale `Faire sonner l'appareil` (*Play Sound*)** : fait sonner l'iPhone ou l'iPad à distance même s'il est en mode Silencieux.
 
-### 🏠 Canal 3 — La Détection 100 % Locale LAN Apple (`TCP 62078 lockdownd` / AirPlay)
+### 🏠 Canal 3 - La Détection 100 % Locale LAN Apple (`TCP 62078 lockdownd` / AirPlay)
 - **Scanner Réseau Local sans Internet** : détecte sur votre Wi-Fi local les iPhone, iPad et Mac via le port système exclusif Apple **`TCP 62078` (`lockdownd` / synchronisation Wi-Fi iOS)** et `TCP 7000` (AirPlay / Mac), assurant le suivi de présence au domicile même en cas de coupure Internet.
 
 ### 📊 Tableau récapitulatif des 3 Canaux
@@ -78,11 +78,11 @@ Contrairement aux consoles de jeux, Apple chiffre son système interne *Screen T
 | Fonctionnalité | Canal 1 (Pont Raccourcis iOS + `SHA-256`) | Canal 2 (Cloud Apple iCloud) | Canal 3 (Local LAN `62078`) |
 | :--- | :---: | :---: | :---: |
 | **Découverte auto des iPhone / iPad / Mac** | Auto-création 1 clic | ✅ Oui (Cloud Apple) | ✅ Oui (Scan LAN Wi-Fi) |
-| **Niveau de batterie (`%`) & État de charge** | ✅ Oui (lors des Webhooks) | ✅ Oui (En continu) | — |
-| **Application / Jeu ouvert en direct + Icône App Store** | ✅ Oui (Temps réel `< 1 s`) | — | — |
-| **Verrouillage immédiat de l'écran (`Lock Screen`)** | ✅ Oui (Action native iOS) | ✅ Mode Perdu iCloud | — |
-| **Fonctionnement en voiture sans réseau (iPad Wi-Fi)** | ✅ Oui (Cache scellé `SHA-256`) | — | — |
-| **Faire sonner l'iPhone/iPad (même en silencieux)** | ✅ Alerte vocale Siri | ✅ Oui (*Find My Sound*) | — |
+| **Niveau de batterie (`%`) & État de charge** | ✅ Oui (lors des Webhooks) | ✅ Oui (En continu) | - |
+| **Application / Jeu ouvert en direct + Icône App Store** | ✅ Oui (Temps réel `< 1 s`) | - | - |
+| **Verrouillage immédiat de l'écran (`Lock Screen`)** | ✅ Oui (Action native iOS) | ✅ Mode Perdu iCloud | - |
+| **Fonctionnement en voiture sans réseau (iPad Wi-Fi)** | ✅ Oui (Cache scellé `SHA-256`) | - | - |
+| **Faire sonner l'iPhone/iPad (même en silencieux)** | ✅ Alerte vocale Siri | ✅ Oui (*Find My Sound*) | - |
 | **Présence domicile 100 % locale sans Internet** | ✅ Webhook LAN local | ❌ Cloud requis | ✅ Oui (`TCP 62078`) |
 
 ---
@@ -91,7 +91,7 @@ Contrairement aux consoles de jeux, Apple chiffre son système interne *Screen T
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :
 
-- **Protection absolue des secrets et jetons (Art. 4.3 — Zéro secret dans `ps aux` ni dans les logs)** :
+- **Protection absolue des secrets et jetons (Art. 4.3 - Zéro secret dans `ps aux` ni dans les logs)** :
   - Les jetons Webhook dédiés par équipement (`webhook_token`), les clés secrètes de hachage `SHA-256` (`offline_salt`) et les sessions iCloud sont stockés exclusivement en local sur votre box Jeedom dans `data/profiles/` avec des permissions système strictes **`chmod 0600`** et un fichier **`.htaccess` (`Require all denied`)** interdisant tout accès HTTP direct.
   - Le Webhook Raccourcis iOS (`core/php/jeeIos.php`) utilise un jeton aléatoire isolé propre à chaque équipement (et jamais la clé API globale de Jeedom).
   - Les échanges entre le moteur PHP Jeedom et le worker Python isolé (`resources/venv`) passent exclusivement par un fichier JSON temporaire dans `jeedom::getTmpFolder('altIos')` verrouillé en `0600` et supprimé immédiatement après exécution (`@unlink`). Aucun mot de passe, jeton, code PIN ou clé API n'apparaît jamais dans la liste des processus (`ps aux`) ni dans les logs Jeedom.
@@ -104,5 +104,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Apple Inc.).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Apple Inc.).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

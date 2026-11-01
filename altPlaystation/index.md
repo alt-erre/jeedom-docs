@@ -1,7 +1,7 @@
-# Plugin Jeedom — Alt Contrôle Parental (PlayStation) (`altPlaystation`)
+# Plugin Jeedom - Alt Contrôle Parental (PlayStation) (`altPlaystation`)
 
 **Auteur :** Aurélien Léovant (`alt-erre`)  
-**Licence :** Propriétaire — Tous droits réservés  
+**Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Multimédia / Jeux Vidéo & Contrôle Parental  
 
 ---
@@ -39,7 +39,7 @@ Grâce à son **Assistant d'Appairage SSO Sony (`npsso`)** et son **Scanner Rés
    - Détail des **membres de la famille PlayStation** (statut en ligne, rôle *Enfant* / *Chef de famille*, avatar et jeu actif).
    - Suivi du **Niveau Trophées PSN** et du détail des trophées (*Platine*, *Or*, *Argent*, *Bronze*).
 
-4. **Détection & Réveil Réseau Local LAN (Protocole DDP UDP `9302` PS5 / `987` PS4 — Optionnel)** :
+4. **Détection & Réveil Réseau Local LAN (Protocole DDP UDP `9302` PS5 / `987` PS4 - Optionnel)** :
    - Lorsque l'adresse IP locale de la console PS5 / PS4 est renseignée (ou découverte via le bouton **Scanner LAN**), le plugin interroge directement la console en UDP local pour remonter instantanément son **état matériel** (`Allumée (En ligne LAN)` code `200`, `Mode Repos (Veille LAN)` code `620`, `Éteinte`), le **titre en cours d'exécution en direct** et permet de sortir la console de veille via la commande **`Réveiller console (Wake-on-LAN / DDP)`**.
 
 5. **Widget Personnalisé « Dark Glass » (`alt-erre`) Dashboard & Mobile** :
@@ -53,13 +53,13 @@ Grâce à son **Assistant d'Appairage SSO Sony (`npsso`)** et son **Scanner Rés
 
 ## Architecture Hybride : Ce qui est 100 % Local (LAN) vs Ce qui dépend d'Internet (Cloud Sony)
 
-Le plugin **Alt Contrôle Parental (PlayStation)** combine deux canaux complémentaires — le **protocole réseau local UDP DDP / Wake-on-LAN** et les **API Cloud Sony (PlayStation Family & PlayStation Network)** — avec un **mode repli LAN automatique** en cas de coupure Internet.
+Le plugin **Alt Contrôle Parental (PlayStation)** combine deux canaux complémentaires - le **protocole réseau local UDP DDP / Wake-on-LAN** et les **API Cloud Sony (PlayStation Family & PlayStation Network)** - avec un **mode repli LAN automatique** en cas de coupure Internet.
 
-### 🏠 1. Fonctionnalités 100 % Locales (Réseau LAN — Sans Internet)
+### 🏠 1. Fonctionnalités 100 % Locales (Réseau LAN - Sans Internet)
 
 Lorsque l'adresse IP locale de la console PS5 / PS4 est renseignée (ou découverte via le bouton **Scanner LAN**), les fonctions suivantes s'exécutent **intégralement sur votre réseau local**, sans aucune dépendance à Internet ni aux serveurs Sony :
 
-- **Découverte automatique des consoles sur le LAN (`Scanner LAN`)** : scan par broadcast UDP local sur le port `9302` (PS5 / PS5 Slim / PS5 Pro — protocole DDP `00030010`) et le port `987` (PS4 / PS4 Pro — protocole DDP `00020020`).
+- **Découverte automatique des consoles sur le LAN (`Scanner LAN`)** : scan par broadcast UDP local sur le port `9302` (PS5 / PS5 Slim / PS5 Pro - protocole DDP `00030010`) et le port `987` (PS4 / PS4 Pro - protocole DDP `00020020`).
 - **État électrique matériel en temps réel (`console_power_state` & `console_awake`)** :
   - `Allumée (En ligne LAN)` (réponse DDP `HTTP/1.1 200 Ok`),
   - `Mode Repos (Veille LAN)` (réponse DDP `HTTP/1.1 620 Server Standby`),
@@ -123,7 +123,7 @@ Si votre connexion Internet ou les serveurs Sony PlayStation Network deviennent 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :
 
 - **Authentification SSO officielle Sony sans stockage de mot de passe** : La connexion s'effectue directement sur le portail officiel `www.playstation.com`. Votre mot de passe Sony, votre clé d'accès (*Passkey*) et vos codes de double authentification (2FA) ne transitent jamais par Jeedom.
-- **Protection absolue des jetons et secrets (Art. 4.3 — Zéro secret dans `ps aux` ni dans les logs)** :
+- **Protection absolue des jetons et secrets (Art. 4.3 - Zéro secret dans `ps aux` ni dans les logs)** :
   - Le jeton `npsso` et les jetons OAuth2 (`access_token` / `refresh_token`) sont stockés exclusivement en local sur votre box Jeedom dans `data/profiles/` avec des permissions système strictes **`chmod 0600`** et un fichier **`.htaccess` (`Require all denied`)** interdisant tout accès HTTP direct.
   - Les échanges entre le moteur PHP Jeedom et le worker Python isolé (`resources/venv`) passent exclusivement par un fichier JSON temporaire dans `jeedom::getTmpFolder('altPlaystation')` verrouillé en `0600` et supprimé immédiatement après exécution (`@unlink`). Aucun jeton, secret ou clé API n'apparaît jamais dans la liste des processus (`ps aux`) ni dans les logs Jeedom.
   - Toutes les données et fichiers de profils sont intégralement supprimés lors de la suppression de l'équipement ou de la désinstallation du plugin.
@@ -135,5 +135,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Sony Interactive Entertainment Inc.).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Sony Interactive Entertainment Inc.).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

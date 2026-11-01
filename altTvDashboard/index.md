@@ -1,4 +1,4 @@
-# Plugin Jeedom — Alt Dashboard & Kiosk TV (`altTvDashboard`)
+# Plugin Jeedom - Alt Dashboard & Kiosk TV (`altTvDashboard`)
 
 Plugin Jeedom permettant de générer des **tableaux de bord plein écran « 10-Foot UI » et Galeries d'Art** ultra-esthétiques spécialement conçus pour les téléviseurs **Samsung "The Frame" (Paysage `16:9` & Portrait `9:16` sur support motorisé)**, les **Smart TV (Tizen, WebOS, Android TV)** et les écrans muraux, pilotables intégralement avec la **télécommande du téléviseur (D-Pad)**.
 
@@ -24,10 +24,10 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
   - **Mode Téléviseur (`10-Foot UI`, Paysage `16:9` & Portrait `9:16`)** :
     - **Paysage (`16:9`)** : En-tête panoramique (Horloge, Météo, Pilules de synthèse maison), barre de navigation latérale à gauche et grille Bento multi-colonnes à droite.
     - **Portrait (`9:16`)** : Disposition verticale type « Affiche / Totem d'Art » avec en-tête supérieur, barre d'onglets horizontale et grille verticale optimisée.
-  - **Mode iPhone Duo Replié & Smartphone (`1-Foot UI` — `Right-Edge Thumb Rail`)** :
+  - **Mode iPhone Duo Replié & Smartphone (`1-Foot UI` - `Right-Edge Thumb Rail`)** :
     - **Rail de Navigation Vertical Droit au Pouce (`62px`)** : la barre des 8 vues se loge verticalement sur le bord droit de l'écran (sous l'arc naturel du pouce), laissant 100 % de la hauteur verticale à gauche pour les cartes d'équipements.
     - **Action directe `1-Tap` & *Bottom Sheet*** : toucher l'**icône** d'une carte bascule immédiatement l'équipement (ON/OFF, Ouvrir/Fermer, Play/Pause), tandis que toucher le **corps de la carte** déploie un tiroir inférieur (*Bottom Sheet*) à portée du pouce.
-  - **Mode iPhone Duo Déplié & Tablette (`2-Foot UI` — Double-Volet *Master-Detail* + Rail Droit)** :
+  - **Mode iPhone Duo Déplié & Tablette (`2-Foot UI` - Double-Volet *Master-Detail* + Rail Droit)** :
     - **Grille symétrique *Hinge-Safe* à 2 Volets (`minmax(0, 1fr) minmax(0, 1fr) 68px`)** séparés par la gouttière de charnière `env(fold-width, 16px)` afin qu'aucune carte ne soit jamais coupée par le pli central.
     - **Volet Gauche (*Master*) + Volet Droit (*Inspecteur / Compagnon Permanent*) + Rail Droit au Pouce** : le rail de navigation reste sur la tranche droite comme sur l'écran replié ; toucher une carte sur le volet gauche affiche instantanément tous ses contrôles détaillés (ou Pronote/Educartable/Caméra) dans le volet droit sans superposer de modale, et déplier l'appareil transfère automatiquement toute *Bottom Sheet* ouverte vers le volet droit.
 - **Rotation CSS `90°` forcée pour navigateur Tizen sur support motorisé (`VG-ARAB22WMT` / `VG-ARAB43STD`)** :
@@ -84,14 +84,14 @@ Chaque équipement Kiosk TV dispose de sa propre sélection d'affichage (vous po
 
 ### 6. Architecture de Widgets Kiosk à 2 Niveaux (Lots par Défaut & Widgets Spécialisés par Plugin)
 Le Kiosk TV fonctionne selon une architecture **10-Foot UI** à deux niveaux :
-1. **Niveau 1 — Widgets Kiosk par Défaut (par Lot / Catégorie)** :
+1. **Niveau 1 - Widgets Kiosk par Défaut (par Lot / Catégorie)** :
    - Pour tout équipement Jeedom (plugin tiers, Virtuel, Zigbee, Z-Wave, MQTT, Fil Pilote…), `altTvDashboard` inspecte automatiquement **toutes les commandes visibles (`isVisible == 1`)** de l'équipement :
      - **`action / other`** $\rightarrow$ grands boutons d'action 10-Foot dans la modale (et aperçu sur la carte).
      - **`action / slider`** $\rightarrow$ jauge sur la carte et barre de paliers rapides (`-`, `+`, `0 % / 25 % / 50 % / 75 % / 100 %` ou `°C`) dans la modale.
      - **`action / select`** $\rightarrow$ rangées de puces sélectionnables à la télécommande générées depuis `listValue`.
      - **`action / color`** $\rightarrow$ palette de couleurs rapide.
      - **`info` visibles** $\rightarrow$ pastilles d'indicateurs sur la carte et grille **« Informations & Mesures »** dans la modale.
-2. **Niveau 2 — Widgets Kiosk Spécialisés fournis par les Plugins (`getKioskWidgetData()`)** :
+2. **Niveau 2 - Widgets Kiosk Spécialisés fournis par les Plugins (`getKioskWidgetData()`)** :
    - Tout plugin respectant la *Charte de Compatibilité Kiosk TV* peut implémenter la méthode publique `$eqLogic->getKioskWidgetData(array $kioskContext)` afin de fournir ses propres contrôles métier, indicateurs ou vues modales 10-Foot sur-mesure tout en bénéficiant nativement de la navigation télécommande D-Pad, du code PIN et des 9 thèmes *Dark Glass*.
 
 ### 7. Mode « Veille Galerie / Tableau d'Art » & Notifications Picture-in-Picture (PiP)
@@ -116,5 +116,5 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 ## Auteur & Licence
 
 - **Auteur** : Aurélien Léovant (`alt-erre`)
-- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) — Création originale et indépendante (non affiliée à Jeedom SAS ni à Samsung Electronics).
-- **Licence** : Propriétaire — Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.
+- **Copyright** : © 2026 Aurélien Léovant (`alt-erre`) - Création originale et indépendante (non affiliée à Jeedom SAS ni à Samsung Electronics).
+- **Licence** : Propriétaire - Tous droits réservés (voir le fichier [LICENSE](LICENSE)). Toute reproduction, redistribution ou revente du code source sans l'autorisation écrite de l'auteur est interdite.

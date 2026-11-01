@@ -1,26 +1,26 @@
-# Changelog — Alt Bambu Lab (`altBambuLab`)
+# Changelog - Alt Bambu Lab (`altBambuLab`)
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
-## [0.1.0-beta.7] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé
 - **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
   - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
   - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
 
-## [0.1.0-beta.6] — 2026-10-31 (Canal Beta)
+## [0.1.0-beta.6] - 2026-10-31 (Canal Beta)
 
 - **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.6` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
 
-## [0.1.0-beta.5] — 2026-10-30 (Canal Beta)
+## [0.1.0-beta.5] - 2026-10-30 (Canal Beta)
 
 ### Corrigé
 - **Port socket interne dédié `55101` et migration automatique anti-conflit (`core/class/altBambuLab.class.php`, `plugin_info/install.php`)** :
   - Attribution du port TCP local dédié **`55101`** (`DEFAULT_SOCKET_PORT = 55101`) au démon `altBambuLabd.py` afin d'éviter toute collision de port (`[Errno 98] address already in use`) avec les démons des autres plugins de la gamme `alt-erre` (`55093` utilisé par `altRoborock`, `55099` utilisé par `altNuki`).
   - Migration transparente et automatique des ports `55093` et `55099` vers `55101` dès l'appel à `altBambuLab::getSocketPort()` au démarrage du démon ou lors de la mise à jour du plugin.
 
-## [0.1.0-beta.4] — 2026-10-27 (Canal Beta)
+## [0.1.0-beta.4] - 2026-10-27 (Canal Beta)
 
 ### Amélioré
 - **Retour visuel d'action & Protection anti-double-clic (Charte Graphique `v1.2`)** :
@@ -29,7 +29,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - Ajout d'un verrouillage anti-double-clic (`1,5 s`) sur les commandes critiques d'impression (*Pause*, *Reprendre*, *Stop*).
   - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
 
-## [0.1.0-beta.3] — 2026-10-21 (Canal Beta)
+## [0.1.0-beta.3] - 2026-10-21 (Canal Beta)
 
 ### Corrigé
 - **Stabilité de la connexion MQTT TLS et suppression du battement d'état `Prêt` ↔ `Hors-ligne` (`resources/altBambuLabd.py`, `core/class/altBambuLab.class.php`)** :
@@ -38,20 +38,20 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
   - **Filtrage des échos `M-SEARCH` lors du scan SSDP (`discover_bambu_printers_ssdp`)** : ignore les requêtes `M-SEARCH` reçues en écho local sur les ports UDP `2021`/`1990` et n'accepte que les réponses `NOTIFY` / `HTTP/1.1 200 OK` authentiques des imprimantes Bambu Lab.
   - **Temporisation anti-battement (`_on_connected_async` / `_schedule_offline_state`)** : attend la réception du premier rapport MQTT avant d'émettre l'état initial (évitant l'affichage d'un état `Prêt` à `0°/0°C` factice), espace le `pushall` initial de `400 ms` après le `SUBSCRIBE` pour ménager l'ESP32 de la P1S, et applique un debounce de `8 s` sur les micro-déconnexions Wi-Fi.
 
-## [0.1.0-beta.2] — 2026-10-21 (Canal Beta)
+## [0.1.0-beta.2] - 2026-10-21 (Canal Beta)
 
 ### Corrigé
 - **Migration vers `paho.mqtt.client.CallbackAPIVersion.VERSION2` (`resources/altBambuLabd.py`)** :
   - Remplacement de `CallbackAPIVersion.VERSION1` par `CallbackAPIVersion.VERSION2` (avec rétrocompatibilité `paho-mqtt 1.x` et extraction unifiée des objets `ReasonCode` dans `_on_mqtt_connect` et `_on_mqtt_disconnect`) afin de supprimer l'avertissement `DeprecationWarning: Callback API version 1 is deprecated` au démarrage du démon.
   - Affichage systématique des messages `INFO` de démarrage et d'état de connexion MQTT TLS dans le log `altBambuLab_deamon` même lorsque le niveau de log du plugin est laissé sur `Défaut`.
 
-## [0.1.0-beta.1] — 2026-10-20 (Canal Beta)
+## [0.1.0-beta.1] - 2026-10-20 (Canal Beta)
 
 ### Ajouté
 - **Supervision et pilotage 100 % en local des imprimantes 3D Bambu Lab (spécialement la P1S et son AMS)** :
   - Démon Python asynchrone `altBambuLabd.py` connecté au broker **MQTT sur TLS local (`port 8883`)** de l'imprimante (`bblp` + `LAN Access Code` à 8 caractères), avec fusion en mémoire des deltas JSON (`device/<SERIAL>/report`) et gestion anti-flood du processeur ESP32 de la P1S.
   - Auto-découverte réseau **SSDP (`ports UDP 2021 / 1990`)** détectant l'adresse IP, le modèle (`P1S`, `P1P`, `X1C`, `X1E`, `A1`, `A1 Mini`) et le numéro de série, complétée par l'auto-détection du numéro de série dès le premier message MQTT si laissé vide.
-- **Prise en charge complète de l'AMS (1 AMS — 4 Bobines : Slots A1 à A4)** :
+- **Prise en charge complète de l'AMS (1 AMS - 4 Bobines : Slots A1 à A4)** :
   - Remontée temps réel de la bobine active (`ams_active_slot`, `ams_active_label`), de l'indice d'humidité (`1` à `5`) et de la température interne de l'AMS.
   - Commandes dédiées pour chacun des 4 emplacements de bobines : matériau (`PLA`, `PETG`, `ABS`, `ASA`, `TPU`, `PA-CF`...), couleur hexadécimale (`#RRGGBB`) et niveau restant (`%`).
 - **Contrôle thermique et ventilation spécifique P1S** :
