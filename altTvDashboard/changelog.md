@@ -5,6 +5,18 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.18] - 2026-11-01 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Navigation Spatiale D-Pad Déterministe par Zone & par Rangée/Colonne (`desktop/js/kiosk.js`)** :
+  - Refonte complète de `moveSpatialFocus()` avec partitionnement par zone (`#altKioskNav`, `#altKioskHeader`, `#altKioskContent`, `#altKioskModal`, `#altKioskInspector`) et alignement géométrique strict par rangées et colonnes (`stepWithinGridZone()`).
+  - **Déplacements horizontaux (`◀` / `▶`)** : maintien strict sur la même rangée visuelle (recouvrement vertical $\ge 35\,\%$). En bout de ligne à droite, `▶` s'arrête proprement sans jamais sauter en diagonale sur une autre ligne ou vers l'en-tête. En début de ligne à gauche dans `#altKioskContent`, `◀` revient systématiquement sur l'onglet actif (`.kiosk-nav-btn.is-active`) de la barre latérale. Depuis la barre latérale `#altKioskNav`, `▶` entre toujours sur la première tuile en haut à gauche de la vue active.
+  - **Déplacements verticaux (`▲` / `▼`)** : sélection déterministe de la rangée immédiatement suivante ou précédente, puis de la tuile ayant le plus fort recouvrement horizontal (`[left, right]`) avec la tuile courante afin de rester dans la même colonne.
+  - **Stabilisation du pont Télécommande Samsung Tizen (`initTizenRemoteBridge()`)** : filtrage d'axe dominant ($\ge 1,35\times$) contre les dérives diagonales du pointeur virtuel, suppression des doubles sauts lorsque la télécommande émet simultanément `keydown` (`Arrow*`) et `mousemove`/`scroll`, et allongement du verrou de recentrage `centerScrollArena()` (`120 ms`).
+- **Correction de la fermeture intempestive des modales d'équipement à la validation `OK` sur Smart TV (`desktop/js/kiosk.js`)** :
+  - Exclusion explicite des navigateurs Smart TV (`isSmartTvBrowser()` : Tizen, WebOS, Android TV, Fire TV, etc.) dans `isCoarseTouchDevice()` afin que la règle CSS `(pointer: coarse)` du pointeur de télécommande TV ne désactive plus `dpadCursorTrap`.
+  - Priorisation de l'interception `state.dpadCursorTrap` avant le gestionnaire de fermeture sur l'arrière-plan `#altKioskModalBackdrop` lors de l'événement `click` (émis par le bouton `OK` de la télécommande Tizen à la position quelconque du curseur virtuel), et nettoyage global de `.is-focused` à l'ouverture de chaque modale (`getCurrentFocusedElement()`).
+
 ## [0.1.0-beta.17] - 2026-11-01 (Canal Beta)
 
 ### Ajouté & Amélioré
