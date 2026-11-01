@@ -3,6 +3,13 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.16] — 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Arrêt propre du démon sans trace `cffi callback buffer_callback (SystemExit: 0)` (`resources/altarlod/altarlod.py`)** :
+  - Correction du gestionnaire de signal `stop()` (`SIGTERM` / `SIGINT`) qui appelait `sys.exit(0)` alors que le thread principal pouvait se trouver au milieu d'un callback C de `curl_cffi` (`@ffi.def_extern() buffer_callback`).
+  - Remplacement par un nettoyage explicite (arrêt des flux Live, terminaison du sous-processus SSE, suppression du fichier PID, vidage des tampons de logs) suivi de `os._exit(0)`, éliminant l'avertissement `Exception ignored from cffi callback` et garantissant l'arrêt immédiat du démon.
+
 ## [0.1.0-beta.15] — 2026-11-01 (Canal Beta)
 
 ### Ajouté
