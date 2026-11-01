@@ -4,6 +4,21 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.13] - 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Résolution du conflit de liens symboliques `/dev/ttyUSB-LTE-Quectel` vs `/dev/ttyLuna-Lte` et libération du port au repos (`resources/altCellulard.py`)** :
+  - **Cause identifiée dans le log `smsd` (`TimeoutException: ['K']`)** : sur la Jeedom Luna 4G, `/dev/ttyUSB-LTE-Quectel` et `/dev/ttyLuna-Lte` sont deux liens symboliques `udev` qui pointent vers le **même périphérique matériel noyau** (`/dev/ttyUSB2`). Lorsque `altCellulard` écoutait en continu sur `/dev/ttyUSB-LTE-Quectel`, il consommait les premiers octets des réponses AT (`"Quectel\r\nO"` lors de `AT+CGMI`), ne laissant que `'K'` au démon `smsd`.
+  - **Double verrou de sécurité** :
+    1. En mode cohabitation avec le plugin `SMS` (`enable_sms = OFF`, `cohabitationMode = auto`), `altCellulard` **ne maintient plus aucun port série ouvert au repos** (`_should_release_port_when_idle() = True`), laissant 100 % de la bande passante série à `smsd` au démarrage comme en fonctionnement.
+    2. Même si `/dev/ttyUSB-LTE-Quectel` est sélectionné manuellement dans la configuration, `discover_best_at_port()` détecte que son `realpath` est identique à `/dev/ttyLuna-Lte` (`/dev/ttyUSB2`) et redirige automatiquement `altCellular` vers le **second canal AT physiquement distinct** du modem Quectel (`/dev/ttyUSB3`).
+- **Correction de l'erreur `sox FAIL gain: can't reclaim headroom` (`resources/altCellulard.py`)** :
+  - Remplacement de la combinaison `-G` + `norm -10` (incompatible dans SoX) par la chaîne explicite `sox -q ... gain -6 highpass 140 lowpass 3400 gain -n -10` (clé de cache `v8`).
+- **Exécution instantanée non bloquante de `Couper l'appel` (`hangup`) & suppression du `BrokenPipeError` (`resources/altCellulard.py`)** :
+  - `hangup_active_call()` déclenche immédiatement `abort_call_event.set()` et délègue l'envoi de `AT+CHUP` / `ATH` à un thread asynchrone sans bloquer la requête HTTP au-delà de 5 secondes, tout en interceptant proprement `BrokenPipeError` dans `_send_json()`.
+
+---
+
 ## [0.1.0-beta.12] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
