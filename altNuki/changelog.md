@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.4] - 2026-11-01 (Canal Beta)
+
+### Corrigé
+- **Prévention et nettoyage automatique des serrures créées en double lors de la synchronisation initiale** :
+  - Ajout d'un verrou fichier exclusif inter-processus (`flock(LOCK_EX)` sur `/tmp/jeedom/altNuki/sync.lock`) autour de `handleIncomingDeviceData()`, `handleIncomingBridgeData()` et `createOrUpdateKeypadForLock()` afin d'empêcher deux requêtes PHP concurrentes (`jeeAltNuki.php` + retour synchrone de `syncDevices()`, ou remontée simultanée Nuki Bridge + MQTT Local) de créer deux équipements identiques lorsque `object_id` vaut `NULL` (`Aucun`).
+  - Fusion par `nuki_id_hex` (`get_merged_devices()`) dans le démon Python `altNukid.py` des équipements découverts à la fois via Nuki Bridge HTTP et via MQTT Local, et suppression du callback HTTP redondant lors d'un appel socket `sync_devices`.
+  - Ajout d'une fonction de dédoublonnage automatique (`altNuki::deduplicateEquipments()`) exécutée à la mise à jour du plugin, à l'ouverture de la page du plugin et lors des synchronisations, qui conserve l'équipement principal (affecté à une pièce ou créé en premier), transfère la configuration Keypad éventuelle et supprime automatiquement le doublon.
+
 ## [0.1.0-beta.3] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé

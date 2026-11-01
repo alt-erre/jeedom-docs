@@ -23,7 +23,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Contrôle Parental (iPhone & iPad)** | `altIos` | Multimédia | `0.1.0-beta.3` | `Beta` | [Documentation](altIos/) · [Changelog](altIos/changelog) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.7` | `Beta` | [Documentation](altJvcProjector/) · [Changelog](altJvcProjector/changelog) |
 | **Alt Radar & Sécurité Réseau** | `altNetGuard` | Sécurité | `0.1.0-beta.4` | `Beta` | [Documentation](altNetGuard/) · [Changelog](altNetGuard/changelog) |
-| **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.3` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
+| **Alt Serrure & Accès (Nuki)** | `altNuki` | Sécurité | `0.1.0-beta.4` | `Beta` | [Documentation](altNuki/) · [Changelog](altNuki/changelog) |
 | **Alt Contrôle Parental (PlayStation)** | `altPlaystation` | Multimédia | `0.1.0-beta.4` | `Beta` | [Documentation](altPlaystation/) · [Changelog](altPlaystation/changelog) |
 | **Alt Vie Scolaire (Pronote)** | `altPronote` | Organisation | `0.1.0-beta.8` | `Beta` | [Documentation](altPronote/) · [Changelog](altPronote/changelog) |
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.4` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
