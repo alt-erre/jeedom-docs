@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.20] - 2026-11-02 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Sélection du Fond d'écran & des Œuvres The Frame dans l'onglet Studio (`core/class/altTvDashboard.class.php`, `core/ajax/altTvDashboard.ajax.php`, `core/php/mediaProxy.php`, `desktop/js/kiosk.js`, `desktop/css/kiosk.css`)** :
+  - **Correction de la sélection d'œuvre Samsung The Frame** : liaison sur le `logicalId` réel `art_select` (ainsi que la collecte des commandes `art_item_*` et `art_catalog`) au lieu de `art_select_id` qui valait `0` et bloquait le clic/validation `OK` sur les vignettes de la galerie Studio.
+  - **Action dédiée `art_wallpaper` (`selectKioskWallpaper()`)** : la sélection d'une œuvre dans l'onglet Studio met désormais à jour instantanément (`0 ms`) le fond d'écran flouté `#altKioskArtBg`, l'écran de veille Galerie `#altKioskAmbient` et la bordure `.is-current`, déclenche le téléchargement local de la miniature (`ensureLocalThumbnail`) et synchronise l'œuvre sur le téléviseur The Frame sans quitter le navigateur Kiosk lorsque la TV est en mode TV (`show: $isArtMode`).
+  - **Sélecteur de Toile d'Ambiance intégré au Studio** : ajout d'une ligne *« Fond d'écran & Toile d'Ambiance du Dashboard »* dans l'onglet Studio (*Œuvre The Frame active*, *Aucun (Verre sombre uni)*, *Aurore Boréale*, *Crépuscule Doré*, *Abysse Océan*, *Forêt Boréale*, *Nébuleuse Cosmique*) et amélioration du contraste du calque `.kiosk-art-bg` / `.kiosk-glass-backdrop` (`[data-has-bg="1"]`).
+
 ## [0.1.0-beta.19] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Optimisé (Sobriété Jeedom Luna)
