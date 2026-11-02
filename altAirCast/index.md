@@ -48,7 +48,10 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
   - **Briefing Matinal TTS + Webradio** : joue un jingle doux suivi d'un message vocal dynamique (`#heure#`, `#jour#`, `#zone#`), puis enchaîne automatiquement sur votre Webradio favorite.
   - **Webradio seule**, **Son / Carillon Soundboard**, **Briefing TTS seul**, ou **Apple Music (Multiroom AirPlay 2)**.
 - **Montée progressive du volume (Fade-in)** réglable de `0` à `600 secondes` (toujours plafonnée par `volume_max`).
-- **Fonctions `Snooze (+9 min)` et `Extinction automatique`** au bout de $X$ minutes (ex. arrêt automatique de la radio après `45 min`), pilotables directement sur le Widget Dashboard/Mobile et par scénarios Jeedom (`alarm_enable`, `alarm_disable`, `alarm_toggle`, `alarm_set_time`, `alarm_trigger_now`, `alarm_snooze`, `alarm_stop`).
+- **Fonctions `Snooze (+9 min)` et `Extinction automatique`** au bout de $X$ minutes (ex. arrêt automatique de la radio après `45 min`), pilotables directement sur le Widget Dashboard/Mobile et par scénarios Jeedom (`alarm_enable`, `alarm_disable`, `alarm_toggle`, `alarm_set_time`, `alarm_set_temp`, `alarm_clear_temp`, `alarm_trigger_now`, `alarm_snooze`, `alarm_stop`).
+- **Modification permanente ou temporaire / datée par scénario Jeedom** :
+  - `Réveil Heure (HH:MM)` (`alarm_set_time`) modifie l'heure permanente du réveil (ou accepte le préfixe `temp` / une date pour un décalage ponctuel).
+  - `Programmer réveil temporaire ou daté` (`alarm_set_temp`) permet de décaler uniquement le prochain réveil (`06:15`, `demain 08:30`, `2026-12-25 09:00`) ou de sauter le prochain réveil (`skip` un jour férié) puis revient automatiquement à l'horaire habituel une fois déclenché.
 
 ### 6. Plafond de Volume Dynamique par Mode (`volume_max` / `volume_max_set`)
 - Chaque Zone intègre les commandes standardisées `Volume maximum` (`volume_max`) et `Volume maximum niveau` (`volume_max_set`) ainsi qu'un sélecteur rapide sur le widget (`Max 10%` à `Max 70%` par pas de 5 % + `Max 100%`) pour brider automatiquement les annonces et diffusions la nuit.

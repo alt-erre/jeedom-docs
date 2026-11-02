@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.3] - 2026-11-02
+
+### Ajouté
+- **Surcharges temporaires et programmation datée des réveils par scénario Jeedom** :
+  - Nouvelles commandes **`Programmer réveil temporaire ou daté`** (`alarm_set_temp`), **`Annuler réveil temporaire`** (`alarm_clear_temp`) et **`Surcharge réveil temporaire active`** (`alarm_is_temp`).
+  - Possibilité de modifier uniquement le **prochain déclenchement** d'un réveil (ex. `06:15`, `demain 08:30`, `2026-12-25 09:00`) ou de **sauter le prochain réveil** (`skip` / `off` un jour férié ou de congé) sans modifier l'heure habituelle de la semaine : une fois le réveil temporaire passé, la programmation régulière reprend automatiquement.
+  - Prise en charge d'une **date unique optionnelle** (`once_date`) par réveil et ciblage de n'importe quel réveil secondaire depuis un scénario en précisant `#2`, `#3` dans le titre de la commande.
+
 ## [0.1.0-beta.2] - 2026-11-02
 
 ### Ajouté
