@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.8] - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec affiche cinéma 16:9 D-ILA (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** générant une affiche panoramique `16:9` *JVC D-ILA BLU-Escent Laser* mettant en avant la résolution (`4K/8K e-shiftX`), le format HDR, l'entrée HDMI et la mémoire optique active.
+  - Exposition 10-Foot des boutons discrets *Marche / Veille*, des entrées *HDMI 1 / 2*, des bascules *8K e-shiftX*, *Theater Optimizer* et *Cache Hide*, ainsi que des sélecteurs *Mode Image*, *Lens Memory*, *Puissance Laser* et *Niveau Frame Adapt HDR*.
+
 ## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
 ### Ajouté & Corrigé

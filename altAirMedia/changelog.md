@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.12] - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec mise en valeur de la jaquette Apple TV & HomePod (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en avant la pochette locale mise en cache (`1:1`), un visuel acoustique HomePod ou une bannière panoramique `16:9` tvOS selon l'appareil actif.
+  - Exposition 10-Foot de l'alimentation, du transport, du volume bridé à `volume_max`, des touches système Apple TV (*Accueil tvOS*, *Retour*, *Centre de contrôle*, *Économiseur Aerial*) et du lanceur d'applications tvOS.
+
 ## [0.1.0-beta.11] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré

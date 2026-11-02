@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.21] - 2026-11-02 (Canal Beta)
+
+### Ajouté & Amélioré
+- **Mise en valeur des Jaquettes Multimédias & Proxy sécurisé (`core/php/mediaProxy.php`, `core/class/altTvDashboard.class.php`, `desktop/css/kiosk.css`, `desktop/js/kiosk.js`, `desktop/preview_kiosk.html`)** :
+  - **Vitrine Jaquette sur toutes les surfaces Kiosk** : cartes de grille multimédias enrichies avec pochette `86×86` (`1:1`) et badge `♫ LIVE` ou bannière panoramique `16:9` (Samsung TV / Apple TV / JVC D-ILA), halo d'ambiance flouté issu de la jaquette, carte Hero d'accueil (`fetchpriority="high"`), vitrine HD `144×144` / `240×135` en tête de la modale 10-Foot, volet compagnon Duo et miniature sur l'écran de veille Galerie.
+  - **Proxy de pochettes anti-Mixed-Content & anti-SSRF (`mediaProxy.php?type=media_art`)** : relais authentifié des pochettes HTTP LAN (`altSonos` `:1400` y compris coordinateur de groupe, `altCambridgeAudio`, `altDenon` HEOS), des caches locaux `altAirMedia` et des CDN HTTPS publics, avec vérification MIME, cache LRU en RAM `tmpfs` borné à 10 fichiers (`< 2 Mo` pour Jeedom Luna) et vinyle SVG Dark Glass de secours.
+  - **Délégation Niveau 2 & Plafond `volume_max`** : prise en charge native de `altAirCast`, réécriture automatique des URLs de pochettes issues de `getKioskWidgetData()` via `mediaProxy.php` et respect strict du plafond `volume_max` (échelle `%` ou `0-98` Denon).
+
 ## [0.1.0-beta.20] - 2026-11-02 (Canal Beta)
 
 ### Corrigé & Amélioré

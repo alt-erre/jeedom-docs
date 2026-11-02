@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.5] - 2026-11-02
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot complet avec jaquette dynamique (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Refonte complète du contrat Niveau 2 pour **`altTvDashboard`** générant une pochette graphique Dark Glass dédiée selon la station radio active (*FIP*, *Jazz*, *France Inter*...), le *Soundboard* ou le groupement *AirPlay 2*.
+  - Exposition 10-Foot de l'arrêt de diffusion, du volume bridé à `volume_max`, du groupement/dégroupement AirPlay 2, de l'activation du réveil audio ainsi que des sélecteurs directs *Radios Live* et *Soundboard & Carillons*.
+
 ## [0.1.0-beta.4] - 2026-11-02
 
 ### Optimisé (Sobriété Matérielle Jeedom Luna : CPU, RAM, Réseau & eMMC)

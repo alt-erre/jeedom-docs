@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.11] - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec mise en valeur de la jaquette StreamMagic (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en avant la pochette d'album StreamMagic ou un cadran Hi-Fi DAC Dark Glass affichant la source et le flux audio actif.
+  - Exposition 10-Foot de l'alimentation, du transport, du volume bridé à `volume_max`, des sources numériques/analogiques, des sorties enceintes et des Presets StreamMagic.
+
 ## [0.1.0-beta.10] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré

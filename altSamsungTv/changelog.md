@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.21] - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec vitrine 16:9 The Frame & Smart TV (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en valeur l'œuvre réelle de la galerie *The Frame* (`mediaProxy.php?type=frame`) ou une bannière panoramique `16:9` dédiée à l'application / source active (*Netflix*, *Disney+*, *Canal+*, *YouTube*...).
+  - Exposition 10-Foot du basculement *Mode Art / TV*, de la navigation d'œuvres, de la rotation d'écran `9:16`, du volume bridé à `volume_max`, des applications Smart TV, des entrées HDMI ainsi que des sélecteurs *Passe-partout* et *Diaporama*.
+
 ## [0.1.0-beta.20] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré

@@ -5,6 +5,13 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.9] - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec mise en valeur de la jaquette (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en avant la pochette d'album UPnP `:1400/getaa` / CDN ou une illustration vinyle Dark Glass dédiée (entrée TV eARC, Dolby Atmos, Line-In, veille).
+  - Exposition 10-Foot à la télécommande du transport complet, du volume pièce et groupe bridés à `volume_max`, des entrées TV/Ligne, des modes *Night Sound* et *Speech Enhancement*, du groupement Multiroom et des Favoris / Playlists Sonos.
+
 ## [0.1.0-beta.8] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré

@@ -5,6 +5,13 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
+## `[0.1.0-beta.10]` - 2026-11-02 (Canal Beta)
+
+### Ajouté
+- **Widget Kiosk TV 10-Foot natif avec mise en valeur de la jaquette HEOS & Home-Cinéma (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
+  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en avant la pochette HEOS en écoute musicale ou un cadran AVR Dark Glass affichant le niveau calibré en `dB`, la source HDMI active et le décodage Surround.
+  - Exposition 10-Foot des boutons *Quick Select 1-4*, des sources HDMI/Audio, des favoris HEOS, du volume `0-98` (et Zones 2/3) bridés à `volume_max`, ainsi que des sélecteurs *Mode Surround*, *Audyssey* et *Dialog Enhancer*.
+
 ## `[0.1.0-beta.9]` - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
