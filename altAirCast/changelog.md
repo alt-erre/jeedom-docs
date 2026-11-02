@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.6] - 2026-11-02
+
+### Corrigé
+- **Correction de l'erreur MySQL `1062 Duplicate entry` lors de la création d'une Zone (`core/class/altAirCast.class.php`, `desktop/js/altAirCast.js`, `plugin_info/install.php`)** :
+  - Suppression de la réentrance `postSave() -> checkAndUpdateCmd() -> refreshWidget() -> toHtml() -> postSave()` qui provoquait une double insertion simultanée des commandes en base (`Duplicate entry '*-Régler heure du réveil' for key 'unique'`).
+  - Ajout d'un verrou anti-réentrance `$_inPostSave`, déplacement de toutes les initialisations `checkAndUpdateCmd()` en fin de `postSave()`, suppression de l'appel récursif `postSave()` dans `toHtml()`, et sécurisation directe de `upsertCmd()` via `cmd::byEqLogicIdAndLogicalId()` et `cmd::byEqLogicIdCmdName()` avec nettoyage des éventuelles commandes orphelines dans `postInsert()` et `install.php`.
+
 ## [0.1.0-beta.5] - 2026-11-02
 
 ### Ajouté
