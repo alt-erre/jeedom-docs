@@ -2,6 +2,16 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.2] - 2026-11-02
+
+### Ajouté
+- **Moteur de Réveils programmables & Briefing Matinal par Zone** :
+  - Nouvel onglet **« Réveils & Briefing Matinal »** permettant de programmer un ou plusieurs réveils par Zone (Semaine, Week-end, jours personnalisés).
+  - **Séquence combinée « Briefing Matinal TTS + Webradio »** : joue un jingle doux suivi de l'annonce vocale de l'heure et d'un message personnalisé (`#heure#`, `#jour#`, `#zone#`), puis lance automatiquement la Webradio choisie.
+  - **Montée progressive du volume (`Fade-in`)** de `20 %` du volume cible jusqu'au volume nominal (plafonné par `volume_max`) sur une durée réglable (`0` à `600 s`).
+  - **Fonctions `Snooze (+9 min)` et `Extinction automatique` (`auto_stop_min`)** intégrées dans le démon `altaircastd.py`.
+  - **Nouvelles commandes Jeedom et bandeau Réveil sur le Widget Dashboard/Mobile** (`alarm_enabled`, `alarm_time`, `alarm_next`, `alarm_state`, `alarm_enable`, `alarm_disable`, `alarm_toggle`, `alarm_set_time`, `alarm_trigger_now`, `alarm_snooze`, `alarm_stop`).
+
 ## [0.1.0-beta.1] - 2026-11-02
 
 ### Ajouté

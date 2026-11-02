@@ -42,7 +42,15 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 - **Recherche mondiale en direct** via l'API ouverte `Radio-Browser` (sans clé API) pour ajouter n'importe quelle station aux favoris.
 - **Pont Multiroom AirPlay 2 & Apple Music** : permet de grouper matériellement toutes les enceintes AirPlay 2 d'une Zone autour d'un HomePod ou d'une Apple TV maître pour y propager Apple Music en synchronisation matérielle.
 
-### 5. Plafond de Volume Dynamique par Mode (`volume_max` / `volume_max_set`)
+### 5. Réveils Multi-Zones, Briefing Matinal TTS & Fade-In Progressif
+- **Réveils programmables multiples par Zone** (ex. *Semaine 07:00*, *Mercredi 08:00*, *Week-end 09:00*) avec sélection des jours de la semaine (`Lun` à `Dim`).
+- **5 séquences de réveil au choix** :
+  - **Briefing Matinal TTS + Webradio** : joue un jingle doux suivi d'un message vocal dynamique (`#heure#`, `#jour#`, `#zone#`), puis enchaîne automatiquement sur votre Webradio favorite.
+  - **Webradio seule**, **Son / Carillon Soundboard**, **Briefing TTS seul**, ou **Apple Music (Multiroom AirPlay 2)**.
+- **Montée progressive du volume (Fade-in)** réglable de `0` à `600 secondes` (toujours plafonnée par `volume_max`).
+- **Fonctions `Snooze (+9 min)` et `Extinction automatique`** au bout de $X$ minutes (ex. arrêt automatique de la radio après `45 min`), pilotables directement sur le Widget Dashboard/Mobile et par scénarios Jeedom (`alarm_enable`, `alarm_disable`, `alarm_toggle`, `alarm_set_time`, `alarm_trigger_now`, `alarm_snooze`, `alarm_stop`).
+
+### 6. Plafond de Volume Dynamique par Mode (`volume_max` / `volume_max_set`)
 - Chaque Zone intègre les commandes standardisées `Volume maximum` (`volume_max`) et `Volume maximum niveau` (`volume_max_set`) ainsi qu'un sélecteur rapide sur le widget (`Max 10%` à `Max 70%` par pas de 5 % + `Max 100%`) pour brider automatiquement les annonces et diffusions la nuit.
 
 ---
