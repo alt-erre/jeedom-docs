@@ -4,6 +4,17 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.5] - 2026-11-02 (Canal Beta)
+
+### Ajouté & Amélioré
+- **Auto-Apprentissage (Auto-Discovery) des codes et empreintes du Nuki Keypad physique (`autoLearnKeypadEntry()`)** :
+  - Lorsqu'un membre du foyer déverrouille la serrure via le Nuki Keypad physique (1.0 ou 2.0 Fingerprint) en mode MQTT Local (`lockActionEvent`), tout nouvel identifiant `CodeId` ou `AuthId` est désormais automatiquement ajouté à la table de l'onglet **Clavier Nuki Keypad & Utilisateurs** avec le badge **`Auto-détecté — renommez-moi`**, et synchronisé entre la serrure et son équipement Keypad dédié.
+  - Ajout d'un bouton **« Actualiser les codes auto-détectés »** dans l'onglet *Clavier Nuki Keypad & Utilisateurs* permettant de recharger en 1 clic les entrées nouvellement détectées sans recharger la page.
+  - Visibilité par défaut activée sur les commandes **`Dernier CodeId Keypad`** (`last_keypad_code_id`) et **`Dernier AuthId Keypad`** (`last_keypad_auth_id`) de l'équipement Keypad dédié.
+- **Documentation (`README.md`) enrichie** :
+  - Ajout d'un comparatif détaillé **Nuki Bridge HTTP vs MQTT Local** (cohabitation Wi-Fi / Bridge sur les Smart Lock Pro, impact 0 % sur les piles et différences fonctionnelles pour le Keypad).
+  - Documentation pas-à-pas de l'**auto-apprentissage des utilisateurs du Keypad physique** et de la distinction avec le pavé numérique virtuel à code PIN local du widget Jeedom.
+
 ## [0.1.0-beta.4] - 2026-11-01 (Canal Beta)
 
 ### Corrigé

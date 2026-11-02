@@ -24,24 +24,62 @@ Le démon Python asynchrone (`altNukid.py`) prend en charge simultanément ou in
    - Compatible nativement (sans aucun Bridge matériel) avec les **Nuki Smart Lock 3.0 Pro, 4.0, 4.0 Pro et Smart Lock Ultra** connectées en Wi-Fi ou Thread/Matter à votre broker MQTT local (Mosquitto sur `127.0.0.1:1883` ou serveur MQTT du LAN).
    - Souscription temps réel à `nuki/#` (`state`, `doorsensorState`, `batteryChargeState`, `batteryCritical`, `batteryCharging`, `keypadBatteryCritical`, **`lockActionEvent`**) et publication instantanée des ordres sur `nuki/<id>/lockAction`.
 
+### 1.1. Nuki Bridge vs MQTT Local : Lequel choisir ? Cohabitation & Autonomie des piles
+
+Sur les **Nuki Smart Lock 3.0 Pro et 4.0 Pro**, **le Wi-Fi intégré et la passerelle externe Nuki Bridge ne peuvent pas cohabiter simultanément sur une même serrure** : lorsque vous activez le Wi-Fi intégré dans l'application mobile Nuki (nécessaire pour le MQTT sans Thread), la serrure coupe automatiquement sa liaison avec le Nuki Bridge (et inversement).
+
+Voici le comparatif complet pour choisir le mode adapté à votre installation :
+
+| Critère / Fonctionnalité | Mode **Nuki Bridge HTTP** (`port 8080`) | Mode **MQTT Local Natif** (`nuki/<id>/#`) |
+| :--- | :---: | :---: |
+| **Appareils compatibles** | Smart Lock 1.0, 2.0, 3.0, 3.0 Pro, 4.0, 4.0 Pro, **Nuki Opener**, Smart Door | Smart Lock **3.0 Pro, 4.0, 4.0 Pro, Ultra** (via Wi-Fi intégré ou Thread) |
+| **Commandes locales** (`Verrouiller`, `Déverrouiller`, `Ouvrir le pêne`, `Lock 'n' Go`) | ✅ Oui | ✅ Oui |
+| **États temps réel** (Serrure, Capteur de porte Door Sensor, Piles serrure & Keypad) | ✅ Oui (Webhooks `< 100 ms` + `/list`) | ✅ Oui (Push MQTT instantané) |
+| **Identification de l'utilisateur du Nuki Keypad physique (`CodeId` / `AuthId` / Empreinte)** | ❌ **Non** *(non transmis par l'API du Bridge)* | ✅ **Oui** *(via `nuki/<id>/lockActionEvent`)* |
+| **Pavé numérique virtuel à code PIN sur le Widget Jeedom** | ✅ Oui | ✅ Oui |
+| **Impact du plugin Jeedom sur les piles (Serrure, Keypad, Door Sensor)** | **0 %** *(lecture du cache RAM `/list` du Bridge sur secteur 230 V, zéro appel `/lockState` en boucle)* | **0 % côté plugin** *(simple abonné passif MQTT ; noter que le maintien du Wi-Fi intégré par la serrure consomme un peu plus que le Bluetooth du Bridge, sauf en MQTT via Thread sur 4.0/Ultra)* |
+
+> **En résumé : le Nuki Bridge a-t-il encore un intérêt si vous activez le MQTT sur votre Smart Lock Pro ?**
+> - **Si vous souhaitez identifier en local qui déverrouille la porte sur le boîtier Nuki Keypad physique** (code à 6 chiffres ou empreinte digitale sur Keypad 2.0) : vous devez activer le **MQTT Local** sur votre Smart Lock Pro/Ultra. Pour cette serrure, **le Nuki Bridge n'a alors plus d'utilité** (vous pouvez même le débrancher s'il ne sert pas à un autre appareil comme un **Nuki Opener** d'interphone ou une ancienne Smart Lock non-Pro).
+> - **Si vous privilégiez l'autonomie maximale de la batterie de la serrure** (liaison Bluetooth BLE basse consommation via le Nuki Bridge sur secteur, sans activer le Wi-Fi de la serrure) et n'avez pas besoin de savoir quel code physique du Keypad a ouvert la porte : conservez le **Nuki Bridge**.
+
 ---
 
-## 2. Prise en Charge Avancée des Claviers Nuki Keypad (1.0 & 2.0 Fingerprint)
+## 2. Fonctionnement Détaillé des Claviers Nuki Keypad (1.0 & 2.0 Fingerprint) & Auto-Apprentissage
 
-Le plugin propose un **double niveau d'exploitation** de vos **Nuki Keypad** :
+### 2.1. Pourquoi le code secret à 6 chiffres n'apparaît-il jamais en clair ? (Sécurité Nuki)
 
-1. **Suivi Keypad directement intégré à chaque serrure / Opener** :
-   - Surveillance de l'état de la batterie du Keypad (`keypad_battery_critical`).
-   - Décodage instantané du topic local `nuki/<id>/lockActionEvent` (`LockAction,Trigger,AuthId,CodeId,AutoUnlock`) permettant d'identifier immédiatement quel membre du foyer ou invité a déverrouillé la porte (par **code à 6 chiffres** ou par **empreinte digitale sur le Keypad 2.0**) ou si la porte a été verrouillée via la **touche retour (`←`)** du Keypad.
-   - Commandes dédiées pour vos scénarios Jeedom : `last_keypad_user` (*Dernier utilisateur Keypad*), `last_keypad_code_id`, `last_keypad_auth_id`, `last_keypad_action`, `last_keypad_ts` et `keypad_access_count`.
-2. **Équipement Jeedom « Nuki Keypad » dédié (`nuki_keypad_<id>`)** :
-   - Créé automatiquement lors de la synchronisation (ou en 1 clic depuis la fiche d'une serrure).
-   - Dispose de son propre **Widget Dark Glass Nuki Keypad** comprenant :
-     - Un **pavé numérique interactif (`0–9`, `⌫`, `✓`)** permettant de composer un code PIN local depuis le Dashboard ou la vue Mobile.
-     - Un **journal déroulant temps réel des 15 derniers passages** (avec icône empreinte `🫆` / code `⌨️`, prénom de l'utilisateur, action et horodatage).
-     - Une **protection anti-intrusion (`keypad_failed_attempts` & `keypad_tamper_alert`)** déclenchant une alerte binaire après $N$ tentatives de code PIN erronées (configurable, `3` par défaut).
-3. **Gestionnaire visuel des Utilisateurs, Codes PIN & Empreintes Keypad** :
-   - Dans l'onglet **Clavier Nuki Keypad & Utilisateurs** de chaque équipement, associez chaque `CodeId` / `AuthId` matériel à un prénom (ex. *Aurélien*, *Enfants*, *Femme de ménage*, *Invité Airbnb*) et définissez optionnellement un code PIN local (haché en `SHA-256`) ainsi qu'une plage de validité horaire/calendrier (`Valide du ... au ...`).
+Lorsque vous tapez un code à 6 chiffres ou posez votre doigt sur le **boîtier physique Nuki Keypad fixé à votre porte** :
+1. **Le code PIN à 6 chiffres ne sort jamais de la serrure en clair** (ni en Bluetooth, ni vers le Bridge, ni en MQTT) pour des raisons évidentes de sécurité.
+2. C'est la serrure Nuki qui vérifie le code dans sa mémoire chiffrée, puis elle publie en **MQTT Local** sur le topic `nuki/<id>/lockActionEvent` une trame contenant uniquement **les identifiants numériques internes** du code ou de l'empreinte :
+   ```text
+   LockAction,Trigger,AuthId,CodeId,AutoUnlock
+   Exemple : 1,172,54321,101,0
+   ```
+   - `LockAction = 1` : Déverrouillage (`2` = Verrouillage, `3` = Ouverture du pêne)
+   - `Trigger = 172` : Action déclenchée par le Nuki Keypad
+   - `AuthId = 54321` : Identifiant interne de l'autorisation dans la serrure
+   - `CodeId = 101` : Numéro d'emplacement du code PIN ou de l'empreinte dans la serrure
+
+### 2.2. Auto-Apprentissage automatique des utilisateurs du Keypad physique (Mode MQTT)
+
+Vous n'avez **pas besoin de chercher ni de deviner** les numéros `CodeId` ou `AuthId` de vos membres de la famille :
+1. Activez le **MQTT Local** sur votre serrure Nuki et dans la configuration du plugin.
+2. **Tapez une première fois votre code (ou posez votre doigt)** sur votre Nuki Keypad physique pour ouvrir la porte.
+3. Le plugin détecte automatiquement ce nouvel identifiant (`CodeId` / `AuthId`) et **crée tout seul la ligne correspondante** dans l'onglet **Clavier Nuki Keypad & Utilisateurs** de votre équipement avec le badge **`Auto-détecté — renommez-moi`** (ex. `Code Keypad #101` ou `Empreinte / Keypad #54321`).
+4. Cliquez sur **Actualiser les codes auto-détectés** dans l'onglet **Clavier Nuki Keypad & Utilisateurs**, remplacez simplement le libellé par le prénom souhaité (ex. *Aurélien*, *Enfants*, *Nounou*) et cliquez sur **Enregistrer les utilisateurs Keypad**.
+5. Dès lors, chaque ouverture par ce code ou cette empreinte affichera immédiatement le prénom sur le widget (**`Dernier accès : Aurélien`**), dans le journal des 15 derniers passages et dans la commande **`Dernier utilisateur Keypad`** (`last_keypad_user`) pour vos scénarios Jeedom !
+
+### 2.3. Différence entre le Boîtier Nuki Keypad physique et le Pavé numérique virtuel du Widget Jeedom
+
+Le plugin gère **deux types de claviers complémentaires** :
+1. **Le boîtier physique Nuki Keypad (1.0 & 2.0 Fingerprint) fixé sur votre porte** :
+   - Les codes à 6 chiffres et empreintes digitales sont enregistrés dans la serrure via l'application smartphone Nuki.
+   - La remontée du nom de l'utilisateur à Jeedom s'effectue via les identifiants `CodeId` / `AuthId` en **MQTT Local**.
+2. **Le pavé numérique virtuel intégré au Widget Jeedom (Dashboard / Mobile / Tablette murale Kiosk)** :
+   - Accessible en cliquant sur le bouton **`Code PIN`** du widget Jeedom.
+   - Il utilise la colonne **« Code PIN Local Jeedom (SHA-256) »** (et les dates de validité optionnelles *Valide du ... au ...*) de l'onglet **Clavier Nuki Keypad & Utilisateurs**.
+   - Ce pavé virtuel est vérifié localement par Jeedom et **fonctionne aussi bien avec le Nuki Bridge qu'en MQTT Local** : il est idéal pour déverrouiller la porte depuis une tablette murale d'entrée et gère une alerte d'intrusion (`keypad_tamper_alert`) après $N$ codes erronés (3 par défaut).
 
 ---
 
