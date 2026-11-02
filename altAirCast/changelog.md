@@ -2,6 +2,19 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.4] - 2026-11-02
+
+### Optimisé (Sobriété Matérielle Jeedom Luna : CPU, RAM, Réseau & eMMC)
+- **Zéro réveil CPU inutile sur l'horloge des réveils** (`_alarm_scheduler_loop`) :
+  - Si aucun réveil n'est actif sur les Zones, la tâche d'horloge s'endort sur un événement noyau (`asyncio.Event`) avec **0 réveil CPU par heure (`0,00 % CPU`)**.
+  - Lorsqu'un réveil est actif, l'attente est alignée exactement sur le début de la minute suivante (`:00`), divisant par 4 les réveils d'horloge tout en déclenchant à la seconde pile.
+- **Mutualisation du flux HTTP Webradio multi-enceintes (`fan-out` mémoire)** :
+  - Lorsqu'une Zone diffuse une Webradio sur $N$ enceintes simultanément, le démon n'ouvre qu'**une seule connexion HTTP/TLS** vers la station radio et distribue les paquets `8 Ko` en mémoire aux $N$ flux AirPlay.
+- **Réutilisation des sessions `pyatv` ouvertes pendant le `Fade-in` et les changements de volume** :
+  - Suppression des scans mDNS intermédiaires lors de la montée progressive du volume (`0 scan mDNS`, réglage direct sur la session ouverte) et réduction de 80 % des callbacks HTTP vers Apache/PHP pendant la rampe.
+- **Callback groupé (`send_zones_batch`) et cache mémoire PHP par requête** :
+  - Resynchronisation de toutes les Zones au démarrage en un seul appel HTTP groupé vers `jeeAltAirCast.php`, vérification statique sans fork Python dans `dependancy_info()` / `deamon_info()`, et mise en cache statique en RAM des catalogues JSON.
+
 ## [0.1.0-beta.3] - 2026-11-02
 
 ### Ajouté
