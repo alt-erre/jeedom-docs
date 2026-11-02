@@ -10,6 +10,7 @@ DOCS_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKSPACE_ROOT="$(cd "$DOCS_ROOT/.." && pwd)"
 
 PLUGINS=(
+  "altAirCast"
   "altAirMedia"
   "altArlo"
   "altBambuLab"
@@ -58,7 +59,7 @@ import sys
 workspace_root = sys.argv[1]
 out_path = sys.argv[2]
 plugins = [
-    "altAirMedia", "altArlo", "altBambuLab", "altCambridgeAudio", "altCellular",
+    "altAirCast", "altAirMedia", "altArlo", "altBambuLab", "altCambridgeAudio", "altCellular",
     "altDenon", "altEducartable", "altHue", "altIos", "altJvcProjector",
     "altNetGuard", "altNuki", "altPlaystation", "altPronote", "altRoborock",
     "altSamsungTv", "altSiemens", "altSonos", "altSwitch", "altTvDashboard",
