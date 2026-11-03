@@ -2,6 +2,21 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.8] - 2026-11-03
+
+### Optimisé (Audit approfondi des ressources - Jeedom Luna : RAM, `tmpfs`, eMMC & Apache/PHP)
+- **Rétro-pression mémoire (`256 Ko` max/enceinte) et détachement immédiat des lecteurs en erreur (`_stream_url_to_speakers`)** :
+  - Si une enceinte d'une Zone multi-enceintes se déconnecte en cours d'écoute Webradio pendant que les autres continuent, son tampon `StreamReader` est immédiatement détaché et purgé (zéro accumulation en RAM sur écoute longue).
+  - Ajout d'une rétro-pression explicite à `256 Ko` par enceinte active afin que la lecture d'un gros fichier `.mp3` HTTP statique via `play_url` ne précharge jamais tout le fichier en RAM.
+- **Double plafonnement strict `< 2 Mo` du cache TTS en RAM `tmpfs` (`prune_ephemeral_cache` & `deamon_stop`)** :
+  - Le cache `/tmp/jeedom/altAirCast/tts_cache` est désormais borné simultanément en nombre de fichiers (`max 6`) **et** en volume cumulé (`1,75 Mo` max, soit strictement `< 2 Mo`), puis intégralement purgé à l'arrêt du démon.
+- **Chargement paresseux (`_ensure_pyatv`) et expiration automatique des sessions PIN (`PAIRING_SESSION_TTL_SEC = 180 s`)** :
+  - Import différé de `pyatv` (`cryptography`, `protobuf`, `zeroconf`, `miniaudio`) uniquement lors de la première opération AirPlay effective, pool `aiohttp.TCPConnector(limit=12)` borné, et fermeture automatique après 3 minutes de toute session d'appairage PIN restée ouverte.
+- **Suppression des callbacks HTTP redondants vers Apache/PHP/MariaDB (`-67 %` lors d'un changement de flux)** :
+  - Ajout de `notify_idle=False` dans `stop_zone()` et suivi de `was_cancelled` lors d'un remplacement de flux, d'un `Snooze` ou d'un arrêt de réveil afin de n'émettre qu'**un seul** appel HTTP vers `jeeAltAirCast.php` au lieu de 2 à 3 appels successifs.
+- **Garde-fous RAM PHP et eMMC sur l'import de sons (`importOnlineSound`, `uploadCustomSound`)** :
+  - Lecture bornée en flux (`maxlen = 10 Mo`) avant allocation mémoire PHP, vérification de taille à l'upload et écriture atomique POSIX complète (`fflush` + `fsync` + `rename`).
+
 ## [0.1.0-beta.7] - 2026-11-03
 
 ### Ajouté

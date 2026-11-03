@@ -72,6 +72,8 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
 - **Prérequis réseau** :
   - Le démon écoute exclusivement sur l'interface locale `127.0.0.1` (port dédié `55105`).
   - Vos enceintes AirPlay 1 / AirPlay 2 doivent être joignables sur votre réseau local (avec Multicast/mDNS `UDP 5353` autorisé pour la découverte automatique).
+- **Sobriété matérielle (Jeedom Luna / ARM)** :
+  - Démon mono-processus `asyncio` sans polling périodique (`0,00 % CPU` au repos), chargement paresseux de `pyatv` à la première diffusion, mutualisation d'un flux HTTP unique en entrée avec rétro-pression mémoire (`256 Ko` max par enceinte active), cache TTS en RAM `tmpfs` strictement borné (`max 6 fichiers` et `< 2 Mo`, purgé à l'arrêt) et historisation désactivée par défaut sur toutes les commandes volatiles pour préserver la mémoire flash eMMC.
 
 ---
 
