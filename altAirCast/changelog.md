@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.12] - 2026-11-04
+
+### Corrigé & Optimisé
+- **Suppression des fuites `Unclosed client session` et alignement des journaux `pyatv` (`resources/altaircastd.py`)** :
+  - **Mutualisation de la session persistante `self.http_session` dans `pyatv.connect()` et `pyatv.pair()`** : évite l'allocation d'une nouvelle `aiohttp.ClientSession` interne par connexion AirPlay/HomePod et élimine les avertissements `ERROR Unclosed client session` au passage du ramasse-miettes Python.
+  - **Fermeture asynchrone complète `_close_atv()` (`asyncio.shield`)** : attend proprement le `Set[asyncio.Task]` retourné par `atv.close()` lors de chaque fin de lecture, arrêt de Zone ou réglage de volume afin de clôturer proprement les sessions RTSP/AirTunes.
+  - **Alignement du niveau de log racine et visibilité des erreurs de diffusion** : synchronise le logger racine et bride le bruit interne bénin de `pyatv` (`Got response without having a request`, gigue RAOP de quelques millisecondes) hors mode `Debug`, tout en journalisant en `ERROR` tout échec réel de connexion ou d'ouverture de Webradio afin qu'il reste visible même au niveau de log par défaut de Jeedom.
+
 ## [0.1.0-beta.11] - 2026-11-04
 
 ### Corrigé & Optimisé
