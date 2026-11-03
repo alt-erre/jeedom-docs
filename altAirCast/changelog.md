@@ -2,6 +2,20 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.9] - 2026-11-03
+
+### Corrigé & Optimisé
+- **Correction de l'erreur `Unknown error` et du décalage de version locale lors des mises à jour (`plugin_info/install.php`)** :
+  - Suppression de l'appel synchrone bloquant `altAirCast::deamon_start()` et de `refreshWidget()` à l'intérieur de `altAirCast_update()`, qui interrompaient `update::doUpdate()` (timeout HTTP ou exception non interceptée) juste après l'extraction des fichiers mais **avant** l'enregistrement du nouveau hash `localVersion` en base MariaDB.
+  - Encapsulation défensive complète de `altAirCast_update()`, invalidation immédiate d'OPcache (`opcache_invalidate`) sur les fichiers PHP du plugin et purge automatique des notifications d'erreur obsolètes du Centre de messages (`message::removeAll('altAirCast')`).
+- **Suppression des ralentissements système et de la boucle d'erreurs cron du démon (`core/class/altAirCast.class.php`, `resources/altaircastd.py`, `resources/install_apt.sh`)** :
+  - Correction de `isDaemonRunning()` et `deamon_stop()` avec le motif `[r]esources/altaircastd.py` afin d'éliminer tout auto-match du sous-shell `/bin/sh` (`dash`) lors de l'inspection des processus.
+  - Réparation automatique et maintien des droits `www-data:www-data` (`775`) sur `/tmp/jeedom/altAirCast` dès le début et en sortie (`trap EXIT`) de `install_apt.sh` ainsi que dans `getRuntimeTmpDir()`, empêchant tout échec `PermissionError` lors de la création de `daemon_config.json` et `deamon.pid`.
+  - Ajout de la clé de déduplication officielle Jeedom `'unableStartDeamon'` dans `deamon_start()` (plus aucune accumulation de centaines de messages d'erreur en base MariaDB), sondage rapide `usleep(500000)`, ouverture du port TCP `55105` avec `reuse_address=True` avant écriture du `deamon.pid` et libération immédiate du socket à l'arrêt (zéro conflit `Errno 98`).
+  - Exécution de `install_apt.sh` sous priorité basse CPU/IO (`nice -n 19 ionice -c 3`), saut de `apt-get update` lorsque les paquets système sont déjà présents et réutilisation du `venv` sain avec `pip install --prefer-binary` pour ne jamais faire ramer Jeedom lors d'une mise à jour.
+- **Manifeste de versions et badge SemVer + SHA Git sans verrou de session (`plugin_info/configuration.php`, `desktop/php/altAirCast.php`)** :
+  - Ajout du point d'entrée JSON rapide `alt_versions_manifest=1` avec libération immédiate du verrou de session PHP (`@session_write_close()`) et affichage du badge `vX.Y.Z (commit)` dans l'administration du plugin.
+
 ## [0.1.0-beta.8] - 2026-11-03
 
 ### Optimisé (Audit approfondi des ressources - Jeedom Luna : RAM, `tmpfs`, eMMC & Apache/PHP)
