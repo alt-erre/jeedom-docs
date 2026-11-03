@@ -2,6 +2,22 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.7] - 2026-11-03
+
+### Ajouté
+- **Sélection personnalisable des sons rapides affichés sur le Widget par Zone (`configuration.widget_sounds`)** :
+  - Possibilité de choisir librement pour chaque Zone quels sons de la Soundboard (embarqués ou importés depuis Wikimedia Commons / Freesound / fichiers `.mp3` personnels) apparaissent en boutons d'accès direct sur le widget Dashboard et Mobile :
+    - Depuis l'onglet **« Zone & Enceintes Cibles »** (section *« Sons affichés en boutons rapides sur le Widget »*, avec compteur en temps réel et boutons *« Par défaut (6) »* / *« Aucun »*).
+    - Ou directement en 1 clic via le bouton épingle **`Épingler` / `Sur le widget`** dans le tableau de l'onglet **« Soundboard Fun, Sons Libres & Webradios »**.
+  - Tous les sons du catalogue restent par ailleurs accessibles à tout moment dans le menu déroulant *Sons* du widget (classés par catégories `<optgroup>`).
+
+### Modifié & Corrigé
+- **Refonte complète des Widgets Dashboard & Mobile selon la Charte Graphique Dark Glass `alt-erre` (`core/template/dashboard/altAirCast.html`, `core/template/mobile/altAirCast.html`)** :
+  - Alignement intégral sur le design des autres plugins de la gamme (`altSonos`, `altAirMedia`) et les **9 thèmes officiels `alt-erre`** (`black` Dark Glass, `white` Light Glass, `blue`, `cyan`, `green`, `yellow`, `orange`, `red`, `purple`, avec migration automatique des anciens thèmes).
+  - Ajout de l'en-tête intégré `.aac-header` avec boutons circulaires `26x26` (*Synchronisation Multiroom AirPlay 2*, *Tiroir Annonce TTS*, *Tiroir Réveil Matinal*, *Stop*, *Rafraîchir* avec rotation `.is-refreshing`), de la carte média `92px` avec vignette dynamique `74x74` + halo lumineux selon la source active (*Radio Live*, *Soundboard*, *Vocal TTS*, *Réveil*, *AirPlay 2*), et des tiroirs repliables *Annonce Vocale TTS* et *Réveil Matinal*.
+  - Correction de toutes les surcharges CSS globales de Jeedom Core : contraste complet (`color-scheme`, `!important`) sur les `<select>` et `<input>`, empilement vertical propre des sélecteurs *Sons* / *Radio* sans troncature horizontale, et verrouillage des proportions du curseur de volume `<input type="range">` face au badge `Max 100%` (`.aac-vol-max-select`).
+  - Vidage automatique du cache HTML du widget (`emptyCacheWidget()`) lors de la sauvegarde d'une Zone et lors des mises à jour du plugin.
+
 ## [0.1.0-beta.6] - 2026-11-02
 
 ### Corrigé

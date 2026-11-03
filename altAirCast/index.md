@@ -30,6 +30,8 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 - **Explorateur intégré de sons libres en ligne (`Wikimedia Commons Audio` CC0/CC-BY sans clé API + `Freesound.org` optionnel)** :
   - Recherche par mot-clé ou par thème (*Rires & Applaudissements*, *Klaxons & Fanfares*, *Cloches & Gongs*, *Tambours*, *Jeux Rétro*, *Animaux*), pré-écoute dans le navigateur et **import en 1 clic** dans votre Soundboard locale.
 - **Import local** de vos propres fichiers `.mp3`, `.wav`, `.ogg`, `.flac`.
+- **Épinglage personnalisé des boutons rapides sur le Widget par Zone** :
+  - Chaque Zone permet de choisir quels sons (embarqués ou importés) sont affichés sous forme de boutons d'accès direct sur son Widget Dashboard et Mobile (depuis l'onglet *Zone & Enceintes Cibles* ou via le bouton d'épinglage dans l'onglet *Soundboard*). Tous les autres sons restent accessibles dans le sélecteur déroulant classé par catégories.
 
 ### 3. Moteur d'Annonces Vocales (TTS) avec Jingle d'Intro & Anti-Coupure AirPlay
 - **Assemblage automatique en RAM (`/tmp/jeedom/altAirCast`)** :
