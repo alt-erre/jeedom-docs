@@ -40,7 +40,7 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
   - Dans la commande `Dire (Annonce TTS)`, le champ *Titre* permet de surcharger le volume et/ou le jingle à la volée (ex. `60|chime_airport` ou `40|none`).
 
 ### 4. Annuaire mondial de Webradios (`Radio-Browser` sans clé API) & Pont Apple Music
-- **Bouquet de 10 Webradios préconfigurées** (*Fun Radio*, *FIP*, *France Inter*, *franceinfo:*, *RTL2*, *Nostalgie*, *NRJ*, *Radio Nova*, *TSF Jazz*, *SomaFM Groove Salad*).
+- **Bouquet de 10 Webradios préconfigurées** (*Fun Radio*, *FIP*, *France Inter*, *franceinfo:*, *RTL2*, *Nostalgie*, *NRJ*, *Radio Nova*, *TSF Jazz*, *SomaFM Groove Salad*) avec pré-tamponnage anti-coupure, alignement de trames Icecast et transcodage universel `ffmpeg` (MP3, AAC/AAC+, HLS `.m3u8`, OGG, FLAC, playlists `.m3u`/`.pls`).
 - **Recherche mondiale en direct** via l'API ouverte `Radio-Browser` (sans clé API) pour ajouter n'importe quelle station aux favoris.
 - **Pont Multiroom AirPlay 2 & Apple Music** : permet de grouper matériellement toutes les enceintes AirPlay 2 d'une Zone autour d'un HomePod ou d'une Apple TV maître pour y propager Apple Music en synchronisation matérielle.
 
@@ -73,7 +73,7 @@ Conformément aux règles de confidentialité et de sécurité du Jeedom Market 
   - Le démon écoute exclusivement sur l'interface locale `127.0.0.1` (port dédié `55105`).
   - Vos enceintes AirPlay 1 / AirPlay 2 doivent être joignables sur votre réseau local (avec Multicast/mDNS `UDP 5353` autorisé pour la découverte automatique).
 - **Sobriété matérielle (Jeedom Luna / ARM)** :
-  - Démon mono-processus `asyncio` sans polling périodique (`0,00 % CPU` au repos), chargement paresseux de `pyatv` à la première diffusion, mutualisation d'un flux HTTP unique en entrée avec rétro-pression mémoire (`256 Ko` max par enceinte active), cache TTS en RAM `tmpfs` strictement borné (`max 6 fichiers` et `< 2 Mo`, purgé à l'arrêt) et historisation désactivée par défaut sur toutes les commandes volatiles pour préserver la mémoire flash eMMC.
+  - Démon mono-processus `asyncio` sans polling périodique (`0,00 % CPU` au repos), chargement paresseux de `pyatv` à la première diffusion, mutualisation d'un flux HTTP/transcodage unique en entrée avec rétro-pression mémoire (`512 Ko` max par enceinte active), cache TTS en RAM `tmpfs` strictement borné (`max 6 fichiers` et `< 2 Mo`, purgé à l'arrêt) et historisation désactivée par défaut sur toutes les commandes volatiles pour préserver la mémoire flash eMMC.
 
 ---
 

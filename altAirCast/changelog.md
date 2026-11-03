@@ -2,6 +2,16 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.11] - 2026-11-04
+
+### Corrigé & Optimisé
+- **Réparation de la diffusion des Webradios sur HomePod / HomePod mini et récepteurs AirPlay 1 & 2 (`resources/altaircastd.py`, `resources/install_apt.sh`, `core/class/altAirCast.class.php`, `core/template/mobile/altAirCast.html`)** :
+  - **Pré-tamponnage initial de `64 Ko` (`PREBUFFER_STREAM_BYTES`) avant l'ouverture `atv.stream.stream_file()`** : supprime la condition de course où `BufferedReaderSource` et `miniaudio` tentaient d'initialiser le décodeur de façon synchrone sur un `StreamReader` encore vide (`0 octet`) avant la fin de la négociation TLS HTTP, provoquant un échec immédiat `miniaudio.DecodeError`.
+  - **Double moteur Webradio (Transcodage léger `ffmpeg` + Alignement pur Python sur trames MPEG)** :
+    - Lorsque `ffmpeg` est présent sur le système (installé par `resources/install_apt.sh`), un processus `ffmpeg` unique mutualisé décode à la volée tous les flux Webradios (**MP3, AAC, HE-AAC / `audio/aacp`, HLS `.m3u8`, OGG, FLAC**) en un flux continu `44,1 kHz` propre dès l'octet `0`, avec arrêt garanti sans processus orphelin dès l'arrêt de la Zone.
+    - Même sans `ffmpeg` installé, le démon résout désormais les playlists `.m3u` / `.pls`, envoie des en-têtes lecteur compatibles (`Icy-MetaData: 0`), élimine les tags `ID3v2` surdimensionnés et aligne l'octet `0` des flux Icecast/Shoutcast (qui démarrent en milieu de trame) sur la première séquence vérifiée de 3 trames MPEG consécutives (`_align_audio_stream_start`).
+  - **Métadonnées explicites `MediaMetadata` & volume de repli sécurisé (`getCurrentOrDefaultVolume`)** : transmet le nom de la station à `stream_file(..., metadata=...)` (affichage Now Playing sur HomePod/iOS et contournement du sondage `mediafile` bloquant), garantit un volume non muet (`45 %` par défaut si non initialisé) et réinitialise le sélecteur radio mobile à l'appui sur *Stop*.
+
 ## [0.1.0-beta.10] - 2026-11-03
 
 ### Corrigé & Ajouté
