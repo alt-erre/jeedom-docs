@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.10] - 2026-11-03
+
+### Corrigé & Ajouté
+- **Réparation complète de la pré-écoute audio dans le navigateur (Safari macOS/iOS, Chrome, Firefox, Edge - HTTP & HTTPS)** :
+  - **Flux PHP authentifié `core/php/jeeAltAirCastPreview.php`** : remplace l'accès direct à `data/sounds/` (bloqué en `403 Forbidden` par les règles Apache de sécurité Jeedom) tout en prenant en charge les requêtes partielles **`HTTP Range` (`206 Partial Content` / `Accept-Ranges: bytes`)** exigées par Safari macOS et iOS, sans jamais verrouiller la session PHP (`@session_write_close()`).
+  - **Compatibilité native des sons libres Wikimedia Commons sur Safari (`searchOnlineFreeSounds`)** : bascule sur l'API `videoinfo` (`derivatives`) afin de servir et d'importer les dérivés transcodés **MP3 (`audio/mpeg`)** au lieu des fichiers `.ogg` Vorbis non décodés par WebKit/Safari.
+  - **Relais sécurisé des flux Webradios `http://` sous `https://` (Mixed Content)** : relais à la volée borné (`90 s` max, protection stricte anti-SSRF interdisant toute IP locale/privée/loopback sur chaque redirection) pour pré-écouter les webradios `http://` même lorsque Jeedom est ouvert en `https://`.
+  - **Mini-lecteur de pré-écoute visible et contrôleur JS sans doublon (`desktop/php/altAirCast.php`, `desktop/js/altAirCast.js`)** : barre de pré-écoute avec titre en cours, lecteur `<audio controls preload="none">`, bascule Lecture/Stop sur chaque bouton casque et délégation d'événements nommée (`.off('click.aacPreview')`) éliminant les `AbortError` lors de la navigation SPA Jeedom.
+
 ## [0.1.0-beta.9] - 2026-11-03
 
 ### Corrigé & Optimisé
