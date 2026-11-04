@@ -2,6 +2,17 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.19] - 2026-11-04
+
+### Corrigé & Optimisé
+- **Refonte du moteur de streaming Webradio temps réel sur HomePod / AirPlay (`resources/altaircastd.py`)** :
+  - **Source PCM directe asynchrone `LivePcmAudioSource` (`pcm_s16le` 44,1 kHz 16 bits stéréo)** : contourne le bogue arithmétique de `pyatv` (`BufferedIOBaseSource.CHUNK_SIZE = 1056` octets au lieu de `1408` octets par paquet RAOP de `352` trames, qui provoquait un remplissage partiel complété par `352` octets de zéros à `125 Hz` dès que le tampon descendait sous un paquet, puis des cycles de dégradation/récupération) ainsi que le double transcodage avec perte (`MP3/AAC -> ffmpeg MP3 -> miniaudio PCM`).
+  - **Hystérésis anti-gigue (`1,00 s` de pré-tampon initial, reprise à `0,75 s`, anneau borné à `3,00 s` / `~516 Ko` par enceinte)** : émet des paquets complets de silence de confort (`1408` octets) avec fondu linéaire anti-clic de `8 ms` en cas de micro-coupure réseau au lieu de bloquer l'horloge RTP de `StreamClient` (évitant les rafales de rattrapage accéléré `4x`) et purge proprement `0,20 s` en cas de dérive d'horloge positive sans bloquer le tube `ffmpeg`.
+  - **Zéro blocage après interruption d'une Webradio par un son ou changement de station** : élimine tout appel à `StreamReaderWrapper` / `ThreadPoolExecutor` sur le chemin principal (et garantit `feed_eof()` sur la liste immuable des lecteurs avant toute annulation en mode repli sans `ffmpeg`), sérialise les transitions par verrou asynchrone de Zone (`zone_locks`), envoie un arrêt RTSP gracieux (`remote_control.stop()` + délai de respiration `AirTunes` de `150 ms`) avant fermeture de socket, et désactive les tunnels `Companion`/`MRP` superflus lors d'une session purement RAOP (supprimant les collisions `Got response without having a request` sur HomePod).
+  - **Cache mDNS unicast à TTL de 5 min avec invalidation automatique sur erreur et reconnexion amont transparente (`3` tentatives)** en cas de coupure distante du serveur radio.
+- **Mémorisation de la dernière station et fiabilisation du bouton Lecture Webradio sur les widgets Dashboard & Mobile (`core/class/altAirCast.class.php`, `core/template/dashboard/altAirCast.html`, `core/template/mobile/altAirCast.html`)** :
+  - Persistance en cache RAM Jeedom (`altAirCast::last_radio::<id>`) de la dernière station lancée, pré-sélection automatique dans la liste déroulante `#radios_options_html#` (même après interruption par un bruitage Soundboard ou une annonce TTS), repli serveur si `play_radio` est appelé sans paramètre `select`, remplacement du sélecteur non standard `option[value!=""]` et ajout du bouton **Relancer la Webradio** sur le widget Mobile.
+
 ## [0.1.0-beta.18] - 2026-11-04
 
 ### Ajouté
