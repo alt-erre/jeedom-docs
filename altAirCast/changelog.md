@@ -2,6 +2,13 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.15] - 2026-11-04
+
+### Documentation & Amélioré
+- **Documentation complète du parcours de première installation et de l'auto-régénération des 20 sons embarqués (`README.md`, `core/class/altAirCast.class.php`)** :
+  - Ajout d'une section dédiée **« Installation & Premier démarrage »** dans `README.md` détaillant l'installation des dépendances, le réglage réseau HomePod (*Maison*), l'allègement des sauvegardes Jeedom (`data/sounds/builtin` exclu tandis que `data/sounds/custom` est intégralement sauvegardé) et le cycle d'auto-synthèse hors-ligne en `< 0,2 s` lors d'une première installation ou après restauration de sauvegarde.
+  - Contrôle unitaire des **20 fichiers `.wav`** dans `synthesizeMissingBuiltinSounds()` côté PHP (en plus du démon Python) afin que la suppression ou l'altération d'un seul son intermédiaire déclenche immédiatement sa régénération automatique à l'ouverture de l'interface ou du widget.
+
 ## [0.1.0-beta.14] - 2026-11-04
 
 ### Corrigé & Optimisé
