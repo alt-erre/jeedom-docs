@@ -3,6 +3,22 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.19] - 2026-11-04 (Canal Beta)
+
+### Corrigé & Sécurité (Stabilité de Session Cloud Arlo & Élimination de l'Auto-Concurrence)
+- **Verrouillage Singleton du démon et suppression des sous-processus `curl` concurrents (`resources/altarlod/altarlod.py`, `core/class/altArlo.class.php`)** :
+  - **Singleton noyau strict (`fcntl.flock` sur `/tmp/jeedom/altArlo/daemon.lock` + `start.lock` PHP)** : empêche définitivement deux instances de `altarlod.py` de tourner en parallèle (cause des rafales de déconnexions croisées `action == "logout"` lorsque deux flux `/hmsweb/client/subscribe` s'affrontaient avec le même jeton).
+  - **Flux SSE et requêtes REST 100 % en mémoire Python (zéro `/usr/bin/curl`)** : remplacement du sous-processus externe `curl -N .../hmsweb/client/subscribe` et des appels `curl` ponctuels par une session HTTP/2 persistante unique (`curl_cffi.requests.Session` réutilisant le profil TLS et les cookies de connexion, sérialisée par verrou `_api_lock`) et un flux SSE natif en mémoire doté de sondes TCP Keep-Alive noyau (`SO_KEEPALIVE`). Élimine tout processus `curl` orphelin après redémarrage et garantit zéro jeton `Authorization` dans `ps aux` (Art. 4.3 CGU).
+- **Élimination des auto-invalidations par faux positifs (`logout` de recyclage SSE & timeouts caméra)** :
+  - **Vérification active de survie du jeton (`verify_session_alive`)** : lorsque les répartiteurs AWS d'Arlo recyclent périodiquement un flux SSE longue durée en émettant `{"status": "disconnected", "action": "logout"}`, le démon ne détruit plus aveuglément `session.json`. Il vérifie d'abord auprès de `/hmsweb/users/session/v3` si le jeton est toujours valide et se reconnecte de manière transparente s'il est actif.
+  - **Filtrage strict des codes d'authentification (`2015`, `2016`, `1029`, `HTTP 401`)** : suppression de la détection trop large sur le mot `"expired"` qui invalidait à tort la session Cloud lorsqu'une caméra sur batterie mettait trop de temps à répondre (`"Transaction expired"`).
+- **Maintien de session nocturne 24h/24 (`maintenance_worker_loop`)** :
+  - Extraction du `keep_alive_session()` hors de la boucle bloquante de lecture SSE vers un thread dédié cadencé toutes les **9 minutes** (`540 s`), empêchant l'expiration d'inactivité vers 3h–4h du matin lorsque aucun mouvement n'est détecté la nuit.
+- **Suppression des accès CLI concurrents et des rafales post-capture (`altArlo.class.php`, `altArlo.ajax.php`, `altarlod.py`)** :
+  - La synchronisation d'équipements (`synchronizeDevices`) passe désormais par le socket local du démon actif (`cmd: sync_once`) au lieu de lancer un second processus Python concurrent.
+  - Arrêt systématique de tout démon actif dès l'ouverture d'une authentification (`start2faAuth`, `testAutoAuth`, `importToken`) et protection anti-écrasement dans `mark_session_expired()` si un jeton plus récent a été enregistré sur disque.
+  - Allègement drastique du rafraîchissement post-capture (`_poll_snapshot_after_capture` dédoublonné par caméra, 1 seul appel léger au lieu de 12 appels d'inventaire complets) et ciblage intelligent de `request_all_hubs_states()` selon le type réel d'équipement.
+
 ## [0.1.0-beta.18] - 2026-11-01 (Canal Beta)
 
 ### Corrigé & Amélioré
