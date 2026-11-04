@@ -2,6 +2,16 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.16] - 2026-11-04
+
+### Corrigé & Optimisé
+- **Correction de la pré-écoute navigateur des bruitages en ligne CC0 et des Webradios sous la `Content-Security-Policy` de Jeedom (`desktop/js/altAirCast.js`, `core/php/jeeAltAirCastPreview.php`, `core/class/altAirCast.class.php`)** :
+  - **Routage direct par le relais interne `'self'` dès le premier `player.play()`** : supprime la tentative préalable de chargement direct cross-origin (`https://sfxmint.com/...` ou `https://upload.wikimedia.org/...`), qui était bloquée par l'en-tête Apache `Content-Security-Policy: default-src 'self'` de Jeedom Core v4 et déclenchait une condition de course entre `player.onerror` et `play().catch()` (`NotSupportedError: Failed to load because no supported source was found`) annulant le basculement vers le relais.
+  - **Micro-cache éphémère en RAM `tmpfs` avec support natif `HTTP 206 Partial Content` (`getCachedRemoteSfxPreview` & `altAirCast_serveLocalAudioWithRange`)** : télécharge une seule fois le bruitage distant en mémoire vive (`/tmp/jeedom/altAirCast/preview_cache/`, rotation LRU stricte `<= 6 fichiers` et `<= 1,8 Mo` compatible Jeedom Luna, contrôle anti-SSRF) afin de répondre aux sondages `Range: bytes=0-1` et `HEAD` exigés par Safari macOS/iOS, Chrome et Firefox comme pour un son local, puis réutilise instantanément ce fichier en RAM (`0 ms`) si l'utilisateur clique ensuite sur **Importer**.
+  - **Compteur de séquence monotone anti-course (`aacPreviewState.seq`)** : empêche tout événement `onerror` ou rejet de promesse obsolète d'interrompre une nouvelle pré-écoute ou d'afficher une double alerte.
+- **Compatibilité complète des icônes avec FontAwesome 5.15 de Jeedom Core v4 (`desktop/php/altAirCast.php`, `desktop/js/altAirCast.js`, `core/class/altAirCast.class.php`, `core/ajax/altAirCast.ajax.php`, `core/template/dashboard/altAirCast.html`, `resources/sound_synth.py`)** :
+  - Remplacement des classes introduites uniquement dans FontAwesome 6 (`fa-radio`, `fa-volume-high`, `fa-triangle-exclamation`, `fa-shield-halved`, `fa-face-sad-tear`, `fa-face-laugh-squint`) par leurs équivalents universels FontAwesome 5/6 (`fa-podcast`, `fa-volume-up`, `fa-exclamation-triangle`, `fa-shield-alt`, `fa-sad-tear`, `fa-laugh-squint`).
+
 ## [0.1.0-beta.15] - 2026-11-04
 
 ### Documentation & Amélioré
