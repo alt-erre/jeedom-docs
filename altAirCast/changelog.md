@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.13] - 2026-11-04
+
+### Modifié & Amélioré
+- **Refonte complète de l'explorateur de bruitages courts CC0 sans clé API et suppression de Freesound (`core/class/altAirCast.class.php`, `plugin_info/configuration.php`, `desktop/php/altAirCast.php`, `desktop/js/altAirCast.js`)** :
+  - **Suppression complète de la dépendance et du champ `freesound_api_key`** dans la configuration du plugin (plus aucune clé API externe requise ni non testable).
+  - **Nouveau moteur hybride 100 % effets sonores courts (`0,15 s` à `25 s`) sans voix parlées** : interroge en priorité le catalogue dédié de bruitages `SFXMint` (`CC0-1.0`, flux MP3 natifs compatibles Safari/iOS/AirPlay) avec repli filtré anti-dictionnaire (`isSpokenOrNonSfxAudio` excluant l'intégralité des prononciations vocales Lingua Libre `LL-Q...`, préfixes ISO du Wiktionnaire `Fr-...` / `En-us-...`, discours, interviews, pistes longues et fichiers MIDI).
+  - **Traduction automatique Français -> Anglais des recherches (`translateSfxSearchQuery`)** : permet de chercher naturellement en français (*sonnette*, *chien*, *chat*, *applaudissements*, *rires*, *klaxon*, *sirène*, *gong*, *orage*, *arcade*, *tambour*, *minuterie*...), avec affichage de la durée exacte en secondes, validation par la touche `Entrée`, classement automatique dans la bonne catégorie Soundboard (`Jingle`, `Fun`, `Alerte`, `Ambiance`) à l'import et cache éphémère en RAM (`10 min`, max 15 requêtes).
+
 ## [0.1.0-beta.12] - 2026-11-04
 
 ### Corrigé & Optimisé

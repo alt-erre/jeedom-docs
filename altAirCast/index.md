@@ -27,8 +27,8 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
   - **Soundboard Fun** : *Ba-Dum-Tss (Blague)*, *Trombone Triste (Wah-Wah)*, *Fanfare Triomphale*, *Level Up Arcade 8-bit*, *Pièce Bonus Rétro*, *Game Over Rétro*, *Roulement de Tambour*, *Klaxon de Stade (Airhorn)*, *Tir Laser Sci-Fi*, *Décompte 3-2-1 Go !*.
   - **Alertes & Sécurité** : *Sirène Bitonale*, *Alerte Urgence / Intrusion*, *Fin de Minuterie / Cuisine*.
   - **Ambiances** : *Carillon Éolien Doux*, *Souffle Apaisant (Bruit Doux)*.
-- **Explorateur intégré de sons libres en ligne (`Wikimedia Commons Audio` CC0/CC-BY sans clé API + `Freesound.org` optionnel)** :
-  - Recherche par mot-clé ou par thème (*Rires & Applaudissements*, *Klaxons & Fanfares*, *Cloches & Gongs*, *Tambours*, *Jeux Rétro*, *Animaux*), pré-écoute dans le navigateur et **import en 1 clic** dans votre Soundboard locale.
+- **Explorateur intégré de bruitages courts CC0 en ligne (100 % sans clé API)** :
+  - Catalogue dédié 100 % effets sonores CC0 (`SFXMint`) complété par des sons courts filtrés (`<= 25 s`, MP3 natif, exclusion totale des prononciations vocales de dictionnaire Wiktionary / Lingua Libre), avec **traduction automatique Français -> Anglais** des mots-clés (*sonnette*, *chien*, *applaudissements*, *rires*, *klaxon*, *sirène*, *gong*, *orage*, *arcade*...), pré-écoute dans le navigateur et **import + classement automatique par catégorie en 1 clic** dans votre Soundboard locale.
 - **Import local** de vos propres fichiers `.mp3`, `.wav`, `.ogg`, `.flac`.
 - **Épinglage personnalisé des boutons rapides sur le Widget par Zone** :
   - Chaque Zone permet de choisir quels sons (embarqués ou importés) sont affichés sous forme de boutons d'accès direct sur son Widget Dashboard et Mobile (depuis l'onglet *Zone & Enceintes Cibles* ou via le bouton d'épinglage dans l'onglet *Soundboard*). Tous les autres sons restent accessibles dans le sélecteur déroulant classé par catégories.
