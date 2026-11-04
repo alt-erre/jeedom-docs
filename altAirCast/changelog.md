@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.14] - 2026-11-04
+
+### Corrigé & Optimisé
+- **Fiabilisation complète et accélération des mises à jour unitaires sous le seuil HTTP de 30 s (`plugin_info/install.php`, `plugin_info/pre_install.php`, `core/class/altAirCast.class.php`, `resources/altaircastd.py`, `.gitignore`)** :
+  - **Allègement de 95 % de l'archive GitHub (`3,4 Mo -> ~150 Ko`)** : retrait du suivi Git des 20 fichiers audio `.wav` non compressés (`data/sounds/builtin/*.wav`, `3,0 Mo`) déjà synthétisés localement en `< 0,15 s` par `resources/sound_synth.py --init-builtin` (et exclus des sauvegardes via `backupExclude()`), supprimant `4 à 8 s` de téléchargement, décompression et déplacements inter-partitions lors de `update::doUpdate()`.
+  - **Hooks `altAirCast_pre_update()` et `altAirCast_post_plugin_install()` anti-blocage démon** : amorce l'arrêt gracieux dès `preInstallUpdate()` et finalise l'extinction du démon dans un processus CLI neuf juste **avant** `$plugin->setIsEnable(1)`, ce qui court-circuite immédiatement tout ancien `deamon_stop()` encore chargé en mémoire Apache (y compris dès la transition depuis `0.1.0-beta.13`).
+  - **Arrêt borné `< 1,0 s` du démon et suppression de `fuser -k 55105/tcp` (`deamon_stop()`, `altaircastd.py`)** : encadre la fermeture RTSP/AirPlay par des délais stricts (`0,3 s` sur le serveur socket + `0,8 s` sur les sessions actives) et remplace `fuser -k` par un ciblage exclusif du PID et de ses sous-processus `ffmpeg`.
+  - **Zéro écriture SQL inutile lors des mises à jour (`upsertCmd()` & `$_inBulkUpdate`)** : ne réenregistre une commande existante en base MariaDB que si l'un de ses attributs a réellement évolué (passant de `31 UPDATE SQL` par Zone à `0` sur les équipements déjà à jour) et suspend les rechargements unitaires du démon pendant la boucle `altAirCast_update()`.
+
 ## [0.1.0-beta.13] - 2026-11-04
 
 ### Modifié & Amélioré
