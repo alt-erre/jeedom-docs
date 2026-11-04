@@ -2,6 +2,15 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.17] - 2026-11-04
+
+### Sécurité & Conformité CGU Jeedom Market
+- **Durcissement sécurité et conformité CGU Jeedom Market (Articles 4.3, 4.8, 5.2 et 5.3)** :
+  - **Liste blanche stricte `Content-Type: audio/*` et isolation `CSP sandbox` sur `core/php/jeeAltAirCastPreview.php`** : bloque toute réponse amont non-audio (`text/html`, `image/svg+xml`, `application/javascript` -> `HTTP 415/502`) afin d'empêcher tout rendu de contenu actif tiers sur l'origine Jeedom, et durcit les droits du micro-cache RAM `/tmp/jeedom/altAirCast/preview_cache` en `0700` / `0600`.
+  - **Protection anti-SSRF IPv4 + IPv6 (`DNS_AAAA`)** dans `isSafePublicAudioUrl()` et `jeeAltAirCastPreview.php` sur la requête initiale comme à chaque redirection HTTP.
+  - **Filtrage strict Domaine Public / `CC0` sur le repli `Wikimedia Commons` (`searchOnlineFreeSounds`)** : exclut les licences Copyleft (`CC-BY-SA`) ou à attribution obligatoire afin que 100 % des bruitages proposés à l'écoute et à l'import soient librement réutilisables sans contrainte de licence tierce.
+  - **Documentation RGPD / Flux externes dans `README.md` (Art. 4.8)** : détaille explicitement les requêtes HTTPS ponctuelles déclenchées uniquement sur action de l'utilisateur (`sfxmint.com`, `commons.wikimedia.org`, `api.radio-browser.info`, `gTTS`) et l'absence totale de transmission de secrets ou données personnelles.
+
 ## [0.1.0-beta.16] - 2026-11-04
 
 ### Corrigé & Optimisé

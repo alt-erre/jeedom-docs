@@ -81,7 +81,12 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :
 
-- **Diffusion locale sur votre réseau (LAN)** : Toutes les diffusions audio (`RAOP` / `AirPlay` / `Companion`), la synthèse des 20 sons embarqués et la synthèse vocale locale s'effectuent directement sur votre réseau local entre votre box Jeedom et vos enceintes.
+- **Diffusion locale sur votre réseau (LAN)** : Toutes les diffusions audio (`RAOP` / `AirPlay` / `Companion`), la synthèse des 20 sons embarqués (`resources/sound_synth.py`) et la synthèse vocale locale s'effectuent directement sur votre réseau local entre votre box Jeedom et vos enceintes.
+- **Services externes optionnels (sans clé API ni transmission de données personnelles)** :
+  - Aucune requête Internet n'est émise automatiquement en tâche de fond lorsque le plugin est au repos.
+  - Uniquement sur action explicite de l'utilisateur (ou scénario configuré), le plugin peut interroger en HTTPS : le catalogue public `CC0` `sfxmint.com` et le repli Domaine Public `commons.wikimedia.org` (recherche/import de bruitages courts), l'annuaire ouvert `api.radio-browser.info` (recherche de Webradios), les flux audio des stations Webradios choisies, ainsi que `translate.google.com` (`gTTS`) uniquement si la synthèse vocale de secours en ligne est utilisée.
+  - Aucun secret Jeedom (`apikey`), jeton d'appairage AirPlay/Companion, identifiant personnel ni inventaire d'équipements locaux n'est jamais transmis à ces services tiers.
+  - Le point d'entrée de pré-écoute navigateur (`core/php/jeeAltAirCastPreview.php`) exige une session Jeedom authentifiée (`isConnect()`), bloque toute cible réseau privée/locale/loopback IPv4 et IPv6 (anti-SSRF à chaque redirection), applique une liste blanche stricte `Content-Type: audio/*` (`CSP sandbox` + `nosniff`) et utilise un micro-cache RAM éphémère (`/tmp/jeedom/altAirCast/preview_cache`, droits `0600`, plafonné à `1,8 Mo` et purgé à l'arrêt).
 - **Protection stricte des secrets et clés d'appairage (Zéro secret dans `ps aux`)** :
   - La clé API interne Jeedom ainsi que les éventuels jetons d'appairage AirPlay/Companion ne sont jamais passés en argument de ligne de commande (`ps aux`).
   - Ils sont encapsulés dans `/tmp/jeedom/altAirCast/daemon_config.json` avec des permissions strictes `0600` et supprimés à l'arrêt du démon.
