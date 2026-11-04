@@ -17,9 +17,9 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
    - Activez le plugin dans **Plugins -> Gestion des plugins -> Alt Diffusion, Sons & Multiroom (AirPlay)**.
    - Lancez l'installation des dépendances (environnement isolé `resources/venv` avec `pyatv`, `aiohttp`, `gTTS`, plus `avahi-utils` et `ffmpeg` pour le décodage universel des Webradios). L'installation tourne en priorité basse (`nice`/`ionice`) afin de ne jamais ralentir votre box Jeedom.
    - Une fois les dépendances au vert, vérifiez que le **Démon** est démarré (`OK`).
-2. **Génération automatique des 20 sons embarqués (1re installation, mise à jour ou restauration)** :
-   - Pour garder des mises à jour quasi instantanées (`~150 Ko`) et alléger vos sauvegardes quotidiennes Jeedom de `3 Mo`, les 20 fichiers `.wav` du pack embarqué ne sont pas stockés dans l'archive du plugin ni dans les backups (`data/sounds/builtin` est exclu, tandis que vos propres sons importés dans `data/sounds/custom` sont **intégralement sauvegardés**).
-   - Dès l'activation du plugin (même avant la fin des dépendances), à chaque démarrage du démon ou dès l'ouverture de l'interface / d'un widget après une restauration de sauvegarde, le synthétiseur intégré (`resources/sound_synth.py`, 100 % bibliothèque standard Python hors-ligne, sans accès Internet) vérifie individuellement les 20 fichiers et **recrée automatiquement en `< 0,2 s` tout son absent ou altéré**.
+2. **Génération automatique des 26 sons embarqués (1re installation, mise à jour ou restauration)** :
+   - Pour garder des mises à jour quasi instantanées (`~150 Ko`) et alléger vos sauvegardes quotidiennes Jeedom de `~4,4 Mo`, les 26 fichiers `.wav` du pack embarqué ne sont pas stockés dans l'archive du plugin ni dans les backups (`data/sounds/builtin` est exclu, tandis que vos propres sons importés dans `data/sounds/custom` sont **intégralement sauvegardés**).
+   - Dès l'activation du plugin (même avant la fin des dépendances), à chaque démarrage du démon ou dès l'ouverture de l'interface / d'un widget après une restauration de sauvegarde, le synthétiseur intégré (`resources/sound_synth.py`, 100 % bibliothèque standard Python hors-ligne, sans accès Internet) vérifie individuellement les 26 fichiers (`< 1 ms` si déjà présents) et **recrée automatiquement en quelques secondes uniquement les sons absents ou altérés**.
 3. **Découverte et appairage des enceintes** :
    - Ouvrez **Plugins -> Multimédia -> Alt Diffusion, Sons & Multiroom (AirPlay)** puis cliquez sur **Scanner les enceintes AirPlay** (ou importez en 1 clic celles déjà connues d'`altAirMedia`).
    - Pour les équipements exigeant un code PIN (Apple TV ou HomePod configuré avec contrôle d'accès restreint), lancez l'assistant d'appairage directement sur la carte de l'enceinte. Sur un HomePod / HomePod mini standard, vérifiez dans l'application **Maison (Home)** d'Apple (*Réglages du domicile -> Haut-parleurs et téléviseurs*) que l'accès est réglé sur *« Toutes les personnes sur le même réseau »* (ou saisissez le mot de passe/PIN configuré).
@@ -39,11 +39,11 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 - **Offset de volume par enceinte (`-30 %` à `+30 %`)** pour équilibrer la puissance sonore entre différentes pièces d'une même Zone.
 
 ### 2. Soundboard « Fun » & Explorateur de Bruitages Courts Libres (Sans clé API)
-- **Pack « Studio & Fun » de 20 sons pré-embarqués hors-ligne** (auto-synthétisés localement en WAV 44.1 kHz 16-bit, CC0, auto-réparés s'il en manque un) :
-  - **Jingles d'annonce** : *Carillon Gare (4 notes)*, *Carillon Aéroport (3 notes)*, *Ding-Dong Porte*, *Gong Zen Tibétain*, *Double Clochette Douce*.
+- **Pack « Studio, Domotique & Fun » de 26 sons pré-embarqués hors-ligne** (auto-synthétisés localement en WAV 44.1 kHz 16-bit, création originale `CC0`, auto-réparés s'il en manque un) :
+  - **Jingles d'annonce & Domotique** : *Carillon Gare (4 notes)*, *Jingle Interphone Doux*, *Sonnette Domotique Cristalline*, *Carillon Aéroport (3 notes)*, *Ding-Dong Porte*, *Gong Zen Tibétain*, *Double Clochette Douce*, *Réveil Aube Douce (Harpe)*.
   - **Soundboard Fun** : *Ba-Dum-Tss (Blague)*, *Trombone Triste (Wah-Wah)*, *Fanfare Triomphale*, *Level Up Arcade 8-bit*, *Pièce Bonus Rétro*, *Game Over Rétro*, *Roulement de Tambour*, *Klaxon de Stade (Airhorn)*, *Tir Laser Sci-Fi*, *Décompte 3-2-1 Go !*.
   - **Alertes & Sécurité** : *Sirène Bitonale*, *Alerte Urgence / Intrusion*, *Fin de Minuterie / Cuisine*.
-  - **Ambiances** : *Carillon Éolien Doux*, *Souffle Apaisant (Bruit Doux)*.
+  - **Ambiances & Relaxation** : *Carillon Éolien Doux*, *Souffle Apaisant (Bruit Doux)*, *Pluie Douce sur Feuillage*, *Ressac d'Océan Apaisant*, *Bruit Brun Profond (Cocooning)*.
 - **Explorateur intégré de bruitages courts CC0 en ligne (100 % sans clé API)** :
   - Catalogue dédié 100 % effets sonores CC0 (`SFXMint`) complété par des sons courts filtrés (`<= 25 s`, MP3 natif, exclusion totale des prononciations vocales de dictionnaire Wiktionary / Lingua Libre), avec **traduction automatique Français -> Anglais** des mots-clés (*sonnette*, *chien*, *applaudissements*, *rires*, *klaxon*, *sirène*, *gong*, *orage*, *arcade*...), pré-écoute dans le navigateur (compatible Safari macOS/iOS, Chrome, Firefox, Edge) et **import + classement automatique par catégorie en 1 clic** dans votre Soundboard locale.
 - **Import local** de vos propres fichiers `.mp3`, `.wav`, `.ogg`, `.flac` (conservés dans `data/sounds/custom/` et inclus dans les sauvegardes Jeedom).
@@ -81,7 +81,7 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :
 
-- **Diffusion locale sur votre réseau (LAN)** : Toutes les diffusions audio (`RAOP` / `AirPlay` / `Companion`), la synthèse des 20 sons embarqués (`resources/sound_synth.py`) et la synthèse vocale locale s'effectuent directement sur votre réseau local entre votre box Jeedom et vos enceintes.
+- **Diffusion locale sur votre réseau (LAN)** : Toutes les diffusions audio (`RAOP` / `AirPlay` / `Companion`), la synthèse des 26 sons embarqués (`resources/sound_synth.py`) et la synthèse vocale locale s'effectuent directement sur votre réseau local entre votre box Jeedom et vos enceintes.
 - **Services externes optionnels (sans clé API ni transmission de données personnelles)** :
   - Aucune requête Internet n'est émise automatiquement en tâche de fond lorsque le plugin est au repos.
   - Uniquement sur action explicite de l'utilisateur (ou scénario configuré), le plugin peut interroger en HTTPS : le catalogue public `CC0` `sfxmint.com` et le repli Domaine Public `commons.wikimedia.org` (recherche/import de bruitages courts), l'annuaire ouvert `api.radio-browser.info` (recherche de Webradios), les flux audio des stations Webradios choisies, ainsi que `translate.google.com` (`gTTS`) uniquement si la synthèse vocale de secours en ligne est utilisée.

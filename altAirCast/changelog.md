@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.18] - 2026-11-04
+
+### Ajouté
+- **6 nouvelles créations sonores originales synthétisées hors-ligne pour HomePod / AirPlay (`resources/sound_synth.py`, `core/class/altAirCast.class.php`, `plugin_info/configuration.php`, `desktop/php/altAirCast.php`, `README.md`)** :
+  - Porte le pack embarqué hors-ligne de **20 à 26 sons WAV `44,1 kHz` 16-bit** (`0 Ko` ajouté à l'archive Git, auto-généré localement uniquement pour les fichiers manquants sans réécrire l'existant sur l'eMMC, vectorisation C `array` de l'encodage PCM, 100 % création mathématique originale conforme aux CGU Market) :
+    - **Jingles Domotique & Réveil** (également sélectionnables comme jingle d'introduction avant annonce vocale TTS) : *Jingle Interphone Doux* (`chime_intercom`), *Sonnette Domotique Cristalline* (`chime_crystal_door`) et *Réveil Aube Douce - Harpe* (`chime_dawn_harp`).
+    - **Ambiances Naturelles & Relaxation** : *Pluie Douce sur Feuillage* (`ambient_gentle_rain`), *Ressac d'Océan Apaisant* (`ambient_ocean_surf`) et *Bruit Brun Profond - Cocooning* (`ambient_brown_noise`).
+
 ## [0.1.0-beta.17] - 2026-11-04
 
 ### Sécurité & Conformité CGU Jeedom Market
