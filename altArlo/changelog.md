@@ -3,6 +3,18 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.22] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Amélioré (Détection `Access token is expired`, Auto-Renouvellement Live/Galerie & Diagnostic UI)
+- **Détection exacte de l'expiration `Access token is expired` dans le démon (`resources/altarlod/altarlod.py`)** :
+  - Correction de `_is_auth_rejection_response()` qui recherchait `"token expired"` mais laissait passer le libellé exact `"Access token is expired"` (à cause du mot `" is "`), ce qui conduisait `verify_session_alive()` et `keep_alive_session()` à considérer à tort un jeton expiré comme toujours actif sans jamais déclencher l'auto-reconnexion 2FA ni marquer `session.json` comme expiré.
+  - Réveil immédiat de la boucle SSE (`_notify_sse_session_changed()`) dès qu'une expiration de jeton est détectée par le `keep_alive` périodique ou par une action Live/Galerie, afin de lancer sans attente le renouvellement automatique 2FA lorsqu'il est configuré.
+- **Arrêt immédiat sans boucle inutile et reprise transparente sur `startStream` & `users/library` (`resources/altarlod/altarlod.py`, `core/class/altArlo.class.php`)** :
+  - `_negotiate_camera_stream_url()` vérifie désormais l'expiration de session dès le premier appel (`notify` / `startStream`) sans répéter 6 tentatives vouées à l'échec : si un nouveau jeton a été enregistré sur disque ou si l'Auto-Reconnexion 2FA est activée, la session est renouvelée à la volée et le flux Live démarre automatiquement ; sinon `session.json` est immédiatement marqué expiré.
+  - Remontée explicite de `sessionExpired` / `sessionError` dans `fetch_cloud_library()`, `listDeviceMedia()` et `transcode_media()` lorsque le jeton Cloud Arlo est arrivé à expiration.
+- **Affichage dédié « Session expirée » dans la fenêtre Direct (Live) et la Galerie (`core/template/dashboard/altArlo.html`)** :
+  - Suppression du message trompeur de portée radio / batterie (*« Vérifiez qu'elle est allumée, chargée et à portée de la base »*) lorsque l'erreur provient d'un jeton Cloud Arlo expiré (`SESSION EXPIRÉE`), arrêt de l'animation radar et masquage du sous-titre de réveil radio en cas d'erreur ou d'arrêt, adaptation de la mention d'alimentation pour les caméras branchées sur secteur, et bandeau d'avertissement clair en haut de la Galerie lorsque la session Cloud doit être reconnectée.
+
 ## [0.1.0-beta.21] - 2026-11-05 (Canal Beta)
 
 ### Corrigé & Amélioré (Flux Vidéo Direct Live & Lecture Universelle des Vidéos de la Bibliothèque)
