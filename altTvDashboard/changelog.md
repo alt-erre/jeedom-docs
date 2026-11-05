@@ -5,6 +5,14 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](../VERSIO
 
 ---
 
+## [0.1.0-beta.22] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Refonte visuelle et fonctionnelle du Widget Jeedom Dashboard & Mobile (`core/template/dashboard/altTvDashboard.html`, `core/template/mobile/altTvDashboard.html`, `core/class/altTvDashboard.class.php`)** :
+  - **Isolation CSS complète face à Jeedom Core (`!important`)** : neutralisation des surcharges globales de Jeedom Core sur les `<select>` (fond blanc illisible sur texte blanc), les boutons ronds d'en-tête et les pilules d'action sur l'ensemble des **9 thèmes `alt-erre`** (`Dark Glass` et `Light Glass`), avec chevrons SVG intégrés, contraste de texte adapté sur les thèmes clairs/ambrés (`--alt-on-accent`) et support `color-scheme`.
+  - **Clarification et mise en page des listes déroulantes de télécommande Kiosk** : présentation en lignes étiquetées (**`Vue TV`** et **`Format`**) avec libellés compacts non tronqués permettant de piloter à distance l'onglet affiché et l'orientation/posture de l'écran Kiosk, synchronisées en temps réel via `jeedom.cmd.addUpdateFunction`.
+  - **Correction de la barre de Volume & intégration du sélecteur de plafond `Max 10%…100%`** : stylisation native WebKit/Firefox de la jauge `<input type="range">` avec remplissage progressif (`--slider-progress`), liaison directe au volume et à la sourdine du téléviseur `altSamsungTv` associé lorsqu'il est configuré, correction du blocage `max="#volume_max#"` en mode Kiosk autonome (`0–100 %`), et ajout du sélecteur rapide `.tvd-vol-max-select` (`Max 10%` à `Max 70%` par pas de `5` + `Max 100%`, badge ambré `.is-capped`).
+
 ## [0.1.0-beta.21] - 2026-11-02 (Canal Beta)
 
 ### Ajouté & Amélioré
