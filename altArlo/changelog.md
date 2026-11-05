@@ -3,6 +3,20 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.20] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Sécurité (Cookies Cloudflare `__cf_bm`, Handshake 2FA `validateAccessToken` & Redémarrage Jeedom Luna)
+- **Suppression des cookies Cloudflare éphémères figés dans `session.json` (`resources/altarlod/altarlod.py`)** :
+  - `finish_2fa_auth()`, `import_raw_token()`, `load_session()`, `save_session()` et `get_myapi_headers()` ne persistent plus et n'envoient plus jamais les cookies anti-bot Cloudflare (`__cf_bm`, `cf_clearance`) issus de `ocapi-app.arlo.com` (dont la durée de vie de 30 à 60 minutes provoquait un rejet `HTTP 401` sur `myapi.arlo.com` après expiration ou lors d'une reconnexion TLS à froid au redémarrage de la box). Tout fichier `session.json` existant contenant d'anciens en-têtes volatils (`Cookie`, `User-Agent`, `Priority`, `Sec-CH-UA*`) est automatiquement assaini au chargement.
+- **Handshake 2FA officiel complet & endpoints universels `session/v2` (`resources/altarlod/altarlod.py`)** :
+  - Ajout de l'étape finale officielle `GET https://ocapi-app.arlo.com/api/validateAccessToken` suivie de l'initialisation `GET https://myapi.arlo.com/hmsweb/users/session/v2` dans `finish_2fa_auth()` afin de promouvoir le jeton OCAPI à sa durée de vie maximale.
+  - Remplacement de `session/v3` par `users/devices` et `users/session/v2` sur une session TLS fraîche dans `verify_session_alive()` et `keep_alive_session()`, avec un réessai automatique sur nouvelle session TLS en cas de `HTTP 401` transitoire dans `api_request()`.
+- **Protection contre la double relance concurrente au démarrage de la box (`core/class/altArlo.class.php`, `resources/altarlod/altarlod.py`)** :
+  - Garde-fou anti-rebond de 30 secondes (`last_start.ts`) dans `deamon_start()` empêchant `jeedom::start()` et le cron minute `plugin::checkDeamon()` de tuer et relancer deux fois de suite le démon en plein handshake SSE lors d'un reboot de la box Jeedom Luna.
+  - Allongement du délai d'arrêt gracieux `SIGTERM` à `2 s` dans `deamon_stop()` pour fermer proprement la socket TLS SSE côté serveur Arlo avant toute escalade `SIGKILL`, et temporisation automatique de stabilisation réseau/NTP (`8 s`) lorsque le système vient de démarrer (`uptime < 120 s`).
+- **Diagnostic exact dans les logs Jeedom (`resources/altarlod/altarlod.py`)** :
+  - Suppression du code `"2015"` synthétique forcé sur les `HTTP 401` vides : les logs remontent désormais le code exact retourné par Arlo (`2015` session ouverte ailleurs, `2016` expiration naturelle du jeton, `1029` jeton invalide ou `HTTP 401`) ainsi que l'endpoint concerné, et ne déclenchent plus d'alerte `ERROR` prématurée lorsqu'une auto-reconnexion 2FA est configurée et renouvelle la session avec succès.
+
 ## [0.1.0-beta.19] - 2026-11-04 (Canal Beta)
 
 ### Corrigé & Sécurité (Stabilité de Session Cloud Arlo & Élimination de l'Auto-Concurrence)

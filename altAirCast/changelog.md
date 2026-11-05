@@ -2,6 +2,17 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.20] - 2026-11-05
+
+### Corrigé & Optimisé
+- **Fiabilisation intégrale des mises à jour, suppression des processus Python synchrones côté PHP et protection contre la saturation CPU/RAM (`core/class/altAirCast.class.php`, `plugin_info/install.php`, `plugin_info/pre_install.php`, `core/php/jeeAltAirCastPreview.php`, `resources/altaircastd.py`, `resources/sound_synth.py`)** :
+  - **Zéro appel Python bloquant dans `getSoundsCatalog()`, `toHtml()`, `getKioskWidgetData()`, `altAirCast_update()` et `deamon_start()`** : élimine la tempête de processus `sound_synth.py` concurrents qui se déclenchait lors d'une mise à jour ajoutant de nouveaux sons embarqués (comme le saut `beta.17 -> beta.19`) et pouvait saturer les workers Apache / `jeeCron` si un fichier `.wav` restait manquant ou verrouillé.
+  - **Ouverture instantanée du socket `55105` et écriture de `deamon.pid` en `< 80 ms` (`altaircastd.py`)** : déplace la synthèse des éventuels sons `.wav` manquants dans une tâche asynchrone d'arrière-plan non bloquante après le démarrage du serveur TCP, avec synthèse unitaire à la volée (`ensure_single_builtin_sound`) lors d'une lecture ou pré-écoute immédiate.
+  - **Verrou inter-processus `fcntl.flock`, fichiers temporaires atomiques par PID/thread et accélération `5x` des ambiances (`sound_synth.py`)** : supprime toute collision `FileNotFoundError` / `PermissionError` sur les fichiers `.wav.tmp` partagés, purge automatiquement les `.tmp` orphelins et réduit le temps de synthèse complet des 26 sons.
+  - **Alignement strict des permissions `www-data` vs `root` et détection démon zéro-fork via `/proc/<pid>/cmdline`** : lorsque `jeeUpdate.php` s'exécute sous `root`, répare automatiquement les droits `www-data:www-data` sur `data/` et `/tmp/jeedom/altAirCast`, lance `altaircastd.py` sous `www-data` (`sudo -n -u www-data`), gère l'arrêt d'un éventuel ancien démon `root` (`EPERM` + `stop_daemon` TCP + repli `system::getCmdSudo()`), supprime tout appel `ps auxww | grep` dans `isDaemonRunning()` et draine en continu `stderr` sur `ffmpeg` lors des écoutes Webradio prolongées.
+- **Cohérence d'affichage des versions après une mise à jour interrompue (`plugin_info/configuration.php` & `jeedom_custom_update_versions.js`)** :
+  - Détecte le cas où les fichiers d'une nouvelle version ont été copiés sur disque mais où la base Jeedom pointe encore sur l'ancien commit (`localSha != remoteSha` avec `info.json == remoteVer`), évitant d'afficher la nouvelle version SemVer à côté de l'ancien hash de commit dans la colonne *Version installée*.
+
 ## [0.1.0-beta.19] - 2026-11-04
 
 ### Corrigé & Optimisé

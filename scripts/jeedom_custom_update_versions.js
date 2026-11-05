@@ -72,12 +72,12 @@
     return m ? m[1] : '';
   }
 
-  function renderSemVerBadge(td, semver, shortSha, rawSha) {
+  function renderSemVerBadge(td, semver, shortSha, rawSha, extraHint) {
     var origSpan = td.querySelector('.updateAttr') || td.querySelector('span.label:not(.alt-semver-badge)');
     if (!origSpan) return;
     var verLabel = semver ? (semver.indexOf('v') === 0 ? semver : ('v' + semver)) : '';
     var text = verLabel ? (verLabel + ' (' + shortSha + ')') : shortSha;
-    var title = (verLabel ? ('Version ' + verLabel + ' - ') : '') + 'Commit : ' + rawSha;
+    var title = (verLabel ? ('Version ' + verLabel + ' - ') : '') + 'Commit : ' + rawSha + (extraHint ? (' (' + extraHint + ')') : '');
 
     var badge = td.querySelector('.alt-semver-badge');
     if (!badge) {
@@ -130,12 +130,19 @@
       var remoteVer = (shortRemote === shortLocal && localVer)
         ? localVer
         : (dynamicRemoteMap[key] || '');
+      var localHint = '';
+      if (shortLocal && shortRemote && shortLocal !== shortRemote && localVer && remoteVer && localVer === remoteVer) {
+        // Mise à jour précédente interrompue après copie des fichiers sur disque :
+        // ne pas afficher le SemVer cible en regard de l'ancien commit encore enregistré en base.
+        localVer = '';
+        localHint = 'mise à jour précédente interrompue, relancez Mettre à jour';
+      }
 
       if (shortLocal) {
-        renderSemVerBadge(tds[2], localVer, shortLocal, rawLocal);
+        renderSemVerBadge(tds[2], localVer, shortLocal, rawLocal, localHint);
       }
       if (shortRemote) {
-        renderSemVerBadge(tds[3], remoteVer, shortRemote, rawRemote);
+        renderSemVerBadge(tds[3], remoteVer, shortRemote, rawRemote, '');
       }
     });
 
