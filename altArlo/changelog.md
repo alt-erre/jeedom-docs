@@ -3,6 +3,19 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.24] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Amélioré (Correction `HTTP 502` sur `weblivestream-*.arlo.com`, Priorité RTSPS Natif & Repli Direct HD Séquentiel)
+- **Priorité au flux RTSPS natif (`vzmodulelive`) sans verrouillage Web préalable (`resources/altarlod/altarlod.py`)** :
+  - Réordonnancement de `LIVE_STREAM_PROFILES` pour négocier en priorité le profil mobile RTSPS (`NETGEAR/v1 (iOS Vuezone)`) et suppression du `notify` Web préalable (`startUserStream` avec en-têtes navigateur) qui verrouillait la caméra en mode Web/SIP sur `weblivestream-z1-prod.arlo.com` avant même l'ouverture du flux RTSPS.
+  - Envoi propre d'un ordre `activityState: "idle"` (`_send_camera_idle`) entre deux protocoles pour libérer la session de streaming de la caméra avant tout basculement.
+  - Durcissement complet de `LocalRtspTlsRelay` : réassemblage des réponses RTSP `200 OK` + SDP fragmentées, réécriture des en-têtes `Content-Base:` et attributs SDP `a=control:` internes Wowza vers `rtsp://127.0.0.1:<port>` avec recalcul de `Content-Length`, et expansion automatique des sous-pistes relatives `/vzmodulelive/trackID=X`.
+- **Synchronisation temps réel SSE `userStreamActive` et relais HTTP/2 `curl_cffi` (`resources/altarlod/altarlod.py`)** :
+  - Attente événementielle de la confirmation SSE `activityState: "userStreamActive"` avant l'interrogation du serveur média par `ffmpeg`, avec tentatives multiples sur la même URL afin de laisser à l'encodeur vidéo de la caméra le temps d'établir son flux montant sans provoquer de `502 Bad Gateway` prématuré.
+  - Transport amont HTTP/2 avec empreinte TLS Chrome (`curl_cffi`) et cookies de session persistants dans `LocalHttpStreamRelay` pour les passerelles HTTPS Cloud Arlo.
+- **Moteur de repli automatique « Direct HD séquentiel » (`snapshot_burst`) pour les caméras Arlo WebRTC-only (`resources/altarlod/altarlod.py`, `core/template/dashboard/altArlo.html`)** :
+  - Lorsque la passerelle Cloud Arlo `weblivestream-*.arlo.com` renvoie malgré tout une erreur `502`/`404` (cas connu côté Arlo sur les générations récentes migrées exclusivement vers WebRTC), `_live_stream_worker` bascule automatiquement en mode **Direct HD séquentiel** (`fullFrameSnapshot` continu + réception temps réel SSE `presignedFullFrameSnapshotUrl` directement en RAM `/tmp/jeedom/altArlo/live_<id>/ready.jpg`, badge `EN DIRECT (HD)` et zéro écriture abusive sur l'eMMC).
+
 ## [0.1.0-beta.23] - 2026-11-05 (Canal Beta)
 
 ### Corrigé & Amélioré (Correction `HTTP 502 Bad Gateway` Live, Contexte TLS Média Wowza & Basculement Multi-Protocole HLS / DASH / RTSPS)

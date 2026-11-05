@@ -14,7 +14,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Diffusion, Sons & Multiroom (AirPlay)** | `altAirCast` | Multimédia | `0.1.0-beta.21` | `Beta` | [Documentation](altAirCast/) · [Changelog](altAirCast/changelog) |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.12` | `Beta` | [Documentation](altAirMedia/) · [Changelog](altAirMedia/changelog) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.23` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.24` | `Beta` | [Documentation](altArlo/) · [Changelog](altArlo/changelog) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.7` | `Beta` | [Documentation](altBambuLab/) · [Changelog](altBambuLab/changelog) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.11` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog](altCambridgeAudio/changelog) |
 | **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.14` | `Beta` | [Documentation](altCellular/) · [Changelog](altCellular/changelog) |
