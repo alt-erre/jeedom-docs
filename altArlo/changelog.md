@@ -3,6 +3,19 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.23] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Amélioré (Correction `HTTP 502 Bad Gateway` Live, Contexte TLS Média Wowza & Basculement Multi-Protocole HLS / DASH / RTSPS)
+- **Correction de l'erreur `HTTP error 502 Bad Gateway` à l'ouverture du flux Direct (Live) (`resources/altarlod/altarlod.py`)** :
+  - Ajout d'un contexte TLS dédié aux serveurs médias (`create_stream_tls_context`) distinct du profil Cloudflare `ocapi-app` : suppression de la restriction aux 6 suites de chiffrement `TLS_CIPHERS`, désactivation de la validation stricte de certificat/nom d'hôte sur les nœuds de streaming Java/Wowza (`*.wowza.arlo.com`) et activation de `DEFAULT:@SECLEVEL=1` / `OP_LEGACY_SERVER_CONNECT` pour éviter tout rejet OpenSSL 3.0 (Debian 12 / Jeedom Luna) auparavant converti en `502 Bad Gateway` par `LocalHttpStreamRelay`.
+  - Conservation automatique des cookies d'affinité de répartiteur de charge (`AWSALB` / `WOWZASESSIONID` via `CookieJar`) et transmission du même `User-Agent` entre l'appel `startStream` et le relais `LocalHttpStreamRelay`.
+  - Signature HMAC des segments réécrits `/seg?...&s=...` afin d'autoriser les redirections `302` Wowza vers des adresses IP d'instance edge AWS sans rejet `403`, tout en empêchant tout détournement SSRF.
+- **Prise en charge complète de MPEG-DASH (`.mpd`) et durcissement de `LocalRtspTlsRelay` (`resources/altarlod/altarlod.py`)** :
+  - Réécriture des balises dynamiques `<Location>` et `<BaseURL>` des manifestes Wowza `.mpd` et résolution automatique des segments relatifs d'initialisation et de média (`.mp4` / `.m4s`) avec propagation transparente de `egressToken` (zéro secret exposé dans `ps aux`).
+  - Activation implicite de TLS sur le port `443` dans `LocalRtspTlsRelay` lorsque `startStream` renvoie un schéma `rtsp://...:443/...` et préservation de `egressToken` sur `PLAY` après réécriture `Content-Base` par `DESCRIBE`.
+- **Cascade automatique multi-protocole (`HLS` $\rightarrow$ `MPEG-DASH` $\rightarrow$ `RTSPS`) et journalisation diagnostique (`resources/altarlod/altarlod.py`)** :
+  - Si un protocole de streaming renvoie une erreur amont (`502`, `500`, `403`, etc.), `_live_stream_worker` bascule automatiquement vers le protocole suivant (`HLS .m3u8`, puis `MPEG-DASH .mpd`, puis `RTSPS`) et mémorise en RAM le profil fonctionnel par caméra (`_preferred_stream_profile`) pour accélérer les ouvertures suivantes, tout en journalisant le détail amont exact assaini dans le log du démon.
+
 ## [0.1.0-beta.22] - 2026-11-05 (Canal Beta)
 
 ### Corrigé & Amélioré (Détection `Access token is expired`, Auto-Renouvellement Live/Galerie & Diagnostic UI)
