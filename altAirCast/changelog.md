@@ -2,6 +2,20 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 
+## [0.1.0-beta.21] - 2026-11-05
+
+### Corrigé & Optimisé
+- **Suppression du rectangle gris clair derrière le curseur de volume sur les widgets Dashboard & Mobile (`core/template/dashboard/altAirCast.html`, `core/template/mobile/altAirCast.html`)** :
+  - Ajout d'ancres `id="altAirCast_#id#"` / `id="altAirCast_mob_#id#"` et de sélecteurs `:is(#altAirCast_#id#, #div_mainContainer #altAirCast_#id#)` à spécificité `(2, 1, 0)` surpassant la règle globale de Jeedom Core 4.4-4.6 (`#div_mainContainer ... div.eqLogic-widget input:not([type=checkbox]):not([type=radio]):not(.dial) { background-color: var(--el-defaultColor) !important; }`) qui peignait un bloc rectangulaire gris clair de `22 px` sous la piste fine de `5 px`.
+  - Normalisation complète WebKit/Safari et Firefox en blocs séparés avec `!important`, variables `--attr-min` / `--attr-max` / `--control-value`, calcul CSS `progress()` avec repli `@supports not (opacity: progress(1, 0, 100))` et support bidirectionnel `:dir(rtl)`.
+- **Maintien continu des flux Webradio sans coupure au bout de quelques minutes (`resources/altaircastd.py`)** :
+  - **Isolation stricte du protocole `RAOP` en diffusion audio (`_connect_speaker(..., for_raop_stream=True)`)** : désactive désormais `Protocol.AirPlay` (en plus de `Companion` et `MRP`, tout en conservant les identifiants d'appairage) lorsqu'un service `RAOP` est présent. Sur HomePod, `Protocol.AirPlay` ouvrait auparavant une seconde connexion TCP/HTTP inactive sur le port `7000` que le HomePod refermait pour inactivité après 2 à 4 minutes, entraînant la fermeture globale de la session `pyatv` et l'arrêt de la radio.
+  - **Suppression du timeout global implicite de `300 s` (5 minutes) sur `aiohttp.ClientSession`** (`ClientTimeout(total=None, sock_connect=10)`) et gestion isolée de la session RTSP par `pyatv`.
+  - **Rétro-pression événementielle (`LivePcmAudioSource.wait_writable`), garde-fou anti-gel (`-rw_timeout 10000000` + lecture bornée à `12 s`) et double reconnexion automatique amont/aval** : suspend proprement la lecture du tube `ffmpeg` dès `2,0 s` de tampon (reprise à `1,5 s`), relance jusqu'à `8` fois `ffmpeg` avec backoff progressif en cas de micro-coupure Internet, et reconnecte automatiquement la session RAOP d'une enceinte avec pré-tampon mémoire glissant (`recent_pcm`) si le HomePod réinitialise sa connexion RTSP en cours d'écoute.
+- **Accélération marquée de l'exécution des sons et bruitages sur Jeedom Luna (`resources/altaircastd.py`, `resources/sound_synth.py`, `core/template/dashboard/altAirCast.html`)** :
+  - **Source mémoire directe `StaticPcmAudioSource` + cache LRU borné en RAM (`<= 8` sons, `<= 1,5 Mo`)** : lit instantanément les fichiers `.wav` 44,1 kHz 16 bits sans `miniaudio` ni `ThreadPoolExecutor`, rogne en mémoire le silence d'attaque excédentaire à `25 ms` (sans réécriture sur l'eMMC), et réduit le silence initial par défaut à `40 ms` dans `sound_synth.py`.
+  - **Suppression du double handshake `Pair-Verify` AirPlay (`350` à `800 ms` économisés)**, **parallélisation non bloquante du callback HTTP vers Jeedom** (`150` à `450 ms` gagnés avant l'ouverture RAOP tout en garantissant l'ordre chronologique `En cours -> Au repos`), **pré-chauffage d'arrière-plan** (`pyatv`, cache mDNS `60 min` et sons rapides épinglés pré-chargés après l'écriture de `deamon.pid`), abaissement de la pause inter-sessions à `60 ms` (`0 ms` au repos) et réduction de l'anti-rebond UI des boutons de sons rapides à `220 ms`.
+
 ## [0.1.0-beta.20] - 2026-11-05
 
 ### Corrigé & Optimisé
