@@ -3,6 +3,18 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.21] - 2026-11-05 (Canal Beta)
+
+### Corrigé & Amélioré (Flux Vidéo Direct Live & Lecture Universelle des Vidéos de la Bibliothèque)
+- **Réparation complète du Flux Direct Live sur les widgets (`resources/install_apt.sh`, `plugin_info/install.php`, `core/class/altArlo.class.php`, `resources/altarlod/altarlod.py`, `core/template/dashboard/altArlo.html`)** :
+  - **Installation et vérification automatiques de `ffmpeg`** : ajout du paquet système `ffmpeg` dans `install_apt.sh`, contrôle dans `dependancy_info()` (`isFfmpegInstalled()`) et déclenchement automatique en tâche de fond lors de la mise à jour du plugin (`altArlo_update()`) s'il était absent de la box Jeedom Luna.
+  - **Négociation RTSPS / HLS native avec réveil SmartHub (`_negotiate_camera_stream_url`)** : réveil préalable de la caméra (`notify` `startUserStream`) puis négociation `startStream` privilégiant les flux `rtsps://` (Wowza) et HLS `.m3u8` plutôt que MPEG-DASH `.mpd`, avec application conditionnelle de `-rtsp_transport tcp` et suppression de la sortie secondaire `-c:v copy -f hls` qui faisait échouer `ffmpeg` sur les caméras Arlo 2K/4K encodées en HEVC.
+  - **Fiabilisation du relais local `LocalRtspTlsRelay` et `LocalHttpStreamRelay` (`127.0.0.1`, zéro secret dans `ps aux`)** : préservation du schéma `rtsps://` dans `DESCRIBE`/`OPTIONS` sans altérer les sous-chemins `/trackID=1` de `SETUP`, réécriture de `User-Agent: Lavf*` en `User-Agent: iOS`, suivi des redirections RTSP `302 Location:` Wowza et maintien de la boucle client au-delà de 18 secondes.
+  - **Préservation et affichage réel des erreurs Live** : correction du bloc `finally:` de `_live_stream_worker()` qui écrasait systématiquement `status = "error"` par `"stopped"`, auto-démarrage du démon dans `startDeviceLiveStream()` s'il était arrêté, et garde anti-empilement des trames JPEG dans la modale.
+- **Réparation de la lecture des vidéos de la Bibliothèque Cloud Arlo, Base SD/USB & Clips RAM sur tous les navigateurs (`core/php/snapshot.php`, `core/class/altArlo.class.php`, `core/ajax/altArlo.ajax.php`, `resources/altarlod/altarlod.py`, `core/template/dashboard/altArlo.html`)** :
+  - **Proxy serveur sécurisé `cloud_media` / `cloud_thumb` avec support complet `HTTP 206 Partial Content` (`Range`)** : les vidéos et miniatures Cloud Arlo ne sont plus chargées directement par le navigateur vers S3 (ce qui provoquait des rejets `403 Forbidden` liés au `Referer` Jeedom ou à l'expiration des URL pré-signées), mais relayées en streaming direct sans tampon RAM par `snapshot.php` avec en-têtes `Referer: https://my.arlo.com/`, gestion RFC 7233 `Range` / `Content-Range` (indispensable à Safari/iOS, Chrome et Firefox) et rafraîchissement transparent de l'URL S3 en cas d'expiration `403`.
+  - **Conversion automatique à la demande HEVC (H.265 2K/4K) $\rightarrow$ MP4 H.264/AAC universel (`prepareCompatibleVideo` / `transcode_media`)** : lorsqu'une caméra Arlo 2K/4K (Pro 3/4/5S, Ultra, Floodlight) a enregistré une vidéo en HEVC non décodable par Chrome ou Firefox (`onerror` ou écran noir audio seul `videoWidth === 0`), le lecteur de la galerie déclenche automatiquement sa conversion serveur en MP4 H.264 `yuv420p` (`+faststart`) dans un cache RAM borné (`/tmp/jeedom/altArlo/media_cache/`, rotation LRU stricte limitée à 2 fichiers pour préserver les 2 Go de RAM de la Jeedom Luna).
+
 ## [0.1.0-beta.20] - 2026-11-05 (Canal Beta)
 
 ### Corrigé & Sécurité (Cookies Cloudflare `__cf_bm`, Handshake 2FA `validateAccessToken` & Redémarrage Jeedom Luna)
