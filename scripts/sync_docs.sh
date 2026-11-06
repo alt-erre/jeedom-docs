@@ -31,6 +31,7 @@ PLUGINS=(
   "altSonos"
   "altSwitch"
   "altTesla"
+  "altTransit"
   "altTvDashboard"
   "altTwinkly"
   "altTydom"
@@ -63,7 +64,7 @@ plugins = [
     "altAirCast", "altAirMedia", "altArlo", "altBambuLab", "altCambridgeAudio", "altCellular",
     "altDenon", "altEducartable", "altHue", "altIos", "altJvcProjector",
     "altNetGuard", "altNuki", "altPlaystation", "altPronote", "altRoborock",
-    "altSamsungTv", "altSiemens", "altSonos", "altSwitch", "altTesla", "altTvDashboard",
+    "altSamsungTv", "altSiemens", "altSonos", "altSwitch", "altTesla", "altTransit", "altTvDashboard",
     "altTwinkly", "altTydom", "altXbox",
 ]
 versions = {}
