@@ -8,6 +8,7 @@ body:
     attributes:
       label: "Plugin concerné"
       options:
+        - "altAirCast (Alt Diffusion, Sons & Multiroom - AirPlay)"
         - "altAirMedia (Alt Air Média - Apple TV & HomePod)"
         - "altArlo (Alt Caméras & Sécurité - Arlo)"
         - "altBambuLab (Alt Print 3D - Bambu Lab P1S / X1C / A1 & AMS)"
@@ -27,6 +28,7 @@ body:
         - "altSiemens (Alt Café & Home Connect - Siemens)"
         - "altSonos (Alt Multiroom Audio - Sonos)"
         - "altSwitch (Alt Contrôle Parental - Nintendo Switch)"
+        - "altTesla (Alt Électromobilité & Charge - Tesla BLE Local)"
         - "altTvDashboard (Alt Dashboard & Kiosk TV)"
         - "altTwinkly (Alt Éclairages & Effets LED - Twinkly)"
         - "altTydom (Alt Habitat & Domotique - Delta Dore Tydom)"
