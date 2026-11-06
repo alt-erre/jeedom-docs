@@ -4,6 +4,23 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.6] - 2026-11-06 (Canal Beta)
+
+### Ajouté & Amélioré
+- **Charte Graphique Widgets `v1.4` (`core/template/dashboard/altNetGuard.html`, `core/template/mobile/altNetGuard.html`, `core/class/altNetGuard.class.php`, `plugin_info/`)** :
+  - **Coloration optionnelle de la barre de titre par catégorie Jeedom (`widgetCategoryHeader`)** : ajout d'une option activable au niveau du plugin permettant de colorer la barre de titre des widgets Dashboard & Mobile selon la catégorie d'appartenance Jeedom de l'équipement (`Chauffage`, `Sécurité`, `Énergie`, `Lumière`, `Ouvrant`, `Automatisme`, `Multimédia`, `Autre` via `--cat-*-color`), avec invalidation automatique du cache widget.
+  - **Boutons de barre de titre arrondis** : harmonisation stricte des boutons d'action et de rafraîchissement de l'en-tête (`border-radius: 50% !important`, `26x26 px`, `padding: 0 !important`) sur Dashboard et Mobile pour neutraliser les surcharges CSS du Core Jeedom.
+
+## [0.1.0-beta.5] - 2026-11-06 (Canal Beta)
+
+### Optimisé & Ajouté
+- **Sobriété du scan réseau vis-à-vis des objets connectés IoT (`ESP32`/`ESP8266`) et de la Jeedom Luna (`resources/altNetGuardd.py`, `core/class/altNetGuard.class.php`)** :
+  - Lecture préalable non-intrusive de la table ARP/Neighbor OS (`REACHABLE`, `DELAY`, `PERMANENT`) pour désactiver le repli TCP (`80`/`443`/`62078`) de `async_ping_host()` sur les équipements déjà actifs sur le LAN.
+  - Réduction de la concurrence de `scan_tcp_ports()` de `36` à `6` connexions simultanées max pour préserver la pile `lwIP` des microcontrôleurs Wi-Fi, mémorisation des adresses MAC déjà sondées (`probed_macs`) afin de ne scanner les ports d'un appareil inconnu qu'à sa première découverte (ou lors d'un `deep_scan` manuel), et exécution non-bloquante des callbacks HTTP vers Jeedom via `run_in_executor()`.
+  - Indexation en mémoire des équipements individuels (`buildDeviceEquipmentIndex()`) dans `findDeviceEquipment()` et mise en cache locale des paramètres d'alerte avant la boucle de traitement afin d'éliminer les requêtes SQL répétées par appareil scanné.
+- **Enrichissement de la base OUI & du Fingerprinting IoT hors-ligne (`resources/oui_vendors.py`)** :
+  - Ajout des préfixes MAC OUI et règles de détection pour **Aqara / Lumi**, **Meross**, **Somfy** et **Shelly**.
+
 ## [0.1.0-beta.4] - 2026-11-01 (Canal Beta)
 
 ### Corrigé
