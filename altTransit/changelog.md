@@ -4,6 +4,14 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.5] - 2026-11-07 (Canal Beta)
+
+### Optimisé
+- **Sobriété CPU, RAM & Réseau lors du polling Heures de Pointe (`altTransit_worker.py` & `altTransit.class.php`)** :
+  - **Décodage Protobuf filtré à la volée (`parse_gtfs_rt_bytes`)** : seuls les `StopTimeUpdate` correspondant aux `stop_id` réellement suivis par les équipements Jeedom actifs (ainsi que les courses `CANCELED`) sont instanciés en mémoire lors de la lecture des flux `GTFS-RT`, divisant par plus de 100 le nombre d'objets Python alloués à chaque cycle minute.
+  - **Élimination des téléchargements `GTFS-RT` redondants avec repli automatique (`fetch_merged_gtfs_rt`)** : sur la Métropole Rouen Normandie (*Réseau Astuce*), lorsque le flux agrégé primaire (`gtfs.bus-tracker.fr` regroupant `TCAR + TAE + TNI`) et le flux officiel d'alertes répondent, les 4 flux unitaires/miroirs redondants ne sont plus retéléchargés inutilement à chaque minute (tout en restant activés en secours automatique en cas d'indisponibilité du flux primaire) et un cache court `tmpfs` (`45 s`) mutualise les résultats décodés.
+  - **Suppression des rafraîchissements de widget et événements Jeedom superflus (`applyTransitState`)** : l'horodatage technique `last_sync` ne déclenche plus `$this->refreshWidget()` ni d'événement `cmd::update` toutes les 60 secondes lorsqu'aucun horaire de passage, statut de perturbation ou compteur VLS n'a varié.
+
 ## [0.1.0-beta.4] - 2026-11-07 (Canal Beta)
 
 ### Corrigé
