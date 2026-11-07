@@ -4,6 +4,16 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.3] - 2026-11-07 (Canal Beta)
+
+### Corrigé
+- **Résolution automatique du catalogue `transport.data.gouv.fr` pour Rouen (Réseau Astuce & Lovélo VLS)** :
+  - Alignement des identifiants `pan_slug` et `dataset_id` officiels du Point d'Accès National (`donnees-statiques-et-temps-reel-du-reseau-astuce-metropole-rouen-normandie` et `donnees-statiques-et-temps-reel-du-service-de-vls-lovelo-metropole-rouen-normandie`) avec URLs directes `GTFS`, `GTFS-RT` et `GBFS` pré-embarquées en repli instantané (corrige l'erreur *« Aucune archive GTFS trouvée pour ce réseau »* lors de la recherche d'un arrêt comme `Jardinerie` sur les lignes `F1` et `305`).
+  - Prise en charge de la catégorie `vehicles-sharing` du Point d'Accès National pour les réseaux de vélos libre-service `GBFS` et invalidation automatique du cache catalogue (`pan_catalog_v2.json`).
+  - Dédoublonnage des préréglages dans l'étape 1 de l'Assistant et correspondance tolérante par score de mots-clés sur l'ensemble des métropoles.
+- **Filtrage et nettoyage HTML des alertes Info Trafic (`GTFS-RT ServiceAlerts`)** : suppression des balises HTML (`<p>`, `<figure>`, `<img>`, `<table>`) dans les descriptions d'alertes et exclusion des actualités commerciales non ciblées sur la ligne ou l'arrêt suivi.
+- **Affichage des erreurs AJAX dans l'Assistant** : suppression de l'encapsulation HTML `<span id="span_errorMessage">` brute dans les messages d'erreur de la modale Assistant.
+
 ## [0.1.0-beta.2] - 2026-11-07 (Canal Beta)
 
 ### Corrigé

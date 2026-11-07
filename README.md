@@ -35,7 +35,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Vie Sportive (SportEasy)** | `altSportEasy` | Organisation | `0.1.0-beta.1` | `Beta` | [Documentation](altSportEasy/) · [Changelog](altSportEasy/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
 | **Alt Électromobilité & Charge (Tesla)** | `altTesla` | Énergie | `0.1.0-beta.2` | `Beta` | [Documentation](altTesla/) · [Changelog](altTesla/changelog) |
-| **Alt Transports & Mobilités Urbaines** | `altTransit` | Organisation | `0.1.0-beta.2` | `Beta` | [Documentation](altTransit/) · [Changelog](altTransit/changelog) |
+| **Alt Transports & Mobilités Urbaines** | `altTransit` | Organisation | `0.1.0-beta.3` | `Beta` | [Documentation](altTransit/) · [Changelog](altTransit/changelog) |
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.24` | `Beta` | [Documentation](altTvDashboard/) · [Changelog](altTvDashboard/changelog) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.1.0-beta.6` | `Beta` | [Documentation](altTwinkly/) · [Changelog](altTwinkly/changelog) |
 | **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.23` | `Beta` | [Documentation](altTydom/) · [Changelog](altTydom/changelog) |
