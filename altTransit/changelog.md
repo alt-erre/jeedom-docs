@@ -4,6 +4,14 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.4] - 2026-11-07 (Canal Beta)
+
+### Corrigé
+- **Résolution nationale de toutes les métropoles et villes françaises (`transport.data.gouv.fr`)** :
+  - Extraction complète des champs territoriaux v2 du Point d'Accès National (`covered_area[].nom`, `legal_owners[].name`, `publisher.name`) permettant de retrouver n'importe quelle ville française par son nom géographique même lorsque le titre du jeu de données ne mentionne que la marque commerciale du réseau (ex. *Dijon* -> *DiviaMobilités*, *Tours* -> *Fil Bleu*, *Angers* -> *Irigo*, *Amiens* -> *Ametis*, *Poitiers* -> *Vitalis*, *Pau* -> *Idelis*, *Besançon* -> *Ginko*).
+  - Verrouillage des identifiants `dataset_id` et `pan_slug` officiels sur l'ensemble des 14 préréglages de métropoles (*Rouen Astuce*, *Rouen Lovélo*, *Caen Twisto*, *Le Havre LiA*, *Bordeaux TBM*, *Nantes Naolib*, *Rennes STAR*, *Lille Ilévia*, *Marseille RTM*, *Toulouse Tisséo*, *Montpellier TaM*, *Nice Lignes d'Azur*, *Grenoble MTag*, *Strasbourg CTS*).
+  - Classement prioritaire des réseaux urbains et VLS devant les agrégats régionaux/scolaires et filtrage des flux d'autopartage automobile (*Citiz*) hors de la catégorie VLS `GBFS`.
+
 ## [0.1.0-beta.3] - 2026-11-07 (Canal Beta)
 
 ### Corrigé
