@@ -63,7 +63,7 @@ Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (av
 Sur de nombreuses installations **Tydom Pro** ou **Tydom Home** (menuiseries K-Line, contacts magnétiques Tyxal+, sondes déportées, micromodules), les organes d'une même ouverture ou d'une même pièce remontent sous forme d'équipements Tydom distincts (par exemple : un contact **Vantail Gauche**, un contact **Vantail Droit** et un **Volet roulant** séparés).
 
 La section **« Association & Fusion de composants Tydom (Widget Combiné) »** de chaque équipement vous permet de les regrouper en **un seul widget complet et intelligent** :
-- **Volet roulant / BSO + 1 à 3 contacts d'ouvrants (`Vantail G`, `Vantail D`, `Fenêtre`...) — ou inversement Fenêtre + Volet associé** :
+- **Volet roulant / BSO + 1 à 3 contacts d'ouvrants (`Vantail G`, `Vantail D`, `Fenêtre`...) - ou inversement Fenêtre + Volet associé** :
   - Affichage en temps réel des pastilles d'état de chaque battant (`Vantail G : Fermé`, `Vantail D : Ouvert`) et de l'alerte pile faible directement sur le widget du volet.
   - **Vignette vectorielle SVG combinée** : représentation simultanée de la hauteur du tablier du volet et de l'état ouvert/fermé de chaque vantail de fenêtre en arrière-plan.
   - **Protection « Vantail Ouvert » (Sécurité anti-enfermement / anti-choc)** : option permettant d'interdire automatiquement la fermeture du volet (`< 25 %` / `Fermer` ou toute descente) depuis Jeedom tant qu'un vantail associé est détecté ouvert.

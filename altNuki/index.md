@@ -66,7 +66,7 @@ Lorsque vous tapez un code à 6 chiffres ou posez votre doigt sur le **boîtier 
 Vous n'avez **pas besoin de chercher ni de deviner** les numéros `CodeId` ou `AuthId` de vos membres de la famille :
 1. Activez le **MQTT Local** sur votre serrure Nuki et dans la configuration du plugin.
 2. **Tapez une première fois votre code (ou posez votre doigt)** sur votre Nuki Keypad physique pour ouvrir la porte.
-3. Le plugin détecte automatiquement ce nouvel identifiant (`CodeId` / `AuthId`) et **crée tout seul la ligne correspondante** dans l'onglet **Clavier Nuki Keypad & Utilisateurs** de votre équipement avec le badge **`Auto-détecté — renommez-moi`** (ex. `Code Keypad #101` ou `Empreinte / Keypad #54321`).
+3. Le plugin détecte automatiquement ce nouvel identifiant (`CodeId` / `AuthId`) et **crée tout seul la ligne correspondante** dans l'onglet **Clavier Nuki Keypad & Utilisateurs** de votre équipement avec le badge **`Auto-détecté - renommez-moi`** (ex. `Code Keypad #101` ou `Empreinte / Keypad #54321`).
 4. Cliquez sur **Actualiser les codes auto-détectés** dans l'onglet **Clavier Nuki Keypad & Utilisateurs**, remplacez simplement le libellé par le prénom souhaité (ex. *Aurélien*, *Enfants*, *Nounou*) et cliquez sur **Enregistrer les utilisateurs Keypad**.
 5. Dès lors, chaque ouverture par ce code ou cette empreinte affichera immédiatement le prénom sur le widget (**`Dernier accès : Aurélien`**), dans le journal des 15 derniers passages et dans la commande **`Dernier utilisateur Keypad`** (`last_keypad_user`) pour vos scénarios Jeedom !
 

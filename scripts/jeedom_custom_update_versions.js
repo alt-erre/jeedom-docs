@@ -24,8 +24,16 @@
       var pid = pluginIds[idx++];
       var url = 'plugins/' + pid + '/plugin_info/configuration.php?alt_versions_manifest=1&_=' + now;
       fetch(url, { cache: 'no-store', credentials: 'same-origin' })
-        .then(function (r) { return r.ok ? r.text() : ''; })
+        .then(function (r) {
+          if (r.status === 401 || r.status === 403) {
+            return '__UNAUTHORIZED__';
+          }
+          return r.ok ? r.text() : '';
+        })
         .then(function (txt) {
+          if (txt === '__UNAUTHORIZED__') {
+            return;
+          }
           var startIdx = txt ? txt.indexOf('{"state":"ok"') : -1;
           if (startIdx === -1) {
             tryNext();

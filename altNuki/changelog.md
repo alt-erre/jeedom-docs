@@ -4,6 +4,11 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.7] - 2026-11-07 (Canal Beta)
+
+### Corrigé
+- **Contrôle d'accès `401` compatible Jeedom 4.4+ (`plugin_info/configuration.php`)** : remplacement de l'inclusion obsolète `desktop/php/404.php` (supprimée du Core Jeedom 4.4+) et gestion propre du code HTTP `401` en appel direct (session expirée sur la page *Mises à jour*) afin d'éliminer toute erreur fatale PHP dans `http.error`.
+
 ## [0.1.0-beta.6] - 2026-11-06 (Canal Beta)
 
 ### Ajouté & Amélioré
@@ -15,7 +20,7 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ### Ajouté & Amélioré
 - **Auto-Apprentissage (Auto-Discovery) des codes et empreintes du Nuki Keypad physique (`autoLearnKeypadEntry()`)** :
-  - Lorsqu'un membre du foyer déverrouille la serrure via le Nuki Keypad physique (1.0 ou 2.0 Fingerprint) en mode MQTT Local (`lockActionEvent`), tout nouvel identifiant `CodeId` ou `AuthId` est désormais automatiquement ajouté à la table de l'onglet **Clavier Nuki Keypad & Utilisateurs** avec le badge **`Auto-détecté — renommez-moi`**, et synchronisé entre la serrure et son équipement Keypad dédié.
+  - Lorsqu'un membre du foyer déverrouille la serrure via le Nuki Keypad physique (1.0 ou 2.0 Fingerprint) en mode MQTT Local (`lockActionEvent`), tout nouvel identifiant `CodeId` ou `AuthId` est désormais automatiquement ajouté à la table de l'onglet **Clavier Nuki Keypad & Utilisateurs** avec le badge **`Auto-détecté - renommez-moi`**, et synchronisé entre la serrure et son équipement Keypad dédié.
   - Ajout d'un bouton **« Actualiser les codes auto-détectés »** dans l'onglet *Clavier Nuki Keypad & Utilisateurs* permettant de recharger en 1 clic les entrées nouvellement détectées sans recharger la page.
   - Visibilité par défaut activée sur les commandes **`Dernier CodeId Keypad`** (`last_keypad_code_id`) et **`Dernier AuthId Keypad`** (`last_keypad_auth_id`) de l'équipement Keypad dédié.
 - **Documentation (`README.md`) enrichie** :

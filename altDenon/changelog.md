@@ -5,6 +5,18 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-07 (Canal Beta)
+
+### Corrigé
+- **Contrôle d'accès `401` compatible Jeedom 4.4+ (`plugin_info/configuration.php`)** : remplacement de l'inclusion obsolète `desktop/php/404.php` (supprimée du Core Jeedom 4.4+) et gestion propre du code HTTP `401` en appel direct (session expirée sur la page *Mises à jour*) afin d'éliminer toute erreur fatale PHP dans `http.error`.
+
+## [0.1.0-beta.11] - 2026-11-06 (Canal Beta)
+
+### Ajouté & Amélioré
+- **Charte Graphique Widgets `v1.4` (`core/template/dashboard/altDenon.html`, `core/template/mobile/altDenon.html`, `core/class/altDenon.class.php`, `plugin_info/`)** :
+  - **Coloration optionnelle de la barre de titre par catégorie Jeedom (`widgetCategoryHeader`)** : ajout d'une option activable au niveau du plugin permettant de colorer la barre de titre des widgets Dashboard & Mobile selon la catégorie d'appartenance Jeedom de l'équipement (`Chauffage`, `Sécurité`, `Énergie`, `Lumière`, `Ouvrant`, `Automatisme`, `Multimédia`, `Autre` via `--cat-*-color`), avec invalidation automatique du cache widget.
+  - **Boutons de barre de titre arrondis** : harmonisation stricte des boutons d'action et de rafraîchissement de l'en-tête (`border-radius: 50% !important`, `26x26 px`, `padding: 0 !important`) sur Dashboard et Mobile pour neutraliser les surcharges CSS du Core Jeedom.
+
 ## `[0.1.0-beta.10]` - 2026-11-02 (Canal Beta)
 
 ### Ajouté
@@ -34,13 +46,6 @@ Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://g
   - Héritage instantané du modèle, du thème et des sources personnalisées (`Apple TV`, `XBOX SX`, `PS5`, `Switch 2`…) sans requête HTTP redondante, avec option pour désactiver et nettoyer automatiquement le bandeau `Zone 2 / Zone 3` intégré à l'équipement principal afin d'éviter les doublons.
   - Affichage d'un badge de zone (`Main Zone`, `Zone 2`, `Zone 3`) sur chaque carte d'équipement dans la page d'accueil du plugin.
   - **Adaptation automatique du Widget Cockpit (« Dark Glass ») pour les équipements `Zone 2` et `Zone 3`** : affichage dédié Multiroom (badge `ZONE 2` / `ZONE 3`, sélecteur d'entrée pleine largeur, pas de volume à `1 dB`, Quick Select `Z2QUICK1..4` / `Z3QUICK1..4`, transport et favoris HEOS) et masquage automatique des contrôles propres à la Zone Principale (HDMI Monitor, Surround 13.2ch, Audyssey, OSD).
-
-## [0.1.0-beta.11] - 2026-11-06 (Canal Beta)
-
-### Ajouté & Amélioré
-- **Charte Graphique Widgets `v1.4` (`core/template/dashboard/altDenon.html`, `core/template/mobile/altDenon.html`, `core/class/altDenon.class.php`, `plugin_info/`)** :
-  - **Coloration optionnelle de la barre de titre par catégorie Jeedom (`widgetCategoryHeader`)** : ajout d'une option activable au niveau du plugin permettant de colorer la barre de titre des widgets Dashboard & Mobile selon la catégorie d'appartenance Jeedom de l'équipement (`Chauffage`, `Sécurité`, `Énergie`, `Lumière`, `Ouvrant`, `Automatisme`, `Multimédia`, `Autre` via `--cat-*-color`), avec invalidation automatique du cache widget.
-  - **Boutons de barre de titre arrondis** : harmonisation stricte des boutons d'action et de rafraîchissement de l'en-tête (`border-radius: 50% !important`, `26x26 px`, `padding: 0 !important`) sur Dashboard et Mobile pour neutraliser les surcharges CSS du Core Jeedom.
 
 ## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
 
