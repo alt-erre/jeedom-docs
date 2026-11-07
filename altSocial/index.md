@@ -18,6 +18,12 @@ Plugin Jeedom unifié permettant de suivre vos **comptes de réseaux sociaux**, 
 - **Moteur Hybride au Choix : Sobriété Luna (`Cron`) ou Temps Réel (`Démon WebSocket`)** :
   - **Mode Cron PHP léger (par défaut)** : `0 Mo` de RAM au repos, cadence configurable par équipement (`1` à `60` min) et pause nocturne programmable.
   - **Mode Hybride Démon Python Temps Réel (optionnel, port `55107`)** : maintient des connexions WebSocket sortantes **Twitch EventSub** (`stream.online` / `stream.offline`) et **Discord Gateway v10** pour déclencher vos scénarios domotiques en moins de `2` secondes lors d'un passage en Live ou d'une annonce Discord.
+- **Multi-Utilisateurs / Multi-Profils & Liaison aux Comptes Utilisateurs Jeedom (`user::all()`)** :
+  - Créez autant de **profils sociaux nommés** que de membres du foyer ou d'espaces (*Profil principal*, *Aurélien*, *Léa*, *Association*...), chacun avec ses propres comptes et jetons OAuth2 **Twitch**, **YouTube**, **Instagram** et **Discord**.
+  - Associez chaque profil (ou chaque équipement) à un **compte utilisateur Jeedom** :
+    - **Sélection fixe par équipement** : l'équipement utilise le profil choisi et expose les commandes `profile_name`, `jeedom_user_id` et `jeedom_user_login` pour cibler automatiquement le bon destinataire dans vos scénarios de notification.
+    - **Mode dynamique (`auto_jeedom_user`)** : un même widget *Hub Global* peut basculer automatiquement sur le profil social lié à l'utilisateur Jeedom actuellement connecté au Dashboard ou à l'application Mobile.
+    - **Visibilité restreinte optionnelle (`restrictToJeedomUser`)** : masquez un équipement personnel sur le Dashboard des autres comptes utilisateurs Jeedom (hors administrateurs).
 - **Annonces Vocales (`tts_summary`), Widgets « Dark Glass » v1.4 & Kiosk TV (`altTvDashboard`)** :
   - Résumé vocal naturel prêt à diffuser sur vos enceintes (`altSonos`, `altAirCast`, `altAirMedia`).
   - Widgets Dashboard et Mobile aux **9 thèmes Dark Glass** avec lightbox vignette, recherche d'abonnements et compatibilité native **10-Foot UI** (`getKioskWidgetData()`) dans **Alt Dashboard & Kiosk TV (`altTvDashboard`)**.
@@ -66,6 +72,8 @@ Ouvrez **Plugins -> Communication -> Alt Réseaux Sociaux, Lives & Créateurs**,
 | `last_post_id` | `info / string` | Identifiant unique de la dernière publication (**déclencheur exact de scénario sans doublon**) |
 | `last_post_author` / `last_post_title` / `last_post_platform` / `last_post_url` / `last_post_date` | `info / string` | Métadonnées et lien direct de la dernière publication détectée |
 | `filter_platform` / `active_filter` | `action / select` & `info` | Filtre de plateforme actif sur un équipement `Hub Global` |
+| `profile_name` | `info / string` | Nom du profil social actif associé à l'équipement |
+| `jeedom_user_id` / `jeedom_user_login` | `info / numeric` & `string` | Identifiant et login du compte utilisateur Jeedom rattaché au profil ou à l'équipement |
 | `tts_summary` | `info / string` | Résumé vocal naturel prêt à diffuser en TTS |
 | `last_sync` | `info / string` | Horodatage de la dernière synchronisation réussie |
 

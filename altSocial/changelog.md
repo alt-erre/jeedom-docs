@@ -4,6 +4,19 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.2] - 2026-11-07 (Canal Beta)
+
+### Ajouté
+- **Architecture Multi-Utilisateurs / Multi-Profils & Liaison aux Comptes Utilisateurs Jeedom (`user::all()`)** :
+  - **Gestion multi-profils dans l'Assistant Comptes & Création** : création, renommage et suppression d'autant de profils sociaux indépendants que souhaité (*Profil principal*, *Aurélien*, *Léa*, *Enfants*, *Association*...), chacun disposant de ses propres identifiants et jetons OAuth2 isolés pour **Twitch**, **YouTube**, **Instagram** et **Discord** dans `data/profiles/accounts.json` (`version = 2` avec migration transparente depuis le format initial).
+  - **Association directe à un Compte Utilisateur Jeedom** : chaque profil social (ainsi que chaque équipement individuel) peut être rattaché à un utilisateur Jeedom (`user::all()` / `user::byId()`).
+  - **Mode dynamique « Automatique selon l'utilisateur Jeedom connecté (`auto_jeedom_user`) »** : permet à un équipement *Hub Global* ou *Espace Plateforme* de sélectionner automatiquement le profil social associé à l'utilisateur Jeedom connecté à la session Dashboard ou Mobile.
+  - **Option de confidentialité par utilisateur (`restrictToJeedomUser`)** : possibilité de masquer automatiquement le widget Dashboard/Mobile d'un équipement pour les autres comptes utilisateurs Jeedom non administrateurs.
+  - **3 nouvelles commandes `info` par équipement** : `profile_name` (*Profil social*), `jeedom_user_id` (*ID Utilisateur Jeedom*) et `jeedom_user_login` (*Utilisateur Jeedom*) utilisables dans vos scénarios pour router les notifications vers le bon membre du foyer, ainsi qu'un badge `@login` sur les cartes d'équipements et dans la barre de statut des widgets Dark Glass.
+  - **Isolation par empreinte de jeton OAuth2 dans le cache `tmpfs`** : séparation stricte des caches d'abonnements YouTube (`yt_subs_mine_<hash>`) et de serveurs Discord (`dc_oauth_guilds_<hash>`) entre profils.
+
+---
+
 ## [0.1.0-beta.1] - 2026-11-07 (Canal Beta)
 
 ### Ajouté

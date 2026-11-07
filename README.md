@@ -30,7 +30,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Robot Vacuum (Roborock)** | `altRoborock` | Objets connectés | `0.1.0-beta.6` | `Beta` | [Documentation](altRoborock/) · [Changelog](altRoborock/changelog) |
 | **Alt Frame & Smart TV (Samsung)** | `altSamsungTv` | Multimédia | `0.1.0-beta.23` | `Beta` | [Documentation](altSamsungTv/) · [Changelog](altSamsungTv/changelog) |
 | **Alt Café & Home Connect (Siemens)** | `altSiemens` | Objets connectés | `0.1.0-beta.15` | `Beta` | [Documentation](altSiemens/) · [Changelog](altSiemens/changelog) |
-| **Alt Réseaux Sociaux, Lives & Créateurs** | `altSocial` | Communication | `0.1.0-beta.1` | `Beta` | [Documentation](altSocial/) · [Changelog](altSocial/changelog) |
+| **Alt Réseaux Sociaux, Lives & Créateurs** | `altSocial` | Communication | `0.1.0-beta.2` | `Beta` | [Documentation](altSocial/) · [Changelog](altSocial/changelog) |
 | **Alt Multiroom Audio (Sonos)** | `altSonos` | Multimédia | `0.1.0-beta.11` | `Beta` | [Documentation](altSonos/) · [Changelog](altSonos/changelog) |
 | **Alt Vie Sportive (SportEasy)** | `altSportEasy` | Organisation | `0.1.0-beta.1` | `Beta` | [Documentation](altSportEasy/) · [Changelog](altSportEasy/changelog) |
 | **Alt Contrôle Parental (Nintendo Switch)** | `altSwitch` | Multimédia | `0.1.0-beta.10` | `Beta` | [Documentation](altSwitch/) · [Changelog](altSwitch/changelog) |
