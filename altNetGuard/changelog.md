@@ -4,6 +4,16 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.9] - 2026-11-07 (Canal Beta)
+
+### Ajouté & Optimisé
+- **Bouton « Scan Approfondi » ciblé sur les éléments filtrés de l'onglet actif (`desktop/php/altNetGuard.php`, `desktop/js/altNetGuard.js`, `core/ajax/altNetGuard.ajax.php`, `core/class/altNetGuard.class.php`, `resources/altNetGuardd.py`)** :
+  - Ajout d'un champ de filtrage instantané (`#in_filterInventoryTab`) et d'un bouton **« Scan Approfondi (N) »** dans le Centre de Contrôle permettant de lancer une inspection complète (`Ports TCP + Bannières HTTP/SSH + Reverse DNS + NetBIOS`) **exclusivement sur les appareils affichés/filtrés de l'onglet sur lequel l'utilisateur est positionné** (*Appareils Inconnus à Identifier*, *Appareils Connus*, *Invités (24h) & Ignorés* ou *Journal des Alertes d'Intrusion*), avec remontée groupée (`probe_batch_result`).
+- **Coexistence pacifique avec les accessoires HomeKit IP (`hkControl` / Aqara FP2) & Sobriété des scans périodiques (`resources/altNetGuardd.py`, `core/class/altNetGuard.class.php`)** :
+  - **Zéro réveil parasite des accessoires HomeKit IP en arrière-plan** : suppression de l'interrogation multicast `_hap._tcp.local` des rondes automatiques, déclenchement des découvertes multicast `mDNS`/`SSDP` uniquement à l'apparition d'un nouvel appareil non identifié ou lors d'un scan manuel, et arrêt des requêtes NetBIOS (`UDP 137`) / Reverse DNS répétées sur les appareils déjà identifiés (pré-alimentation du cache démon via `inventory_seed` au démarrage).
+  - **Zéro sous-processus `ping` sur les équipements déjà `REACHABLE` dans la table ARP du noyau Linux** lors des rondes automatiques, divisant par 5 le nombre de processus `ping` par cycle tout en vérifiant les équipements en état `STALE`/`DELAY` avant de les déclarer hors-ligne.
+  - **Hystérésis de rafraîchissement du widget Radar Principal (`refreshAllRadarEquipments`)** : mise à jour de `unknown_list_json`, `last_scan_time` et `scan_duration_ms` uniquement lors d'un changement réel d'état du réseau (ou toutes les `15 min`), éliminant les écritures inutiles dans le bus d'événements Jeedom à chaque ronde.
+
 ## [0.1.0-beta.8] - 2026-11-07 (Canal Beta)
 
 ### Corrigé
