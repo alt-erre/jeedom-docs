@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.7] - 2026-11-07 (Canal Beta)
+
+### Optimisé & Corrigé
+- **Sobriété Apache / MariaDB, CPU & eMMC sur Jeedom Luna (`resources/altNetGuardd.py`, `core/php/jeeAltNetGuard.php`, `core/class/altNetGuard.class.php`)** :
+  - **Coalescence et sérialisation stricte des callbacks HTTP (`send_scan_report_coalesced` & verrou `flock` non-bloquant)** : garantie d'un seul appel HTTP actif maximum vers Apache (avec remplacement du rapport en attente en cas de ralentissement SQL et envoi asynchrone sur `ping_device`) et protection anti-chevauchement dans `jeeAltNetGuard.php` (`@ignore_user_abort(false)`, `@set_time_limit(30)`, `LOCK_EX | LOCK_NB`).
+  - **Découverte ARP Layer-2 sans rafale de sous-processus `ping` (`perform_network_scan`)** : amorçage ARP noyau par datagrammes UDP non-bloquants (`zéro fork OS` sur les 254 IP du sous-réseau local) suivi d'une mesure de latence ICMP ciblée uniquement sur les hôtes actifs détectés en ARP, réduisant fortement la charge CPU du démon sur Jeedom Luna.
+  - **Pré-chargement SQL groupé, hystérésis de latence et persistance RAM `tmpfs` (`inventory_runtime.json`)** : chargement unique des commandes `info` par équipement (`1` requête SQL au lieu de `12` à `15` `SELECT` sur `cmd`), hystérésis sur `latency_ms` (`>= 5 ms` et `>= 15 %`) et `last_seen` (`5 min` en maintien stable), et écriture sur l'eMMC uniquement lors d'un changement significatif d'inventaire (ou toutes les `15 min`).
+
 ## [0.1.0-beta.6] - 2026-11-06 (Canal Beta)
 
 ### Ajouté & Amélioré

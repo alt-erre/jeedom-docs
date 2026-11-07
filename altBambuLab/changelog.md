@@ -2,6 +2,14 @@
 
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
 
+## [0.1.0-beta.9] - 2026-11-07 (Canal Beta)
+
+### Optimisé & Corrigé
+- **Sobriété Apache / MariaDB & Protection anti-empilement des callbacks HTTP (`resources/altBambuLabd.py`, `core/php/jeeAltBambuLab.php`, `core/class/altBambuLab.class.php`)** :
+  - **Filtrage par delta et hystérésis (`_compute_delta_state`)** : suppression de l'envoi inconditionnel d'état complet toutes les `2 s` lorsque l'imprimante est au repos (`IDLE`) sans changement utile, ajout d'une hystérésis sur les grandeurs analogiques bruitées (`1,0 °C` au repos / `0,3 °C` en chauffe ou impression sur les températures, `3 dBm` sur le signal Wi-Fi, `2 %` sur l'humidité AMS) et transmission uniquement des clés modifiées.
+  - **Coalescence et sérialisation stricte des requêtes HTTP (`_flush_pending_loop`)** : fusion en mémoire des mises à jour MQTT par équipement et envoi séquentiel garanti (`1` seule requête HTTP active maximum vers Apache à tout instant, réessai différé de `2 s` en cas de surcharge SQL) éliminant tout empilement de workers Apache.
+  - **Pré-chargement SQL groupé dans `applyPrinterState()` et garde-fous PHP** : lecture unique des commandes `info` de l'équipement (`$this->getCmd('info')`, `1` requête SQL au lieu de jusqu'à `39` `SELECT` unitaires sur la table `cmd`) et ajout de `@ignore_user_abort(false)` / `@set_time_limit(30)` dans `jeeAltBambuLab.php`.
+
 ## [0.1.0-beta.8] - 2026-11-06 (Canal Beta)
 
 ### Ajouté & Amélioré
