@@ -45,6 +45,11 @@
     "description": "Plugin Alt Siemens (EQ900 & Home Connect Local)"
   },
   {
+    "name": "plugin:altSocial",
+    "color": "8B5CF6",
+    "description": "Plugin Alt Réseaux Sociaux, Lives & Créateurs (Twitch, YouTube, Instagram, Discord)"
+  },
+  {
     "name": "plugin:altSonos",
     "color": "D99B52",
     "description": "Plugin Alt Multiroom Audio (Sonos) (Amp, Port, Connect, S1/S2)"
