@@ -4,6 +4,16 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.5] - 2026-11-08 (Canal Beta)
+
+### Ajouté
+- **Connexion YouTube / Google en 1 Clic (Popup & QR Code `google.com/device` sans Console Google Cloud)** :
+  - Ajout du bouton principal **« Se connecter avec YouTube en 1 clic »** dans l'onglet YouTube de l'Assistant, aligné sur Twitch, Instagram et Discord.
+  - Résolution automatique des identifiants OAuth2 TV / Leanback (`_resolve_tv_client_credentials()` dans `YouTubeConnector`) permettant d'ouvrir directement la fenêtre d'autorisation `https://www.google.com/device` (avec code d'activation et QR Code scannable au smartphone) sans créer de projet ni de clé dans Google Cloud Console.
+  - Intégration de l'API **YouTube InnerTube TV** (`account/account_menu` et `browse` `FEchannels` avec le jeton OAuth2 1 clic) pour récupérer automatiquement votre chaîne connectée et l'intégralité de votre liste privée d'abonnements YouTube avec zéro quota Google Cloud.
+
+---
+
 ## [0.1.0-beta.4] - 2026-11-08 (Canal Beta)
 
 ### Ajouté
