@@ -4,6 +4,13 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.25] - 2026-11-08 (Canal Beta)
+
+### Corrigé
+- **Alignement de la vignette SVG combinée et arrondi des boutons sur les widgets combinés (`core/class/altTydom.class.php`, `core/template/dashboard/altTydom.html`, `core/template/mobile/altTydom.html`)** :
+  - **Correction du décalage horizontal des vantaux dans `buildCategorySvg()`** : réindexation 0-based (`array_values($linkedSummary['openings'])`) des ouvrants associés afin que les vantaux soient centrés à l'intérieur du cadre de fenêtre (`x = 28..92`) au lieu d'être décalés vers la droite par leur numéro d'emplacement (`slot = 1..3`), et ajout d'un masque opaque sous le tablier du volet pour éviter que les montants verticaux des vantaux ne traversent les lames baissées.
+  - **Pastilles d'état `.tyd-linked-chip` et boutons `.alt-transport-main` / `.alt-pill-btn`** : coloration verte (`is-on`) / ambrée (`is-amber`) de la puce lumineuse `.tyd-chip-dot` des vantaux et ajout de `!important` sur `border-radius` pour empêcher les surcharges CSS du Core Jeedom de rendre le bouton central *Stop* carré.
+
 ## [0.1.0-beta.24] - 2026-11-08 (Beta)
 
 ### Corrigé
