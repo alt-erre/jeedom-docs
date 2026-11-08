@@ -4,6 +4,15 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.6] - 2026-11-08 (Canal Beta)
+
+### Sécurité & Conformité CGU Jeedom Market
+- **Génération 100 % locale des QR Codes SVG (`renderLocalQrSvgDataUri`)** : remplacement du service externe `api.qrserver.com` par un générateur QR Code ISO/IEC 18004 en SVG vectoriel exécuté intégralement en local dans l'Assistant. Aucune URL de challenge d'authentification (notamment les empreintes Remote Auth Discord) ne transite par un serveur tiers.
+- **Isolation stricte dans `jeedom::getTmpFolder('altSocial')` (Art. 4.4 CGU)** : déplacement du cache de manifeste de versions dans `/tmp/jeedom/altSocial/remote_versions.json`.
+- **Métadonnées `plugin_info/info.json` (Art. 3.5 & 4.8 CGU)** : ajout des clés `documentation_beta` et `changelog_beta`.
+
+---
+
 ## [0.1.0-beta.5] - 2026-11-08 (Canal Beta)
 
 ### Ajouté
