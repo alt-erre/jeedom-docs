@@ -3,6 +3,17 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.28] - 2026-11-08 (Canal Beta)
+
+### Corrigé & Amélioré (Renouvellement Silencieux du Jeton 2h sans 2FA, Cookies Navigateur de Confiance `ocapi-app` & Maintien Continu de Session)
+- **Suppression des reconnexions 2FA toutes les 2 heures (`7200 s`) grâce à la persistance des cookies « Navigateur de Confiance » (`isBrowserTrusted`) et au renouvellement silencieux (`resources/altarlod/altarlod.py`, `core/ajax/altArlo.ajax.php`, `plugin_info/configuration.php`)** :
+  - **Cause racine identifiée** : les jetons d'accès Arlo (`2_...`) ont une durée de vie serveur de **2 heures (`7200 s`)**. Jusqu'ici, les cookies de navigateur de confiance (`isBrowserTrusted: True`, valables ~14 jours) émis par `ocapi-app.arlo.com` lors de `finishAuth` / `validateAccessToken` n'étaient pas conservés et `start_2fa_auth()` appelait systématiquement `/api/startAuth`, ce qui obligeait le plugin à redemander un code 2FA par SMS/E-mail toutes les 2 heures.
+  - **Persistance isolée des cookies `ocapi-app.arlo.com` (`ocapi_cookies` & `_OCAPI_SESSIONS`)** : conservation des cookies de confiance Arlo dans une session `curl_cffi` dédiée et dans `session.json["ocapi_cookies"]` (avec filtrage automatique des cookies anti-bot Cloudflare éphémères `__cf_bm` / `_cfuvid` / `cf_clearance` et isolation stricte vis-à-vis de `myapi.arlo.com`).
+  - **Renouvellement silencieux automatique sans code 2FA (`try_silent_token_refresh` & `ping_ocapi_validate_token`)** : renouvellement préventif à **1h45 (`6300 s`)** ainsi qu'en cas d'expiration du jeton via `GET /api/validateAccessToken` et `POST /api/auth` + cookies de confiance, **sans jamais appeler `/api/startAuth`** (zéro SMS ou e-mail 2FA envoyé tant que l'empreinte navigateur de confiance de ~14 jours est valide). Prise en charge directe de `authCompleted: True` dans `start_2fa_auth()`.
+- **Maintien de session haute fréquence toutes les 90 s et protection de la session Web en journée (`resources/altarlod/altarlod.py`)** :
+  - Passage du battement de cœur (`keep_alive_session` sur `session/v3` + `session/v2` et ping léger de souscription SSE `subscriptions/<uid>_web` avec `publishResponse: False`) de `540 s` (9 min) à **90 secondes** (aligné sur `pyaarlo` / `my.arlo.com`), couplé à un ping `validateAccessToken` toutes les **15 minutes**, tout en espaçant les rafales lourdes `request_all_hubs_states` à 30 min et `fetch_full_inventory` à 6 heures.
+  - Isolation des appels `startStream` utilisant un `User-Agent` mobile/tiers dans une session éphémère dédiée et maintien de `_cffi_session` sur simple timeout caméra afin de ne jamais invalider les cookies `JSESSIONID`/`AWSALB` ni changer d'empreinte `User-Agent`/TLS JA3 en cours de journée.
+
 ## [0.1.0-beta.27] - 2026-11-08 (Beta)
 
 ### Corrigé
