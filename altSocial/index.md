@@ -10,11 +10,12 @@ Plugin Jeedom unifié permettant de suivre vos **comptes de réseaux sociaux**, 
   1. **Hub Global Multi-Réseaux (`hub`)** : regroupe dans un seul widget unifié vos 4 plateformes avec filtres instantanés (*Tous*, *Twitch*, *YouTube*, *Instagram*, *Discord*), total des Lives en cours, nouveaux posts et abonnements.
   2. **Espace Plateforme (`platform`)** : un équipement dédié par réseau (*Mon Espace Twitch*, *Mon Espace YouTube*, *Mon Espace Instagram*, *Mon Espace Discord*) centralisant votre profil, vos abonnés, tous vos abonnements, les Lives actifs et le flux des publications.
   3. **Compte / Chaîne / Serveur Ciblé (`target`)** : un équipement dédié au suivi précis d'une chaîne créateur ou d'un serveur communautaire (historisation de la courbe d'abonnés/membres et déclencheurs directs de scénarios Jeedom dès le démarrage d'un Live ou la sortie d'une vidéo/publication).
-- **Couverture Officielle des 4 Plateformes** :
-  - **Twitch (`API Helix` + OAuth2 Device Flow)** : compteur de followers, liste automatique de vos chaînes suivies, streams en direct (titre, jeu/catégorie, spectateurs, vignette `16:9`) et dernières vidéos / VODs. Association en 1 clic par code d'activation (`twitch.tv/activate`) sans nécessiter d'accès HTTPS externe sur votre box Jeedom.
-  - **YouTube (`Data API v3` + Flux Atom RSS sans quota)** : compteur d'abonnés, vues et vidéos, liste de vos abonnements (via OAuth2 Google ou liste `@handle` / `UC...`), détection des Lives en direct et des nouvelles vidéos / Shorts optimisée par requêtes groupées (`1` unité de quota pour `50` vidéos au lieu de `100` unités par recherche).
-  - **Instagram (`Instagram Graph API` officielle + `business_discovery`)** : statistiques de votre compte Créateur/Business (`followers_count`, `follows_count`, `media_count`), suivi des abonnés et des derniers posts/Reels de tout autre compte Créateur/Business public via `business_discovery`, avec renouvellement automatique des jetons longue durée (`60` jours).
-  - **Discord (`API v10` : Bot + OAuth2 + Invitations publiques)** : liste des serveurs rejoints (`guilds`), compteurs de membres et de personnes en ligne (y compris sur tout serveur externe disposant d'un lien `discord.gg/...` ou du Widget serveur sans bot), détection des conférences Stage / événements / salons vocaux actifs et remontée des derniers messages d'annonces.
+- **Connexion Simplifiée en 1 Clic & Mode « Zéro Console Développeur » sur les 4 Plateformes** :
+  - **Twitch (Popup / Code d'activation 1 clic ou simple `@pseudo`)** : cliquez sur **Se connecter avec Twitch en 1 clic** (aucun *Client ID* ni compte développeur requis) pour lier votre compte via `twitch.tv/activate` et récupérer automatiquement votre profil, tous vos abonnements suivis et les Lives en cours. Vous pouvez également suivre n'importe quelle chaîne (`@zerator`, `@kamet0`...) sans même connecter de compte grâce au moteur GraphQL intégré.
+  - **YouTube (Suivi direct `@handle` sans clé Google Cloud & Import d'abonnements en 1 clic)** : indiquez simplement `@MaChaine` et vos chaînes suivies (`@Micode`, `@LofiGirl`...) pour obtenir le nombre d'abonnés, les Lives actifs et les dernières vidéos via extraction directe et flux Atom RSS sans quota ni clé API, ou collez votre page `youtube.com/feed/channels` dans l'extracteur 1 clic.
+  - **Instagram (Connexion directe au compte ou simple `@pseudo` sans Meta Developer)** : connectez directement votre compte Instagram (votre mot de passe n'est jamais conservé, seul le jeton de session `0600` est enregistré) pour récupérer vos abonnements suivis, les Lives en direct et les nouveaux posts/Reels, ou indiquez simplement des `@pseudos` publics sans connexion.
+  - **Discord (QR Code Mobile en 1 clic ou liens `discord.gg/...`)** : scannez le QR Code affiché dans Jeedom avec l'application mobile Discord de votre téléphone (*Paramètres > Scanner le code QR*) pour retrouver instantanément tous vos serveurs rejoints, les membres en ligne, les conférences Stage / événements en direct et les annonces sans créer de Bot Discord.
+  - *Mode Avancé (Optionnel)* : les clés API développeur (Client ID Twitch, API Key YouTube Data v3, Jeton Meta Graph Business, Bot Token Discord) restent disponibles dans un tiroir replié pour les utilisateurs avancés.
 - **Moteur Hybride au Choix : Sobriété Luna (`Cron`) ou Temps Réel (`Démon WebSocket`)** :
   - **Mode Cron PHP léger (par défaut)** : `0 Mo` de RAM au repos, cadence configurable par équipement (`1` à `60` min) et pause nocturne programmable.
   - **Mode Hybride Démon Python Temps Réel (optionnel, port `55107`)** : maintient des connexions WebSocket sortantes **Twitch EventSub** (`stream.online` / `stream.offline`) et **Discord Gateway v10** pour déclencher vos scénarios domotiques en moins de `2` secondes lors d'un passage en Live ou d'une annonce Discord.
@@ -30,28 +31,26 @@ Plugin Jeedom unifié permettant de suivre vos **comptes de réseaux sociaux**, 
 
 ---
 
-## 2. Guide de Configuration Rapide par Plateforme
+## 2. Guide de Configuration Rapide en 1 Clic (Sans Console Développeur)
 
 Ouvrez **Plugins -> Communication -> Alt Réseaux Sociaux, Lives & Créateurs**, puis cliquez sur **Assistant Comptes & Création**.
 
-### 2.1. Twitch (Recommandé : Device Code en 1 clic)
-1. Rendez-vous sur [dev.twitch.tv/console/apps](https://dev.twitch.tv/console/apps) et créez une application (URL de redirection : `http://localhost`, Catégorie : *Application Integration*).
-2. Copiez le **Client ID** dans l'onglet **Twitch** de l'Assistant Jeedom.
-3. Cliquez sur **Connecter mon compte Twitch (Device Code)**, ouvrez `https://www.twitch.tv/activate` et saisissez le code affiché : votre compte, vos abonnés et tous vos abonnements sont immédiatement liés avec rafraîchissement automatique du jeton.
+### 2.1. Twitch (Popup & Code d'activation en 1 clic ou `@pseudo`)
+1. Cliquez sur **Se connecter avec Twitch en 1 clic** : la fenêtre d'autorisation Twitch (`twitch.tv/activate`) s'ouvre automatiquement (accompagnée d'un QR Code scannable au téléphone).
+2. Cliquez sur **Autoriser** sur Twitch : votre profil, vos abonnés, toute votre liste d'abonnements et les Lives en cours sont immédiatement liés, sans créer aucune application développeur.
+3. *Sans compte connecté* : vous pouvez aussi simplement saisir des pseudos (`zerator, kamet0...`) dans *Chaînes suivies complémentaires*.
 
-### 2.2. YouTube
-1. Dans [Google Cloud Console](https://console.cloud.google.com/), activez **YouTube Data API v3** et créez une **Clé API** (`AIza...`), puis collez-la dans l'onglet **YouTube** de l'Assistant.
-2. Indiquez votre chaîne (`@MaChaine` ou `UC...`) et/ou vos chaînes suivies (`@Micode, @LofiGirl...`).
-3. *Optionnel (abonnements privés automatiques)* : créez dans Google Cloud un identifiant **ID client OAuth 2.0** de type **Téléviseurs et appareils à saisie limitée**, renseignez `Client ID` + `Client Secret` et cliquez sur **Device Flow**.
+### 2.2. YouTube (Suivi direct `@handle` & Import d'abonnements en 1 clic)
+1. Saisissez simplement votre chaîne (`@MaChaine`) et/ou vos chaînes suivies (`@Micode, @LofiGirl...`) : aucune clé API Google Cloud n'est requise.
+2. Pour importer tous vos abonnements d'un coup, cliquez sur **Importer tous mes abonnements YouTube en 1 clic**, copiez-collez le contenu de la page [youtube.com/feed/channels](https://www.youtube.com/feed/channels) (`Ctrl+A` puis `Ctrl+C`) et cliquez sur **Extraire et ajouter à mes abonnements**.
 
-### 2.3. Instagram (Comptes Créateur ou Business)
-1. Meta ayant fermé l'*Instagram Basic Display API* fin 2024, l'API officielle requiert un compte Instagram **Créateur** ou **Professionnel** (activation gratuite dans l'application Instagram).
-2. Depuis [developers.facebook.com](https://developers.facebook.com/), générez un jeton d'accès utilisateur ou Instagram Login (`IG...` ou `EAA...` avec permissions `instagram_basic` / `instagram_business_basic`) et collez-le dans l'onglet **Instagram**.
-3. Renseignez dans *Comptes Créateurs/Business suivis* les `@pseudos` publics dont vous souhaitez suivre les abonnés et nouveaux posts via `business_discovery`.
+### 2.3. Instagram (Connexion directe au compte ou simple `@pseudo`)
+1. **Avec votre compte Instagram** : saisissez votre identifiant Instagram et votre mot de passe puis cliquez sur **Connecter Instagram** (votre mot de passe n'est jamais stocké, seul le jeton de session `0600` est enregistré) pour récupérer automatiquement votre liste de comptes suivis, les Lives en cours et les derniers posts/Reels.
+2. **Sans connexion** : indiquez simplement les `@pseudos` publics dans *Mon compte Instagram* ou *Comptes suivis complémentaires*.
 
-### 2.4. Discord
-- **Suivi rapide sans Bot (Serveur public)** : indiquez simplement le lien d'invitation (`discord.gg/xxxx`) dans la *Watchlist* ou dans un équipement *Cible* pour récupérer le nombre de membres et de personnes en ligne.
-- **Suivi complet avec Bot (Salons Live, Événements & Annonces)** : créez une application sur [discord.com/developers/applications](https://discord.com/developers/applications), onglet **Bot**, copiez le **Bot Token** dans l'Assistant et invitez le bot en lecture seule (`View Channels`, `Read Message History`) sur votre serveur. Activez *Message Content Intent* sur le portail Discord si vous souhaitez le texte complet des messages hors embeds.
+### 2.4. Discord (QR Code Application Mobile en 1 clic ou liens `discord.gg/...`)
+1. **Avec votre compte Discord (QR Code en 1 clic)** : cliquez sur **Se connecter par QR Code Discord**, ouvrez l'application **Discord** sur votre smartphone (*Avatar en bas à droite > Scanner le code QR*) et validez sur votre téléphone : tous vos serveurs rejoints, les membres en ligne, les conférences Stage / événements en direct et les salons d'annonces sont immédiatement récupérés sans créer de Bot.
+2. **Sans connexion (Serveur public)** : indiquez simplement le lien d'invitation (`discord.gg/xxxx`) pour récupérer le nombre de membres et de personnes en ligne.
 
 ---
 
