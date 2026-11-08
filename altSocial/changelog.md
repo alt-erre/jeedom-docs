@@ -4,6 +4,16 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.7] - 2026-11-08 (Canal Beta)
+
+### Corrigé
+- **Connexion YouTube / Google en 1 Clic (`restricted_client` sur `google.com/device`)** :
+  - Correction du scope OAuth2 TV (`http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content` envoyé en JSON sur `https://www.youtube.com/o/oauth2/device/code` avec `device_model: "ytlr::"`), éliminant l'erreur `restricted_client` qui était déclenchée par l'ajout du scope `youtube.readonly` sur l'identifiant client TV.
+  - Correction de la détection de l'identifiant TV intégré lors des clics successifs (`_resolve_tv_client_credentials()` et masquage des `client_id` publics intégrés dans `getAccountsMaskedForUi()` afin de ne pas pré-remplir le tiroir développeur optionnel).
+  - Enrichissement de l'extraction d'abonnements **YouTube InnerTube** (`guide`, `FEchannels` et `FEsubscriptions`) pour remonter toutes les chaînes abonnées sans clé API Google Cloud.
+
+---
+
 ## [0.1.0-beta.6] - 2026-11-08 (Canal Beta)
 
 ### Sécurité & Conformité CGU Jeedom Market
