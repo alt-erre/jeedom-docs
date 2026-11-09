@@ -48,9 +48,9 @@ Ouvrez **Plugins -> Communication -> Alt Réseaux Sociaux, Lives & Créateurs**,
 1. **Avec votre compte Instagram** : saisissez votre identifiant Instagram et votre mot de passe puis cliquez sur **Connecter Instagram** (votre mot de passe n'est jamais stocké, seul le jeton de session `0600` est enregistré) pour récupérer automatiquement votre liste de comptes suivis, les Lives en cours et les derniers posts/Reels.
 2. **Sans connexion** : indiquez simplement les `@pseudos` publics dans *Mon compte Instagram* ou *Comptes suivis complémentaires*.
 
-### 2.4. Discord (QR Code Application Mobile en 1 clic ou liens `discord.gg/...`)
-1. **Avec votre compte Discord (QR Code en 1 clic)** : cliquez sur **Se connecter par QR Code Discord**, ouvrez l'application **Discord** sur votre smartphone (*Avatar en bas à droite > Scanner le code QR*) et validez sur votre téléphone : tous vos serveurs rejoints, les membres en ligne, les conférences Stage / événements en direct et les salons d'annonces sont immédiatement récupérés sans créer de Bot.
-2. **Sans connexion (Serveur public)** : indiquez simplement le lien d'invitation (`discord.gg/xxxx`) pour récupérer le nombre de membres et de personnes en ligne.
+### 2.4. Discord (Lien d'invitation `discord.gg/...` en 1 clic sans Bot, Widget Serveur ou Bot/QR)
+1. **Lier un serveur en 1 clic par lien d'invitation (`discord.gg/xxxx` - Recommandé, 100 % officiel, sans Bot)** : collez simplement le lien d'invitation d'un ou plusieurs serveurs Discord (`discord.gg/xxxx` ou ID de serveur avec Widget activé) et cliquez sur **Lier le serveur en 1 clic**. L'API publique officielle de Discord récupère immédiatement le nom du serveur, son icône, le nombre total de membres, le nombre de membres en ligne, les événements actifs et les salons vocaux actifs, sans créer de Bot et sans aucun risque pour votre compte Discord personnel.
+2. **Mode Avancé (Bot Discord / OAuth2 / QR Code)** : permet en complément de lire les salons d'annonces ou de remonter tous vos serveurs rejoints.
 
 ---
 

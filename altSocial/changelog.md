@@ -4,6 +4,15 @@ Toutes les modifications notables apportées à ce plugin sont documentées dans
 
 ---
 
+## [0.1.0-beta.8] - 2026-11-09 (Canal Beta)
+
+### Ajouté
+- **Discord en 1 Clic par Lien d'Invitation Officiel (`discord.gg/...` ou ID Widget - Zéro Bot & Zéro Risque)** :
+  - Ajout en tête de l'onglet Discord de l'Assistant du bouton **« Lier le serveur en 1 clic »** (`linkDiscordInvite` / `DiscordConnector.link_server_by_invite_or_id()`) utilisant l'API publique officielle de Discord (`/api/v10/invites/{code}?with_counts=true&with_expiration=true` et `/api/v10/guilds/{id}/widget.json`).
+  - Récupération immédiate sans Bot ni jeton personnel du nom du serveur, de son icône, du nombre total de membres (`approximate_member_count`), du nombre de membres en ligne (`approximate_presence_count`), des événements en direct (`guild_scheduled_event`) et des salons vocaux actifs (via Widget Serveur), tout en conservant les modes Bot/OAuth2/QR dans le tiroir *Mode Avancé*.
+
+---
+
 ## [0.1.0-beta.7] - 2026-11-08 (Canal Beta)
 
 ### Corrigé
