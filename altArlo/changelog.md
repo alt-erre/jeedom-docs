@@ -3,6 +3,18 @@
 Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
 Ce projet respecte la convention [Semantic Versioning (SemVer)](https://semver.org/lang/fr/).
 
+## [0.1.0-beta.29] - 2026-11-10 (Canal Beta)
+
+### Corrigé & Amélioré (Appairage Officiel du Facteur `BROWSER` 14 Jours & Renouvellement Silencieux Complet des Jetons 2h)
+- **Implémentation complète du protocole d'appairage et de renouvellement silencieux « Trusted Browser » (`factorType: "BROWSER"`) d'Arlo (`resources/altarlod/altarlod.py`, `plugin_info/install.php`)** :
+  - **Cause racine identifiée sur les comptes 2FA** : sur un compte Arlo avec double authentification activée, `POST /api/auth` renvoie systématiquement `authCompleted: False` avec un jeton pré-MFA temporaire que `myapi.arlo.com` refuse en `401`. Pour renouveler le jeton de 2h (`expiresIn: 7200`) sans envoyer de SMS ni d'e-mail pendant 14 jours, Arlo exige trois mécanismes conjoints (identiques à `my.arlo.com` / `pyaarlo`) qui manquaient dans la `beta.28` :
+    1. **Identifiant matériel persistant du navigateur (`X-User-Device-Id`)** : génération et persistance d'un UUID unique (`userDeviceId` dans `session.json` et `pending_2fa.json`) transmis sur chaque requête `ocapi-app.arlo.com` via les en-têtes `X-Service-Version: 3`, `X-User-Device-Id`, `X-User-Device-Type: BROWSER` et `X-User-Device-Automation-Name: QlJPV1NFUg==`.
+    2. **Appairage officiel du facteur `BROWSER` après 2FA (`POST /api/startPairing`)** : extraction du `browserAuthCode` retourné par `POST /api/finishAuth` et appel automatique de `POST https://ocapi-app.arlo.com/api/startPairing` (`factorType: "BROWSER"`, `isBrowserTrusted: True`) pour enregistrer l'appareil comme facteur de confiance pendant 14 jours.
+    3. **Échange MFA silencieux via le facteur `BROWSER` toutes les 2h (`_try_browser_factor_auth`)** : lors du renouvellement à 1h50 (`6600 s`) ou à l'expiration du jeton 2h, exécution automatique de la séquence `POST /api/getFactorId` (`factorType: "BROWSER"`) $\rightarrow$ `POST /api/startAuth` (`factorId` du navigateur, **zéro SMS / zéro e-mail envoyé**) $\rightarrow$ `POST /api/finishAuth` (`isBrowserTrusted: True`, sans OTP) $\rightarrow$ `GET /api/validateAccessToken`.
+  - **Suppression de la boucle de réessai à 1h45 et préservation de la session HTTP/2 (`resources/altarlod/altarlod.py`)** :
+    - Interdiction d'envoyer un `pre_token` non finalisé à `myapi.arlo.com` ou de réinitialiser `_cffi_session` tant qu'un nouveau jeton finalisé n'a pas été obtenu, et exécution unique du renouvellement préventif par jeton (`_last_proactive_refresh_token`) pour ne jamais solliciter `/api/auth` en boucle toutes les 60 s.
+    - Conservation des cookies `ocapi_cookies` et de `userDeviceId` même lorsque `session.json` est marqué expiré, ainsi que dans le repli `urllib` (`http.cookiejar.CookieJar`).
+
 ## [0.1.0-beta.28] - 2026-11-08 (Canal Beta)
 
 ### Corrigé & Amélioré (Renouvellement Silencieux du Jeton 2h sans 2FA, Cookies Navigateur de Confiance `ocapi-app` & Maintien Continu de Session)
