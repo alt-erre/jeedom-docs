@@ -4,6 +4,13 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.26] - 2026-11-10 (Canal Beta)
+
+### Corrigé & Amélioré
+- **Prévention des collisions SQL `1062 Duplicate entry` et clarification des emplacements d'ouvrants associés (`core/class/altTydom.class.php`, `desktop/php/altTydom.php`)** :
+  - **Correction de l'erreur MySQL `Duplicate entry '<id>-État Vantail G' for key 'unique'`** : lorsqu'une baie porte un mot directionnel commun dans son nom (ex. *« Baie Gauche Salon BG »* et *« Baie Gauche Salon BD »*), la détection automatique du libellé n'attribue plus `Vantail G` aux deux vantaux et `resolveUniqueCmdName()` garantit l'unicité stricte du nom de chaque commande créée sur l'équipement hôte.
+  - **Clarification explicite des 3 emplacements d'ouvrants associés** : renommage des champs de configuration en **Ouvrant n°1 — Vantail Gauche (ou Ouvrant unique)** (`Auto : Vantail G`), **Ouvrant n°2 — Vantail Droit (2e vantail)** (`Auto : Vantail D`) et **Ouvrant n°3 — Vantail Central / Tierce / Portillon** (`Auto : Central / Portillon`), avec positionnement visuel automatique du vantail central au milieu dans la vignette SVG à 3 vantaux.
+
 ## [0.1.0-beta.25] - 2026-11-08 (Canal Beta)
 
 ### Corrigé
