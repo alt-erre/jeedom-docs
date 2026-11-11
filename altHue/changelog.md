@@ -16,11 +16,13 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
     - **`ignore` (Ignorer à l'allumage)** : corrige uniquement l'état à `0` lorsque l'amont est coupé, sans bloquer ni piloter l'interrupteur amont.
   - **Option d'extinction de l'interrupteur amont (`upstreamOffBehavior` + `upstreamOffCmd`)** : permet, lors d'une commande `Éteindre` (`off`, `toggle` vers `0` ou `luminosité = 0 %`), de choisir entre éteindre uniquement la lampe dans Hue (`hue_only`), éteindre la lampe Hue **et** couper l'interrupteur amont (`upstream_also`), ou couper uniquement l'interrupteur amont (`upstream_only`).
   - **Gestion complète au niveau Pièces (`room`), Zones (`zone`) et Espaces Entertainment (`entertainment`)** : résolution automatique des lampes membres de chaque pièce/zone (`light_rids`), cascade bidirectionnelle entre l'interrupteur amont d'une pièce et ceux de ses lampes individuelles, et recalcul automatique de l'état de la pièce si toutes ses lampes alimentées sont éteintes.
+- **Harmonisation complète de la documentation du code source (`core/`, `desktop/`, `plugin_info/`, `resources/`)** :
+  - Ajout des en-têtes standardisés, blocs PHPDoc PSR-5/PSR-19, docstrings Python PEP 257 et commentaires JSDoc (couverture 100 % conforme à la règle 11 `AGENTS.md`).
 
 ## [0.1.0-beta.9] - 2026-11-08 (Beta)
 
 ### Corrigé
-- **Lisibilité & Contraste du thème « Blanc / Light Glass » (`white` — Charte Graphique `v1.5`)** :
+- **Lisibilité & Contraste du thème « Blanc / Light Glass » (`white` - Charte Graphique `v1.5`)** :
   - **Isolation face au thème sombre de Jeedom Core (`--txt-color` / `--link-color`)** : redéfinition locale forcée des variables du Core Jeedom (`--txt-color: #0f172a !important`, `--link-color: #0f172a !important`, `color-scheme: light !important`) empêchant `desktop.main.css` et `mobile.main.css` d'appliquer un texte gris clair (`#b9b9b9`) sur les liens, boutons, listes déroulantes et libellés du widget blanc.
   - **Tokens typographiques opaques haute lisibilité (WCAG AAA)** : passage du texte principal en encre ardoise profonde (`#0f172a`, contraste `16.2:1`) et du texte secondaire `--alt-muted` en gris ardoise franc **sans transparence alpha** (`#334155`, contraste `9.8:1`), éliminant l'effet de texte gris délavé sur les sous-titres et métadonnées.
   - **Adaptation des badges, vignettes et teintes pastel en mode clair** : conversion des fonds `rgba(255, 255, 255, ...)` en surfaces ardoise contrastées (`rgba(15, 23, 42, 0.07)`) et déclinaison des couleurs sémantiques pastel en teintes foncées haute lisibilité (`#0369a1`, `#b45309`, `#15803d`, `#b91c1c`) sur les vues Dashboard et Mobile.
