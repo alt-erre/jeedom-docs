@@ -55,6 +55,20 @@ Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix ent
 - Commande curseur `Rappeler Preset N°` (`1` à `99`).
 - Découverte et création automatique d'une commande d'action pour chaque preset enregistré dans l'appareil (`Preset 1 : ...`, `Preset 2 : ...`) via `/smoip/zone/presets`.
 
+### 6. Fonctions Avancées StreamMagic (Écran, Progression Seek, Flux Hi-Res, Audio & Découverte Réseau)
+- **Luminosité de l'écran en façade (`/smoip/system/display`)** :
+  - Commande info `Luminosité écran` (`bright`, `dim`, `off`) et commandes d'action `Écran Lumineux`, `Écran Tamisé`, `Écran Éteint` et `Basculer Luminosité Écran` (avec bouton rapide directement dans la barre de titre du widget Dashboard).
+- **Barre de progression temporelle & Navigation `Seek` (`/smoip/zone/play_state` & `/smoip/zone/play_control`)** :
+  - Commandes `Durée morceau` (`s`), `Position lecture` (`s`) et curseur d'action `Aller à la position` (`seek`), intégrés sous forme de barre de progression interactive (`mm:ss / mm:ss`) dans le widget Dashboard.
+- **Indicateurs de flux Hi-Res & Verrouillage de signal numérique** :
+  - Commandes dédiées `Flux Lossless` (binaire, avec badge ambré `LOSSLESS` sur le widget), `Signal audio détecté` (binaire, détection de signal actif sur TV ARC / Optique / Coax / USB avec badge d'alerte `NO SIGNAL`), `Station radio`, `Codec audio`, `Fréquence échantillonnage` (`Hz`) et `Débit audio` (`kbps`).
+- **Réglages Audio & Intégration Hi-Fi (`/smoip/zone/eq` & `/smoip/zone/state`)** :
+  - `Volume dB` (`dB`), `Balance G/D` (`-15` à `+15`) et `Réglage Balance G/D`, `État Égaliseur` (`Égaliseur On` / `Égaliseur Off`), `Mode Pré-ampli` (`Mode Pré-ampli On` / `Off`) et `Control Bus` (`Amplificateur`, `Récepteur`, `Désactivé`).
+- **Gestion d'énergie avancée (`/smoip/system/power`) & Diagnostic Firmware (`/smoip/system/update`)** :
+  - `Mode de veille` (`Veille Réseau (Network)` / `Veille Éco (< 0.5W)`), `Délai extinction auto (APD)` (`Désactivée`, `15 min`, `30 min`, `60 min`), `Version Firmware` et `Mise à jour firmware dispo`.
+- **Découverte automatique sur le réseau local (`Scanner le réseau`)** :
+  - Bouton **Scanner le réseau** sur la page d'accueil du plugin détectant automatiquement tous les amplificateurs et lecteurs réseau Cambridge Audio présents sur le LAN et créant/mettant à jour les équipements Jeedom.
+
 ---
 
 ## Configuration

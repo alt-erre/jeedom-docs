@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.15] - 2026-11-12
+
+- Ajout du réglage de la luminosité de l'écran en façade de l'amplificateur (Lumineux, Tamisé, Éteint) avec bouton rapide sur le widget.
+- Ajout de la barre de progression du morceau en cours et de la navigation temporelle directe sur le widget Dashboard.
+- Ajout des indicateurs de flux audio sans perte (Lossless), de détection de signal numérique (TV ARC / Optique / Coax), de station radio, de codec, de fréquence et de débit.
+- Ajout des commandes avancées d'audio et d'alimentation : volume en dB, balance gauche/droite, égaliseur, mode pré-ampli, Control Bus, mode de veille (Réseau / Éco), délai d'extinction automatique (APD) et suivi des mises à jour firmware.
+- Ajout d'un bouton « Scanner le réseau » pour découvrir et créer automatiquement les appareils Cambridge Audio présents sur le réseau local.
+
 ## [0.1.0-beta.14] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.
