@@ -5,6 +5,18 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.10] - 2026-11-11 (Canal Beta)
+
+### Ajouté
+- **Association d'un Interrupteur / Prise Commandée Amont Externe sur les Lampes, Hue Play, Pièces & Zones (`core/class/altHue.class.php`, `desktop/php/altHue.php`, `desktop/js/altHue.js`, `resources/althued/althued.py`)** :
+  - **Correction temps réel de l'état (`listener` Jeedom + surcharge du polling/SSE)** : écoute instantanée de la commande d'état amont externe (`upstreamStateCmd`) et création de la commande info `upstream_power` (*Alimentation amont*). Dès que l'interrupteur ou la prise en amont est coupé (`0`), l'état (`state = 0`) et la luminosité (`brightness = 0 %`) sont immédiatement forcés à `0` avec affichage du badge **`AMONT OFF`** sur le widget, empêchant le pont Hue de conserver un état « Allumé » erroné lorsque l'alimentation électrique de l'ampoule est coupée.
+  - **Sélecteur de mode à l'allumage (`upstreamOnMode`)** :
+    - **`auto_on` (Allumer automatiquement l'interrupteur amont puis la lampe Hue)** : exécute automatiquement la commande `upstreamOnCmd`, attend le délai d'amorçage configurable (`upstreamBootDelayMs`, par défaut `1500 ms`), puis transmet la commande d'allumage/scène/couleur/luminosité au pont Hue.
+    - **`block` (Bloquer / Refuser l'allumage)** : bloque tout ordre d'allumage tant que l'interrupteur amont est éteint (`0`) et maintient l'équipement à `0`.
+    - **`ignore` (Ignorer à l'allumage)** : corrige uniquement l'état à `0` lorsque l'amont est coupé, sans bloquer ni piloter l'interrupteur amont.
+  - **Option d'extinction de l'interrupteur amont (`upstreamOffBehavior` + `upstreamOffCmd`)** : permet, lors d'une commande `Éteindre` (`off`, `toggle` vers `0` ou `luminosité = 0 %`), de choisir entre éteindre uniquement la lampe dans Hue (`hue_only`), éteindre la lampe Hue **et** couper l'interrupteur amont (`upstream_also`), ou couper uniquement l'interrupteur amont (`upstream_only`).
+  - **Gestion complète au niveau Pièces (`room`), Zones (`zone`) et Espaces Entertainment (`entertainment`)** : résolution automatique des lampes membres de chaque pièce/zone (`light_rids`), cascade bidirectionnelle entre l'interrupteur amont d'une pièce et ceux de ses lampes individuelles, et recalcul automatique de l'état de la pièce si toutes ses lampes alimentées sont éteintes.
+
 ## [0.1.0-beta.9] - 2026-11-08 (Beta)
 
 ### Corrigé
