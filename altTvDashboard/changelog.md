@@ -1,7 +1,7 @@
 # Changelog Stable - Alt Dashboard & Kiosk TV (`altTvDashboard`)
 
 Ce document présente les améliorations majeures et nouvelles fonctionnalités publiées sur le **canal Stable** du plugin.
-Pour le suivi des pré-versions et correctifs en cours de test, consultez le [Changelog Beta](changelog_beta).
+Pour le suivi des pré-versions et correctifs en cours de test, consultez le [Changelog Beta](https://alt-erre.github.io/jeedom-docs/altTvDashboard/changelog_beta).
 
 ---
 

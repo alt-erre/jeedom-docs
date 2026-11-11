@@ -3,7 +3,7 @@
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale HTTPS **CLIP v2** + Flux d'événements temps réel **Server-Sent Events (`SSE /eventstream/clip/v2`)** + API Locale **Hue Play HDMI Sync Box (`/api/v1`)**  
-**Version :** `0.1.0-beta.13`  
+**Version :** `0.1.0-beta.14`  
 **Compatibilité :** Jeedom v4.0+ (Smart, Atlas, Luna, RPi, Docker, VM Debian 11/12)
 
 ---
@@ -40,6 +40,11 @@ Le plugin **Alt Éclairage & Ambiance (Philips Hue)** (`altHue`) permet de pilot
      - **En-tête Hero temps réel** : état en ligne des Ponts Hue (`SSE LIVE`, adresse IP, firmware) et des boîtiers Hue Play HDMI Sync Box, bascule Mode Clair / Mode Sombre et rafraîchissement global.
      - **6 Cartes KPI interactives avec actions groupées en 1 clic** : *Pièces & Zones Hue* (*Tout ON / Tout OFF*), *Hue Play & Gradient* (*ON / OFF*), *Ampoules & Spots* (avec compteur d'alimentations amont coupées), *Entertainment & Sync Box* (*Stop Sync*), *Capteurs & Climat* (mouvements actifs, température moyenne `°C`, luminosité moyenne `lx`) et *Interrupteurs & Piles* (santé des batteries).
      - **Navigation latérale par Famille Hue & par Pièce Jeedom** (avec pastille d'éclairage allumé et température moyenne par pièce), filtres rapides (*Allumés / Actifs*, *Amont coupé*), regroupement dynamique (*Par Famille* / *Par Pièce*) et **3 modes d'affichage** (*Synthèse* en cartes pilotables avec aperçu couleur/Gradient et sélecteurs de scènes/palettes, *Widgets* complets Jeedom, et *Tableau* de supervision).
+9. **Fonctions Avancées CLIP v2 & HDMI Sync Box (Retour secteur, Signalisation bicolore, Simulateur d'Aube, Fondus & Sécurité)** :
+   - **Comportement au retour du secteur (`powerup` / *Power-On Behavior*)** : lecture et modification directe par scénario du comportement après coupure électrique (*Dernier état allumé*, *Récupération intelligente*, *Blanc chaud 100 %*, *Veilleuse nocturne 1 % (2200 K)* ou *Mémoriser la couleur actuelle*).
+   - **Signalisation visuelle avancée bicolore (`signaling`) & Repérage physique (`identify`)** : préréglages de flashs lumineux (*Sonnette / Interphone*, *Alarme Intrusion / Incendie*, *Notification douce*, *Succès / Livraison*), commande message personnalisée (`#RRGGBB,#RRGGBB,durée_sec`) et bouton de repérage physique (`identify`) sur chaque lampe, pièce, capteur et interrupteur.
+   - **Simulateur d'Aube / Crépuscule natif (`timed_effects` : `sunrise` / `sunset` 15 ou 30 min)**, réglage de la **vitesse des effets dynamiques (`effects_v2` / `effect_speed` `0..100 %`)**, **durée de transition / fondu personnalisable (`dynamics.duration` / `transition_duration` & `defaultTransitionMs`)**, **vitesse et Auto-Dynamic des Scènes (`scene_speed_set`, `scene_auto_dynamic_toggle`)** et **capture instantanée de l'éclairage actuel en nouvelle Scène Hue (`scene_capture_current`)**.
+   - **Capteurs, Pont Hue & Sync Box avancés** : réglage de la **sensibilité PIR (`sensitivity_set`)**, détection d'**arrachement / sabotage (`tamper`)**, **qualité Zigbee (`zigbee_status`)**, canal et santé Zigbee du Pont Hue (`zigbee_channel`, `zigbee_issue_count`), **lancement d'appairage Zigbee (`zigbee_discover_start`)**, pilotage des **automatisations internes du Pont (`behavior_enable_select` / `behavior_disable_select`)**, et contrôle avancé **Sync Box** (*Zone Entertainment cible*, *LED de façade*, *Bascule CEC*, *Format vidéo HDMI*).
 
 ---
 

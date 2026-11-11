@@ -1,7 +1,7 @@
 # Changelog Beta - Alt Vie Scolaire (Pronote) (`altPronote`)
 
 Ce document résume les fonctionnalités en cours d'ajout et les correctifs publiés sur le **canal Beta** du plugin.
-Pour les versions majeures du canal Stable, consultez le [Changelog Stable](changelog).
+Pour les versions majeures du canal Stable, consultez le [Changelog Stable](https://alt-erre.github.io/jeedom-docs/altPronote/changelog).
 
 ---
 

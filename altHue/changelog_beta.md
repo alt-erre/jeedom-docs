@@ -1,9 +1,13 @@
 # Changelog Beta - Alt Éclairage & Ambiance (Philips Hue) (`altHue`)
 
 Ce document résume les fonctionnalités en cours d'ajout et les correctifs publiés sur le **canal Beta** du plugin.
-Pour les versions majeures du canal Stable, consultez le [Changelog Stable](changelog).
+Pour les versions majeures du canal Stable, consultez le [Changelog Stable](https://alt-erre.github.io/jeedom-docs/altHue/changelog).
 
 ---
+
+## [0.1.0-beta.14] - 2026-11-11
+
+- Ajout des fonctions avancées Philips Hue & HDMI Sync Box : comportement au retour du secteur, signalisation lumineuse bicolore, repérage physique (clignotement), simulateur d'aube/crépuscule, vitesse des effets et des scènes dynamiques, durée de fondu personnalisable, capture de scène, sensibilité et autoprotection des capteurs, santé Zigbee, automatisations internes du pont et réglages avancés Sync Box (zone cible, LED de façade, CEC, format vidéo).
 
 ## [0.1.0-beta.13] - 2026-11-11
 
