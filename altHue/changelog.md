@@ -5,6 +5,20 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.11] - 2026-11-11 (Canal Beta)
+
+### Ajouté
+- **Dashboard Global de Supervision & Pilotage dans le Menu Accueil (`desktop/php/panel.php`, `desktop/js/panel.js`, `desktop/php/altHue.php`, `core/ajax/altHue.ajax.php`, `plugin_info/info.json`, `plugin_info/install.php`)** :
+  - **Intégration native au menu `Accueil -> Alt Éclairage & Ambiance (Philips Hue)`** : déclaration `"display": "panel"` dans `plugin_info/info.json`, activation automatique de `displayDesktopPanel` / `displayMobilePanel` et ajout du bouton d'accès rapide **« Dashboard Hue »** sur la page d'administration du plugin.
+  - **En-tête Hero & 6 Cartes KPI interactives avec actions groupées en 1 clic** :
+    - Supervision en direct des Ponts Hue (`SSE LIVE`, IP, version firmware) et des boîtiers Hue Play HDMI Sync Box.
+    - **6 KPI synthétiques cliquables** : *Pièces & Zones Hue* (nombre de pièces allumées, luminosité moyenne, boutons *Tout ON* / *Tout OFF*), *Hue Play & Gradient* (barres/rubans actifs, compteur d'ambiances Gradient/effets, boutons *ON* / *OFF*), *Ampoules & Spots* (compteur d'éclairages allumés et d'alimentations amont coupées, bouton *Tout OFF*), *Entertainment & Sync* (streaming actif et bouton *Stop Sync*), *Capteurs & Climat* (mouvements détectés, température moyenne `°C` et éclairement moyen `lx`) et *Interrupteurs & Piles* (santé des batteries).
+    - Les actions groupées du Dashboard (`panelBulkAction`) exécutent les commandes Jeedom des équipements afin de respecter intégralement les règles d'interrupteurs amont externes (`upstreamOnMode`, `upstreamOffBehavior`) et les plafonds de luminosité (`brightness_max`).
+  - **Navigation latérale, Filtres rapides & 3 Modes de Vue (`Synthèse`, `Widgets`, `Tableau`)** :
+    - Volet latéral repliable par **Famille Hue** et par **Pièce Jeedom** (affichant pour chaque pièce un point lumineux si un éclairage y est allumé, la température moyenne `°C` des capteurs Hue de la pièce et le nombre d'équipements).
+    - Barre d'outils avec recherche instantanée, filtres rapides **« Allumés / Actifs »** et **« Amont coupé »**, bascule de regroupement (**Par Famille** / **Par Pièce**) et bascule de thème **Dark Glass** / **Light Glass v1.5 (WCAG AAA)**.
+    - Cartes synthétiques pilotables avec aperçu visuel dynamique de la couleur (`#RRGGBB`), du blanc (`Kelvin`) ou du dégradé multi-zones **Hue Play Gradient** (`linear-gradient`), sélecteur rapide de **Scène Hue** (sur les pièces/zones) ou de **Palette Gradient** (sur les Hue Play), commandes `ON` / `OFF` / `-10%` / `+10%` / `Couleur` et badge d'état d'alimentation amont.
+
 ## [0.1.0-beta.10] - 2026-11-11 (Canal Beta)
 
 ### Ajouté
