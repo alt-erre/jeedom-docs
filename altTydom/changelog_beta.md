@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.31] - 2026-11-11
+
+- Masquage par défaut des boutons de montée et descente lente sur les volets roulants monovitesse (activables uniquement sur option pour les moteurs Tymoov bi-vitesse).
+
 ## [0.1.0-beta.30] - 2026-11-11
 
 - Prise en charge des groupes matériels Tydom (pilotage simultané sans décalage), de la surveillance de la liaison radio X3D, de la minuterie matérielle des éclairages, des tarifs Linky (HP/HC, Tempo, délestage) et consommations mensuelles, de la suspension des programmations horaires Tydom (Moments), du mode Maintenance Tyxal+ et de la détection automatique des capacités des volets (vitesse lente, BSO, sécurité thermique).
