@@ -5,6 +5,13 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.13] - 2026-11-11 (Canal Beta)
+
+### Ajouté
+- **Option Anti-Doublon : Masquage automatique de l'équipement interrupteur amont en référence (`core/class/altHue.class.php`, `desktop/php/altHue.php`, `desktop/js/altHue.js`, `desktop/php/panel.php`)** :
+  - **Proposition automatique à la sélection (`promptHideUpstreamEquipmentIfNeeded`)** : dès que vous sélectionnez une commande d'interrupteur ou de prise amont (`État`, `ON` ou `OFF`), une boîte de confirmation vous propose de masquer automatiquement l'équipement en référence (`[Pièce][Interrupteur]`) sur le Dashboard afin d'éviter d'afficher deux équipements ayant la même fonction en double.
+  - **Case à cocher permanente (`upstreamHideEqLogic`) avec restauration réversible (`syncUpstreamVisibility`)** : décoche automatiquement `Visible` (`isVisible = 0`) sur l'équipement portant l'interrupteur amont lors de la sauvegarde, et restaure automatiquement sa visibilité (`isVisible = 1`) si l'option est décochée, si l'interrupteur est dissocié ou si l'équipement Hue est supprimé (en vérifiant au préalable qu'aucune autre lampe Hue ne demande encore son masquage).
+
 ## [0.1.0-beta.12] - 2026-11-11 (Canal Beta)
 
 ### Corrigé

@@ -3,7 +3,7 @@
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale HTTPS **CLIP v2** + Flux d'événements temps réel **Server-Sent Events (`SSE /eventstream/clip/v2`)** + API Locale **Hue Play HDMI Sync Box (`/api/v1`)**  
-**Version :** `0.1.0-beta.12`  
+**Version :** `0.1.0-beta.13`  
 **Compatibilité :** Jeedom v4.0+ (Smart, Atlas, Luna, RPi, Docker, VM Debian 11/12)
 
 ---
@@ -34,6 +34,7 @@ Le plugin **Alt Éclairage & Ambiance (Philips Hue)** (`altHue`) permet de pilot
      - **Correction immédiate de l'état réel** : dès que l'interrupteur amont passe à `0`, la lampe (ainsi que la pièce/zone parente si plus aucune lampe n'y est alimentée) bascule immédiatement à `État = 0` et `Luminosité = 0 %` avec un badge **`AMONT OFF`** sur le widget, corrigeant le faux positif du pont Hue qui croit l'ampoule encore allumée.
      - **Sélecteur de mode à l'allumage (`upstreamOnMode`)** : choix par équipement entre **Allumer automatiquement l'interrupteur amont puis la lampe Hue** (`auto_on`, avec délai d'amorçage configurable par défaut à `1500 ms`), **Bloquer / Refuser l'allumage tant que l'interrupteur amont est éteint** (`block`), ou **Ignorer à l'allumage** (`ignore`).
      - **Option d'extinction de l'interrupteur amont (`upstreamOffBehavior`)** : choix entre éteindre uniquement la lampe dans Hue (`hue_only`), éteindre la lampe Hue **et** couper l'interrupteur amont (`upstream_also`), ou couper uniquement l'interrupteur amont (`upstream_only`), avec cascade intelligente entre pièces/zones et lampes membres.
+     - **Option anti-doublon de masquage de l'interrupteur amont (`upstreamHideEqLogic`)** : lors de la sélection d'une commande d'interrupteur amont (ou via la case à cocher dédiée), le plugin propose de masquer automatiquement (`Visible = 0`) l'équipement interrupteur/prise en référence sur le Dashboard afin d'éviter d'avoir l'interrupteur et l'éclairage Hue en double (avec restauration automatique de sa visibilité si vous décochez l'option ou dissociez l'interrupteur).
 8. **Dashboard Global de Supervision & Pilotage dans le Menu Accueil (`Accueil -> Alt Éclairage & Ambiance (Philips Hue)`)** :
    - Vue d'ensemble esthétique (**Dark Glass** & **Light Glass v1.5 WCAG AAA**) accessible directement depuis le menu **Accueil** de Jeedom ou via le bouton **« Dashboard Hue »** de la page du plugin :
      - **En-tête Hero temps réel** : état en ligne des Ponts Hue (`SSE LIVE`, adresse IP, firmware) et des boîtiers Hue Play HDMI Sync Box, bascule Mode Clair / Mode Sombre et rafraîchissement global.
