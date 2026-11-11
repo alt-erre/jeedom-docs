@@ -4,6 +4,14 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.28] - 2026-11-11 (Canal Beta)
+
+### Corrigé
+- **Affichage des éléments dans les différentes vues du Dashboard Tydom (`desktop/php/panel.php`, `desktop/js/panel.js`)** :
+  - **Suppression du test jQuery `:visible` sur les sections et cartes** : lors du chargement AJAX de la page par `jeedom.loadPage` ou avec `content-visibility: auto`, les éléments enfants avaient une géométrie transitoire à `0` (`:visible === false`), ce qui masquait définitivement toutes les sections `.tyd-panel-section` (`display: none`) et empêchait toute réapparition lors du changement de vue ou de filtre. Le comptage et la visibilité des sections reposent désormais directement sur le prédicat de filtrage logique (`matchesFilter`) et sur la classe `.tyd-is-hidden`.
+  - **Intégration directe du rendu des cartes dans `desktop/php/panel.php`** : remplacement de l'inclusion relative externe `panel_card.inc.php` par une fonction de rendu interne `$renderTydomPanelCard()` compatible avec le moteur de traduction `include_file()` de Jeedom 4.x.
+  - **Rendu complet de la vue « Widgets Complets » (`#tyd_view_widgets`)** : forçage temporaire en mémoire de `isVisible = 1` lors de l'appel à `$eq->toHtml('dashboard')` afin que les équipements masqués du Dashboard général Jeedom (ou enfants d'un Widget Combiné) s'affichent bien dans la vue *Widgets* du Panel Tydom, et suppression de l'appel à `positionEqLogic()` qui réduisait la taille des tuiles hors grille Packery.
+
 ## [0.1.0-beta.27] - 2026-11-11 (Canal Beta)
 
 ### Ajouté
