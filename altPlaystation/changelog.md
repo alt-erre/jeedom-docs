@@ -1,67 +1,20 @@
-# Changelog - Alt Contrôle Parental (PlayStation) (`altPlaystation`)
+# Changelog Stable - Alt Contrôle Parental (PlayStation) (`altPlaystation`)
 
-Toutes les modifications notables de ce plugin sont documentées dans ce fichier conformément au [Versionnement Sémantique (SemVer)](../VERSIONING.md).
+Ce document présente les améliorations majeures et nouvelles fonctionnalités publiées sur le **canal Stable** du plugin.
+Pour le suivi des pré-versions et correctifs en cours de test, consultez le [Changelog Beta](changelog_beta).
 
-## [0.1.0-beta.7] - 2026-11-08 (Beta)
+---
 
-### Corrigé
-- **Lisibilité & Contraste du thème « Blanc / Light Glass » (`white` — Charte Graphique `v1.5`)** :
-  - **Isolation face au thème sombre de Jeedom Core (`--txt-color` / `--link-color`)** : redéfinition locale forcée des variables du Core Jeedom (`--txt-color: #0f172a !important`, `--link-color: #0f172a !important`, `color-scheme: light !important`) empêchant `desktop.main.css` et `mobile.main.css` d'appliquer un texte gris clair (`#b9b9b9`) sur les liens, boutons, listes déroulantes et libellés du widget blanc.
-  - **Tokens typographiques opaques haute lisibilité (WCAG AAA)** : passage du texte principal en encre ardoise profonde (`#0f172a`, contraste `16.2:1`) et du texte secondaire `--alt-muted` en gris ardoise franc **sans transparence alpha** (`#334155`, contraste `9.8:1`), éliminant l'effet de texte gris délavé sur les sous-titres et métadonnées.
-  - **Adaptation des badges, vignettes et teintes pastel en mode clair** : conversion des fonds `rgba(255, 255, 255, ...)` en surfaces ardoise contrastées (`rgba(15, 23, 42, 0.07)`) et déclinaison des couleurs sémantiques pastel en teintes foncées haute lisibilité (`#0369a1`, `#b45309`, `#15803d`, `#b91c1c`) sur les vues Dashboard et Mobile.
+## Version Stable 1.0.0 *(en préparation - actuellement en Beta `0.1.0-beta.7`)*
 
-## [0.1.0-beta.6] - 2026-11-07 (Canal Beta)
+Plugin permettant de superviser et piloter le Contrôle Parental PlayStation Family et l'activité PlayStation Network des consoles PS5, PS5 Slim, PS5 Pro et PS4 dans Jeedom : suivi du temps joué et restant aujourd'hui, jeux lancés et jaquettes officielles, profils enfants et membres de la famille, ajout de temps bonus (+15/+30/+60 min ou illimité), verrouillage immédiat (0 min), déconnexion forcée en fin de temps, horaires autorisés / heure du coucher, trophées PSN et détection locale LAN (état Allumée/Mode Repos/Éteinte & Wake-on-LAN).
 
-### Corrigé
-- **Contrôle d'accès `401` compatible Jeedom 4.4+ (`plugin_info/configuration.php`)** : remplacement de l'inclusion obsolète `desktop/php/404.php` (supprimée du Core Jeedom 4.4+) et gestion propre du code HTTP `401` en appel direct (session expirée sur la page *Mises à jour*) afin d'éliminer toute erreur fatale PHP dans `http.error`.
-
-## [0.1.0-beta.5] - 2026-11-06 (Canal Beta)
-
-### Ajouté & Amélioré
-- **Charte Graphique Widgets `v1.4` (`core/template/dashboard/altPlaystation.html`, `core/template/mobile/altPlaystation.html`, `core/class/altPlaystation.class.php`, `plugin_info/`)** :
-  - **Coloration optionnelle de la barre de titre par catégorie Jeedom (`widgetCategoryHeader`)** : ajout d'une option activable au niveau du plugin permettant de colorer la barre de titre des widgets Dashboard & Mobile selon la catégorie d'appartenance Jeedom de l'équipement (`Chauffage`, `Sécurité`, `Énergie`, `Lumière`, `Ouvrant`, `Automatisme`, `Multimédia`, `Autre` via `--cat-*-color`), avec invalidation automatique du cache widget.
-  - **Boutons de barre de titre arrondis** : harmonisation stricte des boutons d'action et de rafraîchissement de l'en-tête (`border-radius: 50% !important`, `26x26 px`, `padding: 0 !important`) sur Dashboard et Mobile pour neutraliser les surcharges CSS du Core Jeedom.
-
-## [0.1.0-beta.4] - 2026-10-31 (Canal Beta)
-
-### Ajouté & Corrigé
-- **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
-  - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
-  - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
-
-## [0.1.0-beta.3] - 2026-10-31 (Canal Beta)
-
-- **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.3` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
-
-## [0.1.0-beta.2] - 2026-10-30 (Canal Beta)
-
-### Ajouté
-- **Association locale par Code PIN à 8 chiffres (*Lecture à distance / Remote Play LAN*) (`desktop/modal/auth.assistant.php` & `resources/altPlaystation_worker.py`)** :
-  - Nouvel assistant d'appairage local permettant d'associer une PS5 ou PS4 avec le code PIN à 8 chiffres affiché dans *Paramètres $\to$ Système $\to$ Lecture à distance $\to$ Associer un périphérique* (`pyremoteplay` MIT + protocole natif TCP `9295` `/sce/rp/regist` & DDP).
-  - Stockage chiffré/verrouillé en `chmod 0600` des identifiants locaux (`user_credential` et `rp_key`) dans `data/profiles/`.
-- **Commande `Mettre en veille la console (Standby LAN)` (`standby_console`) & Bouton Veille dans les Widgets Dashboard/Mobile** :
-  - Permet de basculer à distance une console PS5 ou PS4 en **Mode Repos (`Standby`)** sur le réseau local, **quel que soit le compte utilisé (Adulte ou Enfant) et sans dépendre du contrôle parental Cloud de Sony**.
-  - Enrichissement de la commande `wake_console` avec l'en-tête authentifié `user-credential` issu de l'appairage Remote Play pour un réveil `DDP WAKEUP` natif.
-- **Mise en veille automatique sur le LAN en fin de quota (`0 min`), à l'heure du coucher ou lors d'un verrouillage (`lock_console_today`)** :
-  - Lorsque l'option *Déconnexion forcée / Veille auto* est active (`suspend_software = 1`), le plugin envoie automatiquement l'ordre de mise en veille `Standby LAN` à la console dès que le temps restant atteint `0 min` ou que l'heure du coucher est atteinte (avec anti-rebond de 45 secondes), assurant une coupure effective même sur un compte PSN standard sans *PlayStation Family* ou lors d'une coupure Internet.
-
-## [0.1.0-beta.1] - 2026-10-28 (Canal Beta)
-
-### Ajouté
-- **Support complet du Contrôle Parental PlayStation Family, de la supervision PlayStation Network (PSN) et de la détection locale LAN (DDP) dans Jeedom** pour toute la gamme **PS5 (Standard / Digital), PS5 Slim, PS5 Pro, PS4 et PS4 Pro** via un worker Python isolé (`resources/venv` avec bibliothèques permissives `requests` Apache-2.0, `aiohttp` Apache-2.0, `psnfamily` MIT et `psnawp-api` MIT).
-- **Assistant d'Appairage Compte PlayStation & Scanner Réseau Local DDP (`desktop/modal/auth.assistant.php`)** :
-  - Connexion sécurisée via le jeton SSO officiel Sony (`https://ca.account.sony.com/api/v1/ssocookie` $\to$ `npsso`) sans jamais exposer ni stocker le mot de passe Sony ou les codes 2FA.
-  - Rafraîchissement automatique des jetons OAuth2 (`refresh_token` longue durée) et **découverte automatique des profils enfants supervisés (PlayStation Family) ainsi que du profil PSN principal**.
-  - **Scanner Réseau Local DDP intégré & Mode Repli LAN Automatique (`lan_fallback` / `lan_only`)** (broadcast UDP port `9302` version `00030010` pour PS5 / PS5 Pro et port `987` version `00020020` pour PS4) permettant de détecter les consoles sur le sous-réseau local, leur état électrique temps réel (`Allumée 200 Ok`, `Mode Repos 620 Standby`, `Éteinte`), le jeu en cours d'exécution en direct (`running-app-name`) et de poursuivre la supervision locale ainsi que le comptage du temps joué même en cas de coupure Internet ou d'utilisation 100 % LAN sans compte PSN.
-  - Support de l'export et de l'import de sauvegarde `.json` du profil PlayStation.
-- **43 Commandes Jeedom par équipement (Actions & Infos)** :
-  - **Pilotage du temps d'écran & quotas** : `Bonus +15 min`, `Bonus +30 min`, `Bonus +60 min`, `Ajouter temps bonus (slider)`, `Mode illimité aujourd'hui`, `Verrouiller aujourd'hui (0 min)`, `Définir limite quotidienne (0 à 360 min)`.
-  - **Restrictions, Coucher & Réseau Local** : `Activer déconnexion forcée (Fin de temps)` (`FORCE_LOGOUT`), `Désactiver déconnexion forcée (Notification seule)` (`NOTIFY_ONLY`), `Définir heure du coucher (HH:MM)`, `Désactiver heure du coucher`, `Définir niveau d'âge PEGI (1 à 11)`, `Réveiller console (Wake-on-LAN / DDP)`.
-  - **Infos Temps, Jeux, Trophées & LAN** : `Statut connexion Cloud PSN`, `État matériel console (LAN)`, `Console allumée` (binaire), `Statut contrôle parental`, `Modèle de console`, `ID en ligne (PSN GamerTag)`, `Type de compte`, `Niveau restriction d'âge (PEGI)`, `Temps joué aujourd'hui` (min et formaté), `Temps restant aujourd'hui` (min et formaté), `Limite quotidienne active`, `Temps bonus accordé aujourd'hui`, `Déconnexion forcée active`, `Heure du coucher` (`HH:MM` et numérique `HHMM`), `Jeu principal / actif`, `Jaquette du jeu principal (URL)`, `Temps cumulé sur le jeu principal`, `Joueur actif (PSN)`, `Nombre de jeux récents`, `Niveau Trophées PSN`, `Total Trophées PSN`, `Résumé Trophées PSN`, détails JSON du catalogue des jeux et des profils famille.
-- **Widgets personnalisés Dashboard & Mobile (`alt-erre` Dark Glass v1.2)** :
-  - Design « Dark Glass » avec **9 thèmes de couleur** (*Noir*, *Blanc*, *Bleu Profond*, *Cyan*, *Vert Émeraude*, *Ambre*, *Orange*, *Rouge*, *Violet*).
-  - Vignette dynamique `58×58` avec jaquette officielle du jeu actif ou badge du modèle (*PS5*, *PS5 SLIM*, *PS5 PRO*, *PS4*, *PS4 PRO*), jauge de progression colorée, micro-interactions tactiles (`.is-triggered`, `.is-refreshing`, `.is-confirmed` avec protection anti-double-clic de 2 secondes sur les ajouts de temps bonus) et **4 onglets interactifs** (*Contrôles*, *Jeux*, *Profils*, *Trophées / LAN*).
-
-### Sécurité & Conformité
-- Stockage des jetons `npsso` et OAuth2 dans `data/profiles/` verrouillé en `chmod 0600` et protégé par `.htaccess` (`Require all denied`).
-- Communication PHP $\to$ Python exclusivement via fichier temporaire `0600` dans `jeedom::getTmpFolder('altPlaystation')` supprimé immédiatement après exécution (`@unlink`) : zéro secret, jeton ou clé API dans `ps aux` ni dans les logs (Art. 4.3 CGU).
+### Fonctionnalités majeures et améliorations générales
+- Support complet du Contrôle Parental PlayStation Family, de la supervision PlayStation Network et de la détection locale LAN dans Jeedom.
+- Assistant d'Appairage Compte PlayStation & Scanner Réseau Local DDP.
+- 43 Commandes Jeedom par équipement.
+- Stockage des jetons npsso et OAuth2 dans data/profiles/ verrouillé en chmod 0600 et protégé par .htaccess.
+- Communication PHP $\to$ Python exclusivement temporaire 0600 dans jeedom::getTmpFolder supprimé immédiatement après exécution : zéro secret, jeton ou clé API dans ps aux ni dans les logs.
+- Widgets personnalisés Dashboard et Mobile au design Dark Glass / Light Glass (9 thèmes de couleur et coloration par catégorie Jeedom).
+- Compatibilité native avec l'interface grand écran Kiosk TV (Alt Dashboard & Kiosk TV).
+- Typage sémantique automatique des équipements et des commandes pour l'intégration Jeedom Core.

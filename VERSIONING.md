@@ -31,10 +31,13 @@ Actuellement, l'ensemble des plugins du catalogue `alt-erre` est en **phase Beta
 
 ---
 
-## 3. Traçabilité dans chaque dépôt de plugin
+## 3. Traçabilité et séparation des Changelogs (Privé / Beta / Stable)
 
-Dans chaque dépôt privé de code, la version courante est synchronisée à **4 endroits** :
+Dans chaque dépôt de plugin, la version courante et les notes de version sont structurées ainsi :
 1. Le fichier **`VERSION`** à la racine du dépôt (contenant uniquement la chaîne de version, ex. `0.1.0-beta.1`).
 2. Le champ **`"pluginVersion"`** dans **`plugin_info/info.json`**.
-3. Le fichier **`CHANGELOG.md`** du dépôt (et sa copie publique dans `jeedom-docs/<plugin>/changelog.md`).
+3. Les **3 niveaux de Changelog** :
+   - **`CHANGELOG.md`** *(interne au dépôt privé)* : journal technique détaillé réservé au suivi de développement.
+   - **`CHANGELOG_BETA.md`** *(publié dans `jeedom-docs/<plugin>/changelog_beta.md`)* : résumé synthétique des fonctionnalités en cours d'ajout et des correctifs du canal **Beta** (`"changelog_beta"` dans `info.json`).
+   - **`CHANGELOG_STABLE.md`** *(publié dans `jeedom-docs/<plugin>/changelog.md`)* : présentation générale des améliorations majeures et nouvelles fonctionnalités du canal **Stable** (`"changelog"` dans `info.json`).
 4. Le **tag Git** annoté correspondant (ex. `v0.1.0-beta.1`).

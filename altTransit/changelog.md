@@ -1,63 +1,19 @@
-# Changelog - Alt Transports & Mobilités Urbaines (`altTransit`)
+# Changelog Stable - Alt Transports & Mobilités Urbaines (`altTransit`)
 
-Toutes les modifications notables apportées à ce plugin sont documentées dans ce fichier, conformément à la politique [SemVer `alt-erre`](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
+Ce document présente les améliorations majeures et nouvelles fonctionnalités publiées sur le **canal Stable** du plugin.
+Pour le suivi des pré-versions et correctifs en cours de test, consultez le [Changelog Beta](changelog_beta).
 
 ---
 
-## [0.1.0-beta.6] - 2026-11-08 (Beta)
+## Version Stable 1.0.0 *(en préparation - actuellement en Beta `0.1.0-beta.6`)*
 
-### Corrigé
-- **Lisibilité & Contraste du thème « Blanc / Light Glass » (`white` — Charte Graphique `v1.5`)** :
-  - **Isolation face au thème sombre de Jeedom Core (`--txt-color` / `--link-color`)** : redéfinition locale forcée des variables du Core Jeedom (`--txt-color: #0f172a !important`, `--link-color: #0f172a !important`, `color-scheme: light !important`) empêchant `desktop.main.css` et `mobile.main.css` d'appliquer un texte gris clair (`#b9b9b9`) sur les liens, boutons, listes déroulantes et libellés du widget blanc.
-  - **Tokens typographiques opaques haute lisibilité (WCAG AAA)** : passage du texte principal en encre ardoise profonde (`#0f172a`, contraste `16.2:1`) et du texte secondaire `--alt-muted` en gris ardoise franc **sans transparence alpha** (`#334155`, contraste `9.8:1`), éliminant l'effet de texte gris délavé sur les sous-titres et métadonnées.
-  - **Adaptation des badges, vignettes et teintes pastel en mode clair** : conversion des fonds `rgba(255, 255, 255, ...)` en surfaces ardoise contrastées (`rgba(15, 23, 42, 0.07)`) et déclinaison des couleurs sémantiques pastel en teintes foncées haute lisibilité (`#0369a1`, `#b45309`, `#15803d`, `#b91c1c`) sur les vues Dashboard et Mobile.
+Plugin permettant de suivre en temps réel les transports en commun (Métro, Tramway, TEOR, BHNS, Bus, RER, Train) et stations de vélos libre-service (VLS GBFS) par ville et métropole dans Jeedom : prochains passages, info trafic, alertes perturbations, résumés vocaux TTS et affichage Kiosk TV (compatible +350 réseaux Open Data transport.data.gouv.fr dont Rouen Réseau Astuce & Lovélo, Île-de-France Mobilités PRIM, métropoles françaises et Suisse).
 
-## [0.1.0-beta.5] - 2026-11-07 (Canal Beta)
-
-### Optimisé
-- **Sobriété CPU, RAM & Réseau lors du polling Heures de Pointe (`altTransit_worker.py` & `altTransit.class.php`)** :
-  - **Décodage Protobuf filtré à la volée (`parse_gtfs_rt_bytes`)** : seuls les `StopTimeUpdate` correspondant aux `stop_id` réellement suivis par les équipements Jeedom actifs (ainsi que les courses `CANCELED`) sont instanciés en mémoire lors de la lecture des flux `GTFS-RT`, divisant par plus de 100 le nombre d'objets Python alloués à chaque cycle minute.
-  - **Élimination des téléchargements `GTFS-RT` redondants avec repli automatique (`fetch_merged_gtfs_rt`)** : sur la Métropole Rouen Normandie (*Réseau Astuce*), lorsque le flux agrégé primaire (`gtfs.bus-tracker.fr` regroupant `TCAR + TAE + TNI`) et le flux officiel d'alertes répondent, les 4 flux unitaires/miroirs redondants ne sont plus retéléchargés inutilement à chaque minute (tout en restant activés en secours automatique en cas d'indisponibilité du flux primaire) et un cache court `tmpfs` (`45 s`) mutualise les résultats décodés.
-  - **Suppression des rafraîchissements de widget et événements Jeedom superflus (`applyTransitState`)** : l'horodatage technique `last_sync` ne déclenche plus `$this->refreshWidget()` ni d'événement `cmd::update` toutes les 60 secondes lorsqu'aucun horaire de passage, statut de perturbation ou compteur VLS n'a varié.
-
-## [0.1.0-beta.4] - 2026-11-07 (Canal Beta)
-
-### Corrigé
-- **Résolution nationale de toutes les métropoles et villes françaises (`transport.data.gouv.fr`)** :
-  - Extraction complète des champs territoriaux v2 du Point d'Accès National (`covered_area[].nom`, `legal_owners[].name`, `publisher.name`) permettant de retrouver n'importe quelle ville française par son nom géographique même lorsque le titre du jeu de données ne mentionne que la marque commerciale du réseau (ex. *Dijon* -> *DiviaMobilités*, *Tours* -> *Fil Bleu*, *Angers* -> *Irigo*, *Amiens* -> *Ametis*, *Poitiers* -> *Vitalis*, *Pau* -> *Idelis*, *Besançon* -> *Ginko*).
-  - Verrouillage des identifiants `dataset_id` et `pan_slug` officiels sur l'ensemble des 14 préréglages de métropoles (*Rouen Astuce*, *Rouen Lovélo*, *Caen Twisto*, *Le Havre LiA*, *Bordeaux TBM*, *Nantes Naolib*, *Rennes STAR*, *Lille Ilévia*, *Marseille RTM*, *Toulouse Tisséo*, *Montpellier TaM*, *Nice Lignes d'Azur*, *Grenoble MTag*, *Strasbourg CTS*).
-  - Classement prioritaire des réseaux urbains et VLS devant les agrégats régionaux/scolaires et filtrage des flux d'autopartage automobile (*Citiz*) hors de la catégorie VLS `GBFS`.
-
-## [0.1.0-beta.3] - 2026-11-07 (Canal Beta)
-
-### Corrigé
-- **Résolution automatique du catalogue `transport.data.gouv.fr` pour Rouen (Réseau Astuce & Lovélo VLS)** :
-  - Alignement des identifiants `pan_slug` et `dataset_id` officiels du Point d'Accès National (`donnees-statiques-et-temps-reel-du-reseau-astuce-metropole-rouen-normandie` et `donnees-statiques-et-temps-reel-du-service-de-vls-lovelo-metropole-rouen-normandie`) avec URLs directes `GTFS`, `GTFS-RT` et `GBFS` pré-embarquées en repli instantané (corrige l'erreur *« Aucune archive GTFS trouvée pour ce réseau »* lors de la recherche d'un arrêt comme `Jardinerie` sur les lignes `F1` et `305`).
-  - Prise en charge de la catégorie `vehicles-sharing` du Point d'Accès National pour les réseaux de vélos libre-service `GBFS` et invalidation automatique du cache catalogue (`pan_catalog_v2.json`).
-  - Dédoublonnage des préréglages dans l'étape 1 de l'Assistant et correspondance tolérante par score de mots-clés sur l'ensemble des métropoles.
-- **Filtrage et nettoyage HTML des alertes Info Trafic (`GTFS-RT ServiceAlerts`)** : suppression des balises HTML (`<p>`, `<figure>`, `<img>`, `<table>`) dans les descriptions d'alertes et exclusion des actualités commerciales non ciblées sur la ligne ou l'arrêt suivi.
-- **Affichage des erreurs AJAX dans l'Assistant** : suppression de l'encapsulation HTML `<span id="span_errorMessage">` brute dans les messages d'erreur de la modale Assistant.
-
-## [0.1.0-beta.2] - 2026-11-07 (Canal Beta)
-
-### Corrigé
-- **Contrôle d'accès `401` compatible Jeedom 4.4+ (`plugin_info/configuration.php`)** : remplacement de l'inclusion obsolète `desktop/php/404.php` (supprimée du Core Jeedom 4.4+) et gestion propre du code HTTP `401` en appel direct (session expirée sur la page *Mises à jour*) afin d'éliminer toute erreur fatale PHP dans `http.error`.
-
-## [0.1.0-beta.1] - 2026-11-06
-
-### Ajouté
-- **Version initiale Beta (`0.1.0-beta.1`)** du plugin **Alt Transports & Mobilités Urbaines (`altTransit`)** pour Jeedom 4.2+.
-- **Moteur national Open Data (`transport.data.gouv.fr`) sans clé API** :
-  - Auto-découverte de plus de **350 réseaux français** de transports en commun (`GTFS` + `GTFS-RT` Protobuf) et de vélos en libre-service (`GBFS`).
-  - Préréglages dédiés et optimisés pour la **Métropole Rouen Normandie** :
-    - **Réseau Astuce** : Métro, TEOR `T1-T4`, FAST `F1-F9`, Noctambus et lignes régulières multi-opérateurs (*Transdev Rouen / TCAR*, *TAE Elbeuf*, *TNI*) avec agrégation multi-flux `TripUpdates` et `ServiceAlerts`.
-    - **Lovélo Rouen (`GBFS`)** : suivi temps réel des vélos disponibles (électriques `VAE` et mécaniques) et bornes libres par station.
-  - Préréglages rapides complémentaires : Caen (*Twisto*), Le Havre (*LiA*), Île-de-France Mobilités (*PRIM* `SIRI-Lite`), Bordeaux (*TBM*), Nantes (*Naolib*), Rennes (*STAR*), Lille (*Ilévia*), Marseille (*RTM*), Toulouse (*Tisséo*), Montpellier (*TaM*), Nice (*Lignes d'Azur*), Grenoble (*MTag*), Strasbourg (*CTS*) et Suisse (`transport.opendata.ch`).
-- **Assistant interactif en 3 étapes** : recherche de ville/métropole, sélection d'arrêt avec badges officiels colorés des lignes, filtrage par ligne/direction ou panneau multimodal complet.
-- **Architecture sobre Jeedom Luna** :
-  - Zéro démon permanent (`0 Mo` RAM au repos), double cadence automatique Heures de pointe / Hors pointe et pause nocturne paramétrable.
-  - Mutualisation réseau des téléchargements temps réel, indexation locale atomique (`data/stops/eq_<id>.json`) limitée aux arrêts suivis et plafond strict `LRU < 2 Mo` sur `tmpfs`.
-  - Décodeur Protobuf `GTFS-RT` natif intégré en repli automatique en complément de `gtfs-realtime-bindings` (`Apache-2.0`).
-- **Widgets « Dark Glass » (`alt-erre` v1.4) & Kiosk TV (`altTvDashboard`)** :
-  - Templates Dashboard et Mobile à 9 thèmes de couleur, boutons d'en-tête circulaires `26x26 px`, option `widgetCategoryHeader` et onglets *Passages*, *Info Trafic* et *Infos & TTS*.
-  - Implémentation du contrat `getKioskWidgetData()` 10-Foot UI pour `altTvDashboard` et typage sémantique automatique Jeedom Core 4.2+.
+### Fonctionnalités majeures et améliorations générales
+- Version initiale Beta.
+- Moteur national Open Data sans clé API.
+- Assistant interactif en 3 étapes.
+- Architecture sobre Jeedom Luna.
+- Widgets personnalisés Dashboard et Mobile au design Dark Glass / Light Glass (9 thèmes de couleur et coloration par catégorie Jeedom).
+- Compatibilité native avec l'interface grand écran Kiosk TV (Alt Dashboard & Kiosk TV).
+- Typage sémantique automatique des équipements et des commandes pour l'intégration Jeedom Core.

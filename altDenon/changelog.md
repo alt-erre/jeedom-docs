@@ -1,107 +1,17 @@
-# Changelog - Alt Denon (`altDenon`)
+# Changelog Stable - Alt AVR Control (Denon / Marantz) (`altDenon`)
 
-Toutes les modifications notables de ce plugin sont documentées dans ce fichier.
-Ce projet respecte la [Politique de Numérotation de Version (SemVer)](https://github.com/alt-erre/jeedom-docs/blob/main/VERSIONING.md).
-
----
-
-## [0.1.0-beta.13] - 2026-11-08 (Beta)
-
-### Corrigé
-- **Lisibilité & Contraste du thème « Blanc / Light Glass » (`white` — Charte Graphique `v1.5`)** :
-  - **Isolation face au thème sombre de Jeedom Core (`--txt-color` / `--link-color`)** : redéfinition locale forcée des variables du Core Jeedom (`--txt-color: #0f172a !important`, `--link-color: #0f172a !important`, `color-scheme: light !important`) empêchant `desktop.main.css` et `mobile.main.css` d'appliquer un texte gris clair (`#b9b9b9`) sur les liens, boutons, listes déroulantes et libellés du widget blanc.
-  - **Tokens typographiques opaques haute lisibilité (WCAG AAA)** : passage du texte principal en encre ardoise profonde (`#0f172a`, contraste `16.2:1`) et du texte secondaire `--alt-muted` en gris ardoise franc **sans transparence alpha** (`#334155`, contraste `9.8:1`), éliminant l'effet de texte gris délavé sur les sous-titres et métadonnées.
-  - **Adaptation des badges, vignettes et teintes pastel en mode clair** : conversion des fonds `rgba(255, 255, 255, ...)` en surfaces ardoise contrastées (`rgba(15, 23, 42, 0.07)`) et déclinaison des couleurs sémantiques pastel en teintes foncées haute lisibilité (`#0369a1`, `#b45309`, `#15803d`, `#b91c1c`) sur les vues Dashboard et Mobile.
-
-## [0.1.0-beta.12] - 2026-11-07 (Canal Beta)
-
-### Corrigé
-- **Contrôle d'accès `401` compatible Jeedom 4.4+ (`plugin_info/configuration.php`)** : remplacement de l'inclusion obsolète `desktop/php/404.php` (supprimée du Core Jeedom 4.4+) et gestion propre du code HTTP `401` en appel direct (session expirée sur la page *Mises à jour*) afin d'éliminer toute erreur fatale PHP dans `http.error`.
-
-## [0.1.0-beta.11] - 2026-11-06 (Canal Beta)
-
-### Ajouté & Amélioré
-- **Charte Graphique Widgets `v1.4` (`core/template/dashboard/altDenon.html`, `core/template/mobile/altDenon.html`, `core/class/altDenon.class.php`, `plugin_info/`)** :
-  - **Coloration optionnelle de la barre de titre par catégorie Jeedom (`widgetCategoryHeader`)** : ajout d'une option activable au niveau du plugin permettant de colorer la barre de titre des widgets Dashboard & Mobile selon la catégorie d'appartenance Jeedom de l'équipement (`Chauffage`, `Sécurité`, `Énergie`, `Lumière`, `Ouvrant`, `Automatisme`, `Multimédia`, `Autre` via `--cat-*-color`), avec invalidation automatique du cache widget.
-  - **Boutons de barre de titre arrondis** : harmonisation stricte des boutons d'action et de rafraîchissement de l'en-tête (`border-radius: 50% !important`, `26x26 px`, `padding: 0 !important`) sur Dashboard et Mobile pour neutraliser les surcharges CSS du Core Jeedom.
-
-## `[0.1.0-beta.10]` - 2026-11-02 (Canal Beta)
-
-### Ajouté
-- **Widget Kiosk TV 10-Foot natif avec mise en valeur de la jaquette HEOS & Home-Cinéma (`getKioskWidgetData()`, `kiosk_schema = 1`)** :
-  - Intégration native Niveau 2 pour **`altTvDashboard`** mettant en avant la pochette HEOS en écoute musicale ou un cadran AVR Dark Glass affichant le niveau calibré en `dB`, la source HDMI active et le décodage Surround.
-  - Exposition 10-Foot des boutons *Quick Select 1-4*, des sources HDMI/Audio, des favoris HEOS, du volume `0-98` (et Zones 2/3) bridés à `volume_max`, ainsi que des sélecteurs *Mode Surround*, *Audyssey* et *Dialog Enhancer*.
-
-## `[0.1.0-beta.9]` - 2026-11-01 (Canal Beta)
-
-### Corrigé & Amélioré
-- **Correction de l'alignement de la barre de volume du Widget Dashboard** : isolation stricte de la largeur du sélecteur `Max` (`width: auto !important; max-width: 66px !important; flex: 0 0 auto !important;`) et de la largeur minimale du curseur `<input type="range">` (`min-width: 60px !important`) afin de neutraliser la règle globale `select { width: 100% }` du Core Jeedom.
-- **Mise en valeur immersive des jaquettes HEOS & vignettes sources (Dashboard & Mobile)** :
-  - Agrandissement de la vignette/jaquette de `58×58 px` à **`74×74 px`** sur le Dashboard (`56×56 px` sur Mobile) avec relief 3D et zoom au survol.
-  - Ajout d'un **halo d'ambiance flouté (`.dn-now-playing-bg`)** en arrière-plan de la carte média et d'un **aperçu Lightbox plein widget au clic sur la jaquette**.
-
-## `[0.1.0-beta.8]` - 2026-10-31 (Canal Beta)
-
-### Ajouté
-- **Sélecteur rapide de Volume Maximum sur le Widget Dashboard (`10` à `70` par palier de 5)** :
-  - Ajout d'un sélecteur rapide (`Max 10%` à `Max 70%` par pas de `5`, ainsi que `Max 98`) directement sur la barre de volume du widget Dashboard, avec badge ambré `.is-capped` lorsqu'un plafond est actif et création automatique des commandes `volume_max` / `volume_max_set` au rendu.
-
-## `[0.1.0-beta.6]` - 2026-10-31 (Canal Beta)
-
-### Ajouté
-- **Dissociation en 1 clic des zones d'un même amplificateur (`Dissocier les zones (Z2 / Z3)`)** :
-  - Nouveau bouton **`Dissocier les zones (Z2 / Z3)`** dans la barre d'outils de l'équipement permettant de créer automatiquement des équipements Jeedom indépendants pour la **Zone 2** et/ou la **Zone 3** d'un même amplificateur (même adresse IP, connexion TCP `23` et HEOS `1255` mutualisée par `DenonHostHub`).
-  - Héritage instantané du modèle, du thème et des sources personnalisées (`Apple TV`, `XBOX SX`, `PS5`, `Switch 2`…) sans requête HTTP redondante, avec option pour désactiver et nettoyer automatiquement le bandeau `Zone 2 / Zone 3` intégré à l'équipement principal afin d'éviter les doublons.
-  - Affichage d'un badge de zone (`Main Zone`, `Zone 2`, `Zone 3`) sur chaque carte d'équipement dans la page d'accueil du plugin.
-  - **Adaptation automatique du Widget Cockpit (« Dark Glass ») pour les équipements `Zone 2` et `Zone 3`** : affichage dédié Multiroom (badge `ZONE 2` / `ZONE 3`, sélecteur d'entrée pleine largeur, pas de volume à `1 dB`, Quick Select `Z2QUICK1..4` / `Z3QUICK1..4`, transport et favoris HEOS) et masquage automatique des contrôles propres à la Zone Principale (HDMI Monitor, Surround 13.2ch, Audyssey, OSD).
-
-## [0.1.0-beta.7] - 2026-10-31 (Canal Beta)
-
-### Ajouté & Corrigé
-- **Typage sémantique automatique des équipements et des commandes (`Outils → Types d'équipement` Jeedom Core 4.2+)** :
-  - Définition automatique de la famille de type d'équipement (`$eqLogic->setGenericType(...)` via résolution dynamique `resolveEqLogicGenericType()`) et de la catégorie Jeedom par défaut (`$eqLogic->setCategory(..., 1)`) dans `preSave()` afin qu'aucun équipement n'apparaisse dans la section *« Equipements sans type »* de Jeedom.
-  - Typage systématique des commandes via `$cmd->setGeneric_type(...)` (`GENERIC_INFO` / `GENERIC_ACTION` ou type métier spécifique) et migration rétroactive automatique des équipements existants (`ensureAllEquipmentsTyped()`).
-
-## [0.1.0-beta.5] - 2026-10-31 (Canal Beta)
-
-- **Affichage de la version SemVer & commit Git** : Ajout d'un badge de version lisible (`v0.1.0-beta.5` + hash court du commit Git) sur la page d'accueil du plugin (`Gestion`), sur la page de configuration globale (`configuration.php`) et dans le panneau *Informations* de la gestion des plugins Jeedom.
-
-## `[0.1.0-beta.4]` - 2026-10-27
-
-### Ajouté
-- **Plafonnement dynamique du volume par mode (`Volume maximum` / `Volume maximum niveau`)** :
-  - Ajout de la commande info numérique **`Volume maximum`** (`volume_max`, de `0` à `98`, par défaut `98`) et de la commande action curseur **`Volume maximum niveau`** (`volume_max_set`) utilisables dans les scénarios et le plugin *Mode* (ex. mode *Nuit enfant*).
-  - **Application immédiate & Surveillance temps réel (Auto-clamp)** : abaisse immédiatement le volume si celui-ci dépasse le nouveau plafond lors de l'activation du mode, plafonne les commandes Jeedom (`volume_set`, `volume_db_set`, `volume_up`, `z2_volume_set`, `z3_volume_set`) et ramène automatiquement le volume au plafond si quelqu'un le dépasse depuis la télécommande IR Denon ou HDMI CEC.
-  - **Bridage visuel sur le widget Dashboard** : adaptation dynamique en temps réel de la borne `max` du curseur de volume.
-
-## `[0.1.0-beta.3]` - 2026-10-27
-
-### Amélioré
-- **Retour visuel d'action (Animations de clic & Rafraîchissement - Charte Graphique `v1.2`)** :
-  - Ajout d'une animation de rebond tactile et d'onde lumineuse (`pulse ring` `420 ms`) sur tous les boutons des widgets **Dashboard & Mobile** (transport, volume, muet, D-Pad OSD, modes sonores, Quick Select, alimentation).
-  - Ajout d'une rotation complète (`360°` pendant `1,2 s`) avec halo lumineux et verrouillage anti-rebond sur le bouton **Rafraîchir** (`fa-sync-alt`).
-  - Harmonisation complète des **9 thèmes de couleur** (*Bleu*, *Violet*, *Émeraude*, *Ambre*, *Rose*, *Cyan*, *Rouge*, *Ardoise*, *Carbone*).
-
-## `[0.1.0-beta.2]` - 2026-10-21
-
-### Ajouté
-- **Découverte automatique sur le réseau local (`Scanner le réseau`)** : nouveau bouton d'action sur la page d'accueil du plugin combinant la découverte **SSDP / UPnP** et le scan rapide **HEOS CLI (`TCP 1255`)** pour détecter automatiquement les amplificateurs Denon & Marantz sur le LAN, récupérer leur nom, modèle, numéro de série, firmware et `pid` HEOS, créer l'équipement et synchroniser automatiquement ses sources personnalisées et favoris.
-- **Import en 1 clic depuis `denonavr` (`Importer denonavr`)** : nouveau bouton sur la page d'accueil du plugin permettant de migrer automatiquement et **strictement en lecture seule** (conformément à l'Art. 4.4 des CGU Jeedom Market) les équipements configurés dans l'ancien plugin `denonavr` (`MAIN`, `ZONE2`, `ZONE3`) avec synchronisation immédiate des entrées renommées.
+Ce document présente les améliorations majeures et nouvelles fonctionnalités publiées sur le **canal Stable** du plugin.
+Pour le suivi des pré-versions et correctifs en cours de test, consultez le [Changelog Beta](changelog_beta).
 
 ---
 
-## `[0.1.0-beta.1]` - 2026-10-21 (Première publication Beta)
+## Version Stable 1.0.0 *(en préparation - actuellement en Beta `0.1.0-beta.13`)*
 
-### Ajouté
-- **Architecture Tri-Protocole 100 % locale** spécialement conçue pour le **Denon AVC-X8500HA** et l'ensemble des gammes Denon / Marantz (AVC-A1H, Série X, Série S, Cinema, HEOS) :
-  - **Démon Python Temps Réel (`altDenond.py`)** maintenant une connexion TCP persistante sur le port `23` (Denon AVR Control ASCII) et sur le port `1255` (HEOS CLI JSON) via un hub mutualisé par adresse IP (`DenonHostHub`), garantissant une remontée d'état instantanée (`< 50 ms`) et zéro collision TCP.
-  - **Mode HTTP local direct (sans démon) & Fallback automatique** via `/goform/AppCommand.xml` et `/goform/formiPhoneAppDirect.xml` (ports `8080` et `80`).
-- **Contrôle complet du Denon AVC-X8500HA :**
-  - **Alimentation & Multi-Zones :** pilotage de la `Main Zone`, de la `Zone 2` et de la `Zone 3` (intégrées dans l'équipement principal ou en équipements dédiés partageant la même connexion TCP).
-  - **Volume haute précision :** double commande/état synchronisée en **dB relatifs (`-80.0 dB` à `+18.0 dB`, pas de `0.5 dB`)** et en **échelle absolue (`0` à `98`)**, avec `Volume +`, `Volume -` et `Muet (On / Off / Bascule)`.
-  - **Découverte dynamique des entrées :** synchronisation en 1 clic des entrées activées et renommées dans l'amplificateur (`GetRenameSource` / `GetDeletedSource`), incluant l'entrée dédiée **`8K`** du **Denon AVC-X8500HA**.
-  - **Sorties Vidéo HDMI Dual Monitor :** bascule directe entre `Monitor 1 (TV eARC)`, `Monitor 2 (Projecteur)` et `Auto (Dual Monitor 1+2)` ainsi que le routage Audio HDMI (`Ampli` / `TV`).
-  - **Modes Surround 13.2ch & Calibrage Audyssey MultEQ XT32 :** sélection du mode d'écoute (`Movie`, `Music`, `Game`, `Direct`, `Pure Direct`, `Stereo`, `Auto`, `Dolby Atmos / Surround`, `DTS:X Pro / Neural:X`, `Auro-3D`, `Auro-2D Surround`, `Multi Ch Stereo`, `Virtual`), courbe `Audyssey MultEQ XT32` (`Reference`, `L/R Bypass`, `Flat`, `Off`), `Dynamic EQ`, `Dynamic Volume`, `Audyssey LFC`, `Dialog Enhancer`, bascule `Speaker Preset 1 / 2` et niveaux `Canal Central` / `Subwoofer`.
-  - **Streaming HEOS & Favoris :** remontée en temps réel du `Titre`, `Artiste`, `Album`, `Pochette` et `Statut lecture`, contrôles de transport (`Play/Pause`, `Stop`, `Précédent`, `Suivant`) et découverte automatique des **Favoris HEOS**.
-  - **Fonctions rapides & Télécommande OSD :** `Quick Select 1 à 4`, `Mode ECO` (`Auto`, `On`, `Off`), `Minuterie de veille (Sleep Timer)` et pavé directionnel OSD complet (`Menu Setup`, flèches, `OK`, `Retour`, `Info`, `Option`).
-- **Widget Cockpit Home-Cinéma « Dark Glass » (`alt-erre`)** pour Dashboard et Mobile avec 5 thèmes de couleur, vignette dynamique par source (`8K`, `Blu-ray`, `Game`, `TV eARC`, `HEOS`...) et tiroirs repliables (Calibrage Audyssey / Multi-Zones & Télécommande OSD `132×132 px`).
+Plugin permettant de piloter et superviser 100 % en local les amplificateurs Home-Cinéma Denon et Marantz (AVC-X8500HA, AVC-A1H, Série X, Série S, HEOS) en temps réel via TCP (port 23), HTTP AppCommand (port 8080/80) et HEOS CLI (port 1255).
+
+### Fonctionnalités majeures et améliorations générales
+- Architecture Tri-Protocole 100 % locale.
+- Contrôle complet du Denon AVC-X8500HA.
+- Widgets personnalisés Dashboard et Mobile au design Dark Glass / Light Glass (9 thèmes de couleur et coloration par catégorie Jeedom).
+- Compatibilité native avec l'interface grand écran Kiosk TV (Alt Dashboard & Kiosk TV).
+- Typage sémantique automatique des équipements et des commandes pour l'intégration Jeedom Core.

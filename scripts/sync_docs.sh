@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Synchronise les fichiers README.md et CHANGELOG.md des plugins privés alt*
-# vers le dépôt public jeedom-docs (<plugin>/index.md et <plugin>/changelog.md)
-# et génère le manifeste public versions.json (par identifiant de plugin).
+# Synchronise les fichiers README.md, CHANGELOG_STABLE.md et CHANGELOG_BETA.md
+# des plugins privés alt* vers le dépôt public jeedom-docs :
+# - <plugin>/README.md           -> jeedom-docs/<plugin>/index.md
+# - <plugin>/CHANGELOG_STABLE.md -> jeedom-docs/<plugin>/changelog.md (Stable)
+# - <plugin>/CHANGELOG_BETA.md   -> jeedom-docs/<plugin>/changelog_beta.md (Beta)
+# Note : <plugin>/CHANGELOG.md (verbeux/technique) reste strictement privé.
 # ------------------------------------------------------------------------------
 set -euo pipefail
 
@@ -48,10 +51,13 @@ for plugin in "${PLUGINS[@]}"; do
   if [ -f "$src_dir/README.md" ]; then
     cp "$src_dir/README.md" "$dst_dir/index.md"
   fi
-  if [ -f "$src_dir/CHANGELOG.md" ]; then
-    cp "$src_dir/CHANGELOG.md" "$dst_dir/changelog.md"
+  if [ -f "$src_dir/CHANGELOG_STABLE.md" ]; then
+    cp "$src_dir/CHANGELOG_STABLE.md" "$dst_dir/changelog.md"
   fi
-  echo "Synchronisé : $plugin -> jeedom-docs/$plugin/{index.md,changelog.md}"
+  if [ -f "$src_dir/CHANGELOG_BETA.md" ]; then
+    cp "$src_dir/CHANGELOG_BETA.md" "$dst_dir/changelog_beta.md"
+  fi
+  echo "Synchronisé : $plugin -> jeedom-docs/$plugin/{index.md,changelog.md,changelog_beta.md}"
 done
 
 # Génère également le manifeste public versions.json (versions courantes par ID de plugin)
