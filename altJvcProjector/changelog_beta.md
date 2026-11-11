@@ -5,6 +5,17 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-12
+
+- Intégration complète des fonctions avancées pour les vidéoprojecteurs JVC D-ILA (et particulièrement le DLA-NZ9) :
+  - Diagnostic et réglages HDMI 2.1 (débit de liaison FRL jusqu'à 40 Gbps, compression DSC 8K, plage dynamique HDMI, espace colorimétrique forcé, mode 2D/3D et ALLM).
+  - Réglage fin de la puissance du laser BLU-Escent de 0 à 100 % (par pas de 1 %) et options Deep Black, Highlight Color et Smoother.
+  - Contrôle de l'ouverture d'objectif motorisée 100 mm (Iris auto 1/2 et ouverture manuelle de -15 à 0), du masquage d'écran, de la sortie Trigger 12V et de la minuterie d'arrêt.
+  - Réglages avancés Frame Adapt HDR et Theater Optimizer (niveau d'optimisation, recalcul immédiat du tone mapping et forçage du type de contenu SDR/HDR10/HDR10+/HLG).
+  - Configuration de la bascule automatique du mode image selon le signal reçu (SDR 2D, SDR 3D, HDR10, HLG et détection Filmmaker Mode).
+  - Calibration complète de l'image : température de couleur (incluant les profils Lampe Xenon 1 et Xenon 2 du DLA-NZ9), tables Gamma, CMS 6 axes, curseurs de luminosité, contraste, couleur, teinte, netteté et réduction de bruit, lecture de la version du firmware et nouvelles touches de télécommande directe.
+  - Ajout d'un tiroir repliable « Réglages Expert Cinéma & Optique (NZ9) » directement dans le widget Dashboard.
+
 ## [0.1.0-beta.11] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.

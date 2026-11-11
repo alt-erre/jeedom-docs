@@ -42,14 +42,23 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
   - Mémorise automatiquement le dernier mode actif avant extinction (`movie`, `color`, `effect`, `playlist`) afin de restaurer fidèlement votre ambiance à l'allumage.
 - **Synchronisation 1 Clic du Catalogue d'Animations (`Movies`) :**
   - Bouton **`Synchroniser Profil & Animations (Movies)`** qui interroge `/xled/v1/movies` pour peupler automatiquement la liste déroulante **`Lancer une animation (Movie)`** (`movie_select`) avec toutes les animations enregistrées dans la mémoire interne du contrôleur Twinkly, accompagnée des commandes **`Animation précédente`** (`movie_prev`) et **`Animation suivante`** (`movie_next`).
-- **Contrôle Colorimétrique Haute Précision (`RGB`, `RGBW` & `AWW`) :**
+- **Contrôle Colorimétrique Haute Précision (`RGB`, `RGBW` & `AWW`) & Température de Blanc (`1800 K` - `6500 K`) :**
   - Sélecteur de couleur HTML5 (`#RRGGBB`), pastilles d'accès direct sur le widget et commande **`Canal Blanc (RGBW)`** (`0–255`) dédiée aux modèles *Special Edition (`RGBW`)* et *Gold Edition (`AWW`)*.
+  - Curseur **`Température de blanc niveau`** (`color_temp_set`, `1800 K` à `6500 K`) avec interpolation native des 3 canaux *Amber / Warm White / Cold White* sur les guirlandes `AWW`, dosage automatique de la diode blanche sur `RGBW` et conversion planckienne sur `RGB`.
   - Réglage de la **`Saturation`** (`0–100 %`).
-- **Catalogue de 23 Ambiances Calibrées & Effets Temps Réel UDP (`preset_select`) :**
+- **Cartographie Spatiale 2D/3D (`/xled/v1/led/layout/full`) & 27 Ambiances Calibrées (`preset_select`) :**
+  - Extraction et normalisation automatique des coordonnées spatiales `(x, y, z)` calibrées par caméra dans l'application Twinkly, avec aperçu géométrique `<canvas>` 2D/3D sur le widget et dans l'interface d'administration.
   - **Blancs & Températures calibrées :** *Bougie Dorée (2200K)*, *Blanc Chaud (2700K)*, *Blanc Neutre (4000K)*, *Blanc Froid Polaire (6500K)*, *Mode Cinéma Tamisé (15%)*.
   - **Couleurs Signature :** *Or Impérial*, *Rouge Noël Carmin*, *Vert Sapin Émeraude*, *Bleu Glacé Hiver*, *Cyan Lagon*, *Violet Améthyste*, *Corail Coucher de Soleil*.
-  - **Animations Temps Réel UDP (port `7777`) :** *Aurore Boréale*, *Feu de Cheminée*, *Scintillement Or & Blanc*, *Noël Magique Or/Rouge/Vert*, *Onde Arc-en-Ciel*, *Cyberpunk Cyan & Magenta*.
+  - **Animations Temps Réel UDP 2D/3D (port `7777`, Gen I `v1` & Gen II `v3`) :** *Aurore Boréale*, *Feu de Cheminée*, *Scintillement Or & Blanc*, *Noël Magique Or/Rouge/Vert*, *Onde Arc-en-Ciel*, *Cyberpunk Cyan & Magenta*, *Pluie Matrix 2D*, *Spirale Hélicoïdale 3D*, *Balayage Radar 2D*, *Onde Plasma 2D*.
   - **Effets matériels intégrés :** *Effets intégrés #1 à #5* (`/xled/v1/led/effects/current`).
+- **Gestion Complète des Playlists Matérielles & Téléversement en Mémoire Flash :**
+  - Pilotage complet des playlists internes (`/xled/v1/playlist`) : sélection d'une séquence (`playlist_select`), navigation `Playlist précédente / suivante`, génération automatique d'une playlist à partir des animations stockées (`playlist_create_all`) et vidage (`playlist_clear`).
+  - **Téléversement en mémoire Flash (`movie_upload_preset`) :** génération et envoi binaire d'animations 2D/3D directement dans la mémoire flash du contrôleur (`/xled/v1/movies/new` + `/xled/v1/movies/full` et repli Gen I `/xled/v1/led/movie/full`) pour une lecture autonome sans flux réseau continu, avec suivi du taux d'occupation (`memory_used_pct`) et des trames libres (`memory_free_frames`).
+- **Contrôle Avancé Twinkly Music, Groupes Synchronisés & Maintenance Matérielle :**
+  - Sélection des drivers d'effets musicaux (`music_driver_select`, `music_driver_prev`, `music_driver_next`) et des ambiances musicales (`music_mood_select`).
+  - **Routage automatique Groupe Maître / Esclave (`autoRouteGroupMaster`) :** redirection transparente des ordres envoyés à un équipement *Esclave* (`slave`) vers le *Maître* (`master`) du groupe Twinkly et propagation instantanée de l'état aux membres du groupe.
+  - **Diagnostic & Maintenance :** remontée du temps de fonctionnement (`uptime`), de la cadence réelle (`measured_fps`), de l'état Cloud/Local (`mqtt_broker`), renommage matériel (`device_rename`) et réinitialisation logicielle du driver LED (`led_reset`).
 
 ### 3. Plafonnement Dynamique de Luminosité par Mode (`brightness_max` / `brightness_max_set`)
 - Commandes **`Luminosité maximum`** (`brightness_max`, `0–100 %`, par défaut `100 %`) et **`Luminosité maximum niveau`** (`brightness_max_set`) utilisables dans vos scénarios et le plugin *Mode* (ex. mode *Nuit*, *Chambre enfant* ou *Séance Cinéma*) :
