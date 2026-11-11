@@ -4,6 +4,15 @@ Toutes les modifications notables de ce plugin sont documentées dans ce fichier
 
 ---
 
+## [0.1.0-beta.27] - 2026-11-11 (Canal Beta)
+
+### Ajouté
+- **Dashboard Global de Supervision dans le menu `Accueil` de Jeedom (`desktop/php/panel.php`, `desktop/php/panel_card.inc.php`, `desktop/js/panel.js`, `core/ajax/altTydom.ajax.php`, `plugin_info/info.json`)** :
+  - **Accès direct depuis `Accueil → Alt Habitat & Domotique (Delta Dore Tydom)`** (et bouton *« Dashboard Tydom »* sur la page de gestion du plugin).
+  - **Bandeau Hero & 6 Cartes KPI temps réel interactives** : synthèse immédiate des *Ouvrants & Accès* (nombre et liste des ouvrants ouverts), *Volets, BSO & Stores* (ouverture moyenne + boutons d'action groupée *Tout ouvrir*, *Stop*, *Tout fermer* respectant la sécurité *Protection Vantail Ouvert*), *Climat & Chauffage* (température et consigne moyennes, zones actives), *Alarme Tyxal+ & DAAF* (mode d'armement, alertes piles/autoprotection), *Éclairages & Prises* (extinction générale en 1 clic) et *Énergie & Solaire* (`W`, `kWh`, `W/m²`, `°C` ext.).
+  - **Double classement & Filtrage instantané** : navigation latérale pliable par **Famille Tydom** et par **Pièce Jeedom** (avec température moyenne et pastille d'alerte/ouverture par pièce), bascule de classement **Par Famille** / **Par Pièce**, filtre rapide **Ouverts / Actifs**, et masquage intelligent par défaut des composants enfants déjà fusionnés dans un Widget Combiné.
+  - **3 Modes d'affichage & Thème Sombre / Clair (`v1.5`)** : vue **Synthèse & Cartes Pilotables** (alignement CSS Subgrid, vignettes SVG dynamiques, pastilles des composants associés et contrôles directs en 1 clic), vue **Widgets Complets** et vue **Tableau de Supervision & Diagnostic**.
+
 ## [0.1.0-beta.26] - 2026-11-10 (Canal Beta)
 
 ### Corrigé & Amélioré

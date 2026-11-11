@@ -74,6 +74,12 @@ La section **« Association & Fusion de composants Tydom (Widget Combiné) »** 
 - **Éclairage / Prise connectée + Détecteur de mouvement / luminosité ou sous-compteur d'énergie**.
 - **Synchronisation automatique des commandes sur l'équipement hôte** : toutes les informations des composants rattachés (`linked_open_1..3`, synthèse `linked_open_any`, `temperature`, `hygro`, `linked_motion`, `linked_brightness`, `energy_instant`, `energy_index`, `linked_light_state`, `linked_light_toggle`) sont automatiquement créées et tenues à jour en temps réel sur l'équipement principal pour vos scénarios Jeedom, historiques et passerelles vocales/Homebridge, avec option de masquage automatique des équipements secondaires sur le Dashboard.
 
+### Dashboard Global de Supervision (« Accueil → Alt Habitat & Domotique »)
+Le plugin intègre un **Dashboard dédié dans le menu Accueil de Jeedom** (`Accueil → Alt Habitat & Domotique (Delta Dore Tydom)`) offrant une vue d'ensemble esthétique et structurée de toute votre installation Delta Dore :
+- **6 Cartes KPI temps réel interactives** en en-tête (*Ouvrants & Accès*, *Volets, BSO & Stores* avec actions groupées *Tout ouvrir / Stop / Tout fermer* respectant la sécurité vantail ouvert, *Climat & Chauffage*, *Alarme Tyxal+ & DAAF*, *Éclairages & Prises* avec extinction groupée, *Énergie & Solaire*).
+- **Navigation latérale par Famille Tydom et par Pièce Jeedom** (avec température moyenne et indicateur d'ouvrant ouvert par pièce), recherche instantanée, filtre *« Ouverts / Actifs »* et masquage intelligent des composants déjà fusionnés dans un Widget Combiné.
+- **3 Modes de vue au choix** (*Synthèse & Cartes Pilotables Dark Glass / Light Glass*, *Widgets Complets*, *Tableau de Supervision & Diagnostic*) et classement dynamique **Par Famille** ou **Par Pièce**.
+
 ---
 
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
