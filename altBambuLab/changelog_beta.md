@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-12
+
+- Extraction automatique du poids de filament, du coût estimé en euros et de la hauteur de couche depuis les fichiers `.3mf`, avec suivi des statistiques cumulées d'impression.
+- Configuration directe des bobines tierces sans puce RFID (matériau et couleur) et chargement d'une bobine AMS depuis le widget, plus prise en charge du porte-bobine externe.
+- Traduction en français des codes d'alerte et d'erreur HMS de l'imprimante et de l'AMS.
+- Ajout du ventilateur de corps de chauffe (Heatbreak), des informations de buse installée, des commandes de déplacement manuel (plateau, tête, extrudeur) et de l'exclusion d'un objet décollé en cours d'impression (Skip Objects).
+- Ajout du contrôle du Timelapse vidéo, de l'état de la carte MicroSD, des versions de firmware et d'un lanceur d'impression pour les modèles `.3mf` présents sur la carte MicroSD.
+
 ## [0.1.0-beta.11] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.
