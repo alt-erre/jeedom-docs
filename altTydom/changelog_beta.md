@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](chan
 
 ---
 
+## [0.1.0-beta.29] - 2026-11-11
+
+- Détection automatique des éclairages Marche / Arrêt (On/Off) par rapport aux variateurs (0–100 %) et adaptation de l'affichage des widgets.
+
 ## [0.1.0-beta.28] - 2026-11-11
 
 - Affichage des éléments dans les différentes vues du Dashboard Tydom.
