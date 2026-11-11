@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.8] - 2026-11-12
+
+- Ajout des réglages et consommables avancés de la station (activation de l'auto-vidange, fréquence de lavage des serpillères, usure du filtre à eau et de la brosse de station, compteur de vidanges).
+- Ajout du rapport détaillé du dernier cycle de nettoyage (horaires, durée, surface, origine du départ, type de nettoyage et statut de complétion).
+- Ajout du contrôle de l'évitement d'obstacles IA, de la LED d'état, de la recharge en heures creuses et des plages horaires personnalisées Ne Pas Déranger.
+- Ajout des commandes de nettoyage de zone par coordonnées, de déplacement vers un point cible, de télécommande manuelle et du diagnostic Wi-Fi (SSID, signal RSSI, adresse MAC, numéro de série).
+- Ajout de la prise en charge native de l'affichage grand écran Kiosk TV.
+
 ## [0.1.0-beta.7] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.

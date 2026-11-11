@@ -35,21 +35,35 @@ Comme les plugins `altCambridgeAudio` et `altSiemens`, il repose sur un démon P
    - **Gestion des tapis** : *Boost Tapis Auto* (`carpet_boost`) et *Comportement sur tapis* (`carpet_clean_mode` : *Éviter*, *Soulever les serpillères (VibraRise / Lift)*, *Ignorer*)
 
 3. **Station Multifonction 3.0 (Qrevo Curv) & Station d'Auto-Vidange (S7+)** :
-   - **Vidange automatique du bac à poussière** : Démarrer (`dock_empty_dust`) / Arrêter (`dock_stop_empty`)
-   - **Lavage des serpillères à l'eau chaude (75 °C sur Qrevo Curv)** : Démarrer (`dock_wash_mop`) / Arrêter (`dock_stop_wash`)
-   - **Séchage à l'air chaud (45 °C)** : Démarrer (`dock_start_dry`), Arrêter (`dock_stop_dry`), état du séchage (`drying_status`) et durée restante
-   - **Diagnostic des réservoirs de la station (`dss`)** : Détection du type de station (`dock_type`), état du réservoir d'eau propre, du réservoir d'eau sale et du sac à poussière (`dock_status`)
+   - **Vidange automatique du bac à poussière** : Démarrer (`empty_bin_start`) / Arrêter (`empty_bin_stop`), Interrupteur d'auto-vidange automatique (`auto_empty_enabled`, `auto_empty_on`, `auto_empty_off`, `auto_empty_toggle`) et mode de vidange (`dust_collection_mode_select`)
+   - **Lavage des serpillères à l'eau chaude (75 °C sur Qrevo Curv)** : Démarrer (`wash_mop_start`) / Arrêter (`wash_mop_stop`), mode de lavage (`wash_towel_mode_select`) et **Fréquence de lavage des serpillères (`smart_wash_interval` / `smart_wash_select`)** (*Par pièce*, *Toutes les 10 min*, *15 min*, *20 min*, *25 min*)
+   - **Séchage à l'air chaud (45 °C)** : Démarrer (`dryer_start`), Arrêter (`dryer_stop`), durée de séchage (`2 h`, `3 h`, `4 h`), état du séchage (`is_drying`) et durée restante (`drying_remaining`)
+   - **Diagnostic des réservoirs de la station (`dss`)** : Détection du type de station (`dock_type_label`), état du réservoir d'eau propre (`clean_water_ok`), du réservoir d'eau sale (`dirty_water_full`) et du sac à poussière (`dust_bag_ok`, `dock_status`)
+   - **Consommables dédiés à la station** : Usure et remise à zéro du **Filtre d'eau de la station** (`strainer_percent` / `reset_strainer`), de la **Brosse haute vitesse de lavage** (`cleaning_brush_percent` / `reset_cleaning_brush`) et compteur du **Nombre de vidanges du sac à poussière** (`dust_collection_count`)
 
-4. **Nettoyage par Pièces (Segments), Zones & Multi-Cartes (Étages)** :
+4. **Nettoyage par Pièces (Segments), Zones, Point Cible, Télécommande & Multi-Cartes (Étages)** :
    - Découverte automatique des pièces (`get_room_mapping`) et association avec les noms de pièces de votre domicile
-   - Sélection directe d'une ou plusieurs pièces depuis le widget Dashboard ou par scénario (`clean_rooms` avec répétition `1x`, `2x` ou `3x`)
-   - Commandes avancées pour scénarios : Nettoyage de zone par coordonnées (`clean_zone`) et Aller au point cible (`goto_target`)
+   - Sélection directe d'une ou plusieurs pièces depuis le widget Dashboard ou par scénario (`clean_room_<id>`, `clean_segments` avec répétition `1x`, `2x` ou `3x`)
+   - **Nettoyage de zone (`clean_zone`)** : lancement d'une ou plusieurs zones rectangulaires par coordonnées (`x1,y1,x2,y2[,repeat]`)
+   - **Aller au point cible (`goto_target`)** : déplacement autonome du robot vers un point précis (`x,y`) par ex. près de la poubelle pour l'entretien
+   - **Pilotage manuel télécommandé (`rc_start`, `rc_stop`, `rc_forward`, `rc_backward`, `rc_left`, `rc_right`)** : commandes directionnelles pas-à-pas en local (`app_rc_move`)
    - Gestion jusqu'à **4 cartes / étages** (`get_multi_maps_list`, sélecteur `map_select`)
 
-5. **Consommables, Historique & Confort** :
-   - Pourcentage d'usure restant et boutons de remise à zéro (`reset_*`) pour : *Brosse principale (300 h)*, *Brosse latérale (200 h)*, *Filtre lavable (150 h)*, *Capteurs (30 h)*
-   - Historique cumulé : *Surface totale (`m²`)*, *Temps total (`h`)*, *Nombre total de cycles*
-   - *Volume vocal (`0-100 %`)*, *Sécurité enfant (`child_lock`)*, *Mode Ne Pas Déranger (`dnd`)*, *LED d'état (`led_status`)*
+5. **Consommables, Rapport du Dernier Cycle, IA, Confort & Diagnostic Réseau** :
+   - Pourcentage d'usure restant et boutons de remise à zéro (`reset_*`) pour : *Brosse principale (300 h)*, *Brosse latérale (200 h)*, *Filtre lavable (150 h)*, *Capteurs (30 h)*, *Filtre à eau station*, *Brosse de lavage station*
+   - **Rapport détaillé du dernier cycle (`get_clean_record`)** : Date/heure de début (`last_clean_start`) et de fin (`last_clean_end`), durée (`last_clean_duration`), surface (`last_clean_area`), cycle terminé sans interruption (`last_clean_complete`), origine du déclenchement (`last_clean_source` : *Application / Jeedom*, *Bouton physique*, *Programmation horaire*...) et type de nettoyage (`last_clean_type` : *Nettoyage global*, *Nettoyage de zone*, *Nettoyage de pièce(s)*)
+   - Historique cumulé à vie : *Surface totale (`total_clean_area` en `m²`)*, *Temps total (`total_clean_time` en `h`)*, *Nombre total de cycles (`total_clean_count`)*
+   - **Évitement d'obstacles IA (`Reactive AI`)** (`obstacle_avoidance`, `obstacle_avoidance_on/off/toggle`) et **LED d'état du robot** (`led_status`, `led_on/off/toggle`)
+   - **Mode Ne Pas Déranger (DND) programmable** (`dnd_enabled`, `dnd_window`, `dnd_on/off`, `dnd_set` au format `HH:MM-HH:MM`) et **Recharge Heures Creuses** (`off_peak_charging`, `off_peak_window`, `off_peak_on/off`, `off_peak_set` au format `HH:MM-HH:MM`)
+   - *Volume vocal (`0-100 %`)*, *Sécurité enfant (`child_lock`)*
+   - **Diagnostic réseau Wi-Fi & matériel** : SSID Wi-Fi (`wifi_ssid`), signal Wi-Fi en `dBm` avec hystérésis (`wifi_rssi`), adresse MAC (`mac_address`) et numéro de série matériel (`serial_number`)
+   - **Compatibilité native Kiosk TV 10-Foot (`altTvDashboard`)** : contrôle grand format à la télécommande TV (état, batterie, pièces, modes d'aspiration/eau et actions de station)
+
+6. **Périmètre 100 % Local vs Fonctionnalités Cloud Roborock** :
+   - **100 % en local (TCP `58867`)** : l'intégralité des commandes et informations ci-dessus fonctionne en autonomie complète sur votre réseau local, même si l'accès Internet du robot est bloqué dans votre routeur.
+   - **Éléments dépendant par conception du Cloud Roborock (non sollicités en mode 100 % local)** :
+     1. Le flux binaire de la **carte graphique 2D (`get_map_v1`)**, que le firmware Roborock compresse et publie exclusivement vers le broker MQTT Cloud Roborock (endpoint `301`).
+     2. Le flux **vidéo/audio en direct de la caméra embarquée** (modèles *MaxV* / *Qrevo Curv*), qui transite par un serveur de signalisation P2P propriétaire Roborock.
 
 ---
 
