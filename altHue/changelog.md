@@ -5,6 +5,14 @@ Ce projet respecte le [Versionnement Sémantique (SemVer 2.0.0)](../VERSIONING.m
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-11 (Canal Beta)
+
+### Corrigé
+- **Mise à l'échelle typographique et ergonomique du Dashboard Accueil (`desktop/php/panel.php`)** :
+  - **Correction des tailles de police trop petites sous Bootstrap 3 / Jeedom Core (`html { font-size: 10px }`)** : remplacement intégral des unités relatives `rem` (interprétées sur une base de `10px` par le Core Jeedom au lieu de `16px`) par des tailles explicites en pixels (`13px` à `22px`) pour les titres, cartes KPI, volets latéraux, badges d'état, étiquettes et boutons d'action.
+  - **Correction du champ de recherche et des sélecteurs** : application de `padding` et `height` explicites avec `!important` pour éviter le chevauchement de l'icône loupe avec le texte de recherche.
+  - **Compteur KPI « Pièces & Zones » intelligent** : bascule automatique sur le comptage des pièces Jeedom éclairées (`X / Y éclairées`) lorsque les équipements de groupe `Pièce Hue` ne sont pas utilisés.
+
 ## [0.1.0-beta.11] - 2026-11-11 (Canal Beta)
 
 ### Ajouté

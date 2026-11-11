@@ -3,7 +3,7 @@
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale HTTPS **CLIP v2** + Flux d'événements temps réel **Server-Sent Events (`SSE /eventstream/clip/v2`)** + API Locale **Hue Play HDMI Sync Box (`/api/v1`)**  
-**Version :** `0.1.0-beta.11`  
+**Version :** `0.1.0-beta.12`  
 **Compatibilité :** Jeedom v4.0+ (Smart, Atlas, Luna, RPi, Docker, VM Debian 11/12)
 
 ---
