@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.32] - 2026-11-11
+
+- Désactivation par défaut de la création automatique des groupes matériels Tydom dans la configuration du plugin.
+
 ## [0.1.0-beta.31] - 2026-11-11
 
 - Masquage par défaut des boutons de montée et descente lente sur les volets roulants monovitesse (activables uniquement sur option pour les moteurs Tymoov bi-vitesse).
