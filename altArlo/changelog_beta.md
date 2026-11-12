@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.33] - 2026-11-12
+
+- Correction de l'erreur `HTTP error 502 Bad Gateway sur weblivestream-z1-prod.arlo.com` à l'ouverture du flux Direct (Live) : amélioration de la négociation RTSPS et bascule instantanée sur le moteur « Direct HD séquentiel » sans endormir la caméra.
+
 ## [0.1.0-beta.32] - 2026-11-12
 
 - Correction de l'erreur `1024 - Saisissez à nouveau vos identifiants. sur session/v3` et fiabilisation du maintien de session Cloud Arlo.
