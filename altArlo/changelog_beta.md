@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.35] - 2026-11-12
+
+- Protection complète contre la suppression du plugin lors d'une mise à jour Jeedom (`plugin_info/pre_install.php`) : bascule automatique de la branche GitHub `master` vers `beta`, sauvegarde préventive des fichiers de session/auto-reconnexion et libération immédiate de la RAM `/tmp/jeedom` à la fermeture du flux Live.
+
 ## [0.1.0-beta.34] - 2026-11-12
 
 - Sécurisation du processus de mise à jour Jeedom (`altArlo_pre_update` / `altArlo_update`) : arrêt du démon et purge du cache Live avant le remplacement des fichiers, et maintien automatique de l'activation du plugin si la fenêtre Direct (Live) ou le Dashboard était ouvert pendant la mise à jour.
