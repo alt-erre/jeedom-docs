@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.15] - 2026-11-12
+
+- Correction de l'affichage du Dashboard Accueil sur petits écrans et tablettes (suppression de la superposition de la colonne Familles / Pièces avec les tuiles d'appareils lors du défilement).
+
 ## [0.1.0-beta.14] - 2026-11-11
 
 - Ajout des fonctions avancées Philips Hue & HDMI Sync Box : comportement au retour du secteur, signalisation lumineuse bicolore, repérage physique (clignotement), simulateur d'aube/crépuscule, vitesse des effets et des scènes dynamiques, durée de fondu personnalisable, capture de scène, sensibilité et autoprotection des capteurs, santé Zigbee, automatisations internes du pont et réglages avancés Sync Box (zone cible, LED de façade, CEC, format vidéo).
