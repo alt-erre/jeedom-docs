@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.13] - 2026-11-12
+
+- Correction du retour d'état visuel du volume (pourcentage et curseur) lors de l'utilisation des boutons `+` et `-` sur le widget.
+- Ajout d'une barre de progression interactive du morceau en cours, de l'aperçu du titre suivant, du numéro de piste et de la sauvegarde de la file d'attente en playlist Sonos.
+- Ajout des réglages avancés pour Sonos Amp, Port, Sub et barres de son Home-Cinéma : balance gauche/droite, mode Stéréo / Double Mono, fréquence de coupure (`50–110 Hz`) et phase (`0°/180°`) du caisson, réglages Surround arrière, effets verticaux Dolby Atmos et synchronisation labiale TV.
+- Ajout du réglage de sensibilité d'entrée RCA (`1–10`) et de la configuration complète de l'Autoplay RCA (activation, pièces groupées, volume de démarrage).
+- Ajout du verrouillage des boutons tactiles physiques (sécurité enfant), du pilotage des réveils Sonos, du décompte de la minuterie de veille et du suivi de batterie sur Sonos Move et Roam.
+
 ## [0.1.0-beta.12] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.

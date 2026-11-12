@@ -39,14 +39,15 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
 - **Entrée Ligne Analogique RCA (`Line-In` / `AudioIn`) :**
   - Commande **`Entrée : Ligne RCA (Line-In)`** (`source_line_in`) pour basculer sur l'entrée RCA locale (`x-rincon-stream:RINCON_...`).
   - **Partage Multiroom des Entrées Line-In du foyer :** Synchronisation automatique d'une commande `Line-In RCA : <Pièce>` pour chaque *Sonos Amp*, *Sonos Port*, *Sonos Connect*, *Five* ou *Era* du foyer, permettant d'écouter une platine vinyle ou un lecteur CD branché sur un *Sonos Port* dans n'importe quelle autre pièce !
-  - Information binaire `Câble Line-In branché` (`line_in_connected`).
+  - Information binaire `Câble Line-In branché` (`line_in_connected`), réglage de la **Sensibilité d'entrée RCA** (`line_in_level` / `line_in_level_set`, niveaux `1` à `10`) et pilotage complet de l'**Autoplay RCA** (`line_in_autoplay_state`, `line_in_autoplay_toggle`, inclusion des groupes `line_in_autoplay_groups_toggle`, volume d'Autoplay `line_in_autoplay_volume_set`).
 - **Entrée TV HDMI ARC / Optique (Sonos Amp & Barres de son Arc / Beam / Ray / Playbar) :**
   - Commande directe **`Entrée : TV (HDMI ARC / Optique)`** (`source_tv`) pour basculer instantanément sur le son du téléviseur (`x-sonos-htastream:RINCON_...:spdif`).
 - **Niveau de Sortie Ligne RCA / Coaxiale Variable vs Fixe 100 % (Spécial Sonos Port & Sonos Connect) :**
   - Information `Mode Sortie Ligne` (`Variable` ou `Fixe (100%)`) et `Etat Sortie Ligne Fixe`.
   - Commandes **`Sortie Ligne : Variable`**, **`Sortie Ligne : Fixe (Pass-Through 100%)`** et **`Basculer Sortie Ligne Fixe/Variable`** (`SetOutputFixed`), idéales lorsqu'un **Sonos Port** ou **Sonos Connect** attaque un amplificateur Hi-Fi ou Home-Cinéma externe.
-- **Sortie Subwoofer & Gain Caisson (Sonos Amp & Caissons Sonos Sub / Sub Mini) :**
-  - Commandes `Subwoofer` (`On` / `Off` / `Toggle`) et curseur `Gain Subwoofer niveau` (`-15 dB` à `+15 dB`).
+- **Mode Stéréo / Double Mono (`Sonos Amp`), Sortie Subwoofer, Fréquence de Coupure & Phase (`Sonos Amp` & `Sub`) :**
+  - Bascule **`Mode Stéréo / Double Mono`** (`mono_mode`, `mono_mode_toggle`, `mono_mode_on`, `mono_mode_off`) dédiée au **Sonos Amp**.
+  - Commandes `Subwoofer` (`On` / `Off` / `Toggle`), curseur `Gain Subwoofer niveau` (`-15 dB` à `+15 dB`), **Fréquence de coupure Subwoofer** (`sub_crossover_set`, `50` à `110 Hz`) et **Inversion de phase Caisson `0° / 180°`** (`sub_polarity_toggle`).
 
 ### 3. Multiroom Complet (Groupes, Coordinateur, Mode Party & Volume Groupe)
 - **Informations Multiroom temps réel :** `Groupe Multiroom` (ex. `Salon + Cuisine`), `Membres du groupe`, `Coordinateur du groupe`, `Est Coordinateur` (`0`/`1`), `En groupe Multiroom` (`0`/`1`).
@@ -59,8 +60,8 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
 
 ### 4. Favoris Sonos (`FV:2`), Playlists Sonos (`SQ:`) & Contrôles Multimédias
 - **Synchronisation automatique 1 clic** des **Favoris Sonos (`FV:2`)** et des **Playlists Sonos (`SQ:`)** enregistrés dans l'application Sonos (Radios TuneIn / Sonos Radio, Playlists et Albums Spotify, Qobuz, TIDAL, Deezer, Apple Music, Amazon Music, Plex, Bibliothèque NAS).
-- **Transport complet :** `Play / Pause`, `Lecture`, `Pause`, `Stop`, `Précédent`, `Suivant`, `Aléatoire (Shuffle)`, `Répéter (Repeat)`, `Fondu enchaîné (Crossfade)`, `Vider la file d'attente`.
-- **Métadonnées temps réel :** `Statut lecture`, `Titre`, `Artiste`, `Album`, `Pochette` (jaquette haute résolution), `Format / Service`, `Position piste`, `Durée piste`.
+- **Transport complet & Navigation dans la File d'attente :** `Play / Pause`, `Lecture`, `Pause`, `Stop`, `Précédent`, `Suivant`, `Aller à la position (Seek)` (`seek_time` + barre de progression interactive sur le widget), `Aller à la piste N°` (`seek_track`), `Aléatoire (Shuffle)`, `Répéter (Repeat)`, `Fondu enchaîné (Crossfade)`, `Vider la file d'attente` et **`Sauvegarder la file en Playlist Sonos`** (`save_queue`).
+- **Métadonnées temps réel :** `Statut lecture`, `Titre`, `Artiste`, `Album`, `Pochette` (jaquette haute résolution), `Format / Service`, `Position piste`, `Durée piste`, `Numéro de piste`, `Total pistes file d'attente`, **`Titre suivant`** (`next_track_title`) et **`Artiste suivant`** (`next_track_artist`).
 
 ### 5. Annonces Vocales TTS (Text-To-Speech) & Jingles avec Reprise Automatique (`Snapshot & Restore`)
 - Commande **`Dire (TTS avec reprise)`** (`tts`, sous-type `message` : *Titre* = Volume optionnel ex. `45`, *Message* = Texte à prononcer) et tiroir **Annonce Vocale TTS** intégré directement dans le widget Dashboard.
@@ -70,10 +71,16 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
   2. Génère le fichier audio de synthèse vocale (via le moteur TTS de Jeedom ou `pico2wave` local), règle le volume d'annonce et diffuse le message.
   3. Dès la fin de l'annonce, **restaure automatiquement** le volume initial, le groupe Multiroom, la source ou la piste, la position temporelle et relance la lecture.
 
-### 6. Égaliseur Hi-Fi, Modes Home-Cinéma & Système
-- **Égaliseur :** `Graves (Bass)` (`-10` à `+10 dB`), `Aigus (Treble)` (`-10` à `+10 dB`), `Loudness` (`On` / `Off` / `Toggle`).
-- **Home-Cinéma (Sonos Amp HDMI ARC, Arc, Beam, Ray, Playbar) :** `Mode Nuit (Night Sound)` (`On` / `Off` / `Toggle`) et `Amélioration Vocale (Speech Enhancement / DialogLevel)` (`On` / `Off` / `Toggle`).
-- **Système :** Calibrage acoustique `Trueplay` (`On` / `Off`), `Voyant LED` de façade (`On` / `Off`), `Minuterie de veille (Sleep Timer)` (`0` à `120 min`), et niveau de `Batterie (%)` / `En charge` pour les **Sonos Move** et **Sonos Roam**.
+### 6. Égaliseur Hi-Fi, Surround, Dolby Atmos, Réveils Sonos & Système
+- **Égaliseur & Balance :** `Graves (Bass)` (`-10` à `+10 dB`), `Aigus (Treble)` (`-10` à `+10 dB`), `Balance G/D` (`-100 %` à `+100 %`), `Loudness` (`On` / `Off` / `Toggle`).
+- **Home-Cinéma, Surround & Dolby Atmos (Sonos Amp, Arc, Arc Ultra, Beam, Ray, Playbar, Era 300) :**
+  - `Mode Nuit (Night Sound)` (`On` / `Off` / `Toggle`) et `Amélioration Vocale (Speech Enhancement / DialogLevel)` (`On` / `Off` / `Toggle`).
+  - `Enceintes Surround` (`On` / `Off` / `Toggle`), `Mode Surround Musique` (`Ambiant` vs `Plein`), `Niveau Surround TV` (`-15` à `+15 dB`), `Niveau Surround Musique` (`-15` à `+15 dB`).
+  - `Niveau Hauteur Dolby Atmos (HeightLevel)` (`-10` à `+10 dB`) et `Délai Audio TV (Lip-Sync)` (`0` à `5`).
+- **Domotique, Réveils Sonos & Système :**
+  - Calibrage acoustique `Trueplay` (`On` / `Off`), `Voyant LED` de façade (`On` / `Off`), **`Verrouillage des boutons tactiles physiques`** (`button_lock_toggle` / `on` / `off` - sécurité enfant).
+  - **Pilotage des Réveils Sonos (`AlarmClock`) :** `Réveils actifs (Nombre)`, `Réveils programmés (Résumé)`, `Activer tous les réveils de la pièce`, `Désactiver tous les réveils de la pièce` (idéal pour couper automatiquement les réveils Sonos les jours fériés ou en mode Vacances) et `Activer / Désactiver réveil (ID ou Heure)`.
+  - `Minuterie de veille (Sleep Timer)` (`0` à `120 min`) avec décompte du temps restant en temps réel, et niveau de `Batterie (%)` / `En charge` pour les **Sonos Move (1/2)** et **Sonos Roam (1/2)**.
 
 ---
 
