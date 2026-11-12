@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.31] - 2026-11-12
+
+- Correction de l'affichage responsive du Dashboard Accueil sur petits écrans et tablettes (suppression du chevauchement des blocs « Catégories Arlo » et « Pièces / Zones » avec les tuiles des équipements, et barres de filtres horizontales glissables sur mobile).
+
 ## [0.1.0-beta.30] - 2026-11-11
 
 - Ajout d'un Dashboard complet dans le menu Accueil de Jeedom (vue d'ensemble par catégorie et par pièce, cartes KPI avec actions groupées, Mur Vidéo 16:9, Synthèse, Widgets, Tableau technique, Direct Live et Bibliothèque intégrés).
