@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.32] - 2026-11-12
+
+- Correction de l'erreur `1024 - Saisissez à nouveau vos identifiants. sur session/v3` et fiabilisation du maintien de session Cloud Arlo.
+- Correction du renouvellement silencieux (« Navigateur de Confiance ») et de l'auto-reconnexion 2FA (prise en compte immédiate de la ressaisie des identifiants via le bouton Sauvegarder, réinitialisation automatique du délai d'attente de 30 minutes et bascule directe sur l'e-mail IMAP lorsqu'aucun équipement SMS 4G n'est présent).
+
 ## [0.1.0-beta.31] - 2026-11-12
 
 - Correction de l'affichage responsive du Dashboard Accueil sur petits écrans et tablettes (suppression du chevauchement des blocs « Catégories Arlo » et « Pièces / Zones » avec les tuiles des équipements, et barres de filtres horizontales glissables sur mobile).
