@@ -38,7 +38,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Transports & Mobilités Urbaines** | `altTransit` | Organisation | `0.1.0-beta.6` | `Beta` | [Documentation](altTransit/) · [Changelog Stable](altTransit/changelog) · [Changelog Beta](altTransit/changelog_beta) |
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.25` | `Beta` | [Documentation](altTvDashboard/) · [Changelog Stable](altTvDashboard/changelog) · [Changelog Beta](altTvDashboard/changelog_beta) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.2.0-beta.1` | `Beta` | [Documentation](altTwinkly/) · [Changelog Stable](altTwinkly/changelog) · [Changelog Beta](altTwinkly/changelog_beta) |
-| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.33` | `Beta` | [Documentation](altTydom/) · [Changelog Stable](altTydom/changelog) · [Changelog Beta](altTydom/changelog_beta) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.34` | `Beta` | [Documentation](altTydom/) · [Changelog Stable](altTydom/changelog) · [Changelog Beta](altTydom/changelog_beta) |
 | **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altXbox/) · [Changelog Stable](altXbox/changelog) · [Changelog Beta](altXbox/changelog_beta) |
 
 ---

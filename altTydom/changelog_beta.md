@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.34] - 2026-11-12
+
+- Correction de l'affichage du widget Dashboard des volets roulants avec ouvrants associés (suppression du débordement du texte hors du cadre supérieur, alignement côte à côte des pastilles de vantaux et alignement sur une seule ligne des 5 boutons `0 %` à `100 %`).
+
 ## [0.1.0-beta.33] - 2026-11-12
 
 - Correction de l'affichage du Dashboard Tydom sur petit écran (mobile et tablette) où les filtres « Familles Tydom » et « Pièces » se superposaient aux tuiles des appareils lors du défilement, et présentation des filtres sous forme de bandeaux horizontaux compacts.
