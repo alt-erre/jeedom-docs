@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-13
+
+- Correction de la remontée et de l'affichage immédiat de la liste des pièces dans le sélecteur et les raccourcis du widget.
+- Ajout de la détection et de l'enregistrement automatiques de l'adresse IP locale du robot sur le réseau (passage automatique de l'état `OFFLINE` à connecté en local).
+- Accélération de la remontée d'état initiale lors de la connexion au robot.
+
 ## [0.1.0-beta.11] - 2026-11-12
 
 - Correction des paramètres de validation du code de vérification par e-mail après acceptation des conditions générales dans l'application mobile.
