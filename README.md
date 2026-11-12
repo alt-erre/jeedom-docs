@@ -14,7 +14,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Alt Diffusion, Sons & Multiroom (AirPlay)** | `altAirCast` | Multimédia | `0.1.0-beta.24` | `Beta` | [Documentation](altAirCast/) · [Changelog Stable](altAirCast/changelog) · [Changelog Beta](altAirCast/changelog_beta) |
 | **Alt Air Média** | `altAirMedia` | Multimédia | `0.1.0-beta.15` | `Beta` | [Documentation](altAirMedia/) · [Changelog Stable](altAirMedia/changelog) · [Changelog Beta](altAirMedia/changelog_beta) |
-| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.33` | `Beta` | [Documentation](altArlo/) · [Changelog Stable](altArlo/changelog) · [Changelog Beta](altArlo/changelog_beta) |
+| **Alt Caméras & Sécurité (Arlo)** | `altArlo` | Sécurité | `0.1.0-beta.34` | `Beta` | [Documentation](altArlo/) · [Changelog Stable](altArlo/changelog) · [Changelog Beta](altArlo/changelog_beta) |
 | **Alt Print 3D (Bambu Lab)** | `altBambuLab` | Objets connectés | `0.1.0-beta.12` | `Beta` | [Documentation](altBambuLab/) · [Changelog Stable](altBambuLab/changelog) · [Changelog Beta](altBambuLab/changelog_beta) |
 | **Alt Audio (Cambridge)** | `altCambridgeAudio` | Multimédia | `0.1.0-beta.15` | `Beta` | [Documentation](altCambridgeAudio/) · [Changelog Stable](altCambridgeAudio/changelog) · [Changelog Beta](altCambridgeAudio/changelog_beta) |
 | **Alt Téléphonie, MMS & Portail GSM** | `altCellular` | Communication | `0.1.0-beta.17` | `Beta` | [Documentation](altCellular/) · [Changelog Stable](altCellular/changelog) · [Changelog Beta](altCellular/changelog_beta) |

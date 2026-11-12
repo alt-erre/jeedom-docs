@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.34] - 2026-11-12
+
+- Sécurisation du processus de mise à jour Jeedom (`altArlo_pre_update` / `altArlo_update`) : arrêt du démon et purge du cache Live avant le remplacement des fichiers, et maintien automatique de l'activation du plugin si la fenêtre Direct (Live) ou le Dashboard était ouvert pendant la mise à jour.
+
 ## [0.1.0-beta.33] - 2026-11-12
 
 - Correction de l'erreur `HTTP error 502 Bad Gateway sur weblivestream-z1-prod.arlo.com` à l'ouverture du flux Direct (Live) : amélioration de la négociation RTSPS et bascule instantanée sur le moteur « Direct HD séquentiel » sans endormir la caméra.
