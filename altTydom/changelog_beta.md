@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.33] - 2026-11-12
+
+- Correction de l'affichage du Dashboard Tydom sur petit écran (mobile et tablette) où les filtres « Familles Tydom » et « Pièces » se superposaient aux tuiles des appareils lors du défilement, et présentation des filtres sous forme de bandeaux horizontaux compacts.
+
 ## [0.1.0-beta.32] - 2026-11-11
 
 - Désactivation par défaut de la création automatique des groupes matériels Tydom dans la configuration du plugin.
