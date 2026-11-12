@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.10] - 2026-11-12
+
+- Passage de l'assistant de récupération des clés locales sur le protocole d'authentification Roborock V4 pour éviter l'erreur de version des conditions d'utilisation (`user agreement version is not up-to-date`).
+
 ## [0.1.0-beta.9] - 2026-11-12
 
 - Correction de la validation du code de vérification reçu par e-mail (erreur `missing parameters`) dans l'assistant de récupération des clés locales.
