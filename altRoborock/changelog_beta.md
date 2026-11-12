@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.9] - 2026-11-12
+
+- Correction de la validation du code de vérification reçu par e-mail (erreur `missing parameters`) dans l'assistant de récupération des clés locales.
+
 ## [0.1.0-beta.8] - 2026-11-12
 
 - Ajout des réglages et consommables avancés de la station (activation de l'auto-vidange, fréquence de lavage des serpillères, usure du filtre à eau et de la brosse de station, compteur de vidanges).
