@@ -30,6 +30,7 @@ body:
         - "altSonos (Alt Multiroom Audio - Sonos)"
         - "altSportEasy (Alt Vie Sportive - SportEasy)"
         - "altSwitch (Alt Contrôle Parental - Nintendo Switch)"
+        - "altSystemGuard (Alt Audit Ressources, eMMC & Santé Plugins)"
         - "altTesla (Alt Électromobilité & Charge - Tesla BLE Local)"
         - "altTransit (Alt Transports & Mobilités Urbaines)"
         - "altTvDashboard (Alt Dashboard & Kiosk TV)"
