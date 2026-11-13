@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.13] - 2026-11-13
+
+- Correction d'un blocage lors de l'exécution de la mise à jour du plugin depuis le Centre de mise à jour Jeedom.
+
 ## [0.1.0-beta.12] - 2026-11-13
 
 - Correction de la remontée et de l'affichage immédiat de la liste des pièces dans le sélecteur et les raccourcis du widget.
