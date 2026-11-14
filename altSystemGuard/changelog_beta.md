@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.10] - 2026-11-14
+
+- **Fiabilisation de la procédure de mise à jour et suppression des doublons dans le Centre de mise à jour Jeedom** :
+  - Correction d'un conflit lors de la relance du démon en fin de mise à jour (suppression de la double relance qui entrait en collision avec le délai de sécurité de 45 secondes de Jeedom et arrêt propre du processus démon sans commande `pkill` externe).
+  - Lecture directe des métadonnées des plugins sans solliciter l'indexation du Centre de mise à jour de Jeedom en arrière-plan (qui provoquait l'apparition temporaire du plugin en double ou en triple dans la liste des mises à jour lorsqu'une mise à jour était lancée pendant que la page était ouverte) et nettoyage automatique des éventuels doublons existants.
+
 ## [0.1.0-beta.9] - 2026-11-14
 
 - **Nouveau Panel Desktop Plein Écran (`Accueil -> Alt Audit Ressources, eMMC & Santé Plugins` et bouton `Panel Cockpit`)** organisé en **4 vues** avec rafraîchissement automatique toutes les 30 secondes :
