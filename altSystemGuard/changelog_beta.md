@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.8] - 2026-11-14
+
+- **Décomposition complète à 100 % de la Charge CPU dans la bulle explicative** :
+  - La bulle de la carte **Charge CPU, I/O Wait & Température** détaille désormais l'intégralité des `100 %` d'activité processeur sans aucune part cachée : **Démons & Crons Plugins en cours** (avec le Top 3), **Serveur SQL MariaDB**, **Serveur Web Apache / PHP**, **Moteur Jeedom Core & Services Système Linux actifs**, ainsi que la part exacte des **Salves de Crons minutes & Processus éphémères** (avec le nombre de processus courts créés par minute sur la box) et la répartition **Code Utilisateur / Noyau Linux / I/O Wait**.
+
 ## [0.1.0-beta.7] - 2026-11-14
 
 - **Bulles explicatives détaillées au survol (et au toucher sur tablette/iPad)** :
