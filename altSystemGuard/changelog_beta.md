@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.2] - 2026-11-14
+
+- Correction d'un problème d'initialisation de la boucle asynchrone empêchant le maintien du démon en arrière-plan sur certains environnements Debian 11 (Python 3.9).
+
 ## [0.1.0-beta.1] - 2026-11-13
 
 - Première version Beta du plugin **Alt Audit Ressources, eMMC & Santé Plugins**.
