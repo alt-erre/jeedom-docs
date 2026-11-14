@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.14] - 2026-11-15
+
+- **Correction de l'affichage du bloc Démon et du chargement de la classe du plugin** :
+  - Correction d'une erreur de syntaxe dans un bloc de commentaire interne qui empêchait le chargement automatique de la classe du plugin par Jeedom (ce qui laissait l'encadré **Démon** vide sur la page de configuration et provoquait l'erreur `getDeviceRole()` à l'ouverture du plugin).
+  - Rafraîchissement automatique du cache PHP (`OPcache`) et de l'encadré **Démon** dès l'ouverture de la page de configuration du plugin.
+
 ## [0.1.0-beta.13] - 2026-11-15
 
 - **Correction de l'erreur `Call to undefined method eqLogic::getDeviceRole()` à l'ouverture du plugin après mise à jour** :
