@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.13] - 2026-11-15
+
+- **Correction de l'erreur `Call to undefined method eqLogic::getDeviceRole()` à l'ouverture du plugin après mise à jour** :
+  - Chargement explicite de la classe du plugin dès l'ouverture de la page d'administration et du Panel Desktop afin que les équipements soient toujours instanciés avec leur classe complète (même si le plugin avait été momentanément désactivé par une mise à jour précédente interrompue).
+  - Réactivation automatique du plugin et de son démon en fin de mise à jour et à l'ouverture de la page d'administration.
+
 ## [0.1.0-beta.12] - 2026-11-14
 
 - **Allègement radical de la mise à jour et du démarrage sur Jeedom Luna** :
