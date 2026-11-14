@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.14] - 2026-11-14
+
+- Correction du rafraîchissement automatique après la découverte réseau (respect du délai réseau JVC, ouverture automatique de l'appareil détecté et ajout d'un bouton « Rafraîchir l'état » sur la fiche de l'équipement).
+
 ## [0.1.0-beta.13] - 2026-11-14
 
 - Correction de la découverte réseau : les vidéoprojecteurs JVC détectés sur le réseau local sont désormais automatiquement créés et ajoutés à la liste des appareils avec rechargement automatique de la page.
