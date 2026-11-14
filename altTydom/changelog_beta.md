@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.36] - 2026-11-14
+
+- Mise à jour de la liste des plateformes compatibles sur le Jeedom Market (retrait de l'ancienne box Mini+).
+
 ## [0.1.0-beta.35] - 2026-11-14
 
 - Traduction complète de l'interface du plugin en français et en anglais (`fr_FR` et `en_US`).
