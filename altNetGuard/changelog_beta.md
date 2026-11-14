@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.11] - 2026-11-14
+
+- Ajout d'un Panel Desktop dédié de supervision réseau (`Accueil → Alt Radar & Sécurité Réseau`) avec cartographie visuelle des 254 adresses IPv4 du sous-réseau (`.1` à `.254`), filtres par catégorie/état, liens directs vers les interfaces Web détectées et outils d'investigation en 1 clic.
+
 ## [0.1.0-beta.10] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.

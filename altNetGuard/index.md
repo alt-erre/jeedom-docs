@@ -30,13 +30,17 @@
 
 ---
 
-## 2. Centre de Contrôle des Appareils Inconnus & Outils d'Investigation
+## 2. Panel Desktop de Supervision NOC & Centre de Contrôle des Appareils Inconnus
 
-Accessible directement en haut de la page du plugin (`Plugins > Sécurité > Alt Radar & Sécurité Réseau`), le **Centre de Contrôle Radar LAN** regroupe 4 onglets temps réel :
-- **Appareils Inconnus à Identifier** : affiche chaque appareil non reconnu avec ses badges (`En ligne / Hors-ligne`, `MAC Privée` si MAC aléatoire), son IP, son constructeur OUI, son nom mDNS/NetBIOS, ses ports TCP cliquables et sa bannière Web/SSH, accompagné des boutons **`🔍 Identifier`**, **`🏓 Ping`**, **`✅ Connu`**, **`🕒 Invité 24h`** et **`🔕 Ignorer`**.
-- **Appareils Connus** : vue tabulaire complète de votre parc approuvé avec actions rapides Wake-on-LAN, Ping et inspection des ports.
-- **Invités (24h) & Ignorés** : gestion des autorisations temporaires et des exclusions.
-- **Journal des Alertes d'Intrusion** : historique horodaté des 60 dernières détections d'appareils inconnus.
+- **Panel Desktop dédié (`Accueil > Alt Radar & Sécurité Réseau`)** :
+  - **En-tête NOC temps réel** : statut de sécurité du réseau, état du démon Python, durée du dernier scan, sélecteur rapide du mode de surveillance (*Intelligent*, *Strict*, *Sentinelle Nuit*, *Silencieux*) et déclenchement du *Scan Rapide* ou du *Scan Approfondi Ciblé*.
+  - **Cartographie Matricielle IPv4 (`.1` à `.254`)** : grille visuelle interactive des 254 adresses du sous-réseau `/24` permettant de repérer instantanément les IP occupées (*Connu en ligne*, *Inconnu en ligne*, *Invité 24h*, *Connu hors-ligne*, *IP modifiée*) et les adresses IP libres (avec test Ping au clic).
+  - **Filtres multicritères instantanés** par état (*En ligne*, *Hors-ligne*, *MAC Privée / Aléatoire*, *IP Modifiée*, *Ports TCP ouverts*) et par catégorie d'appareil.
+- **Centre de Contrôle Radar LAN** (également accessible dans `Plugins > Sécurité > Alt Radar & Sécurité Réseau`) regroupant :
+  - **Appareils Inconnus à Identifier** : affiche chaque appareil non reconnu avec ses badges (`En ligne / Hors-ligne`, `MAC Privée` si MAC aléatoire), son IP, son constructeur OUI, son nom mDNS/NetBIOS, ses ports TCP cliquables et sa bannière Web/SSH, accompagné des boutons **`🔍 Identifier`**, **`🏓 Ping`**, **`✅ Connu`**, **`🕒 Invité 24h`** et **`🔕 Ignorer`**.
+  - **Appareils Connus** : vue tabulaire complète de votre parc approuvé avec pièce Jeedom, suivi des Ponts IP DHCP, liens directs vers les interfaces Web (`http://` / `https://`) et actions rapides Wake-on-LAN, Ping et inspection des ports.
+  - **Invités (24h) & Ignorés** : gestion des autorisations temporaires et des exclusions.
+  - **Journal des Alertes d'Intrusion** : historique horodaté des dernières détections d'appareils inconnus.
 
 ---
 
