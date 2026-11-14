@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.6] - 2026-11-14
+
+- Correction de l'initialisation d'une variable interne de suivi d'horodatage (`last_data_track_ts`) qui empêchait le démarrage du démon en version `0.1.0-beta.5`.
+
 ## [0.1.0-beta.5] - 2026-11-14
 
 - **Verrou d'instance unique du démon et relance automatique à la mise à jour** : élimine automatiquement les éventuels anciens processus démons restés actifs en arrière-plan (`4 proc` -> `1 proc`) lors d'une mise à jour du plugin.
