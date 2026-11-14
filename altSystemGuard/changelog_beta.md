@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.11] - 2026-11-14
+
+- **Correction définitive du blocage en fin de mise à jour et de la validation de version dans le Centre de mise à jour** :
+  - Isolation complète du script de mise à jour afin qu'il s'exécute sans erreur quelle que soit la version précédemment chargée en mémoire par Jeedom lors du lancement de la mise à jour.
+  - Synchronisation automatique du numéro de version installé sur l'entrée principale du Centre de mise à jour lors de la suppression des lignes en double (évitant que le plugin ne reste affiché en état `UPDATE` sur l'ancien commit après la copie des fichiers).
+  - Ajout d'une étape de pré-mise à jour et harmonisation automatique des droits système (`www-data`) sur les fichiers de verrouillage et de compteurs du démon pour garantir un arrêt et un redémarrage sans conflit de permissions.
+
 ## [0.1.0-beta.10] - 2026-11-14
 
 - **Fiabilisation de la procédure de mise à jour et suppression des doublons dans le Centre de mise à jour Jeedom** :
