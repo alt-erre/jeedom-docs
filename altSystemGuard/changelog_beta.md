@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.5] - 2026-11-14
+
+- **Verrou d'instance unique du démon et relance automatique à la mise à jour** : élimine automatiquement les éventuels anciens processus démons restés actifs en arrière-plan (`4 proc` -> `1 proc`) lors d'une mise à jour du plugin.
+- **Harmonisation de l'échelle de charge CPU (%) et affichage CPU MariaDB / Apache** : le pourcentage CPU de chaque plugin est désormais ramené sur la capacité totale multi-cœurs de la box (même échelle `0 - 100 %` que le bandeau global), et la part CPU de MariaDB et d'Apache est affichée dans le bandeau supérieur.
+
 ## [0.1.0-beta.4] - 2026-11-14
 
 - **Optimisation majeure de la consommation processeur (CPU)** :
