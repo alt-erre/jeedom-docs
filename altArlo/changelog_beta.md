@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.37] - 2026-11-14
+
+- Correction de la détection des caméras hors ligne et à batterie déchargée : les caméras dont la batterie est vide ou qui ne répondent plus s'affichent désormais immédiatement en « Hors ligne · Batterie déchargée » avec une batterie à `0 %` (`🪫 0%`) et un signal `⚠️ Hors ligne` (au lieu d'afficher « En ligne / Surveillance active » avec `100 %` de batterie) aussi bien sur les tuiles du Dashboard que dans le tableau de bord Accueil.
+- Mise à jour du compteur « Caméras & Vidéo » du Dashboard Accueil pour ne comptabiliser comme actives que les caméras réellement en ligne et indiquer clairement le nombre de caméras hors ligne.
+
 ## [0.1.0-beta.36] - 2026-11-13
 
 - Suppression des conflits internes de connexion (« code 2015 : compte ouvert simultanément sur un autre appareil ») : unification stricte de l'identité de session Web entre le flux temps réel, les commandes et le Direct (Live), partage des cookies de session et verrouillage contre toute requête parallèle pendant une connexion 2FA.
