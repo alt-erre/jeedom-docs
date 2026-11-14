@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.4] - 2026-11-14
+
+- **Optimisation majeure de la consommation processeur (CPU)** :
+  - Allègement drastique des requêtes d'audit de l'historique en base de données (suppression du balayage de la table d'archives et mise en cache mémoire) afin d'éviter tout pic CPU de MariaDB.
+  - Calcul incrémental intelligent de l'espace disque des plugins (notamment des environnements Python `venv` et `node_modules`) sans re-parcourir les dossiers inchangés.
+  - Mise en cache de l'identification des processus système et lecture allégée de la mémoire vive pour diviser par 10 le temps CPU du démon à chaque cycle, avec exécution en priorité basse (`nice`).
+
 ## [0.1.0-beta.3] - 2026-11-14
 
 - ** Exécution instantanée et retour visuel immédiat sur les boutons d'action** (*Log Défaut*, *Vider Log*, *Relancer démon*, *Épingler*) avec indicateur de chargement, surbrillance de la ligne mise à jour et badge de confirmation.
