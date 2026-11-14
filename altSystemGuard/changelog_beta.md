@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.9] - 2026-11-14
+
+- **Nouveau Panel Desktop Plein Écran (`Accueil -> Alt Audit Ressources, eMMC & Santé Plugins` et bouton `Panel Cockpit`)** organisé en **4 vues** avec rafraîchissement automatique toutes les 30 secondes :
+  1. **Cockpit & Répartition 100 %** : 4 barres visuelles empilées (CPU, RAM, Écritures eMMC 24h avec projection annuelle, Disque), diagnostic détaillé du score de santé et podiums Top 5 des plugins les plus consommateurs.
+  2. **Matrice Plein Écran des Plugins** : tableau plein écran avec pilules de filtrage en 1 clic (*Tous*, *Actifs*, *Démons OK/NOK*, *À corriger*, *Logs DEBUG*, *Textes histo*, *Avec venv*, *Épinglés*).
+  3. **Centre de Revue Global des Textes Historisés & SQL** : vue unifiée listant d'un seul coup toutes les commandes Texte (`info / string`) historisées de tous les plugins de la box pour les couper, purger ou conserver en liste blanche au même endroit.
+  4. **Inspecteur des Crons Jeedom & Processus Système** : diagnostic en temps réel des tâches planifiées (notamment celles lancées à chaque minute `* * * * *` et celles en cours d'exécution avec leur PID).
+
 ## [0.1.0-beta.8] - 2026-11-14
 
 - **Décomposition complète à 100 % de la Charge CPU dans la bulle explicative** :
