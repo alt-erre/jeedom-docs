@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.35] - 2026-11-14
+
+- Traduction complète de l'interface du plugin en français et en anglais (`fr_FR` et `en_US`).
+
 ## [0.1.0-beta.34] - 2026-11-12
 
 - Correction de l'affichage du widget Dashboard des volets roulants avec ouvrants associés (suppression du débordement du texte hors du cadre supérieur, alignement côte à côte des pastilles de vantaux et alignement sur une seule ligne des 5 boutons `0 %` à `100 %`).
