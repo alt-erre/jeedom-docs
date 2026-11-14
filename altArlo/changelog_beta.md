@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.38] - 2026-11-14
+
+- Correction de la lecture des états groupés (`resource: "cameras"`) renvoyés par le SmartHub Arlo lorsqu'un grand nombre de caméras y sont rattachées : le décodage complet des trames multi-blocs permet désormais de remonter immédiatement le véritable niveau de batterie, la qualité du signal RF et l'état « Hors ligne · Batterie déchargée » (`🪫 0%`) de chaque caméra (au lieu de rester figé sur les valeurs par défaut `Surveillance active · 🔋 100 % · 📶 3/4`).
+- Protection de l'état « Hors ligne » des caméras rattachées à un SmartHub lors des rafraîchissements d'inventaire Cloud afin que l'état en ligne du SmartHub ne masque jamais une caméra dont la batterie est vide.
+
 ## [0.1.0-beta.37] - 2026-11-14
 
 - Correction de la détection des caméras hors ligne et à batterie déchargée : les caméras dont la batterie est vide ou qui ne répondent plus s'affichent désormais immédiatement en « Hors ligne · Batterie déchargée » avec une batterie à `0 %` (`🪫 0%`) et un signal `⚠️ Hors ligne` (au lieu d'afficher « En ligne / Surveillance active » avec `100 %` de batterie) aussi bien sur les tuiles du Dashboard que dans le tableau de bord Accueil.
