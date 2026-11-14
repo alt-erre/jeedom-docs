@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.12] - 2026-11-14
+
+- **Allègement radical de la mise à jour et du démarrage sur Jeedom Luna** :
+  - Désactivation de la réinstallation automatique des dépendances système (`apt-get update` / `venv`) lors des mises à jour, le démon utilisant exclusivement les modules standard de Python 3 déjà intégrés à la box.
+  - Suppression des requêtes SQL lourdes et de l'analyse disque au moment précis du démarrage du démon (délai de courtoisie de 5 secondes après mise à jour) afin de ne jamais surcharger la mémoire vive ni le processeur de la Jeedom Luna pendant une mise à jour.
+  - Correction d'une méthode d'écriture de configuration appelée au redémarrage du démon en `0.1.0-beta.11`.
+
 ## [0.1.0-beta.11] - 2026-11-14
 
 - **Correction définitive du blocage en fin de mise à jour et de la validation de version dans le Centre de mise à jour** :
