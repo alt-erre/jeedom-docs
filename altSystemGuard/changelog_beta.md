@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.7] - 2026-11-14
+
+- **Bulles explicatives détaillées au survol (et au toucher sur tablette/iPad)** :
+  - Survoler ou toucher l'une des **5 cartes de synthèse du bandeau supérieur** affiche une bulle détaillant chaque indicateur ainsi que **le calcul exact du Score de Santé (`100 / 100` moins les pénalités actives)**.
+  - Survoler ou toucher le badge de **Score de Santé d'un plugin (`80/100`, `100/100`)** dans le tableau explique précisément pourquoi des points ont été retirés sur ce plugin.
+  - Ajout de bulles explicatives sur les boutons d'actions globales et sur les en-têtes des colonnes du tableau.
+
 ## [0.1.0-beta.6] - 2026-11-14
 
 - Correction de l'initialisation d'une variable interne de suivi d'horodatage (`last_data_track_ts`) qui empêchait le démarrage du démon en version `0.1.0-beta.5`.

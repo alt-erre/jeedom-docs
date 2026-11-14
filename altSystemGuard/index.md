@@ -2,7 +2,7 @@
 
 **Nom commercial Market :** **Alt Audit Ressources, eMMC & Santé Plugins**  
 **Identifiant technique :** `altSystemGuard`  
-**Version actuelle :** `0.1.0-beta.6`  
+**Version actuelle :** `0.1.0-beta.7`  
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Supervision (`monitoring`)  
 **Compatibilité :** Jeedom v4.0+ (Jeedom Luna, Atlas, Smart, Mini+, Raspberry Pi, Docker, VM & DIY)
