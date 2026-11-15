@@ -16,6 +16,13 @@ Le plugin **Alt Contrôle Parental (Nintendo Switch)** (`altSwitch`) permet d'in
 
 Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvre automatiquement toutes les consoles associées à votre compte parent Nintendo, remonte en temps quasi-réel le **temps joué aujourd'hui**, le **temps restant**, les **jeux lancés (avec leurs jaquettes officielles)** et la **répartition par profil de joueur**, et vous permet d'**agir instantanément depuis Jeedom ou vos scénarios** (ajout de temps bonus `+15 / +30 / +60 min`, mode illimité pour la journée, verrouillage immédiat de la console, activation de la suspension forcée du logiciel, modification de l'heure du coucher ou du code PIN).
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Pilotage officiel et universel Nintendo Switch (Switch, Lite, OLED et Switch 2)** : authentification moderne et sécurisée par OAuth2 PKCE sans stockage de mot de passe, avec découverte automatique de tout le parc familial de consoles.
+- **Détail en direct par profil de joueur et jeu avec jaquette officielle** : identification instantanée du joueur actif, du titre lancé et affichage haute définition de la jaquette officielle du jeu.
+- **Attribution instantanée de temps bonus et verrouillage immédiat 0 min** : ajout de temps en un clic (`+15 / +30 / +60 min` ou illimité) et verrouillage immédiat avec suspension logicielle forcée depuis Jeedom ou vos scénarios.
+- **Résilience absolue des quotas (Niveau 1)** : compteurs journaliers cumulatifs persistés en base atomique pour garantir que le temps déjà joué ne soit jamais réinitialisé à zéro en cas de reboot ou de coupure de courant.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

@@ -3,6 +3,16 @@
 Plugin Jeedom unifié permettant de suivre vos **comptes de réseaux sociaux**, le **nombre d'abonnés ou de membres**, la **liste de vos abonnements**, les **chaînes et salons actuellement en Live** ainsi que les **nouveaux posts, vidéos et annonces** (compatible **Twitch**, **YouTube**, **Instagram** et **Discord**).
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Hub unifié multi-plateformes dans un seul plugin sobre** : centralisation complète de **Twitch, YouTube, Instagram, Discord, Kick et TikTok** évitant la multiplication d'extensions disparates.
+- **Mode « Zéro Console Développeur » en 1 clic** : liaison ultra-simple via QR Code, activation par code court (`twitch.tv/activate`, `google.com/device`) ou simples identifiants publics (`@pseudo`, liens `discord.gg/...`), sans obliger à créer de projet Google Cloud, d'application Meta ou de Bot Discord.
+- **Moteur hybride au choix (Sobriété Luna vs Temps Réel ultra-réactif)** : fonctionnement par défaut en Cron PHP léger (0 Mo de RAM au repos sur Jeedom Luna) **OU** par démon Python temps réel (port `55107`) avec WebSockets sortants (Twitch EventSub, Discord Gateway v10) pour des alertes instantanées en moins de 2 secondes.
+- **Résumés vocaux TTS prêts à diffuser** : commande `tts_summary` formatée pour annoncer clairement les nouveautés, vidéos publiées et débuts de Live sur vos enceintes multiroom.
+- **Liaison dynamique aux utilisateurs Jeedom & dédoublonnage précis** : filtrage des notifications par membre du foyer et prévention stricte des déclenchements multiples de scénarios.
+- **Architecture à zéro usure flash eMMC sur Jeedom Luna** : maintien des états volatils en mémoire vive `tmpfs` (`/tmp/jeedom/altSocial/`).
+
+---
 
 ## Prérequis, Compatibilités & Environnement de Test
 

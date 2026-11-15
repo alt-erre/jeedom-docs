@@ -4,6 +4,13 @@ Plugin Jeedom permettant de générer des **tableaux de bord plein écran « 10-
 
 Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrège automatiquement l'ensemble de vos pièces (Objets Jeedom), scénarios et équipements de l'écosystème **`alt*`** (`altHue`, `altTwinkly`, `altTydom`, `altArlo`, `altNuki`, `altSonos`, `altDenon`, `altCambridgeAudio`, `altAirMedia`, `altSamsungTv`, `altJvcProjector`, `altPronote`, `altEducartable`, `altSwitch`, `altPlaystation`, `altXbox`, `altRoborock`, `altSiemens`, `altBambuLab`) ainsi que les équipements standards Jeedom.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Conception native 10-Foot UI 100 % pilotable à la télécommande TV** : navigation spatiale 2D avec anneau lumineux de focus haute visibilité (D-Pad `▲▼◀▶`), mode `Slider Lock` pour régler éclairages et volets sans souris ni pointeur virtuel.
+- **Support exclusif Samsung The Frame en Paysage 16:9 et Portrait 9:16** : adaptation dynamique aux supports motorisés rotatifs avec rotation CSS plein écran et remapping directionnel automatique des touches de la télécommande.
+- **Mode Galerie d'Art et Diaporama 4K immersif** : transformation du téléviseur de salon en tableau vivant esthétique avec horloge discrète et alertes contextuelles non-intrusives.
+- **Hub d'agrégation universel prêt à l'emploi** : 9 vues thématiques intelligentes intégrant nativement l'ensemble de la suite `alt*` et les équipements Jeedom sans aucune ligne de code ni design complexe.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

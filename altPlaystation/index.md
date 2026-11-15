@@ -17,6 +17,15 @@ Le plugin **Alt Contrôle Parental (PlayStation)** (`altPlaystation`) permet d'i
 Grâce à son **Assistant d'Appairage SSO Sony (`npsso`)** et son **Scanner Réseau Local DDP**, le plugin découvre automatiquement les profils enfants supervisés (**PlayStation Family**) ainsi que votre profil PSN principal, remonte le **temps joué aujourd'hui**, le **temps restant**, le **jeu en cours ou dernier jeu lancé (avec sa jaquette officielle haute résolution)**, les **trophées PSN** et l'**état électrique temps réel sur le réseau local (`Allumée`, `Mode Repos`, `Éteinte`)**, et vous permet d'**agir instantanément depuis Jeedom ou vos scénarios** (ajout de temps bonus `+15 / +30 / +60 min`, mode illimité pour la journée, verrouillage immédiat `0 min`, déconnexion forcée en fin de temps, heure du coucher, niveau d'âge PEGI et réveil réseau *Wake-on-LAN / DDP*).
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Alliance unique détection locale LAN / Wake-on-LAN et Cloud PlayStation Family** : supervision complète des consoles **PS5, PS5 Pro et PS4** combinant la rapidité de la présence locale (UDP DDP ports 9302/987 et Wake-on-LAN) et la finesse du contrôle parental officiel avec repli hors-ligne automatique en cas de coupure Internet.
+- **Suivi en direct du temps joué et restant** : compteurs journaliers cumulatifs persistants résilients aux redémarrages de Jeedom (persistance de niveau 1 anti-oubli sur Jeedom Luna).
+- **Gestion dynamique du temps bonus & couvre-feu** : ajout instantané de temps de jeu supplémentaire (+15 min, +30 min, +60 min ou curseur libre), verrouillage immédiat (0 min), déconnexion forcée du compte en fin de quota et respect des plages horaires de coucher.
+- **Télémétrie de jeu en direct avec jaquettes officielles** : affichage du titre lancé (`running-app-name`), identifiant du jeu et jaquette officielle haute résolution mise en cache localement, avec suivi des trophées débloqués.
+- **Synergie éducative avec la vie scolaire** : possibilité de débloquer ou conditionner automatiquement l'accès à la console à la validation des devoirs scolaires dans `altPronote` ou `altEducartable`.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

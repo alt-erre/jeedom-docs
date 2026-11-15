@@ -16,6 +16,17 @@
 - **Synchroniser automatiquement les changements d'IP DHCP (Pont IP)** : lorsqu'un appareil connu change d'adresse IPv4 sur votre routeur, le plugin le reconnaît grâce à son adresse MAC et met à jour automatiquement l'adresse IP dans la configuration des équipements Jeedom associés.
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Radar actif multi-protocoles 100 % local** : moteur hybride combinant lecture bas niveau de la table ARP du kernel (`ip neigh`), balayage asynchrone Ping Sweep, résolutions mDNS / Bonjour (`.local`), sondes UPnP / SSDP et NetBIOS / Reverse DNS pour une détection exhaustive sans faux négatif.
+- **Matrice interactive de 254 cellules IPv4 (.1 à .254)** : visualiseur dynamique en temps réel avec badges de statut colorés, latence en millisecondes et déclenchement d'investigation en 1 clic.
+- **Audit furtif ciblé de 34 ports et services clés** : diagnostic instantané et sécurisé sans déstabiliser les objets connectés délicats (RTSP, Sonos, Cast, Synology, iOS Lockdown, SSH, Web...).
+- **Détection intelligente des adresses MAC aléatoires / privées** : identification automatique des adresses locales administrées (*Locally Administered Address* iOS, Android, Windows) avec corrélation intelligente par Hostname pour éviter les doublons fantômes.
+- **Mise en quarantaine et qualification en 1 clic** : gestion des statuts Connu (Approuvé), Invité temporaire (24h) et Ignoré, avec alertes enrichies d'intrusion périmétrique.
+- **Ponts IP DHCP dynamiques** : synchronisation et mise à jour automatique et transparente des adresses IPv4 sur les équipements Jeedom dès qu'un équipement approuvé change d'adresse IP via DHCP.
+- **Architecture à zéro usure flash eMMC sur Jeedom Luna** : gestion des états volatils et des pings en mémoire vive `tmpfs` (`/tmp/jeedom/altNetGuard`), préservant durablement la mémoire flash de la box.
+
+---
 
 ## Prérequis, Compatibilités & Environnement de Test
 

@@ -6,6 +6,15 @@
 **Version :** `0.1.0-beta.15`  
 **Compatibilité :** Jeedom v4.0+ (Smart, Atlas, Luna, RPi, Docker, VM Debian 11/12)
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **API locale moderne CLIP v2 avec EventStream SSE (< 50 ms)** : communication 100 % locale instantanée en flux d'événements persistant sans aucune scrutation (polling), préservant la mémoire et le réseau.
+- **Studio Hue Play & Gradient multi-zones** : contrôle de 2 à 5 couleurs simultanées en coordonnées CIE 1931 xy, avec 8 ambiances préconfigurées et effets dynamiques natifs (bougie, feu, prisme, étincelles).
+- **Gestion des scènes dynamiques v2** : déclenchement des scènes Hue et scènes 24h en mode dynamique animé avec contrôle de la vitesse d'animation.
+- **Pilotage natif de la Hue Play HDMI Sync Box** : sélection des entrées HDMI, bascule des modes vidéo/jeu/musique et réglage de l'intensité de synchronisation en local direct.
+- **Éradication des ampoules fantômes par interrupteur amont (`upstreamStateCmd`)** : bascule immédiate à `0 %` avec badge `AMONT OFF` dès que l'interrupteur physique/télérupteur coupe le courant, supprimant les faux positifs du pont.
+- **Dashboard global dédié dans le menu Accueil** : supervision complète de l'ensemble du parc Hue avec 6 cartes KPI interactives, filtres rapides et navigation multi-vues.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

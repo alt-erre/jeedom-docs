@@ -9,6 +9,14 @@
 
 Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise chaque équipement Jeedom comme une **Zone / Groupe de diffusion** (ex. *« Rez-de-chaussée »*, *« Toute la maison »*, *« Chambres enfants »*, *« Salon & Terrasse »*) dans laquelle vous cochez librement les enceintes cibles.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Diffusion AirPlay 1 & AirPlay 2 multiroom nativement synchronisée** : prise en charge matérielle directe du groupement multi-enceintes (`AirPlay 2`) et diffusion parallèle fluide (`AirPlay 1 RAOP`) avec abstraction par Zones et ajustement individuel du volume sonore par enceinte (`-30 %` à `+30 %`).
+- **Annonces vocales TTS haute clarté avec pré-silence d'amorçage (350 ms)** : assemblage audio en mémoire vive combinant silence d'éveil d'amplificateur, jingle d'introduction au choix et voix TTS pour éliminer toute coupure de la première syllabe.
+- **Soundboard locale de 26 sons auto-synthétisés (zéro poids sauvegarde)** : pack domotique et fun généré localement en Python pur sans clé API ni dépendance cloud, complété par un explorateur de bruitages courts CC0 en ligne.
+- **Annuaire mondial de webradios avec pré-tamponnage anti-gigue** : flux Icecast/HLS pré-bufferisés (64 Ko) et transcodage universel évitant les micro-coupures de lecture.
+- **Protection acoustique active (`volume_max` / `volume_max_set`)** : plafonnement dynamique du volume sonore par mode (Jour / Nuit) avec abaissement automatique en cas de dépassement manuel.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

@@ -19,12 +19,22 @@ Comme les plugins `altCambridgeAudio` et `altSiemens`, il repose sur un démon P
 - **Négociation automatique (`auto`)** : bascule transparente entre `L01` et `1.0` selon le modèle et la réponse du robot.
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Pilotage 100 % local LAN sans dépendance au cloud** : communication directe chiffrée en réseau local sur le port TCP `58867` prenant en charge les protocoles **1.0 (AES-128-ECB)** et **L01 (AES-256-GCM avec poignée de main nonce)** pour les séries S7, S8, Q, Qrevo et le modèle amiral **Qrevo Curv** (18 500 Pa, SmartPlan).
+- **Assistant d'extraction ponctuelle de clé locale & sauvegarde hors-ligne** : obtention simple de la clé locale (`localKey`) via l'assistant intégré avec export/import permanent en fichier JSON hors-ligne, garantissant la pérennité totale de vos robots sans abonnement ni service tiers.
+- **Nettoyage haute précision par pièce et par zone** : lancement de cycles personnalisés ciblés (segmentation par pièces avec 1x, 2x ou 3x passages, zones rectangulaires, coordonnées cibles, pilotage D-Pad manuel).
+- **Contrôle et télémétrie complète des stations multifonctions** : lavage des serpillières à l'eau chaude jusqu'à 75 °C, séchage air chaud à 45 °C, auto-vidange du bac à poussière, niveaux des réservoirs d'eau propre et sale, et réinitialisation des compteurs d'entretien de la station.
+- **Suivi rigoureux de l'usure des consommables** : brosses principale et latérale, filtre HEPA, capteurs optiques et compteurs cumulatifs réels.
+- **Code propriétaire sans bibliothèque Copyleft** : implémentation native assurant la conformité totale aux exigences du Jeedom Market.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 
 - **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
 - **Prérequis application & réseau :**
-  - Le robot doit être appairé à l'application mobile officielle **Roborock** (et non à l'application *Xiaomi Mi Home*) afin de permettre l'extraction unique de sa clé de chiffrement locale (`localKey`).
+  - Le robot doit être appairé à l'application mobile officielle **Roborock** afin de permettre l'extraction unique de sa clé de chiffrement locale (`localKey`).
   - Robot et box Jeedom connectés au même réseau local (dialogue 100 % local sur le port TCP `58867` et découverte UDP `58866`).
 - **Matériels physiquement testés et validés par l'auteur :**
   - **Roborock S7** (Protocole local `1.0` AES-128-ECB)

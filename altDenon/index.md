@@ -15,6 +15,14 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 - **Série Denon S & Amplis HEOS :** **AVR-S970H**, **AVR-S770H**, **AVR-S670H**, **DRA-800H**, **DRA-900H**, **PMA-900HNE**, **HEOS Amp / Link**
 - **Amplificateurs Marantz compatibles :** **Cinema 30 / 40 / 50 / 60 / 70s**, **AV 10**, **SR8015 / SR7015 / SR6015 / SR5015**
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Architecture hybride triple protocole 100 % locale** : push TCP temps réel bidirectionnel (port `23`, latence `< 50 ms`) via hub mutualisé `DenonHostHub`, combiné à l'API HTTP XML locale (port `8080`/`80`) et au protocole HEOS CLI (port `1255`).
+- **Supervision multi-zones indépendante (Main, Zone 2, Zone 3)** : scission possible en équipements Jeedom distincts par pièce avec partage transparent d'un socket réseau unique.
+- **Calibrage acoustique de pointe Audyssey MultEQ XT32 en direct** : réglage natif des courbes de référence, Dynamic EQ, Dynamic Volume, Audyssey LFC et Dialog Enhancer sans passer par l'OSD.
+- **Bascule vidéo HDMI Dual Monitor** : commutation immédiate entre téléviseur (Monitor 1) et vidéoprojecteur Home-Cinéma (Monitor 2).
+- **Protection acoustique active (`volume_max_set`)** : plafonnement dynamique du volume par zone et par mode, avec abaissement automatique en cas de hausse manuelle (télécommande IR, molette façade ou eARC).
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

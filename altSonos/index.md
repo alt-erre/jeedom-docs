@@ -15,6 +15,15 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
 - **Enceintes Multiroom & Portables :** **Sonos Era 300**, **Sonos Era 100**, **Sonos Five**, **Sonos Play:5 (Gen 1 & Gen 2)**, **Sonos One / One SL**, **Sonos Play:1**, **Sonos Play:3**, **Sonos Move / Move 2**, **Sonos Roam / Roam 2 / Roam SL**, **IKEA SYMFONISK**
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Moteur 100 % local ultra-léger UPnP/SOAP à événements GENA temps réel (< 100 ms)** : architecture bi-mode associant requêtes SOAP directes en PHP pur et serveur d'événements push GENA ultra-réactif (`callbackPort 55096`), compatible avec l'ensemble du parc **Sonos S1 et S2 récents (Era 100/300, Arc, Arc Ultra, Move 2, Roam)** sans aucun compte cloud externe.
+- **Diffusion d'annonces vocales TTS avec capture et restauration exacte (Snapshot & Restore)** : mémorisation instantanée du flux musical, de la file d'attente, de la position de lecture à la seconde près, du volume et du groupement multiroom, avec restitution automatique et fluide dès la fin de l'annonce vocale.
+- **Bascule matérielle directe Line-In RCA / TV HDMI ARC** : sélection immédiate des entrées audio physiques et partage du flux d'entrée analogique vers les autres pièces du logement avec lecture automatique (*Autoplay*).
+- **Plafonnement dynamique du volume sonore par mode (`volume_max` / `volume_max_set`)** : respect strict du standard audio `alt-erre`, avec abaissement immédiat et écrêtage automatique en temps réel (anti-rebond de 2 s) contre les hausses accidentelles issues d'AirPlay, Spotify Connect ou boutons physiques.
+- **Fonctions Hi-Fi avancées Sonos Amp & Port** : réglage de sortie ligne fixe à 100 % ou variable, sommation stéréo ou double mono, fréquence de coupure du caisson de basses réglable (50 à 110 Hz), inversion de phase (0° / 180°) et gain Sub.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

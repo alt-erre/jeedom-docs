@@ -9,6 +9,14 @@
 
 Il a été spécialement pensé pour offrir **une empreinte mémoire minimale (~35 Mo de RAM fixe)** et **zéro surcharge CPU/Swap**, y compris sur les box domotiques aux ressources contraintes comme la **Jeedom Luna**, l'Atlas ou les Raspberry Pi.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Protocole moderne Companion & Compatibilité tvOS 15 à 18+** : communication push temps réel native prenant en charge l'ensemble des générations d'Apple TV (HD, 4K) et de HomePod (Mini, Original, Gen 2).
+- **Démon Python asynchrone ultra-léger (~35 Mo de RAM)** : conception mono-processus sans environnement tiers lourd ni sous-processus superflus, assurant un retour d'état instantané (< 50 ms) avec zéro surcharge CPU/Swap sur Jeedom Luna.
+- **Lancement direct des applications tvOS** : ouverture instantanée des applications de streaming et médias par commande directe ou scénario.
+- **Traitement des jaquettes haute résolution 100 % en RAM** : téléchargement et mise en cache volatile dans `tmpfs` garantissant zéro écriture inutile sur la mémoire flash eMMC.
+- **Plafonnement dynamique du volume (`volume_max_set`)** : protection acoustique active à 3 niveaux (widget, commandes, surveillance continue) avec abaissement automatique en cas de dépassement.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés
@@ -37,7 +45,7 @@ Il a été spécialement pensé pour offrir **une empreinte mémoire minimale (~
   - **Reconnexion intelligente avec *backoff* exponentiel** (`5s` à `60s`) et connexion directe par IP sans tempête de scans mDNS.
 - **Appairage interactif intégré à Jeedom** :
   - Appairage **AirPlay** et **Companion** directement depuis l'interface web Jeedom (affichage et saisie du code PIN dans une modale dédiée, sans besoin de terminal SSH).
-  - Possibilité de saisir/coller manuellement des clés existantes ou d'**importer en 1 clic** ses équipements et clés depuis l'ancien plugin `aTVremote`.
+  - Possibilité de saisir/coller manuellement des clés existantes ou d'**importer en 1 clic** ses équipements et clés depuis une configuration antérieure.
 - **Double mode de Widget au choix par équipement** :
   - **Widget Télécommande / Lecteur dédié** (en CSS moderne léger : télécommande Apple TV avec D-Pad, lancement d'applications, pochette d'album, volume avec **plafonnement dynamique par mode `Volume maximum` / `Volume maximum niveau`** et abaissement automatique en cas de dépassement, ou lecteur HomePod avec thèmes de couleur).
   - **Widget standard Jeedom Core v4**.

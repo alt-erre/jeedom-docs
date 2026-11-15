@@ -2,6 +2,13 @@
 
 Plugin Jeedom permettant de suivre en temps réel les **transports en commun urbains et régionaux** (**Métro, Tramway, TEOR / BHNS, Bus, RER, Train, Navettes fluviales, Funiculaires**) ainsi que les **stations de vélos en libre-service (`VLS` / `GBFS`)** par ville et métropole.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Couverture universelle de +350 réseaux urbains et vélos en libre-service** : exploitation directe de l'Open Data national (`transport.data.gouv.fr`, `PRIM` Île-de-France, `GBFS` et Suisse) sans inscription obligatoire ni clé API payante pour l'immense majorité des agglomérations.
+- **Découverte automatique des arrêts et stations autour du domicile** : assistant intuitif géolocalisé pour repérer immédiatement les lignes, arrêts et vélos disponibles à proximité immédiate de votre domicile.
+- **Hybridation intelligente temps réel et horaires théoriques** : bascule transparente sur l'index théorique local si le bus n'a pas encore émis sa position radio, garantissant un panneau d'information jamais vide le matin.
+- **Annonces vocales TTS prêtes à l'emploi et 0 Mo de RAM au repos** : génération d'un récapitulatif textuel naturel (`tts_summary`) pour vos routines matinales et architecture sans démon résident préservant la mémoire vive et l'eMMC.
+
 ---
 
 ## Prérequis, Compatibilités & Environnement de Test

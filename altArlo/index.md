@@ -4,6 +4,14 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
 
 > **Mention légale sur les marques :** *Arlo, Arlo Pro, Arlo Ultra, Arlo Essential et SmartHub sont des marques déposées d'Arlo Technologies, Inc., citées uniquement à titre de référence nécessaire pour indiquer la destination et la compatibilité matérielle de ce plugin indépendant.*
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Double authentification 2FA 100 % autonome et résiliente** : renouvellement automatique de session sans aucune intervention humaine via le modem 4G interne/USB de Jeedom (lecture sécurisée des SMS) ou par relève de courriels IMAP SSL.
+- **Flux d'événements temps réel continu Server-Sent Events (SSE)** : latence de détection sub-100 ms sur mouvements, détections audio et sonnettes sans sollicitation agressive des serveurs ni décharge inutile des batteries.
+- **Prise en charge intégrale des modes personnalisés (*Custom Modes*)** : détection et pilotage direct des modes utilisateur créés dans Arlo en plus des modes standards Armé, Désarmé et Planning.
+- **Préservation active du stockage flash eMMC** : traitement des captures d'instantanés et flux directs en mémoire vive `tmpfs` (`/tmp/jeedom/altArlo`), évitant l'usure prématurée des cellules de stockage des box comme la Jeedom Luna.
+- **Sécurité Zero-Secret** : stockage chiffré des jetons sous permissions strictes `0600` et masquage absolu de toute information sensible dans `ps aux`.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

@@ -16,6 +16,16 @@ Le plugin **Alt Contrôle Parental (iPhone & iPad)** (`altIos`) permet d'intégr
 
 Conçu selon une **architecture Hybride 100 % Autonome (Apple $\leftrightarrow$ Jeedom, sans aucun service tiers)** en **3 canaux complémentaires**, le plugin remonte en temps réel le **temps d'écran passé aujourd'hui**, le **temps restant**, l'**application ou le jeu ouvert en direct (avec son icône officielle haute résolution Apple App Store)**, le **niveau de batterie (`%`)** et l'**état de charge**, et vous permet d'**agir instantanément depuis Jeedom ou vos scénarios** (ajout de temps bonus `+15 / +30 / +60 min`, mode illimité pour la journée, verrouillage immédiat de l'écran `0 min`, heure du coucher, sonnerie à distance *iCloud Find My* même en mode silencieux, cache de déplacement hors-ligne scellé **`SHA-256`** et **Bouclier Anti-Sabotage** protégeant l'application *Raccourcis*).
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Véritable Temps d'Écran et Contrôle Parental Apple sans MDM ni abonnement** : supervision complète et autonome des iPhone, iPad et Mac au sein de votre domotique Jeedom sans imposer de profils d'entreprise intrusifs ni de frais mensuels récurrents.
+- **Suivi temps réel des applications ouvertes avec icônes officielles App Store** : affichage immédiat de l'application ou du jeu actif avec résolution dynamique de sa jaquette officielle en haute définition.
+- **Pilotage instantané & Ajout de temps bonus (+15 / +30 / +60 min)** : ajustement des quotas journaliers en un clic ou passage en mode illimité pour récompenser un comportement.
+- **Verrouillage immédiat de l'écran (`Lock Screen`)** : application instantanée des restrictions ou de l'heure du coucher renvoyant l'appareil sur l'écran verrouillé à chaque tentative d'ouverture.
+- **Bouclier Anti-Sabotage & Parade Anti-Mode Avion** : neutralisation des contournements locaux et verrouillage d'office si l'enfant tente de modifier l'application *Raccourcis* ou le dossier *Fichiers*.
+- **Mode Déplacement hors-ligne scellé par empreinte `SHA-256`** : maintien strict des quotas en voyage (voiture, train, avion) avec détection et sanction immédiate de toute falsification de fichier.
+- **Détection de présence 100 % locale LAN (`TCP 62078 lockdownd`)** : repérage instantané sur le Wi-Fi sans solliciter la batterie de l'appareil.
+
 ---
 
 ## Prérequis, Compatibilités & Environnement de Test

@@ -9,6 +9,15 @@
 - **Passerelles locales Nuki Bridge** (Hardware Bridge & Android Software Bridge)
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Double connectivité 100 % locale au choix** : communication locale haute vélocité via l'API HTTP locale Nuki Bridge avec Webhooks temps réel (< 100 ms) chiffrés SHA-256 **OU** via le protocole MQTT local natif sans aucune passerelle matérielle requise pour les serrures **Nuki Smart Lock 3.0 Pro, 4.0 Pro et Smart Lock Ultra**.
+- **Auto-apprentissage et identification nominative Keypad 1.0 & 2.0** : reconnaissance immédiate de l'utilisateur ayant saisi son code ou posé son empreinte digitale (`CodeId` / `AuthId` auto-appris et nommés dans Jeedom) avec journal horodaté des accès.
+- **Pavé numérique PIN virtuel sécurisé** : saisie interactive sur widget Dark Glass avec hachage local SHA-256 et verrouillage automatique anti-effraction (`keypad_tamper_alert`) après tentatives infructueuses répétées.
+- **Préservation absolue des piles (0 % de surconsommation)** : écoute passive d'événements push (Webhooks ou MQTT) sans requêtes de réveil intempestives sur le moteur de verrouillage.
+- **Prise en charge intégrale Nuki Opener** : contrôle d'interphone en local (gâche électrique, Ring-To-Open, Mode Continu, sonnette).
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

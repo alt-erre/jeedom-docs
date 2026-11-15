@@ -6,6 +6,14 @@ Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix ent
 1. **Mode HTTP local direct (par défaut, sans démon)** : requêtes HTTP locales directes sur le port `80` (`/smoip/...`) et actualisation périodique par cron (`1`, `5` ou `15` minutes) - aucune dépendance ni démon requis.
 2. **Mode WebSocket temps réel (démon Python optionnel)** : maintien d'une connexion WebSocket persistante (`ws://<ip>:80/smoip`) avec chaque ampli configuré en mode `websocket` pour une remontée instantanée des changements de volume, d'entrée, d'alimentation, de sortie enceintes et de piste en cours, avec **bascule automatique (fallback) en HTTP** si le démon est arrêté.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Protocole natif StreamMagic en WebSocket temps réel** : communication bidirectionnelle locale instantanée avec les amplificateurs et streamers Cambridge Audio (Evo 150/75, CXN, MXN...), doublée d'un repli automatique en HTTP.
+- **Sélection matérielle des sorties enceintes (Speaker A / B / A+B / Casque)** : commutation physique directe des borniers d'enceintes sans passer par l'application mobile.
+- **Jaquette haute résolution & indicateurs Lossless** : affichage en direct des métadonnées enrichies, de la pochette d'album HD, du badge `LOSSLESS` et détection d'absence de signal (`NO SIGNAL`).
+- **Recherche temporelle interactive (`seek`)** : navigation fluide dans la piste en cours directement depuis la barre de progression du widget.
+- **Plafonnement acoustique dynamique (`volume_max_set`)** : protection continue de vos enceintes haute-fidélité avec abaissement automatique immédiat en cas de dépassement manuel.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

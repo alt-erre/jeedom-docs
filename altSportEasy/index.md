@@ -9,6 +9,13 @@
 
 Conçu dans la lignée de **`Alt Vie Scolaire (Pronote)`** et **`Alt Vie Scolaire (Educartable)`**, ce plugin complète l'organisation familiale quotidienne pour ne plus jamais oublier un sac de sport la veille, une convocation en attente de réponse ou un changement d'horaire de match le week-end.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Connexion directe multi-profils et impersonation automatique (`X-IMPERSONATED-ID`)** : gestion transparente des comptes Parents multi-enfants, Joueurs et Coachs SportEasy avec découverte et création automatique des équipements `Membre x Équipe` distincts sans manipulation manuelle complexe.
+- **Distinction essentielle heure de rendez-vous coach vs coup d'envoi du match** : fini les retards aux convocations grâce à la séparation native entre l'heure de rendez-vous vestiaire/stade (`next_event_meeting_time`) et l'heure officielle du match (`next_event_start_time`).
+- **Réponse interactive aux convocations en 1 clic ou télécommande TV D-Pad** : confirmation instantanée (*Présent / Absent*) directement depuis le widget Dashboard, mobile ou depuis votre canapé via le Kiosk TV 10-Foot (`altTvDashboard`) sans avoir à ouvrir l'application mobile.
+- **Sobriété matérielle exemplaire pour Jeedom Luna (0 Mo de RAM au repos)** : architecture 100 % Cron sans démon résident (`hasOwnDeamon = false`), pause nocturne automatique et écriture atomique sur la mémoire flash eMMC uniquement lors du renouvellement des jetons de session.
+
 ---
 
 ## Prérequis, Compatibilités & Environnement de Test

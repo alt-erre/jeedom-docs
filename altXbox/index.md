@@ -17,6 +17,13 @@ Le plugin **Alt Contrôle Parental (Xbox)** (`altXbox`) permet d'intégrer et de
 
 Conçu selon une **architecture Hybride (Cloud Xbox Network + Fallback 100 % Local LAN SmartGlass UDP `5050`)**, le plugin combine la richesse des services Cloud Microsoft / Xbox (découverte complète, jeu en cours, jaquettes officielles, profils Gamertag, extinction à distance) et la résilience d'un **moteur local sur votre box Jeedom** capable de détecter l'allumage en `< 50 ms`, de réveiller la console (`Wake` UDP `0xDD02`) et de comptabiliser les quotas journaliers même en cas de coupure d'accès à Internet.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Combinaison complète Contrôle Parental Microsoft Family Safety et pilotage matériel** : suivi officiel du temps d'écran des enfants et contrôle de l'alimentation des consoles Xbox Series X/S et One.
+- **Réactivité locale ultra-rapide (< 50 ms) via SmartGlass UDP 5050 et Wake-on-LAN** : allumage instantané et détection d'état matérielle en direct sans latence cloud.
+- **Repli hors-ligne et résilience des quotas au redémarrage** : gestion locale continue du temps imparti et persistance atomique de Niveau 1 interdisant toute réinitialisation frauduleuse du temps de jeu après coupure de courant ou reboot.
+- **Suivi des jeux lancés avec jaquettes officielles et Gamertag** : affichage en direct du titre en cours, temps par jeu et attribution de temps bonus (`+15 / +30 / +60 min` ou illimité) ou verrouillage immédiat 0 min.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

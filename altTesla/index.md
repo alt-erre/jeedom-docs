@@ -9,6 +9,13 @@ Il communique directement de votre contrôleur Bluetooth Linux (`hci0` / `hciX`)
 - **Piloter la climatisation, les ouvrants et la sécurité en local** : pré-conditionnement de l'habitacle (`climate_on` / `climate_off`), consigne de température (`15 °C` à `28 °C`), mode **Sentinelle** (`sentry_on` / `sentry_off`), verrouillage/déverrouillage, ouverture des coffres, aération/fermeture des vitres, appel de phares et klaxon.
 - **Protéger la batterie contre toute consommation fantôme (*Vampire Drain*)** grâce au moteur **Smart Sleep Guard** qui sépare strictement les requêtes basses consommations (`VCSEC`) des lectures complètes (`Infotainment`) et interdit toute interrogation de l'ordinateur principal lorsqu'une phase d'endormissement est en cours.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Pilotage 100 % local BLE, gratuit et sans abonnement** : contrôle direct par Bluetooth Low Energy via le protocole officiel chiffré ECDSA P-256 (BlueZ), éliminant toute dépendance aux serveurs distants ou forfaits Fleet API payants.
+- **Architecture bi-niveau respectueuse du sommeil (*Anti-Vampire Drain*)** : écoute passive continue des trames radio et lecture de sécurité `VCSEC` sans réveiller l'ordinateur de bord principal (`Infotainment`), garantissant zéro perte d'autonomie fantôme.
+- **Régulation dynamique du courant de charge au pas de 1 A (5 à 32 A)** : modulation fine en direct de l'intensité de recharge idéale pour le délestage dynamique du compteur et l'optimisation maximale du surplus solaire photovoltaïque.
+- **Autonomie totale en cas de coupure Internet** : ouverture des coffres, trappe de charge, préchauffage et verrouillage restant 100 % opérationnels même sans connexion réseau externe.
+
 ---
 
 ## 1. Prérequis, Véhicules & Matériels Testés

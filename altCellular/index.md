@@ -14,6 +14,15 @@
   - Détecte automatiquement les ports AT libres du modem Quectel (`/dev/ttyUSB2` / `/dev/ttyUSB3`).
   - Intègre l'envoi et la réception de **SMS sécurisés en mode PDU hexadécimal (`AT+CMGF=0`)**, avec une option dédiée permettant de **désactiver la partie SMS** pour laisser le plugin `SMS` officiel gérer vos SMS en parallèle sans aucun conflit.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Cohabitation transparente avec le plugin SMS officiel** : partage harmonieux des ports du modem 4G sans verrouillage exclusif ni conflit d'accès matériel.
+- **Ouverture de portail par « Ping d'Appel » gratuit (reconnaissance CLIP sans décroché)** : déclenchement fiable de tout automatisme GSM sans frais opérateur (0 seconde facturée grâce à la détection de sonnerie active et coupure sous 100 ms).
+- **Appels vocaux d'alerte avec synthèse vocale hors-ligne (TTS)** : appel téléphonique prioritaire capable de franchir le mode silencieux avec synthèse vocale locale autonome en cas d'urgence.
+- **Menu interactif DTMF par touches téléphoniques** : acquittement d'alarme ou pilotage d'accès à distance directement depuis le clavier de votre smartphone pendant l'appel d'alerte.
+- **Expédition de photos MMS en secours de coupure Internet** : compression locale et envoi de captures caméras sans aucune dépendance au réseau fibre/ADSL.
+- **Architecture Zero-Trust anti-injection** : encodage PDU binaire pur (`AT+CMGF=0`), assainissement strict des arguments et protection anti-hors-forfait.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

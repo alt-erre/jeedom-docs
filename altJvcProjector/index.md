@@ -16,6 +16,16 @@ Le plugin **Alt JVC Projector (`altJvcProjector`)** permet de piloter et supervi
 - **Série Z1 & Série X :** **DLA-Z1** (`RS4500`), **DLA-X5000 / X7000 / X9000 / X5900 / X7900 / X9900**
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Authentification native chiffrée SHA-256 PJTalk (100 % local)** : prise en charge native du handshake chiffré SHA-256 (`password` + `JVCKWPJ`) introduit sur les séries Laser **DLA-NZ9 / NZ8 / NZ7 / NP5 / NZ900 / NZ800** (ainsi que NX/N/X), fonctionnant intégralement en réseau local sans dépendance externe.
+- **Verrouillage de session TCP unique anti-collision** : gestion intelligente d'une file d'attente unifiée (`asyncio.Lock` en mode Démon ou gestion de session stricte en PHP direct) éliminant tout risque de collision TCP sur le port `20554`, garantissant la stabilité du contrôleur réseau monocouche JVC.
+- **Télémétrie HDMI 2.1 48G/8K & Frame Adapt HDR approfondi** : diagnostic précis du débit de liaison FRL (jusqu'à 48 Gbps), compression DSC 8K, statut 8K60/4K120, format HDR dynamique (Frame Adapt HDR image par image ou scène par scène, HDR10+, Filmmaker Mode) et Theater Optimizer.
+- **Rappel direct des 10 mémoires d'objectif motorisées (Lens Memory)** : bascule instantanée entre ratios d'aspect (16:9, 2.35:1 Cinémascope) avec temporisation d'attente étendue (30 s) adaptée à la cinématique mécanique des optiques tout verre JVC 65 mm et 100 mm.
+- **Contrôle fin de la puissance Laser de 0 à 100 % (101 paliers)** : réglage micrométrique du laser (`PMCV`), couplé au contrôle dynamique et aux algorithmes Gen3 (Deep Black, Highlight Color, Smoother).
+- **Protection thermique active & cycle de refroidissement sécurisé** : surveillance en continu des états de veille, préchauffage et refroidissement thermique (`PW0` / `PW1`), empêchant toute extinction brutale avant achèvement du cycle de sécurité laser/matrice.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

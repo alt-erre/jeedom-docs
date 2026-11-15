@@ -13,6 +13,16 @@ Le plugin **Alt Vie Scolaire (Pronote)** (`altPronote`) permet d'intégrer le su
 Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **compatible avec 100 % des établissements et portails académiques (ÉduConnect, MonBureauNumérique, Île-de-France, e-lyco, ENT régionaux, double authentification 2FA)** : une fois le QR Code généré dans PRONOTE avec un code PIN temporaire à 4 chiffres, Jeedom négocie un **jeton mobile rotatif (`token_login`)** qui se renouvelle automatiquement et de manière chiffrée à chaque synchronisation.
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Appairage universel en 1 clic par QR Code Mobile à jeton rotatif** : scan ou copier-coller de capture d'écran du QR Code mobile PRONOTE avec code PIN à 4 chiffres, compatible avec **100 % des ENT et portails académiques (ÉduConnect, ENT régionaux, 2FA)** sans jamais stocker d'identifiants de connexion sensibles.
+- **Gestion Parent multi-enfants & Élève** : bascule transparente et centralisation de la scolarité de tous vos enfants au sein d'une interface unifiée.
+- **Cahier de textes interactif avec synchronisation bidirectionnelle** : devoirs cochables directement depuis le widget Jeedom avec mise à jour immédiate et synchrone sur les serveurs PRONOTE de l'établissement.
+- **Calcul automatique du réveil matinal dynamique** : détection en temps réel des cours annulés ou reportés et recalcul immédiat de l'heure du premier cours (`HHMM`), prêt à être injecté dans les scénarios de réveil domotique (`time_op`).
+- **Suivi pédagogique complet** : notes avec coefficients, moyennes générale et de classe, retards, absences, punitions, menus de cantine et actualités.
+- **Protection de la mémoire flash eMMC sur Jeedom Luna** : stockage des emplois du temps et devoirs en mémoire vive `tmpfs`, évitant toute écriture répétitive sur le disque flash.
+
+---
 
 ## Prérequis, Compatibilités & Environnement de Test
 

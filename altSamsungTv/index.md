@@ -7,6 +7,15 @@ Conçu dans la même philosophie et la même architecture qu'`altCambridgeAudio`
 2. **Mode WebSocket Temps Réel (démon Python optionnel)** : maintien d'une connexion WebSocket persistante sur les canaux `samsung.remote.control` et `com.samsung.art-app` (`wss://<ip>:8002` ou `ws://<ip>:8001`) pour une remontée instantanée des changements d'état (Mode TV / Mode Art / Veille, œuvre affichée, vignette en direct, luminosité Art, température de couleur, diaporama, volume UPnP) et l'envoi instantané des commandes sans latence de poignée de main SSL.
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Distinction native des 3 états The Frame (TV, Mode Art, Veille profonde)** : identification rigoureuse de la mise en veille réelle par rapport à l'affichage d'œuvres d'art sur les écrans Samsung The Frame (2018 à 2025+), évitant toute confusion dans vos scénarios domotiques.
+- **Gestion complète de la Galerie d'Art The Frame** : téléversement direct de photos 4K personnelles avec sélection de passe-partout et teintes de bordure, réglage fin de la luminosité d'art (1-10), température de couleur (-5 à +5), minuteries de diaporama et capteur Art.
+- **Pilotage des supports muraux motorisés auto-rotatifs (16:9 / 9:16)** : prise en charge native des fixations rotatives Samsung (`VG-ARAB22WMT` / `VG-ARAB43STD`) avec aperçu dynamique paysage/portrait sur le widget.
+- **Plafonnement dynamique du volume sonore par mode (`volume_max` / `volume_max_set`)** : respect strict du standard audio `alt-erre`, bridant les actions de volume et écrêtant en temps réel les hausses manuelles (télécommande IR ou Spotify Connect).
+- **Lancement direct des applications Tizen 100 % en local** : démarrage instantané de Netflix, Prime Video, YouTube, Disney+, Plex ou du navigateur Samsung en mode Kiosk plein écran sans passer par le cloud.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

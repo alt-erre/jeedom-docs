@@ -4,6 +4,15 @@ Plugin pour **Jeedom** permettant le suivi complet de la vie scolaire **Educarta
 
 > **Mention légale :** Ce plugin est un développement indépendant et n'est ni affilié, ni approuvé, ni soutenu par **Edumoov SAS** ou la plateforme **Educartable**. Les marques citées appartiennent à leurs propriétaires respectifs et ne sont mentionnées qu'à titre de référence nécessaire pour indiquer la destination et la compatibilité du logiciel (Art. L.713-6 du Code de la propriété intellectuelle).
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Suivi dédié de la scolarité en Maternelle et Élémentaire (Educartable / Edumoov)** : couverture intégrale des 4 modules clés (carnet de liaison, cahier de vie, devoirs et livrets scolaires LSU) pour tous les enfants de la famille.
+- **Signature électronique des mots en 1 clic (`acknowledge_message`)** : émargement immédiat des communications de l'école directement depuis le widget ou par scénario Jeedom.
+- **Cahier de textes avec devoirs interactifs cochables (`toggle_homework`)** : suivi en temps réel des leçons à faire avec possibilité de cocher un devoir fait directement depuis l'interface domotique.
+- **Cahier de vie illustré avec galerie photos et bouton « J'aime »** : consultation des activités de classe avec visionneuse Lightbox intégrée sans quitter Jeedom.
+- **Livrets scolaires (LSU) & Synthèses d'acquis** : alertes lors de la publication de nouveaux bilans périodiques officiels.
+- **Synchronisation respectueuse avec pause nocturne (22h00 – 06h30)** : mise en veille des requêtes la nuit pour préserver les serveurs éducatifs et optimiser les ressources de la box.
+
 ---
 
 ## Fonctionnalités principales

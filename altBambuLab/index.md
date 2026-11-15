@@ -16,6 +16,15 @@ Dans la continuité des plugins `altSiemens`, `altCambridgeAudio`, `altJvcProjec
 - **Client FTPS implicite (`port 990` TLS)** : extraction automatique de la **vignette 3D (`.png`)** et des **métadonnées de tranchage (`Metadata/slice_info.config`)** du fichier `.3mf` en cours d'impression (poids en `g`, longueur en `m`, coût estimé en `€`, hauteur de couche, liste des objets du plateau) ainsi que l'exploration et le lancement direct des modèles `.3mf` stockés sur la carte MicroSD de la P1S.
 - **Découverte automatique SSDP (`ports UDP 2021 / 1990`)** : détection en un clic des imprimantes Bambu Lab présentes sur le réseau local.
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Connexion 100 % locale sans Cloud ni broker tiers** : liaison directe avec le broker MQTT TLS interne de l'imprimante (port `8883`) avec authentification locale, totalement insensible aux pannes Internet et aux modifications d'API distante.
+- **Extraction FTPS native des métadonnées `.3mf` (port `990`)** : analyse automatique de l'archive de tranchage en cours pour récupérer la vignette 3D, le poids en grammes, la longueur de filament et le coût financier estimé sans calcul manuel.
+- **Supervision avancée de l'AMS (4 bobines)** : affichage fidèle des teintes réelles au format hexadécimal (`#RRGGBB`), suivi continu de l'humidité interne et configuration directe des bobines génériques.
+- **Décodeur de caméra de chambre natif (port `6000` TLS)** : capture d'instantanés JPEG ultralégère en mémoire sans conteneur Docker ni dépendance à un binaire externe lourd.
+- **Sauvetage de plateau multi-pièces (*Skip Objects*)** : exclusion chirurgicale en plein vol d'une pièce décollée sans annuler le reste de l'impression.
+- **Diagnostic HMS en français** : traduction intégrée de l'ensemble des codes d'erreur et alertes de l'imprimante.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés

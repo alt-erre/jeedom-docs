@@ -15,6 +15,15 @@ Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone l
 - **Mode TLS-PSK** (`wss://<ip>:443/homeconnect`) - utilisé par certains gros électroménagers BSH
 
 ---
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Communication directe 100 % locale LAN sans aucun cloud au quotidien** : dialogue direct sur réseau local via WebSocket chiffré (**AES-CBC + HMAC-SHA256** sur port 80 ou **TLS-PSK** sur port 443), fonctionnant même lors d'une coupure Internet totale et sans être tributaire des quotas d'appels API Cloud.
+- **Contrôles Barista d'exception pour machines à café expresso broyeurs** : prise en charge intégrale de la **Siemens EQ.900 DualBean** (sélection du bac à grains gauche/droit, intensité barista jusqu'à TripleShot, volume précis au millilitre de 20 à 500 ml, température d'extraction de 88 à 96 °C, débit d'arôme Standard/Intense/Intense+ et recettes spécialités du monde).
+- **Supervision multi-appareils Home Connect** : compatibilité homogène avec les fours, lave-linge, sèche-linge, lave-vaisselle, hottes et réfrigérateurs connectés.
+- **Télémétrie d'entretien préventif** : alertes en temps réel pour le remplissage d'eau, de grains ou de lait, bac à marc plein, détartrage et nettoyage requis.
+- **Sauvegarde et restauration autonome des clés locales** : assistant d'appairage ponctuel avec export/import sécurisé des identifiants et clés de chiffrement en fichier JSON hors-ligne.
+
+---
 
 ## Prérequis, Compatibilités & Matériels Testés
 

@@ -7,6 +7,13 @@
 **Catégorie :** Supervision (`monitoring`)  
 **Compatibilité :** Jeedom v4.0+ (Jeedom Luna, Atlas, Smart, Mini+, Raspberry Pi, Docker, VM & DIY)
 
+### 🌟 Atouts Exclusifs & Architecture Différenciante
+
+- **Profilage chirurgical plugin par plugin** : calcul rigoureux de la charge processeur, des requêtes HTTP et de l'empreinte mémoire vive réelle en PSS (*Proportional Set Size*) au lieu de métriques globales floues.
+- **Audit d'usure matérielle eMMC et 4 vecteurs d'écriture** : seule solution Jeedom lisant directement les registres matériels JEDEC 5.0/5.1 de fin de vie (`life_time`, `pre_eol_info`) et isolant les 4 canaux réels d'usure flash (I/O démons, logs, insertions SQL `history`, données `data/`).
+- **Détection proactive d'anomalies critiques** : identification immédiate des logs oubliés en niveau `DEBUG`, des fuites de mémoire vive et des commandes textuelles historisées saturant MariaDB.
+- **Remédiation corrective en 1 clic** : boutons d'action immédiate pour repasser les logs en mode `Défaut`, purger les journaux excessifs ou désactiver les historisations polluantes sans ouvrir la configuration avancée.
+
 ---
 
 ## Prérequis, Compatibilités & Matériels Testés
