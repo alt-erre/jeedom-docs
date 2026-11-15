@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.39] - 2026-11-15
+
+- Correction de l'affichage de la vue « Widgets » sur le Dashboard (pré-rendu immédiat des widgets avec feuille de style mutualisée et allègement de chaque widget).
+
 ## [0.1.0-beta.38] - 2026-11-15
 
 - Rafraîchissement automatique instantané des tuiles de synthèse sur le Dashboard lors de toute action ou remontée d'état de la box Tydom.
