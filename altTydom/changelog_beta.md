@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.37] - 2026-11-15
+
+- Mise à jour automatique en temps réel des tuiles de synthèse, des compteurs globaux, des indicateurs de pièces et du tableau de supervision sur le Dashboard sans rechargement de la page.
+- Accélération majeure de l'ouverture du Dashboard et réduction de la charge sur la box Jeedom (chargement à la demande de la vue des widgets complets et mise en cache mémoire des états).
+
 ## [0.1.0-beta.36] - 2026-11-14
 
 - Mise à jour de la liste des plateformes compatibles sur le Jeedom Market (retrait de l'ancienne box Mini+).
