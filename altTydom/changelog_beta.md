@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.41] - 2026-11-15
+
+- Correction d'une erreur lors du démarrage du démon (`deamon_start`) et du rafraîchissement en arrière-plan du Dashboard.
+
 ## [0.1.0-beta.40] - 2026-11-15
 
 - Prise en charge complète des sondes de température, d'hygrométrie, d'ensoleillement et météo Delta Dore (`sensorThermo`, `sensorThermoHygro`, `sensorHygro`, `sensorWeather`, `sensorSun`) avec migration automatique des sondes existantes, widget de mesure dédié et affichage de la température extérieure sur le Dashboard.
