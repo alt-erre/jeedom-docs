@@ -11,6 +11,15 @@ Conçu dans la lignée de **`Alt Vie Scolaire (Pronote)`** et **`Alt Vie Scolair
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis compte SportEasy :**
+  - Disposer d'un compte **SportEasy** (Parent, Joueur ou Coach) rattaché à une ou plusieurs équipes sportives, ou simplement du lien de calendrier partagé iCal (`.ics` / `webcal://`) de l'équipe.
+  - Accès Internet HTTPS sortant vers les serveurs SportEasy.
+
+---
+
 ## Fonctionnalités principales
 
 - **Connexion Hybride (Compte SportEasy Multi-Enfants + Calendrier iCal `.ics`)** :

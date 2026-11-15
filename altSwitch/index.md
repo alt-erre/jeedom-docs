@@ -18,6 +18,19 @@ Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvr
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis compte Nintendo :**
+  - Disposer d'un **compte Nintendo Parent** sur lequel l'application officielle *Contrôle parental Nintendo Switch* est configurée et associée à votre ou vos consoles.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Nintendo Switch 1 (1re génération)**
+  - **Nintendo Switch OLED**
+  - **Nintendo Switch Lite**
+  - **Nintendo Switch 2**
+
+---
+
 ## Fonctionnalités Clés
 
 1. **Suivi du Temps d'Écran & des Quotas Journaliers** :

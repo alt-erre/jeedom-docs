@@ -16,6 +16,20 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Équipements Sonos et box Jeedom sur le même réseau local (port TCP `1400` UPnP/SOAP, UDP `1900` SSDP et port local `55096` sur Jeedom pour la réception des événements temps réel UPnP GENA). Aucun compte Cloud Sonos n'est requis.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Amplificateur connecté Sonos Amp (`S16`)**.
+- **Autres équipements compatibles (protocole local unifié Sonos UPnP S1 & S2) :**
+  - **Amplis & Streamers :** Sonos Port (`S23`), Sonos Connect (`ZP90`/`S17`), Sonos Connect:Amp (`ZP120`).
+  - **Barres de son & Caissons :** Sonos Arc, Arc Ultra, Beam (Gen 1/2), Ray, Playbar, Playbase, Sub (Gen 1 à 4), Sub Mini.
+  - **Enceintes :** Sonos Era 300, Era 100, Five, Play:5, One / One SL, Play:1, Play:3, Move / Move 2, Roam / Roam 2, IKEA SYMFONISK.
+
+---
+
 ## Architecture Bi-Mode 100 % Locale (UPnP / SOAP & Événements GENA Temps Réel)
 
 1. **Mode UPnP / SOAP HTTP direct (par défaut, sans dépendance ni démon) :**

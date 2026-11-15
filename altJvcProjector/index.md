@@ -17,7 +17,20 @@ Le plugin **Alt JVC Projector (`altJvcProjector`)** permet de piloter et supervi
 
 ---
 
-## Fonctionnalités principales (spécial JVC DLA-NZ9)
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & projecteur :**
+  - Vidéoprojecteur JVC connecté en Ethernet RJ45 au même réseau local (LAN) que Jeedom (port TCP `20554` PJTalk).
+  - Mot de passe réseau JVC (`Network Password` sur les séries DLA-NZ / NP5) renseigné dans la configuration de l'équipement. *Note : le contrôleur réseau JVC n'acceptant qu'une seule connexion TCP simultanée, n'interrogez pas le port `20554` avec un second automate en même temps.*
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Vidéoprojecteur Home-Cinéma JVC D-ILA série DLA-NZ (Laser BLU-Escent)**.
+- **Autres modèles compatibles (protocole officiel JVC PJTalk TCP `20554`) :**
+  - Séries **DLA-NZ** (`DLA-NZ9`, `DLA-NZ8`, `DLA-NZ7`, `DLA-NZ900`, `DLA-NZ800`, `DLA-NZ700`, `DLA-NZ500`), **DLA-NP5**, série **DLA-N / NX** (`NX9`, `N7`, `N5`), **DLA-Z1** et série **DLA-X** (`X5000` à `X9900`).
+
+---
+
+## Fonctionnalités principales (série JVC DLA-NZ)
 
 1. **Protocole officiel JVC External Control TCP/IP (Port `20554`) :**
    - Handshake complet `PJ_OK` &rarr; `PJREQ` &rarr; `PJACK`.

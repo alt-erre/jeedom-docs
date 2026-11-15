@@ -11,7 +11,11 @@ Il communique directement de votre contrôleur Bluetooth Linux (`hci0` / `hciX`)
 
 ---
 
-## 1. Véhicules & Matériels Compatibles
+## 1. Prérequis, Véhicules & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, Mini-PC Debian 11 / 12, Python $\ge$ 3.9).
+- **Véhicule cible de référence :**
+  - **Tesla Model X millésime 2023 (Palladium / Hardware 4 - HW4)** *(adaptateur USB Bluetooth BLE externe pour la Jeedom Luna en cours de sélection/validation parmi les chipsets supportés par BlueZ ARM64)*.
 
 ### 1.1. Modèles de véhicules compatibles (Protocole BLE local)
 - **Tesla Model 3** : toutes années (2018+, y compris *Highland*).

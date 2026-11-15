@@ -16,6 +16,19 @@ Comme le plugin `altCambridgeAudio`, il repose sur un démon Python asynchrone l
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & clés locales :**
+  - Appareil électroménager connecté au Wi-Fi local (ports locaux TCP `80` ou `443`) et déjà associé une première fois à votre compte **Home Connect / SingleKey ID** afin d'extraire ses clés de chiffrement locales (`PSK`, `IV`) et son profil XML via l'assistant intégré.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Machine à café expresso broyeur Siemens EQ900 (`TQ905DF9`)**.
+- **Autres équipements compatibles (protocole local BSH Home Connect) :**
+  - **Machines à café :** Siemens EQ900 (`TQ903`, `TQ905`, `TQ907`), EQ700, EQ.9, machines encastrables Siemens/Bosch/Gaggenau/Neff.
+  - **Électroménager BSH Home Connect :** Lave-vaisselle, fours, lave-linge, sèche-linge, réfrigérateurs, caves à vin et hottes compatibles Home Connect.
+
+---
+
 ## Fonctionnalités dédiées à la machine à café Siemens EQ900
 
 1. **Alimentation & Statut Temps Réel** :

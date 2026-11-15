@@ -8,6 +8,21 @@ Conçu dans la même philosophie et la même architecture qu'`altCambridgeAudio`
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Téléviseur Samsung et box Jeedom sur le même réseau local (ports TCP `8001`, `8002` WebSocket TLS, `9197` UPnP Volume et broadcast UDP Wake-on-LAN).
+  - Autorisation unique de la connexion Jeedom à valider avec la télécommande sur l'écran du téléviseur lors du premier appairage.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Samsung The Frame 75" (`QE75LS03A` - modèle 2021)**
+  - **Samsung The Frame 55" (`TQ55LS03B` - dalle mate) équipé du support sur pied motorisé rotatif (`VG-ARAB43STD`)**
+- **Autres téléviseurs compatibles :**
+  - Ensemble de la gamme **Samsung The Frame (2018 à 2025+, séries `LS03R`, `LS03T`, `LS03A`, `LS03B`, `LS03D`, `LS03F`)** et supports motorisés auto-rotatifs (`VG-ARAB22WMT` / `VG-ARAB43STD`).
+  - Ensemble des téléviseurs **Samsung Smart TV sous Tizen OS (2016+ : QLED, Neo QLED, OLED, Crystal UHD, The Serif, The Sero)** pour le contrôle TV, volume UPnP, sources, applications et télécommande.
+
+---
+
 ## Fonctionnalités prises en charge
 
 ### 1. Gestion intelligente des 3 états Samsung "The Frame" & Wake-on-LAN

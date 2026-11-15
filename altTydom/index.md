@@ -6,9 +6,19 @@ Conçu **100 % en Python 3 natif asynchrone** (sans aucun binaire `.NET` lourd n
 
 ---
 
-## 1. Passerelles & Équipements Compatibles
+## 1. Prérequis, Passerelles & Matériels Testés
 
-### Passerelles supportées
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & authentification :**
+  - Passerelle Delta Dore connectée au même réseau local que Jeedom (tunnel WebSocket TLS local port `443`, ou mode distant via `mediation.tydom.com`).
+  - Mot de passe de connexion de la passerelle Tydom (récupérable automatiquement via l'assistant intégré à partir du compte Delta Dore) + Code PIN de la centrale d'alarme Tyxal+ si vous souhaitez piloter la mise en/hors service de l'alarme.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Passerelle :** **Delta Dore Tydom Pro**.
+  - **Volets & Micromodules :** **Volets roulants Bubendorff**, micromodules **Tyxia 5610**, **Tyxia 4940**, **Tyxia 4850**, **Tyxia 4840** et **Tyxia 6410**.
+  - **Alarme, Sécurité & Ouvrants :** **Pack Alarme Tyxal+**, **Détecteur de fumée DFR Tyxal+**, **Détecteurs d'ouverture intégrés aux menuiseries K-Line (DVI)**.
+  - **Climat & Thermique :** **Thermostat Delta Dore (`6050634`)** et **Module sonde de température extérieure**.
+
+### Autres passerelles supportées (même protocole WebSocket Tydom)
 - **Delta Dore Tydom 1.0** & **Tydom 2.0**
 - **Delta Dore Tydom Home** & **Tydom Pro**
 - **Delta Dore Tywell Home** & **Tywell Pro**

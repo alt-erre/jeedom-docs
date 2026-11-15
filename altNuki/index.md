@@ -10,6 +10,22 @@
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & passerelle :**
+  - **Soit un Nuki Bridge** sur le même réseau local que Jeedom (API HTTP locale port `8080` + Webhook local vers le port `55100` de Jeedom).
+  - **Soit un broker MQTT local** (ex. Mosquitto sur `127.0.0.1:1883`) pour les serrures dotées du Wi-Fi / Thread intégré (*Smart Lock 3.0 Pro, 4.0, 4.0 Pro, Ultra*). *Rappel : sur les Smart Lock 3.0 Pro et 4.0 Pro, l'activation du Wi-Fi intégré désactive la liaison avec le Nuki Bridge.*
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Serrure connectée Nuki Smart Lock 3.0 Pro**
+  - **Passerelle Nuki Bridge**
+  - **Clavier à code Nuki Keypad (1re génération)**
+- **Autres équipements compatibles (API officielle Nuki Bridge HTTP & MQTT Local) :**
+  - **Serrures :** Nuki Smart Lock 1.0, 2.0, 3.0, 4.0, 4.0 Pro et Smart Lock Ultra, Nuki Smart Door, Nuki Box.
+  - **Accessoires :** Nuki Keypad 2.0 Fingerprint (empreinte digitale), interphone Nuki Opener, capteur magnétique Nuki Door Sensor.
+
+---
+
 ## 1. Architecture Hybride 100 % Locale (Bridge HTTP + MQTT Local Natif)
 
 Le démon Python asynchrone (`altNukid.py`) prend en charge simultanément ou individuellement les deux protocoles locaux officiels de l'écosystème Nuki :

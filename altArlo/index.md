@@ -6,6 +6,24 @@ Plugin pour **Jeedom v4** permettant l'intégration complète, la supervision en
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis techniques & compte Arlo :**
+  - Connexion Internet active (flux temps réel Cloud SSE Arlo `/hmsweb/client/subscribe`) et paquet `ffmpeg` (installé automatiquement par les dépendances pour le flux Direct Live et la conversion H.264).
+  - **Recommandation importante :** créer un **compte invité Arlo dédié à Jeedom** (*Paramètres $\rightarrow$ Autoriser l'accès* dans l'app Arlo) avec droits d'administration afin d'éviter toute déconnexion mutuelle avec votre smartphone (Arlo n'autorisant qu'une session SSE active par compte).
+  - Pour le renouvellement automatique 2FA tous les 14 jours : accès IMAP SSL à la boîte mail du compte invité ou réception SMS sur le modem 4G de la box Jeedom.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Stations de base & SmartHubs :** **Arlo SmartHub `VMB5000r4`**, **Station de base `VMB3010r2`**.
+  - **Caméras :** **Arlo Pro 5 (`H53`)**, **Arlo Ultra (`H7` et `H10`)**, **Arlo Pro 4 (`H4`)**, **Arlo Pro 2 (`H5`)**, **Arlo Wire-Free (`H7` et `H11`)**.
+  - **Projecteur Floodlight :** **Arlo Pro 3 Wire-Free Floodlight (`H6` / `FB1001B`)**.
+  - **Sonnette vidéo :** **Arlo Essential Video Doorbell Wire-Free**.
+  - **Caméra intérieure / Babyphone :** **Arlo Baby Cam (`ABC1000r7`)**.
+- **Autres équipements compatibles (même API Arlo HMSWeb) :**
+  - Bases `VMB3000`, `VMB4000`, `VMB4500`, `VMB4540`, ainsi que les gammes Arlo Pro, Pro 3, Ultra 2, Essential (Indoor / Outdoor / XL) et Video Doorbell (`AVD1001`, `AVD2001B`).
+
+---
+
 ## 1. Fonctionnalités Principales
 
 - **Auto-découverte complète du parc Arlo** :

@@ -4,6 +4,15 @@ Plugin Jeedom unifié permettant de suivre vos **comptes de réseaux sociaux**, 
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis :**
+  - Connexion Internet HTTPS sortante.
+  - Aucune clé API ni console développeur n'est obligatoire (assistant de liaison en 1 clic par code d'activation / QR Code ou suivi direct par `@pseudo` / lien d'invitation `discord.gg/...`).
+
+---
+
 ## 1. Fonctionnalités Principales
 
 - **3 Modes d'Équipements Complémentaires (Utilisables simultanément)** :

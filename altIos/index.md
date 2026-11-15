@@ -18,6 +18,16 @@ Conçu selon une **architecture Hybride 100 % Autonome (Apple $\leftrightarrow$ 
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis sur les appareils Apple supervisés :**
+  - **iPhone** ou **iPad** sous **iOS / iPadOS 16.4 ou supérieur** (requis pour disposer de l'action native *« Verrouiller l'écran »* et de l'option *« Exécuter immédiatement sans notifier »* dans l'application officielle **Raccourcis / Shortcuts**).
+  - Accès HTTP/HTTPS de l'appareil vers la box Jeedom (en Wi-Fi local LAN ou via votre accès externe DNS Jeedom en 4G/5G ; un mode hors-ligne scellé `SHA-256` prend le relais en déplacement sans réseau).
+  - *(Optionnel - Canal 2 iCloud)* : identifiants du compte Apple familial pour la remontée continue de batterie et la sonnerie à distance *Localiser (Find My)*.
+
+---
+
 ## Fonctionnalités Clés
 
 1. **Suivi du Temps d'Écran & des Quotas Journaliers** :

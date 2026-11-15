@@ -11,6 +11,20 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & système :**
+  - Box Jeedom et récepteurs audio sur le même réseau local (LAN / VLAN avec diffusion mDNS `UDP 5353` autorisée pour la découverte automatique, ou saisie directe par adresse IP fixe).
+  - Dépendances installées automatiquement dans un environnement isolé `resources/venv` (`pyatv`, `aiohttp`, `gTTS`) ainsi que les paquets système `avahi-utils` et `ffmpeg`.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Apple :** **2 × Apple TV 4K**, **HomePod (1re génération)**, **HomePod mini (1re génération)**.
+  - **Amplificateurs & TV AirPlay :** **Denon AVC-X8500HA**, **Cambridge Audio Evo 150**, **Sonos Amp**, téléviseurs **Samsung The Frame 75" (`QE75LS03A`) & 55" (`TQ55LS03B`)**.
+- **Autres équipements compatibles (protocole standard AirPlay 1 RAOP / AirPlay 2) :**
+  - Ensemble des HomePod (Gen 1/2/mini), Apple TV (HD/4K), enceintes Sonos compatibles AirPlay 2 (One, Era, Arc, Beam, Five, Move, Roam, SYMFONISK), amplificateurs Denon/Marantz HEOS, Cambridge Audio StreamMagic, Bose, Freebox et bornes AirPort Express.
+
+---
+
 ## Installation & Premier démarrage
 
 1. **Activation & Dépendances** :

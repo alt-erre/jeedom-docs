@@ -8,6 +8,20 @@
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis matériels & réseau :**
+  - **Pont Philips Hue v2 (boîtier carré `BSB002`)** connecté au même réseau local que Jeedom (HTTPS port TCP `443`). *Note : le pont rond de 1re génération (`BSB001`, arrêté en 2020) ne prend pas en charge l'API locale HTTPS CLIP v2.*
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Passerelle & Boîtier HDMI :** **Pont Philips Hue v2 (`BSB002`)**, boîtier **Hue Play HDMI Sync Box (`HSB1`)**.
+  - **Éclairages Hue Play, Gradient & Rubans :** **Hue Play Lightbar (`LCT024`)**, **Hue Play Gradient Lightstrip (`LCX004`)**, **Hue Lightstrip Plus (`LCL008`)**, lampadaire **Hue Signe Gradient Floor**.
+  - **Spots, Ampoules & Extérieur :** spots encastrés **Hue Centura**, ampoules **Hue White & Color Ambiance (`LCT010`, `LCA001`)**, appliques murales extérieures **Hue Resonate Outdoor Wall** et **Hue Econic Outdoor Wall**.
+- **Autres équipements compatibles (API locale CLIP v2) :**
+  - Ensemble des ampoules, spots, rubans, tubes Gradient, prises Smart Plug, détecteurs de mouvement/ouverture (*Hue Motion / Outdoor / Contact Sensor*) et télécommandes/interrupteurs (*Dimmer Switch, Tap Dial, Smart Button, Wall Switch Module*) rattachés au Pont Hue v2.
+
+---
+
 ## 1. Présentation & Fonctionnalités Clés
 
 Le plugin **Alt Éclairage & Ambiance (Philips Hue)** (`altHue`) permet de piloter et superviser **100 % en local (Zéro Cloud)** l'intégralité de votre écosystème **Philips Hue**, avec une prise en charge native approfondie de la gamme **Hue Play** et **Gradient** :

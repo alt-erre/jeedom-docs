@@ -17,6 +17,16 @@
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker en mode réseau `host` sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - L'interface réseau de la box Jeedom doit être directement rattachée au sous-réseau LAN IPv4 (`/24`) à superviser afin de pouvoir lire la table ARP (`ip neigh`) et recevoir les trames de découverte locales (`mDNS`, `SSDP`, `NetBIOS`). *Si Jeedom tourne sous Docker, le conteneur doit impérativement utiliser le mode réseau `--net=host`.*
+- **Compatibilité matérielle :**
+  - Compatible avec **100 % des équipements IPv4 (Ethernet et Wi-Fi)** connectés au réseau local (smartphones, tablettes, TV, consoles, caméras, serrures, objets connectés, NAS, imprimantes, routeurs).
+
+---
+
 ## 1. Architecture Hybride à 2 Niveaux d'Équipements
 
 1. **Équipement global « Radar & Sécurité Réseau » (`netguard_radar_main`)** :

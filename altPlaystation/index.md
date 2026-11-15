@@ -18,6 +18,19 @@ Grâce à son **Assistant d'Appairage SSO Sony (`npsso`)** et son **Scanner Rés
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis :**
+  - **Pour les fonctions Cloud (Contrôle Parental PlayStation Family, Trophées, Historique PSN) :** compte Sony PlayStation (Chef de famille / Parent) avec récupération du jeton SSO `npsso` via l'assistant intégré.
+  - **Pour les fonctions 100 % Locales LAN (état électrique temps réel, détection du jeu en direct, réveil WoL et mise en veille Standby LAN) :** console sur le même réseau local que Jeedom (UDP port `9302` sur PS5 / `987` sur PS4) et option *Lecture à distance (Remote Play)* activée sur la console pour l'association PIN locale.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Console Sony PlayStation 5 (PS5)**.
+- **Autres consoles compatibles (même protocole DDP LAN & API PlayStation Family) :**
+  - **PlayStation 5** (Standard, Édition Numérique, PS5 Slim, PS5 Pro) et **PlayStation 4** (Standard, PS4 Slim, PS4 Pro).
+
+---
+
 ## Fonctionnalités Clés
 
 1. **Suivi du Temps d'Écran & des Quotas Journaliers (PlayStation Family & PSN)** :

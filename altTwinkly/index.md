@@ -17,6 +17,18 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Contrôleur Twinkly connecté au même réseau local (Wi-Fi/LAN) que Jeedom (API HTTP REST locale port `80`, découverte UDP port `5555` et streaming temps réel UDP port `7777`). Aucun compte Cloud Twinkly requis en fonctionnement local.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Ruban Néon LED flexible Twinkly Flex (`TWFL300STW`)**.
+- **Autres équipements compatibles (protocole local unifié Twinkly `xled`) :**
+  - Ensemble des gammes **Twinkly Gen I, Gen II, Plus & Pro** : `Strings` (RGB, RGBW, Gold AWW), `Squares`, `Curtain`, `Matrix Curtain`, `Icicle`, `Cluster`, `Festoon`, `Dots`, `Candies`, `Spritzer`, `Line`, `Pre-Lit Tree` et clé `Twinkly Music`.
+
+---
+
 ## Architecture Bi-Mode 100 % Locale (`xled` HTTP REST & Streaming UDP)
 
 1. **Mode HTTP REST local direct (par défaut, sans dépendance ni démon) :**

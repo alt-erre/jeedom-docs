@@ -9,6 +9,15 @@
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** Développé et testé en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64 Rockchip, 2 Go de RAM, mémoire flash eMMC 16 Go).
+- **Compatibilité système :**
+  - Toutes installations **Jeedom $\ge$ 4.0 / 4.2** sous Linux Debian 11 / 12 (**Jeedom Luna**, **Jeedom Atlas**, **Jeedom Smart**, Raspberry Pi, Mini-PC, VM et Docker).
+  - La lecture matérielle des registres d'usure **JEDEC eMMC 5.0/5.1** (`/sys/block/mmcblk*/device/life_time` et `pre_eol_info`) s'active automatiquement sur toutes les box équipées d'une puce eMMC (Luna, Atlas, Smart) ; toutes les autres métriques (I/O par plugin, RAM PSS, Swap, `tmpfs`, CPU, SQL MariaDB, logs) fonctionnent sur l'ensemble des plateformes Linux.
+
+---
+
 ## 1. Présentation Générale
 
 Contrairement aux outils de supervision Linux classiques qui n'affichent que la charge globale de la machine, **Alt Audit Ressources, eMMC & Santé Plugins (`altSystemGuard`)** est conçu spécifiquement pour l'architecture interne de Jeedom afin de **calculer la consommation exacte de chacun des plugins installés sur la box** et de **protéger la mémoire flash eMMC** contre l'usure prématurée :

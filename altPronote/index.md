@@ -14,6 +14,15 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis compte PRONOTE :**
+  - Disposer d'un accès **PRONOTE Élève ou Parent** actif (collège, lycée ou enseignement supérieur).
+  - Générer une seule fois un **QR Code d'application mobile** depuis l'interface Web PRONOTE ou l'application mobile PRONOTE (ce qui permet de fonctionner avec **tous les ENT et ÉduConnect** sans saisir d'identifiants académiques dans Jeedom).
+
+---
+
 ## Fonctionnalités Clés
 
 1. **Emploi du Temps Temps Réel & Réveil Intelligent Domotique** :

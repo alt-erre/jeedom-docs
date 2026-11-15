@@ -9,6 +9,24 @@
 
 Il a été spécialement pensé pour offrir **une empreinte mémoire minimale (~35 Mo de RAM fixe)** et **zéro surcharge CPU/Swap**, y compris sur les box domotiques aux ressources contraintes comme la **Jeedom Luna**, l'Atlas ou les Raspberry Pi.
 
+---
+
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Box Jeedom et équipements Apple sur le même réseau local (LAN / VLAN avec flux Multicast/mDNS `UDP 5353` autorisé pour la découverte, ou connexion directe par adresse IP fixe).
+  - Sur HomePod / HomePod mini, vérifier dans l'application *Maison (Home)* (*Réglages du domicile $\rightarrow$ Haut-parleurs et téléviseurs*) que l'accès est réglé sur *« Toutes les personnes sur le même réseau »*.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **2 × Apple TV 4K**
+  - **HomePod (1re génération)**
+  - **HomePod mini (1re génération)**
+- **Autres équipements compatibles (protocoles locaux Companion / MRP / AirPlay) :**
+  - **Apple TV** : Apple TV 4K (1re, 2e et 3e générations), Apple TV HD (4e gén.), Apple TV 3.
+  - **HomePod** : HomePod (1re et 2e générations), HomePod mini.
+
+---
+
 ## Points forts techniques
 
 - **Démon 100 % Python `asyncio` mono-processus (`altairmediad.py`)** :

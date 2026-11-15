@@ -8,6 +8,20 @@ Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix ent
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Amplificateur ou lecteur réseau Cambridge Audio connecté au même réseau local (LAN/Wi-Fi) que Jeedom (port TCP `80` HTTP / WebSocket `/smoip`).
+  - Option **Veille Réseau (*Network Standby*)** activée dans l'application StreamMagic pour permettre l'allumage à distance.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Amplificateur tout-en-un Cambridge Audio Evo 150**.
+- **Autres équipements compatibles (même protocole local StreamMagic / SMOIP) :**
+  - Gamme **Evo** : **Evo 75**, **Evo One**.
+  - Lecteurs réseau & Préamplis StreamMagic : **CXN**, **CXN (V2)**, **CXN100**, **MXN10**, **AXN10**, **EXN100**, **Edge NQ**, **Azur 851N**.
+
+---
+
 ## Fonctionnalités prises en charge
 
 ### 1. Contrôles de base de l'amplificateur (type `altDenon`)

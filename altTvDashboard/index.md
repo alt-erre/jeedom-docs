@@ -6,6 +6,18 @@ Conçu selon l'architecture **« Dark Glass »** signature `alt-erre`, il agrèg
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12). Aucune dépendance externe ni démon requis.
+- **Matériels d'affichage physiquement testés et validés par l'auteur :**
+  - **Téléviseur Samsung The Frame 75" (`QE75LS03A`)** en format Paysage `16:9`.
+  - **Téléviseur Samsung The Frame 55" (`TQ55LS03B`) équipé du support sur pied motorisé rotatif (`VG-ARAB43STD`)** en formats Paysage `16:9` et Portrait `9:16` avec rotation automatique.
+  - **iPhone, iPad et navigateurs Desktop/Tablette**.
+- **Autres écrans compatibles :**
+  - Tout téléviseur **Smart TV** disposant d'un navigateur web HTML5 (Samsung Tizen, LG WebOS, Sony / Philips / TCL sous Android TV / Google TV, Fire TV), tablettes murales (iPad, Android) et smartphones (y compris écrans pliables double-volet).
+
+---
+
 ## Fonctionnalités prises en charge
 
 ### 1. Navigation Spatiale 100 % Télécommande TV (D-Pad 10-Foot UI)

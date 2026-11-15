@@ -17,6 +17,19 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau :**
+  - Amplificateur connecté au même réseau local (LAN/Wi-Fi) que Jeedom (ports locaux TCP `23` AVR Control, HTTP `80`/`8080` et TCP `1255` HEOS CLI).
+  - Dans le menu de l'amplificateur (*Réseau $\rightarrow$ Contrôle réseau*), régler l'option sur **« Toujours activé » (*Always On*)** pour permettre l'allumage à distance.
+- **Matériel physiquement testé et validé par l'auteur :**
+  - **Amplificateur Home-Cinéma 13.2 canaux Denon AVC-X8500HA**.
+- **Autres équipements compatibles (même protocole Denon AVR Control / HEOS) :**
+  - Ensemble des amplificateurs réseau **Denon** (`AVC-A1H`, `AVC-A110`, `AVC-X8500H`, `AVC-X6800H` à `AVR-X1800H`, générations `X1000` à `X7200WA`, séries `AVR-S`, `DRA`, `PMA`) et **Marantz** (`AV 10`, `Cinema 30` à `70s`, `SR5015` à `SR8015`).
+
+---
+
 ## Architecture Tri-Protocole Locale (Spécial Denon AVC-X8500HA)
 
 1. **Protocole Temps Réel Denon AVR Control (TCP Port `23` - Push `< 50 ms`) :**

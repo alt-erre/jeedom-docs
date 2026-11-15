@@ -18,6 +18,20 @@ Dans la continuité des plugins `altSiemens`, `altCambridgeAudio`, `altJvcProjec
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis réseau & firmware :**
+  - Imprimante Bambu Lab connectée au même réseau local (LAN/Wi-Fi) que Jeedom (ports locaux TLS `8883` MQTT, `6000` Caméra et `990` FTPS), avec adresse IP fixe recommandée.
+  - **Code d'accès (`Access Code`)** à 8 caractères et **Numéro de série** (affichés dans le menu *WLAN / Réseau* de l'imprimante).
+  - *Note firmwares 2025+ :* la lecture temps réel (MQTT, AMS, Caméra, FTPS) fonctionne en permanence ; pour autoriser les commandes d'action locales sans passer par le Cloud Bambu, activez le **Mode LAN Only (+ Mode Développeur)** sur l'imprimante.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Imprimante 3D Bambu Lab P1S** équipée du système multi-filaments **AMS (4 bobines)**.
+- **Autres modèles compatibles (même protocole local MQTT TLS Bambu Lab) :**
+  - Séries **Bambu Lab P1P**, **A1** et **A1 Mini** (avec AMS Lite), **X1 Carbon (X1C)** et **X1E** *(note : sur les séries X1C/X1E, le flux caméra utilise RTSPS au lieu du flux binaire TLS port 6000 propre aux P1S/P1P/A1)*.
+
+---
+
 ## Fonctionnalités dédiées à la Bambu Lab P1S & son AMS (4 bobines)
 
 1. **Suivi d'impression, Métadonnées `.3mf` & Statistiques Cumulatives** :

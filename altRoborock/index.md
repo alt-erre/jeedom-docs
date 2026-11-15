@@ -20,6 +20,22 @@ Comme les plugins `altCambridgeAudio` et `altSiemens`, il repose sur un démon P
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis application & réseau :**
+  - Le robot doit être appairé à l'application mobile officielle **Roborock** (et non à l'application *Xiaomi Mi Home*) afin de permettre l'extraction unique de sa clé de chiffrement locale (`localKey`).
+  - Robot et box Jeedom connectés au même réseau local (dialogue 100 % local sur le port TCP `58867` et découverte UDP `58866`).
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Roborock S7** (Protocole local `1.0` AES-128-ECB)
+  - **Roborock Qrevo Curv** avec **Station Multifonction 3.0** (Protocole local `L01` AES-256-GCM)
+- **Autres robots compatibles (protocoles locaux Roborock `1.0` & `L01`) :**
+  - **Gamme Qrevo :** Qrevo Edge, Qrevo Master, Qrevo Slim, Qrevo Pro, Qrevo MaxV, Qrevo S, Qrevo.
+  - **Gamme S :** S8, S8+, S8 Pro Ultra, S8 MaxV Ultra, S7+, S7 MaxV, S7 MaxV Ultra, S7 Pro Ultra, S6, S6 MaxV, S5 Max.
+  - **Gamme Q :** Q5, Q5 Pro, Q7, Q7 Max, Q8 Max.
+
+---
+
 ## Fonctionnalités dédiées aux Roborock S7 & Roborock Qrevo Curv
 
 1. **Pilotage & Statut Temps Réel (`get_status`)** :

@@ -4,6 +4,16 @@ Plugin Jeedom permettant de suivre en temps réel les **transports en commun urb
 
 ---
 
+## Prérequis, Compatibilités & Environnement de Test
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis & Réseaux validés :**
+  - Accès Internet HTTPS sortant vers les portails Open Data officiels (`transport.data.gouv.fr` sans clé API pour +350 villes en France, et `transport.opendata.ch` pour la Suisse).
+  - **Réseau de référence testé en conditions réelles :** **Métropole Rouen Normandie** (*Réseau Astuce* : Métro, TEOR `T1–T4`, FAST, Bus multi-exploitants TCAR/TAE/TNI + vélos libre-service *Lovélo* `GBFS`).
+  - *Cas particulier Île-de-France (`PRIM` - RATP / SNCF Transilien / RER) :* nécessite une clé API personnelle gratuite à créer sur [prim.iledefrance-mobilites.fr](https://prim.iledefrance-mobilites.fr).
+
+---
+
 ## 1. Fonctionnalités Principales
 
 - **Couverture Nationale Sans Clé API (+350 Villes & Métropoles via `transport.data.gouv.fr`)** :

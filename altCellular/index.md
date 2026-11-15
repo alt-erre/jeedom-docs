@@ -16,6 +16,23 @@
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** Développé et testé en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (équipée du modem cellulaire interne **Quectel EC25 / EG25-G**). Compatible avec **Jeedom $\ge$ 4.2** sur Jeedom Luna 4G ou toute box Jeedom (Atlas, Smart, Raspberry Pi, VM/machine physique Debian 11 / 12) équipée d'un modem 4G/GSM USB compatible commandes AT.
+- **Prérequis matériels & abonnement SIM :**
+  - Modem 4G/GSM accessible en port série (`/dev/ttyUSB*`) avec code PIN SIM renseigné (ou désactivé).
+  - Carte SIM active avec voix/SMS (et option Data/MMS activée chez l'opérateur si vous utilisez l'envoi de photos par MMS).
+- **Configuration physiquement testée et validée par l'auteur :**
+  - **Box & Modem :** **Jeedom Luna 4G LoRaWAN** (modem interne Quectel).
+  - **Forfait mobile :** **Free Mobile (Forfait 2 €)**.
+  - **Portail GSM :** **Portail équipé d'un module GSM Intratone** (ouverture par reconnaissance du numéro appelant / Ping d'appel CLIP sans décroché).
+- **Autres équipements & opérateurs compatibles :**
+  - **Récepteurs de portails GSM CLIP :** Intratone, RTU5024, Somfy, Nice, Came, automatismes de copropriété à reconnaissance d'appelant.
+  - **Modems USB :** Quectel (EC25, EG25-G), SIMCom (SIM7600, SIM800), Huawei (mode série AT).
+  - **Opérateurs préconfigurés (SMS / Voix / MMS) :** Free Mobile, Orange / Sosh, SFR / RED, Bouygues Telecom / B&You.
+
+---
+
 ## 1. Modélisation par Équipement (Option A : Portail GSM ou Contact 4G)
 
 Chaque équipement créé dans le plugin adopte l'un des deux rôles métier suivants :

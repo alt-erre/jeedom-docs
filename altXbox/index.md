@@ -19,6 +19,20 @@ Conçu selon une **architecture Hybride (Cloud Xbox Network + Fallback 100 % Loc
 
 ---
 
+## Prérequis, Compatibilités & Matériels Testés
+
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12, Python $\ge$ 3.9).
+- **Prérequis console & compte Microsoft :**
+  - Sur la console Xbox (*Paramètres $\rightarrow$ Appareils et connexions $\rightarrow$ Fonctionnalités à distance*) : cocher **« Activer les fonctionnalités à distance »** et régler le mode d'alimentation sur **Veille (*Instant-On*)** pour autoriser l'allumage à distance (UDP `5050` local + Cloud).
+  - Compte Microsoft Parent (*Microsoft Family Safety*) lié via l'assistant `microsoft.com/link`.
+- **Matériels physiquement testés et validés par l'auteur :**
+  - **Console Microsoft Xbox Series X**
+  - **Console Microsoft Xbox Series S**
+- **Autres consoles compatibles (même protocole SmartGlass UDP `5050` & API Xbox Live) :**
+  - **Xbox One X**, **Xbox One S** et **Xbox One**.
+
+---
+
 ## Fonctionnalités Clés
 
 1. **Suivi du Temps d'Écran & des Quotas Journaliers** :

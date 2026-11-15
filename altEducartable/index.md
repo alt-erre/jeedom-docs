@@ -37,11 +37,13 @@ Plugin pour **Jeedom** permettant le suivi complet de la vie scolaire **Educarta
 
 ---
 
-## Prérequis & Dépendances
+## Prérequis, Compatibilités & Environnement de Test
 
-- **Jeedom** `>= 4.2`
-- **Python 3** (`>= 3.9`) avec `python3-venv`
-- Dépendances Python installées automatiquement dans un environnement virtuel isolé (`resources/venv`) sous licences permissives :
+- **Plateforme Jeedom de référence :** La majorité des tests et développements ont été réalisés en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64, 2 Go de RAM, mémoire eMMC). Compatible avec **Jeedom $\ge$ 4.2** (Luna, Atlas, Smart, Raspberry Pi, VM et Docker sous Debian 11 / 12).
+- **Prérequis compte & système :**
+  - Disposer d'un **compte Parent Educartable / Edumoov** actif (`app.educartable.com`) rattaché à une ou plusieurs classes utilisatrices d'Educartable (Maternelle *TPS à GS* et Élémentaire *CP à CM2*).
+  - **Python 3** (`>= 3.9`) avec `python3-venv` et accès Internet HTTPS sortant vers les serveurs Edumoov / Educartable.
+- **Dépendances Python** installées automatiquement dans un environnement virtuel isolé (`resources/venv`) sous licences permissives :
   - `requests` (Licence **Apache-2.0**)
   - `certifi` (Licence **MPL-2.0**)
   - *(Le worker dispose également d'un mode de repli natif `urllib.request` de la bibliothèque standard Python).*
