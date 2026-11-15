@@ -93,6 +93,34 @@ Chaque équipement bénéficie du widget signature **Dark Glass `alt-erre`** (av
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Scénario « Départ Maison Sécurisé » en 1 Clic / Empreinte
+- **Déclencheur** : Verrouillage par appui long sur le bouton Nuki ou empreinte sur le Keypad.
+- **Action & Synergie** : Verrouillage du pêne, armement complet de l'alarme Tyxal+, fermeture des volets et démarrage de l'aspirateur robot.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : armement alarme et volets.
+  - [Alt Robot Vacuum (Roborock)](https://alt-erre.github.io/jeedom-docs/altRoborock/) : nettoyage des sols en l'absence des habitants.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : extinction générale des lumières.
+
+### 2. Accueil Personnalisé par Empreinte Digitale (Keypad 2.0)
+- **Déclencheur** : Déverrouillage réussi par empreinte digitale sur le Nuki Keypad 2.0.
+- **Action & Synergie** : Désarmement de l'alarme, carillon sonore d'accueil et vocalisation des devoirs scolaires selon l'enfant identifié.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) : vocalisation personnalisée des devoirs.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : carillon d'accueil.
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : extinction des caméras intérieures.
+
+### 3. Livraison de Colis Sécurisée à Distance
+- **Déclencheur** : Sonnette du livreur et échange vidéo à l'entrée.
+- **Action & Synergie** : Déverrouillage temporaire après identification vidéo sur la sonnette et reverrouillage automatique.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : visiophonie d'entrée.
+
+---
+
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :

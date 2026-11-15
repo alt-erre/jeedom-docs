@@ -87,6 +87,34 @@ Contrairement aux consoles de jeux, Apple chiffre son système interne *Screen T
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Heure d'Étude & Mode Concentration Automatique
+- **Déclencheur** : Période d'étude ou devoirs non complétés après l'école.
+- **Action & Synergie** : Bascule forcée des iPhone et iPad en mode Ne pas déranger / Étude tant que les devoirs ne sont pas achevés.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) : détection de devoirs scolaires en attente.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : lumière bureau blanche stimulante.
+
+### 2. Plafond Global de Temps d'Écran Multi-Plateformes
+- **Déclencheur** : Dépassement d'un seuil de jeu cumulé sur console.
+- **Action & Synergie** : Déduction du temps passé sur console du forfait d'écran disponible sur tablette.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (Nintendo Switch)](https://alt-erre.github.io/jeedom-docs/altSwitch/) : temps d'écran console nomade.
+  - [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/) & [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : temps d'écran salon.
+
+### 3. Arrivée Géolocalisée & Déverrouillage Sans Contact
+- **Déclencheur** : Rapprochement de l'iPhone du domicile et connexion Wi-Fi.
+- **Action & Synergie** : Détection de retour au domicile par franchissement de zone et présence Wi-Fi locale.
+- **Plugins complémentaires associés** :
+  - [Alt Radar & Sécurité Réseau](https://alt-erre.github.io/jeedom-docs/altNetGuard/) : validation de présence réseau.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déverrouillage de la porte d'entrée.
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : climatisation habitacle.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :

@@ -84,6 +84,32 @@ Pour dialoguer en local sur le port TCP `58867`, chaque robot Roborock nécessit
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Nettoyage Automatique Intégral en l'Absence des Occupants
+- **Déclencheur** : Départ de la maison confirmé par serrure, alarme et véhicule.
+- **Action & Synergie** : Démarrage du cycle complet dès que le départ est acté par la serrure, l'alarme et l'éloignement de la voiture.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : confirmation de fermeture de porte d'entrée.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : coordination d'alarme et luminosité ambiante.
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : confirmation d'éloignement du foyer.
+
+### 2. Retour Anticipé à la Base avant l'Arrivée de la Famille
+- **Déclencheur** : Approche d'un membre du foyer en transit ou en voiture.
+- **Action & Synergie** : Ordre de retour immédiat au dock 10 minutes avant le retour pour trouver des sols propres et secs.
+- **Plugins complémentaires associés** :
+  - [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/) & [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : anticipation de l'heure d'arrivée.
+
+### 3. Nettoyage Rapide de la Cuisine après la Préparation des Repas
+- **Déclencheur** : Fin d'utilisation de la machine à café ou cuisson terminée.
+- **Action & Synergie** : Aspiration ciblée de la zone cuisine après l'utilisation de la machine à café ou la cuisson.
+- **Plugins complémentaires associés** :
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : déclencheur de fin d'activité en cuisine.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

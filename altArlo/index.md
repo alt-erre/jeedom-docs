@@ -101,6 +101,35 @@ Les jetons Cloud Arlo ayant une durée de vie limitée côté serveur (~10 à 14
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Bouclier Périmétrique Anti-Intrusion & Levée de Doute
+- **Déclencheur** : Détection de mouvement suspect la nuit dans le jardin ou autour de la maison.
+- **Action & Synergie** : Allumage du projecteur Arlo Floodlight, fermeture des volets au rez-de-chaussée et envoi d'un MMS avec capture d'écran via GSM en cas de coupure Internet.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : verrouillage des volets et armement alarme Tyxal+.
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : expédition MMS de secours avec photo.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : stroboscope ou balisage lumineux dissuasif.
+
+### 2. Portier Vidéo Intelligent & Déverrouillage d'Accès
+- **Déclencheur** : Appui sur la sonnette Arlo Video Doorbell.
+- **Action & Synergie** : Carillon multiroom immédiat, affichage direct du flux vidéo sur téléviseur et déverrouillage de la porte pour un livreur ou un proche.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déverrouillage sécurisé à distance.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : annonce vocale et carillon.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage du flux caméra sur l'écran TV.
+
+### 3. Mode Intimité & Confidentialité Famille
+- **Déclencheur** : Retour au domicile validé par le déverrouillage de la serrure ou l'arrivée du véhicule.
+- **Action & Synergie** : Coupure automatique des caméras intérieures dès le retour des membres du foyer.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déclenchement par ouverture de serrure.
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : détection de l'arrivée du véhicule.
+
+---
+
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux bonnes pratiques de sécurité Jeedom et au RGPD :

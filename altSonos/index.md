@@ -84,6 +84,34 @@ Le plugin **Alt Multiroom Audio (Sonos) (`altSonos`)** permet de piloter et supe
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Assistant Vocal Domotique « Snapshot & Restore »
+- **Déclencheur** : Événement prioritaire survenu (sonnette, alarme, électroménager).
+- **Action & Synergie** : Pause de la musique, carillon d'attention, diffusion TTS d'un événement prioritaire (sonnette, café prêt, devoirs) puis reprise musicale automatique exacte.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : carillon de sonnette d'entrée.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : notification d'état de l'alarme.
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : annonce de café prêt.
+
+### 2. Mode Fête « Party Mode » & Multiroom Global
+- **Déclencheur** : Passage en mode fête ou réception d'invités.
+- **Action & Synergie** : Groupement instantané de toutes les enceintes Sonos du foyer autour de la platine vinyle ou du streamer Cambridge.
+- **Plugins complémentaires associés** :
+  - [Alt Audio (Cambridge)](https://alt-erre.github.io/jeedom-docs/altCambridgeAudio/) : source audio analogique de référence.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : pilotage du groupe au D-Pad TV.
+
+### 3. Home-Cinéma Dolby Atmos & Extinction Nocturne Automatique
+- **Déclencheur** : Extinction du téléviseur ou heure tardive.
+- **Action & Synergie** : Activation du mode Nuit et rehaussement des voix sur la barre de son Arc, avec coupure des enceintes des chambres.
+- **Plugins complémentaires associés** :
+  - [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : liaison HDMI eARC.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : ambiance tamisée cinéma.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

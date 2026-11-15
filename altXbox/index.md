@@ -104,6 +104,33 @@ Si votre foyer possède **plusieurs consoles Xbox** (ex. *Xbox Series X Salon* +
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Ambiance Xbox Cyberpunk & Audio Dolby Atmos
+- **Déclencheur** : Allumage de la console Xbox Series X/S.
+- **Action & Synergie** : Allumage de la console, spatialisation surround Dolby Atmos pour le jeu et éclairage thématique vert Xbox.
+- **Plugins complémentaires associés** :
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : commutation HDMI et audio multicanal.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) & [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/) : ambiance verte gaming.
+  - [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : affichage haute fréquence VRR.
+
+### 2. Contrat Scolaire & Déblocage Progressif du Temps de Jeu
+- **Déclencheur** : Validation de tous les devoirs du lendemain.
+- **Action & Synergie** : Déverrouillage automatique du temps de jeu uniquement lorsque les devoirs du lendemain sont cochés.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) : validation des devoirs scolaires.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : carillon vocal d'avertissement.
+
+### 3. Supervision Parentale en 1 Clic sur Kiosk TV
+- **Déclencheur** : Consultation ou demande de temps de jeu depuis le salon.
+- **Action & Synergie** : Suivi du temps de jeu Xbox restant et octroi d'un bonus `+15 min` ou `+30 min` au D-Pad TV.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : supervision et prolongation au D-Pad TV.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :

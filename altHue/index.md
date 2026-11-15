@@ -60,6 +60,35 @@ Le plugin **Alt Éclairage & Ambiance (Philips Hue)** (`altHue`) permet de pilot
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Hub Visuel d'Alertes Domotiques (Code Couleur Universel)
+- **Déclencheur** : Événement notable survenu dans la maison connectée.
+- **Action & Synergie** : Pulsations lumineuses sémantiques selon les événements du foyer (bleu = machine à café ou robot bloqué, vert = impression 3D ou devoirs finis, rouge = alerte sécurité).
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) & [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : alertes de sécurité périmétrique.
+  - [Alt Print 3D (Bambu Lab)](https://alt-erre.github.io/jeedom-docs/altBambuLab/) & [Alt Robot Vacuum (Roborock)](https://alt-erre.github.io/jeedom-docs/altRoborock/) : suivi des appareils ménagers et atelier.
+  - [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/) : alerte de retard de transport en commun.
+
+### 2. Immersion Home-Cinéma & Synchronisation Vidéo / Gaming
+- **Déclencheur** : Allumage d'une console de jeu ou démarrage d'un film.
+- **Action & Synergie** : Activation du boîtier Hue Play HDMI Sync Box sur allumage de la console ou du projecteur pour un rétroéclairage dynamique réactif.
+- **Plugins complémentaires associés** :
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : amplification sonore surround.
+  - [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/) & [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : synchronisation dynamique jeu vidéo.
+  - [Alt Ciné Projector (JVC D-ILA)](https://alt-erre.github.io/jeedom-docs/altJvcProjector/) : ambiance de salle de cinéma.
+
+### 3. Réveil Circadien Naturel & Volets Roulants
+- **Déclencheur** : Heure de réveil programmée en matinée.
+- **Action & Synergie** : Allumage progressif rougeoyant vers blanc solaire le matin, synchronisé avec les volets.
+- **Plugins complémentaires associés** :
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : accompagnement sonore musical.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : motorisation progressive des ouvrants.
+
+---
+
 ## 3. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux Conditions Générales d'Utilisation du **Jeedom Market (Art. 3.5, 4.3, 4.4 & 4.8)** :

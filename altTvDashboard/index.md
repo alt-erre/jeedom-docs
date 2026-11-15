@@ -100,6 +100,37 @@ Le Kiosk TV fonctionne selon une architecture **10-Foot UI** à deux niveaux :
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Le Kiosk Centralisateur Ultime de l'Écosystème `alt-erre`
+- **Déclencheur** : Affichage sur téléviseur de salon, écran mural ou The Frame.
+- **Action & Synergie** : Regroupement unifié des 28 plugins partenaires dans une interface plein écran navigable à la télécommande TV :
+  - Sécurité et accès : [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/), [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/), [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/).
+  - Ambiance et son : [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/), [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/), [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/), [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/), [Alt Audio (Cambridge)](https://alt-erre.github.io/jeedom-docs/altCambridgeAudio/), [Alt Air Média](https://alt-erre.github.io/jeedom-docs/altAirMedia/).
+  - Famille et scolarité : [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/), [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/), [Alt Vie Sportive (SportEasy)](https://alt-erre.github.io/jeedom-docs/altSportEasy/).
+  - Temps d'écran : [Alt Contrôle Parental (Nintendo Switch)](https://alt-erre.github.io/jeedom-docs/altSwitch/), [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/), [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/).
+  - Confort et robots : [Alt Robot Vacuum (Roborock)](https://alt-erre.github.io/jeedom-docs/altRoborock/), [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/), [Alt Print 3D (Bambu Lab)](https://alt-erre.github.io/jeedom-docs/altBambuLab/).
+  - Mobilités et véhicule : [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/), [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/).
+  - Supervision technique : [Alt Radar & Sécurité Réseau](https://alt-erre.github.io/jeedom-docs/altNetGuard/), [Alt Audit Ressources, eMMC & Santé Plugins](https://alt-erre.github.io/jeedom-docs/altSystemGuard/).
+
+### 2. Mur CCTV & Clavier PIN de Sécurité au D-Pad
+- **Déclencheur** : Alerte de sonnette ou vérification de sécurité périmétrique.
+- **Action & Synergie** : Grille plein écran des caméras Arlo avec zoom immédiat et saisie du code alarme/serrure à la télécommande.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : vidéosurveillance haute définition.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) & [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : pilotage sécurisé sous code PIN.
+
+### 3. Mode Galerie d'Art Totem & Support Pivotant 9:16
+- **Déclencheur** : Mise en veille d'inactivité ou rotation motorisée.
+- **Action & Synergie** : Bascule en totem d'art portrait et fondu sonore musical automatique lors des périodes d'inactivité.
+- **Plugins complémentaires associés** :
+  - [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : commande du mode Art et rotation du support mural.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) & [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : fondu sonore nocturne.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

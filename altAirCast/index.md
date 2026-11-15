@@ -77,6 +77,35 @@ Contrairement aux plugins de télécommande unitaire, `altAirCast` modélise cha
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Réveil Matinal Enchanteur & Briefing Info-Trafic
+- **Déclencheur** : Alarme programmée du réveil matinal en semaine ou week-end.
+- **Action & Synergie** : Déclenchement de l'alarme multi-zone en fondu progressif (`fade-in` 120s) avec le carillon doux *Réveil Aube Douce*, diffusion TTS des horaires d'école et du prochain bus, puis bascule sur votre webradio favorite.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/) : fourniture des données de briefing matinal.
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : lancement automatique du préchauffage café au lever.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : ouverture progressive des volets roulants à 30 %.
+
+### 2. Carillon d'Entrée & Dissuasion Sécurité Périmétrique
+- **Déclencheur** : Pression sur la sonnette d'entrée ou détection suspecte la nuit.
+- **Action & Synergie** : Diffusion du jingle *Sonnette Domotique Cristalline* sur détection sonnette, ou de la *Sirène Bitonale* à 100 % sur la terrasse en cas d'intrusion nocturne confirmée par alarme.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : détection de mouvement et flux de sonnette vidéo.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : état d'armement de l'alarme Tyxal+.
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : envoi d'un MMS d'alerte avec photo de l'intrus.
+
+### 3. Couvre-Feu & Plafonnement Acoustique Nocturne
+- **Déclencheur** : Horaire de coucher ou passage en mode nuit (21h30).
+- **Action & Synergie** : Abaissement automatique du volume à 20 % (`volume_max_set`) pour sanctuariser le sommeil des enfants, couplé à l'extinction des consoles de jeux.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (Nintendo Switch)](https://alt-erre.github.io/jeedom-docs/altSwitch/), [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/), [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : mise en veille coordonnée des consoles.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : passage en veilleuse ambrée apaisante.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

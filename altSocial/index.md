@@ -94,6 +94,33 @@ Ouvrez **Plugins -> Communication -> Alt Réseaux Sociaux, Lives & Créateurs**,
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Ambiance « Live Streamer » & Notification Visuelle
+- **Déclencheur** : Passage en direct d'un créateur ou streamer favori sur Twitch ou YouTube.
+- **Action & Synergie** : Illumination de la pièce en violet Twitch ou rouge YouTube dès qu'un créateur favori passe en direct.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) & [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/) : ambiance lumineuse thématique.
+  - [Alt Air Média](https://alt-erre.github.io/jeedom-docs/altAirMedia/) & [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : affichage du direct sur grand écran.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : toast de notification d'événement.
+
+### 2. Hub Discord & Événements Communautaires sur Kiosk TV
+- **Déclencheur** : Notification d'événement serveur ou salon vocal actif.
+- **Action & Synergie** : Visualisation en direct des membres en ligne et salons vocaux actifs sur l'écran du salon.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : tuile de statistiques Discord.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : carillon d'annonce discret.
+
+### 3. Sanctuaire d'Étude & Filtrage des Notifications Vidéo
+- **Déclencheur** : Plage horaire de devoirs scolaires.
+- **Action & Synergie** : Suspension des alertes vidéo pendant les créneaux d'étude et de devoirs des enfants.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) : verrouillage pendant les devoirs.
+
+---
+
 ## 5. Confidentialité, Protection des Données & Mesures de Sécurité
 
 - **Communication directe sans serveur intermédiaire** : votre box Jeedom communique directement en HTTPS/WSS (`TLS 1.2+`) avec les API officielles de Twitch (`api.twitch.tv`), Google/YouTube (`googleapis.com` / `youtube.com`), Meta/Instagram (`graph.instagram.com` / `graph.facebook.com`) et Discord (`discord.com`). Aucune clé, statistique ou liste d'abonnements ne transite par un serveur tiers de l'auteur.

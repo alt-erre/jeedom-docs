@@ -77,6 +77,33 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Ambiance Fêtes de Fin d'Année & Scène Musicale Festoon
+- **Déclencheur** : Période festive ou activation de la scène de fête.
+- **Action & Synergie** : Animations lumineuses scintillantes sur sapin ou rideau LED couplées aux playlists de fête.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : éclairage d'ambiance harmonisé.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) & [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : diffusion audio multiroom festive.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : déclencheur de scène 1 clic sur TV.
+
+### 2. Rideau LED Pixel Art & Jauge de Progression 3D
+- **Déclencheur** : Impression 3D en cours sur imprimante Bambu Lab.
+- **Action & Synergie** : Affichage visuel sur le panneau LED de l'état d'avancement de l'impression 3D Bambu Lab.
+- **Plugins complémentaires associés** :
+  - [Alt Print 3D (Bambu Lab)](https://alt-erre.github.io/jeedom-docs/altBambuLab/) : jauge d'avancement d'impression.
+
+### 3. Immersion Gaming & Synchronisation Console
+- **Déclencheur** : Allumage d'une console Xbox ou PlayStation.
+- **Action & Synergie** : Vagues dynamiques aux couleurs de la PlayStation ou de la Xbox avec son multicanal d'immersion.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/) & [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : synchronisation d'état de jeu.
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : audio de jeu multicanal.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

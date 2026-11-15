@@ -100,6 +100,34 @@ Plugin pour **Jeedom** permettant le suivi complet de la vie scolaire **Educarta
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Briefing du Soir & Devoirs à Faire sur Écran Familial
+- **Déclencheur** : Retour de l'école (16h30 ou déverrouillage de porte).
+- **Action & Synergie** : Synthèse vocale au goûter des leçons du lendemain et affichage de la liste sur le tableau de bord du salon.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage de la fiche devoirs sur TV.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : rappel vocal pour les enfants.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déclencheur au retour de l'école.
+
+### 2. Règle « Devoirs Terminés = Temps d'Écran Débloqué »
+- **Déclencheur** : Tous les devoirs du cahier de texte sont cochés comme terminés.
+- **Action & Synergie** : Déblocage automatique de la Nintendo Switch dès que tous les devoirs sont cochés comme réalisés.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (Nintendo Switch)](https://alt-erre.github.io/jeedom-docs/altSwitch/) : déverrouillage de la session de jeu.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : transition d'ambiance bureau vers détente.
+
+### 3. Témoin Lumineux pour Mot Enseignant Non Signé
+- **Déclencheur** : Publication d'un nouveau mot par l'enseignant non encore signé.
+- **Action & Synergie** : Allumage discret d'une veilleuse ambrée jusqu'à signature du cahier de liaison.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : indicateur visuel discret.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : badge d'alerte persistant.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux bonnes pratiques de sécurité et au RGPD (les données scolaires d'enfants mineurs constituant des données personnelles sensibles) :

@@ -85,6 +85,31 @@ Le plugin est spécialement conçu pour préserver le processeur, les **2 Go de 
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Panneau d'Affichage des Départs dans le Hall d'Entrée
+- **Déclencheur** : Présence dans le hall d'entrée avant les départs matinaux.
+- **Action & Synergie** : Affichage en direct du compte à rebours des prochains bus, métros ou trams sur l'écran d'entrée avec alertes retards.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : écran d'information temps réel.
+
+### 2. Briefing Vocal Matinal & Bascule Automobile en Cas de Grève
+- **Déclencheur** : Briefing du réveil ou notification de perturbation majeure de ligne.
+- **Action & Synergie** : Annonce vocale du temps restant avant le prochain tram, et préchauffage de la Tesla si la ligne est interrompue.
+- **Plugins complémentaires associés** :
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : diffusion vocale des horaires.
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : activation de la solution de mobilité de repli.
+
+### 3. Sablier Lumineux « Prêt à Partir »
+- **Déclencheur** : Arrivée imminente du transport (moins de 2 minutes).
+- **Action & Synergie** : L'ampoule de l'entrée passe du vert à l'orange quand le tram arrive dans 2 minutes pour ne jamais le rater.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : sablier lumineux de transport.
+
+---
+
 ## 5. Confidentialité, Protection des Données & Mesures de Sécurité
 
 - **Traitement 100 % direct entre votre box Jeedom et les portails Open Data officiels** : aucune donnée de trajet, d'arrêt favori ou d'adresse n'est transmise à un serveur tiers de l'auteur. Votre box Jeedom interroge directement `transport.data.gouv.fr`, les flux `GTFS` / `GTFS-RT` / `GBFS` des collectivités locales, `prim.iledefrance-mobilites.fr` ou `transport.opendata.ch` en HTTPS.

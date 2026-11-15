@@ -82,6 +82,32 @@ Le plugin intègre un **Dashboard dédié dans le menu Accueil de Jeedom** (`Acc
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Bouclier Total d'Absence (Alarme Tyxal+, Volets & Énergie)
+- **Déclencheur** : Verrouillage de la porte d'entrée lors d'un départ.
+- **Action & Synergie** : Armement total de l'alarme, fermeture des volets et passage des thermostats en mode Éco sur verrouillage de la porte d'entrée.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déclencheur de départ sécurisé.
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : armement de la vidéosurveillance extérieure.
+  - [Alt Robot Vacuum (Roborock)](https://alt-erre.github.io/jeedom-docs/altRoborock/) : aspiration autonome pendant l'absence.
+
+### 2. Optimisation Énergétique & Autoconsommation Solaire
+- **Déclencheur** : Détection d'un surplus d'injection solaire photovoltaïque.
+- **Action & Synergie** : Dérivation du surplus d'injection solaire mesuré par Tydom vers la charge dynamique du véhicule électrique.
+- **Plugins complémentaires associés** :
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : stockage d'énergie solaire dans la batterie.
+
+### 3. Régulation Thermique Estivale Automatisée
+- **Déclencheur** : Température intérieure élevée ou fort ensoleillement estival.
+- **Action & Synergie** : Descente automatique des volets et brise-soleil orientables (BSO) pour conserver la fraîcheur du logement en cas de fort ensoleillement.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : compensation lumineuse naturelle/artificielle.
+
+---
+
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :

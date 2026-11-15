@@ -36,6 +36,36 @@ Le plugin **Alt JVC Projector (`altJvcProjector`)** permet de piloter et supervi
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Lancement Grand Spectacle Salle Obscure
+- **Déclencheur** : Lancement d'un film ou appui sur « Cinéma » sur la télécommande.
+- **Action & Synergie** : Allumage de la matrice laser D-ILA, descente de l'écran motorisé, mémoire de zoom d'objectif 16:9 ou Cinemascope et configuration audio Auro-3D.
+- **Plugins complémentaires associés** :
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : commutation audio-vidéo et décodage multicanal.
+  - [Alt Air Média](https://alt-erre.github.io/jeedom-docs/altAirMedia/) : lecteur multimédia 4K.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : commande de l'écran et des volets occultants.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : extinction progressive des spots de salle.
+
+### 2. Entracte & Pause Confort Automatique
+- **Déclencheur** : Mise en pause de la lecture vidéo.
+- **Action & Synergie** : Relèvement doux des lumières à 15 % et passage du laser en mode éco sur mise en pause du film.
+- **Plugins complémentaires associés** :
+  - [Alt Air Média](https://alt-erre.github.io/jeedom-docs/altAirMedia/) : détection de mise en pause de lecture.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : balisage de sécurité lumineux.
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : préparation de boisson chaude à l'entracte.
+
+### 3. Fin de Séance & Refroidissement Thermique Protégé
+- **Déclencheur** : Fin de projection ou extinction de la séance.
+- **Action & Synergie** : Extinction du laser avec surveillance du cycle de refroidissement thermique avant coupure générale.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : relevage de l'écran motorisé.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : retour à l'éclairage de pièce.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

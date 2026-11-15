@@ -116,19 +116,29 @@ Conçu dans la lignée de **`Alt Vie Scolaire (Pronote)`** et **`Alt Vie Scolair
 
 ---
 
-## Exemples de scénarios Jeedom pour la famille
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
 
-1. **Rappel « Préparer le sac de sport » la veille à 19h30** :
-   - Déclencheur programmé : `30 19 * * *`
-   - Condition : `#[Maison][SportEasy - Lucas (Foot U11)][Séance ou match demain]# == 1`
-   - Action : Notification mobile ou synthèse vocale (`altAirCast` / `altSonos`) :
-     *« N'oubliez pas de préparer le sac de foot de Lucas : demain, #[Maison][SportEasy - Lucas (Foot U11)][Résumé événements de demain]# »*.
-2. **Alerte immédiate en cas d'annulation (pluie / terrain fermé)** :
-   - Déclencheur provoqué : `#[Maison][SportEasy - Lucas (Foot U11)][Annulations aujourd'hui]# > 0`
-   - Action : Notification prioritaire aux parents avec `#[Maison][SportEasy - Lucas (Foot U11)][Résumé des annulations]#`.
-3. **Relance des convocations en attente le jeudi soir** :
-   - Condition : `#[Maison][SportEasy - Lucas (Foot U11)][Convocations en attente]# > 0`
-   - Action : Notification avec rappel de l'affiche `#[Maison][SportEasy - Lucas (Foot U11)][Prochain événement]#` le `#[Maison][SportEasy - Lucas (Foot U11)][Date prochain événement]#`.
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Rappel de Préparation du Sac de Sport la Veille
+- **Déclencheur** : 19h30 la veille d'un match ou d'un entraînement confirmé.
+- **Action & Synergie** : Annonce vocale à 19h30 la veille d'une convocation et affichage de l'affiche de match sur l'écran familial.
+- **Plugins complémentaires associés** :
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : rappel vocal pour les enfants.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage de la convocation sur TV.
+
+### 2. Alerte Annulation Match & Décalage du Chauffage Véhicule
+- **Déclencheur** : Notification d'annulation ou terrain impraticable.
+- **Action & Synergie** : Notification SMS immédiate aux parents en cas de terrain fermé et annulation du préchauffage de la Tesla.
+- **Plugins complémentaires associés** :
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : envoi de SMS d'alerte immédiat.
+  - [Alt Électromobilité & Charge (Tesla)](https://alt-erre.github.io/jeedom-docs/altTesla/) : arrêt du préchauffage habitacle.
+
+### 3. Célébration d'une Victoire aux Couleurs du Club
+- **Déclencheur** : Saisie du score et victoire de l'équipe.
+- **Action & Synergie** : Illumination festive du salon aux couleurs de l'équipe et jingle de fanfare sur les enceintes après un match gagné.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) & [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/) : illumination festive personnalisée.
 
 ---
 

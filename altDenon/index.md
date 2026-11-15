@@ -67,6 +67,35 @@ Le plugin **Alt Denon (`altDenon`)** permet de piloter et superviser **100 % en 
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Soirée Home-Cinéma Auro-3D & Immersion Totale
+- **Déclencheur** : Lancement du mode cinéma depuis la télécommande ou Jeedom.
+- **Action & Synergie** : Allumage de l'amplificateur Denon, sélection de l'entrée Apple TV, format Auro-3D/Atmos, descente de l'écran motorisé et allumage du projecteur laser.
+- **Plugins complémentaires associés** :
+  - [Alt Ciné Projector (JVC D-ILA)](https://alt-erre.github.io/jeedom-docs/altJvcProjector/) : allumage du projecteur D-ILA et calibration laser.
+  - [Alt Air Média](https://alt-erre.github.io/jeedom-docs/altAirMedia/) : lecteur source Apple TV 4K.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : descente de l'écran de projection.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : extinction progressive des lumières.
+
+### 2. Mode Nuit & Plafond Dynamique de Volume Automatique
+- **Déclencheur** : Activation du mode nuit ou horaire tardif.
+- **Action & Synergie** : Compression dynamique nocturne, rehaussement des dialogues et limitation du volume sonore (`volume_max_set` à 35 dB).
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/) & [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : mise en veille des consoles de jeu.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : coupure des zones audio des chambres.
+
+### 3. Diffusion Multi-Zone Extérieure (Zone 2 / Zone 3)
+- **Déclencheur** : Présence sur la terrasse ou dans le jardin.
+- **Action & Synergie** : Gestion sonore indépendante de la terrasse alimentée par une source multiroom sans perturber le salon.
+- **Plugins complémentaires associés** :
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : flux audio réseau déporté.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : streaming musical AirPlay 2.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

@@ -75,6 +75,33 @@ Pour afficher automatiquement un **Design Jeedom**, un mur de caméras ou un tab
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Galerie d'Art & Kiosk Domotique Interactif « The Frame »
+- **Déclencheur** : Présence détectée dans le salon ou téléviseur en veille.
+- **Action & Synergie** : Bascule en mode Art pour afficher une œuvre en harmonie avec les éclairages du salon, et ouverture en 1 clic du dashboard complet.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage 10-Foot UI plein écran.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : accord des teintes lumineuses avec l'œuvre.
+
+### 2. Bascule Motorisée Paysage/Portrait pour Affiche & Musique
+- **Déclencheur** : Lecture d'une playlist musicale haute fidélité.
+- **Action & Synergie** : Rotation physique de l'écran en position verticale lors de la lecture musicale avec paroles et pochette haute résolution.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : adaptation de l'interface en 9:16.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) & [Alt Audio (Cambridge)](https://alt-erre.github.io/jeedom-docs/altCambridgeAudio/) : source musicale active.
+
+### 3. Incrustation Visiophone (PiP) sur Sonnette d'Entrée
+- **Déclencheur** : Pression sur la sonnette extérieure.
+- **Action & Synergie** : Réveil temporaire de l'écran pour afficher qui sonne à la porte d'entrée avec incrustation d'image.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : flux vidéo de sonnette.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : réduction temporaire du volume sonore.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

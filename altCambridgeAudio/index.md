@@ -82,6 +82,34 @@ Conçu dans la même philosophie que le plugin `altDenon`, il offre le choix ent
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Ambiance Audiophile « Salon de Lecture & Vinyle »
+- **Déclencheur** : Allumage du lecteur réseau StreamMagic ou passage en mode détente.
+- **Action & Synergie** : Sélection de la source Hi-Res, ajustement de la lumière en blanc chaud et mise en mode Art du téléviseur.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : tamisage chaleureux à 2200K.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : occultation des brise-soleil orientables.
+  - [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : affichage de tableau apaisant.
+
+### 2. Multiroom Hybride Haute-Fidélité & Fête
+- **Déclencheur** : Soirée festive ou réception d'invités.
+- **Action & Synergie** : Diffusion synchronisée entre le système haute-fidélité Cambridge du salon et les satellites extérieurs.
+- **Plugins complémentaires associés** :
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : groupement multiroom simultané.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : synchronisation des enceintes sans fil.
+
+### 3. Mise en Veille Nocturne Centralisée
+- **Déclencheur** : Verrouillage nocturne du domicile ou extinction générale.
+- **Action & Synergie** : Extinction propre du lecteur réseau lors du verrouillage de la maison.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : déclencheur de fermeture nocturne.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : sécurisation des baies vitrées.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

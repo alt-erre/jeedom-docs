@@ -39,6 +39,33 @@ Chaque équipement créé dans le plugin adopte l'un des deux rôles métier sui
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Passerelle d'Alerte SMS/MMS Indépendante d'Internet (Zero-Trust)
+- **Déclencheur** : Coupure de fibre optique ou déclenchement d'alarme intrusion.
+- **Action & Synergie** : Transmission immédiate d'alertes par SMS et MMS avec photo en cas de coupure de réseau ou de déclenchement d'alarme.
+- **Plugins complémentaires associés** :
+  - [Alt Audit Ressources, eMMC & Santé Plugins](https://alt-erre.github.io/jeedom-docs/altSystemGuard/) : surveillance de la connexion Internet.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : signal d'intrusion Tyxal+.
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : prise de snapshot pour le MMS d'alerte.
+
+### 2. Télécommande SMS & Ouverture de Secours
+- **Déclencheur** : Réception d'un SMS sécurisé contenant un code d'authentification depuis un numéro autorisé.
+- **Action & Synergie** : Déverrouillage de la serrure ou ouverture du portail sans dépendance au cloud.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : commande de déverrouillage de porte.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : impulsion sur le portail motorisé.
+
+### 3. Notification SMS Prioritaire d'Absence Scolaire
+- **Déclencheur** : Signalement d'un retard, absence imprévue ou mot urgent dans le carnet scolaire.
+- **Action & Synergie** : Notification directe par SMS aux parents pour un suivi immédiat sans attendre la consultation de l'application.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) : détection d'événement scolaire critique.
+
+---
+
 ## 3. Confidentialité, Protection des Données & Mesures de Sécurité (Architecture Zero-Trust)
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :

@@ -58,6 +58,33 @@ Grâce à son **Assistant d'Appairage par QR Code Mobile**, le plugin est **comp
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Réveil Intelligent Adapté à l'Emploi du Temps du Jour
+- **Déclencheur** : Détection d'un premier cours annulé le matin.
+- **Action & Synergie** : Décalage automatique de l'heure du réveil matinal en cas de premier cours annulé ou d'absence d'enseignant.
+- **Plugins complémentaires associés** :
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : ajustement automatique du réveil matinal.
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : décalage du préchauffage café.
+  - [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/) : calcul du bus adapté au nouvel horaire.
+
+### 2. Récompense & Déblocage Console sur Réussite Scolaire
+- **Déclencheur** : Remontée d'une très bonne note (supérieure à 16/20).
+- **Action & Synergie** : Attribution de 30 minutes de temps de jeu sur la PlayStation ou la Xbox lors de la publication d'une très bonne note.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/) & [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : crédit de temps de jeu bonus.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : jingle sonore festif de félicitations.
+
+### 3. Tableau d'Affichage Scolaire Familial sur Téléviseur Kiosk
+- **Déclencheur** : Consultation du kiosk du salon au retour de l'école.
+- **Action & Synergie** : Consultation centralisée des devoirs, notes et menus de cantine depuis le salon.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : vue scolaire dédiée 10-Foot UI.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :

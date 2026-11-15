@@ -54,6 +54,31 @@ Pour qu'`altSystemGuard` ne génère lui-même aucune usure sur la mémoire flas
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Alerte Surchauffe / Usure Critique eMMC & Relais SMS d'Urgence
+- **Déclencheur** : Détection d'un seuil critique d'écriture flash, de température ou d'espace disque.
+- **Action & Synergie** : Envoi d'un SMS prioritaire hors Internet à l'administrateur si le disque flash ou la mémoire sature.
+- **Plugins complémentaires associés** :
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : canal SMS d'urgence autonome.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : voyant rouge d'incident matériel.
+
+### 2. Redémarrage Automatique (Watchdog) des Démons Défaillants
+- **Déclencheur** : Démon muet sur son socket ou absence de battement de cœur.
+- **Action & Synergie** : Détection d'un démon muet sur son socket dédié et relance automatique sans redémarrer la box Jeedom.
+- **Plugins complémentaires associés** :
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/), [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/), [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : surveillance des démons locaux.
+
+### 3. Tableau de Bord NOC de Santé Matérielle sur Écran TV
+- **Déclencheur** : Affichage de supervision sur écran mural ou téléviseur.
+- **Action & Synergie** : Visualisation en 1 clin d'œil de l'état CPU, RAM tmpfs, eMMC et de la disponibilité des 29 plugins.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : vue NOC de supervision intégrée.
+
+---
+
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
 
 * **Traitement 100 % Local (Zéro Cloud)** : Toutes les mesures système (`/proc`, `/sys`, tailles de dossiers et statistiques SQL) sont collectées et traitées localement sur votre box Jeedom. Aucune donnée télémétrique n'est transmise vers Internet.

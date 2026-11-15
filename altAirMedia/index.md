@@ -26,6 +26,36 @@ Il a été spécialement pensé pour offrir **une empreinte mémoire minimale (~
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Soirée Cinéma Grand Spectacle 4K
+- **Déclencheur** : Sortie de veille de l'Apple TV ou lancement d'une application de streaming.
+- **Action & Synergie** : Bascule automatique de l'amplificateur en Dolby Atmos, abaissement des volets roulants et extinction feutrée des éclairages du salon.
+- **Plugins complémentaires associés** :
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : sélection de la source Apple TV et décodage multicanal.
+  - [Alt Ciné Projector (JVC D-ILA)](https://alt-erre.github.io/jeedom-docs/altJvcProjector/) : allumage du vidéoprojecteur et sélection de la mémoire de zoom.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : ambiance tamisée feutrée.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : fermeture des volets roulants.
+
+### 2. Mise en Pause Automatique sur Sonnette ou Appel
+- **Déclencheur** : Pression sur la sonnette vidéo ou réception d'un appel téléphonique entrant.
+- **Action & Synergie** : Mise en pause instantanée de la lecture vidéo et relèvement doux de la lumière pour accueillir le visiteur.
+- **Plugins complémentaires associés** :
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : détection de sonnette vidéo.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : contrôle du déverrouillage de la porte d'entrée.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : éclairage d'accueil temporaire.
+
+### 3. Affichage du Lecteur Multimédia sur Kiosk TV
+- **Déclencheur** : Lecture active d'un morceau musical ou d'un flux vidéo sur l'Apple TV.
+- **Action & Synergie** : Remontée des métadonnées temps réel (titre, artiste, jaquette HD) sur l'écran du salon.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : vue multimédia 10-Foot UI.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : synchronisation des teintes lumineuses avec la pochette.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

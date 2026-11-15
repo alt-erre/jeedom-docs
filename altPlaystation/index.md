@@ -118,6 +118,34 @@ Si votre connexion Internet ou les serveurs Sony PlayStation Network deviennent 
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Ambiance Gaming PlayStation & Calibrage Audio
+- **Déclencheur** : Allumage de la PS5 ou PS4.
+- **Action & Synergie** : Allumage de la console, bascule de l'amplificateur Denon en mode faible latence ALLM et éclairage d'ambiance bleu PlayStation.
+- **Plugins complémentaires associés** :
+  - [Alt AVR Control (Denon / Marantz)](https://alt-erre.github.io/jeedom-docs/altDenon/) : sélection de la source et spatialisation sonore.
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) & [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/) : immersion lumineuse bleue.
+  - [Alt Frame & Smart TV (Samsung)](https://alt-erre.github.io/jeedom-docs/altSamsungTv/) : commutation en mode jeu.
+
+### 2. Règle « Pas de PS5 tant que les Devoirs ne sont pas Faits »
+- **Déclencheur** : Tentative d'allumage ou session en cours avec devoirs incomplets.
+- **Action & Synergie** : Mise en veille automatique de la console si des devoirs restent à faire sur Pronote.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) : contrôle des devoirs à faire.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : message vocal d'avertissement.
+
+### 3. Préavis de Fin de Session & Extinction Nocturne Douce
+- **Déclencheur** : Fin imminente du temps de jeu quotidien alloué (10 min restantes).
+- **Action & Synergie** : Clignotement discret des ampoules à 10 minutes de la fin pour sauvegarder avant la coupure.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : avertissement lumineux discret.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage de la jauge de temps de jeu restante.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :

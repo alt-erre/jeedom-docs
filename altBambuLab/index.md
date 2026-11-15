@@ -76,6 +76,32 @@ Dans la continuité des plugins `altSiemens`, `altCambridgeAudio`, `altJvcProjec
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Notification Multiroom & Effets Festifs de Fin d'Impression
+- **Déclencheur** : Fin d'un travail d'impression 3D ou détection de pièce terminée.
+- **Action & Synergie** : Synthèse vocale de fin de pièce 3D et illumination de l'atelier en vert émeraude.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) & [Alt Éclairages & Effets LED (Twinkly)](https://alt-erre.github.io/jeedom-docs/altTwinkly/) : signal visuel de fin de tâche.
+  - [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) & [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : vocalisation personnalisée du succès d'impression.
+
+### 2. Sécurité Incendie, Surchauffe & Rupture de Bobine AMS
+- **Déclencheur** : Température anormale de buse ou alerte de filament bloqué dans l'AMS.
+- **Action & Synergie** : Coupure immédiate de l'alimentation secteur en cas de température excessive et alerte SMS au maker.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : coupure de la prise connectée d'atelier.
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : transmission d'alerte SMS d'urgence.
+
+### 3. Télémétrie d'Atelier sur Tableau de Bord TV 10-Foot
+- **Déclencheur** : Impression en cours dans l'atelier.
+- **Action & Synergie** : Suivi en direct du pourcentage, des températures et de la bobine AMS active sur le grand écran du salon.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : carte de statut d'impression 3D en direct.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :

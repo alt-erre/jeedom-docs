@@ -104,6 +104,34 @@ Toute la boucle (compteur d'énergie local $\rightarrow$ Jeedom $\rightarrow$ Bl
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Régulation Solaire Dynamique & Zéro Énergie Réseau
+- **Déclencheur** : Variation du surplus de production photovoltaïque en journée.
+- **Action & Synergie** : Modulation continue du courant de charge (5 A à 32 A) en BLE local selon le surplus photovoltaïque mesuré.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : mesure en temps réel du surplus solaire.
+
+### 2. Pré-Climatisation Matinale & Dégivrage Hivernal Automatique
+- **Déclencheur** : Heure de départ calculée selon l'agenda ou les cours des enfants.
+- **Action & Synergie** : Dégivrage et préchauffage de l'habitacle synchronisés avec les horaires de cours ou de travail.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) & [Alt Vie Sportive (SportEasy)](https://alt-erre.github.io/jeedom-docs/altSportEasy/) : synchronisation des horaires de départ.
+  - [Alt Café & Home Connect (Siemens)](https://alt-erre.github.io/jeedom-docs/altSiemens/) : préparation de la boisson matinale.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : confort d'accès immédiat.
+
+### 3. Accueil du Véhicule & Sécurisation Extérieure
+- **Déclencheur** : Détection BLE de l'approche du véhicule près du garage.
+- **Action & Synergie** : Ouverture du portail, allumage des projecteurs d'allée et déverrouillage de la porte dès l'arrivée de la voiture.
+- **Plugins complémentaires associés** :
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : motorisation du portail.
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) & [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : allée lumineuse sécurisée.
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : ouverture automatique de la porte.
+
+---
+
 ## 7. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :

@@ -59,6 +59,32 @@ Grâce à son **Assistant d'Appairage OAuth2 PKCE officiel**, le plugin découvr
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Contrat « Devoirs d'Abord, Console Ensuite »
+- **Déclencheur** : Tous les devoirs scolaires du jour sont validés.
+- **Action & Synergie** : Déverrouillage automatique de la session de jeu de 45 minutes uniquement après validation de tous les devoirs scolaires.
+- **Plugins complémentaires associés** :
+  - [Alt Vie Scolaire (Educartable)](https://alt-erre.github.io/jeedom-docs/altEducartable/) & [Alt Vie Scolaire (Pronote)](https://alt-erre.github.io/jeedom-docs/altPronote/) : vérification des obligations scolaires.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : annonce vocale d'autorisation de jeu.
+
+### 2. Avertissement Lumineux de Fin de Temps de Jeu
+- **Déclencheur** : 10 minutes restantes avant la limite de jeu autorisée.
+- **Action & Synergie** : Clignotement ambré dans la chambre à 10 minutes du couvre-feu avant suspension douce de l'application.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : sablier lumineux discret.
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) : synthèse vocale bienveillante.
+
+### 3. Suivi et Prolongation Bonus en 1 Clic à la Télécommande TV
+- **Déclencheur** : Demande d'un temps bonus depuis le salon.
+- **Action & Synergie** : Affichage de la jauge sur le kiosk du salon avec bouton bonus `+15 min` ou `+30 min` au D-Pad TV.
+- **Plugins complémentaires associés** :
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : supervision et prolongation au D-Pad TV.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 3.5, 4.3 et 4.8) :

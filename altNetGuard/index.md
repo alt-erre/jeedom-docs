@@ -54,6 +54,32 @@
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Détection d'Appareil Inconnu & Alerte Intrusion Wi-Fi
+- **Déclencheur** : Connexion d'une adresse MAC non répertoriée sur le réseau local.
+- **Action & Synergie** : Signalement immédiat d'une adresse MAC inconnue sur le réseau local avec envoi SMS prioritaire et enregistrement caméra.
+- **Plugins complémentaires associés** :
+  - [Alt Téléphonie, MMS & Portail GSM](https://alt-erre.github.io/jeedom-docs/altCellular/) : SMS prioritaire d'alerte réseau.
+  - [Alt Caméras & Sécurité (Arlo)](https://alt-erre.github.io/jeedom-docs/altArlo/) : prise de snapshot de surveillance.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : affichage d'un badge d'alerte sur TV.
+
+### 2. Authentification de Présence pour Déverrouillage Sans Faux Positifs
+- **Déclencheur** : Arrivée d'un membre du foyer aux abords de l'habitation.
+- **Action & Synergie** : Validation de l'adresse IP et MAC du smartphone sur le Wi-Fi local avant d'autoriser l'Auto-Unlock Bluetooth.
+- **Plugins complémentaires associés** :
+  - [Alt Serrure & Accès (Nuki)](https://alt-erre.github.io/jeedom-docs/altNuki/) : sécurisation de l'ouverture d'entrée.
+
+### 3. Détection de Gaming Clandestin Nocturne
+- **Déclencheur** : Activité réseau détectée sur les adresses MAC des consoles après l'heure de coucher.
+- **Action & Synergie** : Surveillance des flux réseau des consoles de jeux après le couvre-feu parental.
+- **Plugins complémentaires associés** :
+  - [Alt Contrôle Parental (Nintendo Switch)](https://alt-erre.github.io/jeedom-docs/altSwitch/), [Alt Contrôle Parental (PlayStation)](https://alt-erre.github.io/jeedom-docs/altPlaystation/), [Alt Contrôle Parental (Xbox)](https://alt-erre.github.io/jeedom-docs/altXbox/) : coupure forcée à distance.
+
+---
+
 ## 4. Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux Conditions Générales d'Utilisation du Jeedom Market :

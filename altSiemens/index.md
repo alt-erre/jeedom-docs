@@ -86,6 +86,34 @@ Pour dialoguer en local sur le port `80` (`AES-CBC + HMAC-SHA256`) ou `443` (`TL
 
 ---
 
+## 💡 Idées de Scénarios & Synergies avec l'Écosystème `alt-erre`
+
+Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieusement avec les autres solutions de l'écosystème `alt-erre` pour enrichir votre quotidien :
+
+### 1. Réveil Sensoriel & Préparation du Café Matinal
+- **Déclencheur** : Sonnerie du réveil matinal.
+- **Action & Synergie** : Démarrage du préchauffage et percolation de la recette favorite sur sonnerie du réveil matinal, avec diffusion du trafic.
+- **Plugins complémentaires associés** :
+  - [Alt Diffusion, Sons & Multiroom (AirPlay)](https://alt-erre.github.io/jeedom-docs/altAirCast/) & [Alt Multiroom Audio (Sonos)](https://alt-erre.github.io/jeedom-docs/altSonos/) : réveil sonore et annonce vocale.
+  - [Alt Transports & Mobilités Urbaines](https://alt-erre.github.io/jeedom-docs/altTransit/) : météo et temps de parcours au réveil.
+  - [Alt Habitat & Domotique (Delta Dore Tydom)](https://alt-erre.github.io/jeedom-docs/altTydom/) : ouverture des volets de cuisine.
+
+### 2. Pause Café en Télétravail & Ambiance Détente
+- **Déclencheur** : Déclenchement d'un expresso via télécommande ou smartphone.
+- **Action & Synergie** : Lancement d'un expresso intense en 1 clic à la télécommande TV, accompagné d'une ambiance musicale lounge.
+- **Plugins complémentaires associés** :
+  - [Alt Audio (Cambridge)](https://alt-erre.github.io/jeedom-docs/altCambridgeAudio/) : fond musical relaxant.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : commande 1 clic sur TV.
+
+### 3. Alerte Visuelle d'Entretien (Eau & Grains de Café)
+- **Déclencheur** : Bac à marc plein ou réservoir d'eau vide.
+- **Action & Synergie** : Impulsion ambrée dans la cuisine et pastille sur le tableau de bord lorsque le réservoir d'eau est vide.
+- **Plugins complémentaires associés** :
+  - [Alt Éclairage & Ambiance (Philips Hue)](https://alt-erre.github.io/jeedom-docs/altHue/) : rappel visuel discret.
+  - [Alt Dashboard & Kiosk TV](https://alt-erre.github.io/jeedom-docs/altTvDashboard/) : statut de maintenance affiché sur TV.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :
