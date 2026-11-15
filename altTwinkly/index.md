@@ -24,6 +24,7 @@ Le plugin **Alt Éclairages & Effets LED (Twinkly) (`altTwinkly`)** permet de d�
   - Contrôleur Twinkly connecté au même réseau local (Wi-Fi/LAN) que Jeedom (API HTTP REST locale port `80`, découverte UDP port `5555` et streaming temps réel UDP port `7777`). Aucun compte Cloud Twinkly requis en fonctionnement local.
 - **Matériel physiquement testé et validé par l'auteur :**
   - **Ruban Néon LED flexible Twinkly Flex (`TWFL300STW`)**.
+  - **Matériels en cours de validation (tests saisonniers à venir) :** **Guirlande de sapin Twinkly Strings 600 LEDs**, **Étoile de sapin Twinkly (*Tree Topper*)** et **Dongle USB Twinkly Music**.
 - **Autres équipements compatibles (protocole local unifié Twinkly `xled`) :**
   - Ensemble des gammes **Twinkly Gen I, Gen II, Plus & Pro** : `Strings` (RGB, RGBW, Gold AWW), `Squares`, `Curtain`, `Matrix Curtain`, `Icicle`, `Cluster`, `Festoon`, `Dots`, `Candies`, `Spritzer`, `Line`, `Pre-Lit Tree` et clé `Twinkly Music`.
 
