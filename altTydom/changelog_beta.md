@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.38] - 2026-11-15
+
+- Rafraîchissement automatique instantané des tuiles de synthèse sur le Dashboard lors de toute action ou remontée d'état de la box Tydom.
+- Rendu interactif du curseur de pourcentage (`0 %` à `100 %`, au pourcent près) directement sur les tuiles de synthèse des volets roulants, BSO, ouvrants motorisés et éclairages variateurs.
+- Chargement rapide et progressif par lots de la vue « Widgets » avec mutualisation des styles d'affichage.
+
 ## [0.1.0-beta.37] - 2026-11-15
 
 - Mise à jour automatique en temps réel des tuiles de synthèse, des compteurs globaux, des indicateurs de pièces et du tableau de supervision sur le Dashboard sans rechargement de la page.
