@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.39] - 2026-11-16
+
+- Correction du renouvellement silencieux de la session Cloud Arlo à l'échéance des 3 heures du jeton (`1024 - Saisissez à nouveau vos identifiants. sur session/v2`) : le démon renouvelle désormais automatiquement et silencieusement le jeton via le « Navigateur de Confiance » (valable 14 jours) avant toute sollicitation du canal SMS ou E-mail IMAP.
+- Maintien périodique toutes les 15 minutes des cookies de confiance d'authentification Arlo et suppression des doublons de messages d'erreur dans les journaux.
+- Amélioration de la gestion IMAP (prise en charge automatique des mots de passe d'application copiés avec espaces et arrêt immédiat des tentatives en cas d'identifiants IMAP refusés par le serveur mail).
+
 ## [0.1.0-beta.38] - 2026-11-14
 
 - Correction de la lecture des états groupés (`resource: "cameras"`) renvoyés par le SmartHub Arlo lorsqu'un grand nombre de caméras y sont rattachées : le décodage complet des trames multi-blocs permet désormais de remonter immédiatement le véritable niveau de batterie, la qualité du signal RF et l'état « Hors ligne · Batterie déchargée » (`🪫 0%`) de chaque caméra (au lieu de rester figé sur les valeurs par défaut `Surveillance active · 🔋 100 % · 📶 3/4`).
