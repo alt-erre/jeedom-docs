@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.16] - 2026-11-17
+
+- Correction des messages d'erreur (« Timeout ACK JVC » et « Connexion refusée ») lors de l'utilisation des boutons du widget grâce à une file d'attente automatique des commandes réseau et à la gestion des options dépendantes du mode d'image actif.
+
 ## [0.1.0-beta.15] - 2026-11-14
 
 - Correction de la suppression d'un vidéoprojecteur et accélération de l'ouverture de la fiche équipement dans l'interface Jeedom.
