@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.15] - 2026-11-17
+
+- **Décomposition détaillée des écritures système, SQL et journaux sur la mémoire Flash eMMC (24h)** :
+  - Ventilation précise de l'origine des écritures eMMC en 8 postes distincts : **Logs Plugins**, **Logs Core Jeedom & Scénarios** (`http.error`, `cron_execution`, `scenarioLog/`), **SQL Historique Commandes**, **Moteur MariaDB & Tables Core** (`cron`, `config`, `cache`, InnoDB), **Dossiers `data/`**, **I/O Direct Démons**, **Journaux Linux (`/var/log`, `journald`, `rsyslogd`, `apache2`) & Services**, **Swap Linux sur eMMC** et **Journal `ext4` (`jbd2`) & Noyau**.
+  - Ajout sous la barre eMMC du Cockpit (ainsi que dans la bulle explicative au survol) de la liste des **principaux services système écrivains sur 24h** (`mariadbd`, `systemd-journald`, `rsyslogd`, `apache2`, `mosquitto`, `Swap`...) et des **journaux `/var/log` et Core Jeedom les plus actifs / volumineux**.
+
 ## [0.1.0-beta.14] - 2026-11-15
 
 - **Correction de l'affichage du bloc Démon et du chargement de la classe du plugin** :
