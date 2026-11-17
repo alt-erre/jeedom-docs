@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.40] - 2026-11-17
+
+- Correction du message d'erreur `Rejet temporaire Arlo (users/devices) ignoré - la session Cloud est toujours valide.` à l'ouverture du Direct (Live) : la validité du jeton est désormais contrôlée directement sur l'API des équipements (`users/devices`) et toute requête intervenant au moment du renouvellement automatique des 3 heures est rejouée de façon transparente avec le nouveau jeton sans interrompre le Direct (Live).
+
 ## [0.1.0-beta.39] - 2026-11-16
 
 - Correction du renouvellement silencieux de la session Cloud Arlo à l'échéance des 3 heures du jeton (`1024 - Saisissez à nouveau vos identifiants. sur session/v2`) : le démon renouvelle désormais automatiquement et silencieusement le jeton via le « Navigateur de Confiance » (valable 14 jours) avant toute sollicitation du canal SMS ou E-mail IMAP.
