@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.17] - 2026-11-17
+
+- **Rotation préalable de `/var/log/journal` lors de la purge & suivi des sauvegardes Jeedom et du Swap du jour** :
+  - Exécution automatique de `journalctl --rotate` juste avant `journalctl --vacuum-size=50M` lors du clic sur **« Réduire à 50 Mo »** afin que le fichier journal actif en cours (qui restait bloqué à ~120 Mo) soit lui aussi tourné et purgé sous les 50 Mo.
+  - Prise en compte du cumul journalier du Swap (`pswpout`) depuis minuit et suivi dédié des écritures générées par les sauvegardes Jeedom (`/var/www/html/backup`).
+
 ## [0.1.0-beta.16] - 2026-11-17
 
 - **Mesure directe des écritures SQL MariaDB et `systemd-journald` sur Jeedom Luna (noyau sans `/proc/<pid>/io`) & Purge en 1 clic de `/var/log/journal`** :
