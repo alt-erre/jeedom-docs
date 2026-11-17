@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.19] - 2026-11-17
+
+- **Exécution 100 % native `www-data` du démon (zéro appel `sudo` en arrière-plan) & Protection SSH / Système lors des mises à jour** :
+  - Exécution du démon et des collectes ponctuelles directement sous l'utilisateur `www-data` (sans wrapper `sudo` permanent) avec arrêt natif instantané, éliminant toute saturation CPU / I/O / PAM susceptible de figer l'accès SSH ou l'interface Web pendant une mise à jour.
+  - Réparation automatique des permissions sur `/tmp/jeedom/altSystemGuard` et lecture des en-têtes `/var/log/journal` sans privilèges root permanents.
+
 ## [0.1.0-beta.18] - 2026-11-17
 
 - **Suppression de tout blocage d'interface Web (Apache / Session PHP) lors des mises à jour du plugin sur Jeedom Luna** :
