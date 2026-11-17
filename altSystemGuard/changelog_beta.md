@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.18] - 2026-11-17
+
+- **Suppression de tout blocage d'interface Web (Apache / Session PHP) lors des mises à jour du plugin sur Jeedom Luna** :
+  - Libération immédiate du verrou de session PHP sur l'ensemble des requêtes AJAX du plugin afin que le rafraîchissement automatique du Cockpit ne puisse jamais bloquer la navigation dans Jeedom ni saturer les workers Apache pendant qu'une mise à jour est en cours.
+  - Lecture 100 % en mémoire vive (`< 1 ms`) lors des rafraîchissements automatiques et suppression de la requête SQL sur `information_schema` au profit d'une lecture directe ultra-rapide sur disque.
+  - Mise en cache intelligente des archives de `/var/log/journal` (seul le journal actif est lu à chaque cycle tant qu'aucune rotation ou purge n'a lieu) et accélération de la procédure de mise à jour.
+
 ## [0.1.0-beta.17] - 2026-11-17
 
 - **Rotation préalable de `/var/log/journal` lors de la purge & suivi des sauvegardes Jeedom et du Swap du jour** :
