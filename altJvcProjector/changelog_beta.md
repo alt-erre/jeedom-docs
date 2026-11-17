@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.18] - 2026-11-17
+
+- Ajout directement dans l'interface du plugin (fiche équipement et page de configuration) ainsi que dans la documentation d'un encadré de préconisations de sécurité matérielle pour préserver l'optique motorisée, le filtre couleur DCI-P3 et le refroidissement lors de la création de scénarios Jeedom.
+
 ## [0.1.0-beta.17] - 2026-11-17
 
 - Ajout du grisage et du verrouillage automatique sur le widget des commandes non disponibles selon l'état d'allumage, le mode d'image actif (ex. options réservées à Frame Adapt HDR), le mode Faible Latence (Low Latency) et le mode d'ouverture d'objectif (Iris).

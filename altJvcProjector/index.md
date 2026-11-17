@@ -89,6 +89,21 @@ Grâce à son intégration native dans Jeedom, le plugin s'associe harmonieuseme
 
 ---
 
+## Sécurité Matérielle & Préconisations d'Usage (Préservation Optique 100 mm, Filtre DCI-P3 & Laser BLU-Escent)
+
+Ce plugin a été conçu pour respecter l'intégrité matérielle des vidéoprojecteurs Home-Cinéma **JVC D-ILA** (dont les **DLA-NZ9 / NZ8 / NZ900 / NZ800**) :
+
+1. **Protocole officiel certifié par JVC (`PJTalk` TCP `20554`) & Supervision 100 % passive** :
+   - Le plugin utilise exclusivement le jeu de commandes public documenté par **JVCKENWOOD** (*D-ILA Projector External Control Specification*), identique à celui utilisé par les automates **Crestron, Control4, Savant et RTI**.
+   - Il n'accède **jamais** au menu d'usine (*Service Menu*) ni aux tables internes d'étalonnage (*Autocal*) et n'effectue aucune écriture dans l'EEPROM de calibration.
+   - Les lectures d'état périodiques (`Polling` / `Cron` / `Démon`) s'effectuent uniquement en **lecture RAM** (`?\x89\x01...`), sans solliciter aucune pièce mécanique ni user la mémoire flash interne du projecteur.
+2. **Les 3 règles d'or à respecter dans vos scénarios domotiques Jeedom** :
+   - **Mémoires d'objectif motorisées (`Lens Memory 1 à 10` / `INML`)** : le rappel d'une mémoire d'installation met en mouvement les moteurs pas-à-pas de haute précision (*Zoom, Focus et Lens Shift*). Ne déclenchez un changement de `Mode Installation` que lors d'un véritable changement de format de projection (ex. passage `16:9` vers `2.35:1`), et jamais de manière répétitive ou périodique.
+   - **Filtre optique Cinéma DCI-P3 (`Profil Couleur` / `PMPR`)** : sur les modèles équipés (DLA-NZ9, NZ8, NZ900, NZ800, N7, NX9), le passage entre un profil couleur avec filtre (`DCI-P3`, `BT.2020 (Wide)`) et un profil sans filtre (`BT.709`, `BT.2020 (Normal)`) actionne physiquement un **filtre dichroïque motorisé** dans le chemin lumineux. Évitez de faire commuter ce filtre en boucle dans un scénario.
+   - **Cycles d'allumage / extinction & Refroidissement (`PW1` / `PW0`)** : évitez d'éteindre le vidéoprojecteur pour le rallumer quelques minutes plus tard afin de limiter les cycles de dilatation thermique sur les matrices **D-ILA**, et **ne coupez jamais l'alimentation électrique secteur** (prise connectée ou onduleur piloté) tant que le statut du projecteur est en **`Refroidissement`**.
+
+---
+
 ## Confidentialité, Protection des Données & Mesures de Sécurité
 
 Conformément aux règles de confidentialité et de sécurité du Jeedom Market (Articles 4.3 et 4.8) :
