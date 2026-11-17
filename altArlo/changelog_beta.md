@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.42] - 2026-11-17
+
+- Amélioration majeure de la fluidité et du nombre d'images par seconde (IPS) du Direct (Live) : passage du flux vidéo de 2,5 à **8 images/s**, service direct ultra-rapide des trames depuis la mémoire vive (sans solliciter la base de données à chaque image), tolérance au temps de réveil radio des caméras sur batterie pour privilégier le flux vidéo continu RTSPS, et accélération de l'enchaînement des images en mode Direct HD séquentiel.
+
 ## [0.1.0-beta.41] - 2026-11-17
 
 - Correction de l'actualisation en temps réel de l'image en Direct (Live) : rétablissement de la négociation prioritaire du flux vidéo direct RTSPS (2,5 images/s) sur la session unique du démon et déblocage du rafraîchissement continu des trames en mode Direct HD séquentiel (remise à l'état disponible de la caméra après un échec `weblivestream`, réveil systématique via le SmartHub et préchargement fluide des images sans scintillement).
