@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.16] - 2026-11-17
+
+- **Mesure directe des écritures SQL MariaDB et `systemd-journald` sur Jeedom Luna (noyau sans `/proc/<pid>/io`) & Purge en 1 clic de `/var/log/journal`** :
+  - Lecture directe des compteurs internes d'écriture du moteur InnoDB de MariaDB (`SHOW GLOBAL STATUS`) et de l'offset d'écriture temps réel des journaux binaires `systemd-journald` (`/var/log/journal`) pour afficher les vrais volumes écrits sur les box dont le noyau Linux désactive `/proc/<pid>/io` (Jeedom Luna).
+  - Calcul immédiat du volume d'historique SQL 24h dès la première ouverture du Cockpit après redémarrage du démon.
+  - Ajout d'un bouton **« Réduire à 50 Mo »** (`journalctl --vacuum-size=50M`) lorsque `/var/log/journal` occupe plus de 100 Mo sur l'eMMC (permettant de libérer jusqu'à 1,3 Go sur une Jeedom Luna en 1 clic) et affichage de la part `/var/log` dans la barre d'occupation du disque racine.
+
 ## [0.1.0-beta.15] - 2026-11-17
 
 - **Décomposition détaillée des écritures système, SQL et journaux sur la mémoire Flash eMMC (24h)** :
