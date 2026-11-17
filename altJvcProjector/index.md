@@ -97,10 +97,13 @@ Ce plugin a été conçu pour respecter l'intégrité matérielle des vidéoproj
    - Le plugin utilise exclusivement le jeu de commandes public documenté par **JVCKENWOOD** (*D-ILA Projector External Control Specification*), identique à celui utilisé par les automates **Crestron, Control4, Savant et RTI**.
    - Il n'accède **jamais** au menu d'usine (*Service Menu*) ni aux tables internes d'étalonnage (*Autocal*) et n'effectue aucune écriture dans l'EEPROM de calibration.
    - Les lectures d'état périodiques (`Polling` / `Cron` / `Démon`) s'effectuent uniquement en **lecture RAM** (`?\x89\x01...`), sans solliciter aucune pièce mécanique ni user la mémoire flash interne du projecteur.
-2. **Les 3 règles d'or à respecter dans vos scénarios domotiques Jeedom** :
-   - **Mémoires d'objectif motorisées (`Lens Memory 1 à 10` / `INML`)** : le rappel d'une mémoire d'installation met en mouvement les moteurs pas-à-pas de haute précision (*Zoom, Focus et Lens Shift*). Ne déclenchez un changement de `Mode Installation` que lors d'un véritable changement de format de projection (ex. passage `16:9` vers `2.35:1`), et jamais de manière répétitive ou périodique.
-   - **Filtre optique Cinéma DCI-P3 (`Profil Couleur` / `PMPR`)** : sur les modèles équipés (DLA-NZ9, NZ8, NZ900, NZ800, N7, NX9), le passage entre un profil couleur avec filtre (`DCI-P3`, `BT.2020 (Wide)`) et un profil sans filtre (`BT.709`, `BT.2020 (Normal)`) actionne physiquement un **filtre dichroïque motorisé** dans le chemin lumineux. Évitez de faire commuter ce filtre en boucle dans un scénario.
-   - **Cycles d'allumage / extinction & Refroidissement (`PW1` / `PW0`)** : évitez d'éteindre le vidéoprojecteur pour le rallumer quelques minutes plus tard afin de limiter les cycles de dilatation thermique sur les matrices **D-ILA**, et **ne coupez jamais l'alimentation électrique secteur** (prise connectée ou onduleur piloté) tant que le statut du projecteur est en **`Refroidissement`**.
+2. **Les 3 garde-fous matériels automatiques intégrés (et bonnes pratiques scénarios)** :
+   - **Garde-fou n°1 - Optique motorisée 100 mm (`Lens Memory 1 à 10` / `INML`)** :
+     - *Protection automatique* : le plugin ignore tout appel redondant vers la mémoire d'objectif déjà active, impose un délai mécanique incompressible de **`35 secondes`** entre deux déplacements d'objectif et bloque automatiquement toute boucle de scénario (**max 4 rappels sur 10 minutes**) afin de préserver les moteurs pas-à-pas de *Zoom, Focus et Lens Shift*.
+   - **Garde-fou n°2 - Filtre optique Cinéma DCI-P3 (`Profil Couleur` / `PMPR`)** :
+     - *Protection automatique* : le plugin ignore tout appel redondant vers le profil couleur déjà actif, impose un délai de **`12 secondes`** entre deux changements et coupe toute boucle accidentelle (**max 5 bascules sur 5 minutes**) pour ménager le filtre dichroïque motorisé.
+   - **Garde-fou n°3 - Cycles d'allumage / extinction & Refroidissement (`PW1` / `PW0` & `safe_power_cut`)** :
+     - *Protection automatique* : le plugin bloque tout rallumage pendant la phase de `Refroidissement` (`PW=2`), interdit toute extinction pendant le `Préchauffage` (`PW=3`), applique un délai anti-cyclage thermique de **`45 à 60 secondes`** entre allumage et extinction, et met à disposition la commande binaire **`Coupure secteur autorisée (Refroidi)` (`safe_power_cut`)** qui ne passe à `1` qu'une fois le projecteur en veille complète et refroidi depuis au moins **`90 secondes`**.
 
 ---
 

@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.19] - 2026-11-17
+
+- Ajout de 3 garde-fous matériels automatiques protégeant le vidéoprojecteur contre les boucles de scénarios (protection des moteurs de l'optique Lens Memory, protection du filtre motorisé DCI-P3, protection anti-cyclage thermique) et ajout d'une commande binaire « Coupure secteur autorisée (Refroidi) ».
+
 ## [0.1.0-beta.18] - 2026-11-17
 
 - Ajout directement dans l'interface du plugin (fiche équipement et page de configuration) ainsi que dans la documentation d'un encadré de préconisations de sécurité matérielle pour préserver l'optique motorisée, le filtre couleur DCI-P3 et le refroidissement lors de la création de scénarios Jeedom.
