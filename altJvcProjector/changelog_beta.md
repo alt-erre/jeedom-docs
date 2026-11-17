@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.17] - 2026-11-17
+
+- Ajout du grisage et du verrouillage automatique sur le widget des commandes non disponibles selon l'état d'allumage, le mode d'image actif (ex. options réservées à Frame Adapt HDR), le mode Faible Latence (Low Latency) et le mode d'ouverture d'objectif (Iris).
+
 ## [0.1.0-beta.16] - 2026-11-17
 
 - Correction des messages d'erreur (« Timeout ACK JVC » et « Connexion refusée ») lors de l'utilisation des boutons du widget grâce à une file d'attente automatique des commandes réseau et à la gestion des options dépendantes du mode d'image actif.
