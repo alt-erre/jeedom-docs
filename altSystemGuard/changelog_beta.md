@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.22] - 2026-11-18
+
+- **Correction de l'affichage du segment « SQL Historique Cmds » et « Environnements venv » sur les barres du Cockpit** :
+  - Correction du nom de propriété lu par la barre empilée eMMC pour le poste **SQL Historique Cmds** (qui restait affiché à `0.00 Mo` dans la légende de la barre alors que le volume était bien comptabilisé dans la bulle et le tableau des plugins) ainsi que pour le poids des environnements `venv` sur la barre Disque.
+
 ## [0.1.0-beta.21] - 2026-11-18
 
 - **Accélération de la procédure de mise à jour (`< 0,3 s`) & suppression de l'avertissement `update.ajax.php : Load failed` sur Safari / iOS** :
