@@ -5,6 +5,15 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.45] - 2026-11-18
+
+- Correction de l'erreur `Votre session Cloud Arlo est arrivée à expiration (« Access token is expired »)` lors de l'ouverture du Direct (Live) après 2 heures :
+  - Le démon renouvelle désormais automatiquement et silencieusement le jeton Cloud Arlo en arrière-plan avant son échéance de 2 heures ainsi qu'immédiatement en cas d'expiration détectée à l'ouverture d'un flux Live ;
+  - Fiabilisation de l'appairage « Navigateur de Confiance » (valable 14 jours sans envoi de SMS ni d'e-mail) lors de la connexion 2FA.
+- Amélioration majeure de la fluidité du Direct (Live) sur Chrome (macOS / Windows), Safari et mobile en mode **🎬 24 IPS Natif** et **⚡ 12 IPS** :
+  - Transmission directe des images vidéo en mémoire sans fichier tampon intermédiaire ni perte de trame ;
+  - Suppression du double téléchargement d'image par trame sous Chrome et décodage matériel asynchrone sans saccade.
+
 ## [0.1.0-beta.44] - 2026-11-18
 
 - Correction du respect effectif des cadences d'images (20 IPS, 12 IPS, 8 IPS, 6 IPS) sur iPhone, iPad et connexion VPN :
