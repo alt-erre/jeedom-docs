@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.21] - 2026-11-18
+
+- **Accélération de la procédure de mise à jour (`< 0,3 s`) & suppression de l'avertissement `update.ajax.php : Load failed` sur Safari / iOS** :
+  - Suppression des appels système redondants pendant l'installation et le redémarrage du démon afin que la requête `update.ajax.php` rende la main immédiatement au navigateur (évitant la coupure de connexion `Load failed` de Safari iOS lors des mises à jour unitaires).
+
 ## [0.1.0-beta.20] - 2026-11-18
 
 - **Correction des compteurs restant à `0.00 Mo` après le passage de minuit ou relance du démon** :
