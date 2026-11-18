@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.45] - 2026-11-18
+
+- Amélioration du retour visuel de l'Assistant Migration : indicateur de progression directement sur le bouton d'action, marquage en vert « Migré ! » sur chaque équipement au fil de l'eau et affichage d'un écran récapitulatif complet en fin de migration.
+
 ## [0.1.0-beta.44] - 2026-11-18
 
 - Ajout d'un contrôle anti-perte et anti-orphelin en temps réel dans l'Assistant Migration : affichage pour chaque équipement et commande du nombre exact de points d'historique en base et des Scénarios / Virtuels / Vues / Designs / Résumés qui l'utilisent, auto-création préventive des commandes cibles manquantes et alerte visuelle si un élément utilisé ou historisé n'est pas associé.
