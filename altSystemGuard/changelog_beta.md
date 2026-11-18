@@ -1,9 +1,14 @@
-# Changelog Beta - Alt Audit Ressources, eMMC & Santé Plugins (`altSystemGuard`)
+# Changelog Beta - Alt Audit Ressources, Disque & Santé Plugins (`altSystemGuard`)
 
 Ce document résume les fonctionnalités en cours d'ajout et les correctifs publiés sur le **canal Beta** du plugin.
 Pour les versions majeures du canal Stable, consultez le [Changelog Stable](https://alt-erre.github.io/jeedom-docs/altSystemGuard/changelog).
 
 ---
+
+## [0.1.0-beta.23] - 2026-11-18
+
+- **Nouvelle dénomination commerciale `Alt Audit Ressources, Disque & Santé Plugins` & Adaptation automatique au support de stockage** :
+  - Détection automatique du type de support de stockage de la machine Jeedom (**Flash eMMC** sur Luna/Atlas/Smart, **Carte MicroSD** sur Raspberry Pi, **SSD NVMe**, **Disque SSD** sur Mini-PC ou **Disque Virtuel VM** sous Proxmox) et adaptation dynamique des titres, cartes et infobulles du Cockpit.
 
 ## [0.1.0-beta.22] - 2026-11-18
 

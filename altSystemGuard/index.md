@@ -1,8 +1,8 @@
-# Alt Audit Ressources, eMMC & Santé Plugins (`altSystemGuard`)
+# Alt Audit Ressources, Disque & Santé Plugins (`altSystemGuard`)
 
-**Nom commercial Market :** **Alt Audit Ressources, eMMC & Santé Plugins**  
+**Nom commercial Market :** **Alt Audit Ressources, Disque & Santé Plugins**  
 **Identifiant technique :** `altSystemGuard`  
-**Version actuelle :** `0.1.0-beta.22`  
+**Version actuelle :** `0.1.0-beta.23`  
 **Auteur :** Aurélien Léovant (`alt-erre`)  
 **Catégorie :** Supervision (`monitoring`)  
 **Compatibilité :** Jeedom v4.0+ (Jeedom Luna, Atlas, Smart, Mini+, Raspberry Pi, Docker, VM & DIY)
@@ -10,7 +10,7 @@
 ### 🌟 Atouts Exclusifs & Architecture Différenciante
 
 - **Profilage chirurgical plugin par plugin** : calcul rigoureux de la charge processeur, des requêtes HTTP et de l'empreinte mémoire vive réelle en PSS (*Proportional Set Size*) au lieu de métriques globales floues.
-- **Audit d'usure matérielle eMMC et 4 vecteurs d'écriture** : seule solution Jeedom lisant directement les registres matériels JEDEC 5.0/5.1 de fin de vie (`life_time`, `pre_eol_info`) et isolant les 4 canaux réels d'usure flash (I/O démons, logs, insertions SQL `history`, données `data/`).
+- **Audit des 4 vecteurs d'écriture disque/flash et d'usure matérielle eMMC** : isolation des 4 canaux réels d'écriture sur tout support (Flash eMMC, Carte MicroSD, SSD NVMe, Disque SSD, VM Proxmox : I/O démons, logs, insertions SQL `history`, données `data/`) et lecture directe des registres matériels JEDEC 5.0/5.1 de fin de vie (`life_time`, `pre_eol_info`) sur les puces eMMC.
 - **Détection proactive d'anomalies critiques** : identification immédiate des logs oubliés en niveau `DEBUG`, des fuites de mémoire vive et des commandes textuelles historisées saturant MariaDB.
 - **Remédiation corrective en 1 clic** : boutons d'action immédiate pour repasser les logs en mode `Défaut`, purger les journaux excessifs ou désactiver les historisations polluantes sans ouvrir la configuration avancée.
 
@@ -20,14 +20,14 @@
 
 - **Plateforme Jeedom de référence :** Développé et testé en conditions réelles sur une box officielle **Jeedom Luna 4G LoRaWAN** (ARM64 Rockchip, 2 Go de RAM, mémoire flash eMMC 16 Go).
 - **Compatibilité système :**
-  - Toutes installations **Jeedom $\ge$ 4.0 / 4.2** sous Linux Debian 11 / 12 (**Jeedom Luna**, **Jeedom Atlas**, **Jeedom Smart**, Raspberry Pi, Mini-PC, VM et Docker).
-  - La lecture matérielle des registres d'usure **JEDEC eMMC 5.0/5.1** (`/sys/block/mmcblk*/device/life_time` et `pre_eol_info`) s'active automatiquement sur toutes les box équipées d'une puce eMMC (Luna, Atlas, Smart) ; toutes les autres métriques (I/O par plugin, RAM PSS, Swap, `tmpfs`, CPU, SQL MariaDB, logs) fonctionnent sur l'ensemble des plateformes Linux.
+  - Toutes installations **Jeedom $\ge$ 4.0 / 4.2** sous Linux Debian 11 / 12 (**Jeedom Luna**, **Jeedom Atlas**, **Jeedom Smart**, Raspberry Pi sur MicroSD/SSD/NVMe, Mini-PC, VM Proxmox et Docker).
+  - Le plugin détecte automatiquement la nature du support de stockage (`Flash eMMC`, `Carte MicroSD`, `SSD NVMe`, `Disque SSD`, `Disque Virtuel VM`). La lecture matérielle des registres d'usure **JEDEC eMMC 5.0/5.1** (`/sys/block/mmcblk*/device/life_time` et `pre_eol_info`) s'active automatiquement sur toutes les box équipées d'une puce eMMC (Luna, Atlas, Smart) ; toutes les autres métriques (I/O par plugin, RAM PSS, Swap, `tmpfs`, CPU, SQL MariaDB, logs) fonctionnent sur l'ensemble des plateformes Linux.
 
 ---
 
 ## 1. Présentation Générale
 
-Contrairement aux outils de supervision Linux classiques qui n'affichent que la charge globale de la machine, **Alt Audit Ressources, eMMC & Santé Plugins (`altSystemGuard`)** est conçu spécifiquement pour l'architecture interne de Jeedom afin de **calculer la consommation exacte de chacun des plugins installés sur la box** et de **protéger la mémoire flash eMMC** contre l'usure prématurée :
+Contrairement aux outils de supervision Linux classiques qui n'affichent que la charge globale de la machine, **Alt Audit Ressources, Disque & Santé Plugins (`altSystemGuard`)** est conçu spécifiquement pour l'architecture interne de Jeedom afin de **calculer la consommation exacte de chacun des plugins installés sur la box** et de **protéger le support de stockage (eMMC, MicroSD, SSD)** contre l'usure prématurée :
 
 1. **Mesure des Lectures / Écritures sur la Mémoire Flash eMMC par Plugin (`Mo / 24h` & `Ko / s`)** :
    - **I/O Disque direct des démons et workers** (`/proc/<pid>/io` : `read_bytes` & `write_bytes` hors cache RAM `/tmp`).
