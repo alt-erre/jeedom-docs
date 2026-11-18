@@ -5,6 +5,15 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.43] - 2026-11-18
+
+- Ajout du choix du mode et de la cadence d'images du Direct (Live), réglable par défaut dans la configuration du plugin et commutable à la volée directement dans la fenêtre du Live :
+  - **🎬 24 IPS Natif (Vidéo H.264)** : flux vidéo H.264 natif sans ré-encodage (15 à 24 IPS comme dans l'application Arlo, charge CPU minimale) avec aperçu image instantané ;
+  - **⚡ 12 IPS Haute Fluidité (JPEG)** : flux JPEG rapide compatible tous navigateurs ;
+  - **⚖️ 8 IPS Équilibré (JPEG)** : compromis fluidité / ressources ;
+  - **🌱 6 IPS Éco CPU (Luna)** : mode basse consommation processeur pour box Jeedom Luna ;
+  - **📸 Direct HD Séquentiel (Clichés)** : rafale de clichés Cloud HD.
+
 ## [0.1.0-beta.42] - 2026-11-17
 
 - Amélioration majeure de la fluidité et du nombre d'images par seconde (IPS) du Direct (Live) : passage du flux vidéo de 2,5 à **8 images/s**, service direct ultra-rapide des trames depuis la mémoire vive (sans solliciter la base de données à chaque image), tolérance au temps de réveil radio des caméras sur batterie pour privilégier le flux vidéo continu RTSPS, et accélération de l'enchaînement des images en mode Direct HD séquentiel.
