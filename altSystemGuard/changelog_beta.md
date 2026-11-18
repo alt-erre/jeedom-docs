@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.24] - 2026-11-18
+
+- **Correction de la mesure RAM d'Apache Web et du Système Linux sur la barre de répartition Mémoire Vive** :
+  - Déduplication de la mémoire partagée (cache OPcache PHP et bibliothèques partagées) entre les processus workers Apache et les démons multi-processus afin que le poste **Apache Web** affiche son empreinte mémoire physique réelle (`~110 Mo` au lieu de cumuler la mémoire partagée de chaque worker) et que le poste **Système Linux & Buffers** ne soit plus écrasé à `0 Mo`.
+
 ## [0.1.0-beta.23] - 2026-11-18
 
 - **Nouvelle dénomination commerciale `Alt Audit Ressources, Disque & Santé Plugins` & Adaptation automatique au support de stockage** :
