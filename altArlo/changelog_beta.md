@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.46] - 2026-11-18
+
+- Correction de l'erreur `Expecting value: line 1 column 1 (char 0)` lors du clic sur **« 1. Demander un code 2FA »** et lors du renouvellement automatique de la session Cloud Arlo :
+  - Suppression du conflit de cookies de session qui faisait échouer la lecture de la réponse d'authentification Arlo lorsqu'une ancienne session était présente ;
+  - Fiabilisation de l'envoi immédiat du code 2FA (E-mail / SMS) et du maintien de la session Cloud Arlo lors de l'ouverture des flux Direct (Live).
+
 ## [0.1.0-beta.45] - 2026-11-18
 
 - Correction de l'erreur `Votre session Cloud Arlo est arrivée à expiration (« Access token is expired »)` lors de l'ouverture du Direct (Live) après 2 heures :
