@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.20] - 2026-11-18
+
+- Correction de la mise à jour en temps réel du widget Dashboard et Mobile : toutes les informations, bascules, listes déroulantes, curseurs et états grisés se mettent désormais à jour automatiquement en direct sans avoir à recharger la page.
+
 ## [0.1.0-beta.19] - 2026-11-17
 
 - Ajout de 3 garde-fous matériels automatiques protégeant le vidéoprojecteur contre les boucles de scénarios (protection des moteurs de l'optique Lens Memory, protection du filtre motorisé DCI-P3, protection anti-cyclage thermique) et ajout d'une commande binaire « Coupure secteur autorisée (Refroidi) ».
