@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.44] - 2026-11-18
+
+- Correction du respect effectif des cadences d'images (20 IPS, 12 IPS, 8 IPS, 6 IPS) sur iPhone, iPad et connexion VPN :
+  - Déblocage de l'ouverture du flux vidéo direct RTSPS auprès des serveurs Arlo (transmission du jeton sur la commande `SETUP trackID`, en-têtes mobiles `startStream` épurés sur la session unique et compatibilité universelle H.264 / HEVC 2K/4K) afin d'éviter la bascule sur le mode secours « Clichés HD » ;
+  - Chargement pipeliné des images pour éliminer le bridage lié à la latence réseau/VPN sur mobile et ajout d'un badge indicateur de la cadence active en haut à gauche du Direct (Live).
+
 ## [0.1.0-beta.43] - 2026-11-18
 
 - Ajout du choix du mode et de la cadence d'images du Direct (Live), réglable par défaut dans la configuration du plugin et commutable à la volée directement dans la fenêtre du Live :
