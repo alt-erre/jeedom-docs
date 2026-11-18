@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.20] - 2026-11-18
+
+- **Correction des compteurs restant à `0.00 Mo` après le passage de minuit ou relance du démon** :
+  - Correction de la remise à zéro automatique de minuit qui activait par erreur le verrou de remise à zéro manuelle, et réparation automatique des droits d'écriture sur le fichier de log du démon afin qu'il démarre toujours sous `www-data`.
+  - Sauvegarde continue des curseurs de mesure en mémoire vive (`tmpfs`) et amorçage automatique des compteurs de la journée en cours (eMMC, MariaDB, logs plugins/Core, `/var/log/journal` et historique SQL 24h).
+
 ## [0.1.0-beta.19] - 2026-11-17
 
 - **Exécution 100 % native `www-data` du démon (zéro appel `sudo` en arrière-plan) & Protection SSH / Système lors des mises à jour** :
