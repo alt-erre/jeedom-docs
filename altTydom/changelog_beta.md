@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.42] - 2026-11-18
+
+- Ajout d'un bouton « Mode association » (avec confirmation de sécurité) dans la barre d'actions de chaque équipement pour activer à distance le mode d'appairage radio X3D d'un module Delta Dore sans ouvrir le boîtier.
+
 ## [0.1.0-beta.41] - 2026-11-15
 
 - Correction d'une erreur lors du démarrage du démon (`deamon_start`) et du rafraîchissement en arrière-plan du Dashboard.
