@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.47] - 2026-11-18
+
+- Correction du remplacement des commandes dans les équipements du plugin officiel « Thermostat » (`Thermostat Confort ...`) et leurs écouteurs d'événements temps réel lors de la migration, et copie jumelée de l'historique de température extérieure sur la commande principale de la sonde.
+
 ## [0.1.0-beta.46] - 2026-11-18
 
 - Correction du badge « Utilisé (1) » qui restait affiché sur les thermostats de l'ancien plugin après migration (exclusion des auto-références internes de l'ancien plugin), affichage en clair sous chaque équipement du nom exact de l'élément qui l'utilise (lisible sur tablette sans survol souris) et remplacement exhaustif dans les Vues et Designs.
