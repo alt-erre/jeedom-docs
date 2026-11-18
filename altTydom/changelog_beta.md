@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.46] - 2026-11-18
+
+- Correction du badge « Utilisé (1) » qui restait affiché sur les thermostats de l'ancien plugin après migration (exclusion des auto-références internes de l'ancien plugin), affichage en clair sous chaque équipement du nom exact de l'élément qui l'utilise (lisible sur tablette sans survol souris) et remplacement exhaustif dans les Vues et Designs.
+
 ## [0.1.0-beta.45] - 2026-11-18
 
 - Amélioration du retour visuel de l'Assistant Migration : indicateur de progression directement sur le bouton d'action, marquage en vert « Migré ! » sur chaque équipement au fil de l'eau et affichage d'un écran récapitulatif complet en fin de migration.
