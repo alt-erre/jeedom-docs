@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.48] - 2026-11-18
+
+- Remplacement des équipements et commandes 100 % via les méthodes natives officielles du Core Jeedom (`migrateCmd`, `migrateEqlogic`, `massReplace` et sauvegarde directe du Core) pour une compatibilité totale avec le plugin officiel « Thermostat » en mode temporel.
+
 ## [0.1.0-beta.47] - 2026-11-18
 
 - Correction du remplacement des commandes dans les équipements du plugin officiel « Thermostat » (`Thermostat Confort ...`) et leurs écouteurs d'événements temps réel lors de la migration, et copie jumelée de l'historique de température extérieure sur la commande principale de la sonde.
