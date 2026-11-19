@@ -5,6 +5,15 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.47] - 2026-11-19
+
+- Correction de l'apparition d'anciennes captures au milieu des images du Direct (Live) :
+  - Filtrage strict par empreinte d'image et exclusion des anciennes vignettes d'enregistrements de mouvement lors du flux Direct ;
+  - Suppression du repli vers l'ancienne capture du widget pendant le chargement des trames Live.
+- Correction de la fluidité du Direct (Live) dans tous les modes (24 IPS, 12 IPS, 8 IPS, 6 IPS) :
+  - Correction du paramètre d'analyse vidéo `ffmpeg` (`nobuffer`) et du relais RTSPS qui faisaient échouer l'ouverture du flux vidéo continu des caméras 2K/4K et basculer sur le mode secours image par image ;
+  - Réveil immédiat de la caméra via le SmartHub dès la première tentative et suppression du blocage temporaire de 30 minutes lorsqu'une caméra sur batterie met plusieurs secondes à se réveiller.
+
 ## [0.1.0-beta.46] - 2026-11-18
 
 - Correction de l'erreur `Expecting value: line 1 column 1 (char 0)` lors du clic sur **« 1. Demander un code 2FA »** et lors du renouvellement automatique de la session Cloud Arlo :
