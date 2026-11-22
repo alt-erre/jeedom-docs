@@ -21,6 +21,7 @@ PLUGINS=(
   "altCellular"
   "altDenon"
   "altEducartable"
+  "altGovee"
   "altHue"
   "altIos"
   "altJvcProjector"
@@ -71,7 +72,7 @@ workspace_root = sys.argv[1]
 out_path = sys.argv[2]
 plugins = [
     "altAirCast", "altAirMedia", "altArlo", "altBambuLab", "altCambridgeAudio", "altCellular",
-    "altDenon", "altEducartable", "altHue", "altIos", "altJvcProjector",
+    "altDenon", "altEducartable", "altGovee", "altHue", "altIos", "altJvcProjector",
     "altNetGuard", "altNuki", "altPlaystation", "altPronote", "altRoborock",
     "altSamsungTv", "altSiemens", "altSocial", "altSonos", "altSportEasy", "altSwitch", "altSystemGuard", "altTesla", "altTransit", "altTvDashboard",
     "altTwinkly", "altTydom", "altXbox",
