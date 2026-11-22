@@ -5,6 +5,12 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.48] - 2026-11-22
+
+- Correction de l'envoi répété d'un e-mail de vérification 2FA Arlo toutes les 2 heures :
+  - Suppression de la réinitialisation périodique de la session web interne au bout de 1h50 et de la tentative de ré-authentification anticipée à 1h55 qui invalidaient la session active toutes les 2 heures et déclenchaient une reconnexion 2FA automatique ;
+  - Maintien continu des cookies de session actifs avec les serveurs Arlo tant que le flux temps réel et les battements de cœur (`keep-alive`) sont acceptés.
+
 ## [0.1.0-beta.47] - 2026-11-19
 
 - Correction de l'apparition d'anciennes captures au milieu des images du Direct (Live) :
