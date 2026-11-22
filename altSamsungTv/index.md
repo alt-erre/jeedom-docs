@@ -26,9 +26,10 @@ Conçu dans la même philosophie et la même architecture qu'`altCambridgeAudio`
 - **Matériels physiquement testés et validés par l'auteur :**
   - **Samsung The Frame 75" (`QE75LS03A` - modèle 2021)**
   - **Samsung The Frame 55" (`TQ55LS03B` - dalle mate) équipé du support sur pied motorisé rotatif (`VG-ARAB43STD`)**
-- **Autres téléviseurs compatibles :**
+- **Autres téléviseurs & vidéoprojecteurs Samsung compatibles :**
   - Ensemble de la gamme **Samsung The Frame (2018 à 2025+, séries `LS03R`, `LS03T`, `LS03A`, `LS03B`, `LS03D`, `LS03F`)** et supports motorisés auto-rotatifs (`VG-ARAB22WMT` / `VG-ARAB43STD`).
-  - Ensemble des téléviseurs **Samsung Smart TV sous Tizen OS (2016+ : QLED, Neo QLED, OLED, Crystal UHD, The Serif, The Sero)** pour le contrôle TV, volume UPnP, sources, applications et télécommande.
+  - Ensemble des téléviseurs **Samsung Smart TV sous Tizen OS (2016+ : QLED, Neo QLED, OLED, Crystal UHD, The Serif `LS01`, The Sero `LS05`, The Terrace `LST7`)** pour le contrôle TV, volume UPnP, sources, applications et télécommande.
+  - Ensemble des **vidéoprojecteurs Samsung sous Tizen OS** : **Samsung The Premiere** (`SP-LSP7T`, `SP-LSP9T`, `SP-LPU7D`, `SP-LPU9D`) et **Samsung The Freestyle** (`SP-LSP3B`, `SP-LFF3C`), avec détection et pré-configuration automatiques.
 
 ---
 
@@ -74,13 +75,15 @@ Le plugin gère nativement ces 3 états :
 
 ---
 
-## Configuration & Appairage
+## Configuration, Détection Automatique & Appairage
 
-1. Activez le plugin **Alt Samsung TV** dans Jeedom.
-2. Créez un équipement dans **Plugins → Multimédia → Alt Samsung TV**, renseignez l'**Adresse IP** locale de votre téléviseur Samsung / The Frame et sauvegardez.
-3. **Allumez votre téléviseur Samsung**, puis cliquez sur le bouton orange **« Appairer avec la TV »** en haut à droite de la fiche équipement :
-   - Une notification apparaît sur l'écran de votre téléviseur : sélectionnez **« Autoriser »** avec la télécommande Samsung.
-   - Le **Jeton d'appairage (Token)**, l'**Adresse MAC (Wake-on-LAN)** et le **Modèle** sont automatiquement récupérés et enregistrés dans Jeedom !
+1. Activez le plugin **Alt Frame & Smart TV (Samsung)** dans Jeedom.
+2. **Allumez votre téléviseur Samsung, votre écran The Frame ou votre vidéoprojecteur Samsung (*The Premiere* / *The Freestyle*)**, puis rendez-vous dans **Plugins → Multimédia → Alt Frame & Smart TV (Samsung)** :
+   - Cliquez sur le bouton **« Scanner le réseau »** : le plugin détecte automatiquement tous les téléviseurs et vidéoprojecteurs Samsung présents sur votre réseau local (via SSDP, table ARP et balayage `/api/v2/`), identifie leur famille matérielle (**The Frame**, **Vidéoprojecteur Samsung** ou **Smart TV**), récupère leur **Adresse IP**, leur **Adresse MAC (Wake-on-LAN)**, leur **Modèle** et leur **UUID matériel**, et crée automatiquement les équipements correspondants !
+   - *(Vous pouvez également créer un équipement manuellement via le bouton **« Ajouter »** en renseignant son adresse IP).*
+3. Ouvrez la fiche de l'équipement, puis cliquez sur le bouton orange **« Appairer avec la TV »** en haut à droite :
+   - Une notification apparaît sur l'écran de votre téléviseur ou vidéoprojecteur : sélectionnez **« Autoriser »** avec la télécommande Samsung.
+   - Le **Jeton d'appairage (Token)** est automatiquement récupéré et enregistré dans Jeedom !
 
 ---
 

@@ -5,6 +5,11 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.25] - 2026-11-22
+
+- Ajout d'un bouton **« Scanner le réseau »** permettant de détecter et créer automatiquement les téléviseurs Samsung Smart TV, les écrans **The Frame** et les vidéoprojecteurs Samsung (**The Premiere**, **The Freestyle**) présents sur le réseau local.
+- Identification automatique du type d'appareil (*The Frame*, *Vidéoprojecteur* ou *Smart TV*), du modèle, de l'adresse IP et de l'adresse MAC (Wake-on-LAN).
+
 ## [0.1.0-beta.24] - 2026-11-08
 
 - Amélioration de la lisibilité et des contrastes du thème clair (Blanc / Light Glass) sur les widgets.
