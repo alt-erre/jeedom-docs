@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.26] - 2026-11-22
+
+- Correction du renommage personnalisé des œuvres du Mode Art depuis le bouton crayon du widget Dashboard et ajout du renommage rapide sur le widget Mobile.
+
 ## [0.1.0-beta.25] - 2026-11-22
 
 - Ajout d'un bouton **« Scanner le réseau »** permettant de détecter et créer automatiquement les téléviseurs Samsung Smart TV, les écrans **The Frame** et les vidéoprojecteurs Samsung (**The Premiere**, **The Freestyle**) présents sur le réseau local.
