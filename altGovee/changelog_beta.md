@@ -1,5 +1,10 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.2] - 2026-11-23
+
+- **Correction de la création automatique des équipements lors du scan réseau** :
+  - Correction d'une erreur empêchant l'enregistrement d'un nouvel éclairage ou rideau Govee détecté pour la première fois lors du scan LAN, et lecture immédiate de son état après la découverte.
+
 ## [0.1.0-beta.1] - 2026-11-22
 
 - **Première version Beta du plugin Alt Éclairages, Rubans RGBIC & Ambiances (Govee)** :
