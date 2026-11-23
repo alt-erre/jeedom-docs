@@ -5,7 +5,7 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
-## [0.2.0-beta.1] - 2026-11-12
+## [0.1.0-beta.8] - 2026-11-23
 
 - Ajout de la cartographie spatiale 2D/3D des LEDs avec aperçu géométrique en temps réel et 4 nouvelles ambiances spatiales (Pluie Matrix 2D, Spirale 3D, Balayage Radar 2D, Onde Plasma 2D).
 - Ajout de la gestion complète des Playlists matérielles (sélection, navigation, création automatique et suppression).
