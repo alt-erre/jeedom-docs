@@ -4,7 +4,7 @@
 **Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale **Govee LAN UDP** (`Multicast 239.255.255.250` ports `4001 / 4002 / 4003` + Trames binaires locales `ptReal`) + **OpenAPI v2 Govee** optionnelle (`openapi.api.govee.com`)  
-**Version :** `0.1.0-beta.3`  
+**Version :** `0.1.0-beta.4`  
 **Compatibilité :** Jeedom $\ge$ 4.2 (Luna, Atlas, Smart, Raspberry Pi, Docker, VM Debian 11 / 12, Python $\ge$ 3.9)
 
 ---
@@ -13,7 +13,7 @@
 
 Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** permet de découvrir, piloter et superviser **100 % en local** (via l'API LAN UDP officielle Govee et les trames binaires `ptReal`, avec enrichissement OpenAPI v2 optionnel) l'ensemble des éclairages connectés et décorations matricielles **Govee** :
 
-- **Rideaux Matriciels LED & Groupes Assemblés (1x, 2x ou 3x) :** **Govee Curtain Lights Pro (`H70B3`, `H70B4`, `H70B5`)** et **Govee Curtain Lights (`H70B1`, `H70B2`)**, avec prise en charge native de l'**association de 2 ou 3 rideaux entre eux** pour former une fresque panoramique géante unifiée jusqu'à **`60×48 = 2880 LEDs`** !
+- **Rideaux Matriciels LED & Groupes Assemblés (1x, 2x ou 3x) :** **Govee Curtain Lights Pro (`H70B3`, `H70B4`, `H70B5` - `30×32 = 960 LEDs` par panneau)** et **Govee Curtain Lights (`H70B1`, `H70B2` - `20×26 = 520 LEDs` par panneau)**, avec prise en charge native de l'**association de 2 ou 3 rideaux entre eux** pour former une fresque panoramique géante unifiée jusqu'à **`90×32 = 2880 LEDs`** !
 - **Rubans LED RGBIC & Néons Flexibles :** **Govee RGBIC Pro Strip Lights (`H619A`, `H619C`, `H618A`)**, **Govee LED Strip Light M1 Matter (`H61E1`)**, **Govee Neon Rope Light 1 & 2 (`H61A0`, `H61D5`)**
 - **Panneaux & Barres Murales :** **Govee Glide Hexa Light Panels (`H6061`)**, **Govee Glide Wall Light (`H6062`)**, **Govee Glide Y Lights (`H6065`)**
 - **Rétroéclairages TV & HDMI Sync Box :** **Govee Envisual TV Backlight T2 / T3 (`H605B`, `H6099`, `H6199`)**, **Govee AI Gaming Sync Box (`H6602`)**
@@ -22,7 +22,7 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
 
 ### 🌟 Atouts Exclusifs & Architecture Différenciante
 
-- **Prise en charge native des 3 Govee Curtain Lights Pro associés entre eux (`Fresque Panoramique 3x - 60×48 / 2880 LEDs`)** : assistant d'assemblage en 1 clic, découpage panoramique des dégradés et animations de gauche à droite sur les 3 rideaux associés (`Rideau #1 Gauche`, `Rideau #2 Centre`, `Rideau #3 Droite`), routage automatique vers le rideau Maître et aperçu matriciel 2D temps réel.
+- **Prise en charge native des 3 Govee Curtain Lights Pro associés entre eux (`Fresque Panoramique 3x - 90×32 / 2880 LEDs`)** : assistant d'assemblage en 1 clic, découpage panoramique des dégradés et animations de gauche à droite sur les 3 panneaux de `30×32` associés (`Rideau #1 Gauche`, `Rideau #2 Centre`, `Rideau #3 Droite`), routage automatique vers le rideau Maître et aperçu matriciel 2D temps réel.
 - **Pilotage 100 % Local LAN UDP (< 15 ms) + Protocole `ptReal` Multi-Segments** : fonctionnement immédiat en PHP direct sans démon (ports UDP `4001/4002/4003`) ou avec le démon Python Temps Réel (port socket local dédié **`55110`**) pour diffuser des ondes lumineuses continues sans solliciter le Cloud.
 - **Studio RGBIC Multi-Segments & 24 Ambiances / Fresques Panoramiques Calibrées** : définissez vos dégradés de 2 à 5 couleurs interpolées sur les 15 segments RGBIC ou lancez en 1 clic l'une des 24 ambiances locales (*Cyberpunk Neon 3x*, *Aurore Boréale*, *Coucher de Soleil*, *Feu de Cheminée Géant*, *Pluie Matricielle*, *Féerie de Noël 3x*, *Mode Cinéma 2200K 15%*).
 - **Synchronisation 1-Clic des Scènes Govee (`lightScene`), Scènes DIY (`diyScene`) & Modes Musicaux (`musicMode`)** via trames locales `ptReal` et OpenAPI v2 optionnelle.
@@ -38,7 +38,7 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
   - Éclairages Govee connectés au même réseau local Wi-Fi (2,4 GHz) que Jeedom, avec l'option **« Contrôle LAN »** activée dans l'application mobile **Govee Home** (*Paramètres de l'appareil -> Contrôle LAN*).
   - Ports UDP locaux utilisés par le protocole Govee LAN : Multicast `239.255.255.250` port `4001` (découverte), port `4002` (écoute des réponses `scan` et `devStatus`) et port `4003` (envoi des commandes locales).
 - **Matériel physiquement testé et validé par l'auteur :**
-  - **Ensemble de 3 rideaux matriciels Govee Curtain Lights Pro (`H70B3` / `H70B5`) associés entre eux pour former un grand rideau panoramique unifié (`60×48 = 2880 LEDs`)**.
+  - **Ensemble de 3 rideaux matriciels Govee Curtain Lights Pro (`H70B3` / `H70B5`, `30×32 = 960 LEDs` par panneau) associés entre eux pour former un grand rideau panoramique unifié (`90×32 = 2880 LEDs`)**.
 - **Autres équipements compatibles (API locale Govee LAN UDP & OpenAPI v2) :**
   - Ensemble des gammes Govee supportant le contrôle LAN et/ou l'OpenAPI v2 : `Curtain Lights` (`H70B1`, `H70B2`, `H70B3`, `H70B4`, `H70B5`), `RGBIC Pro Strip` (`H619A`, `H619C`, `H618A`, `H61E1`), `Neon Rope` (`H61A0`, `H61D5`), `Glide / Hexa / Y Lights` (`H6061`, `H6062`, `H6065`), `Envisual TV Backlight & Sync Box` (`H605B`, `H6099`, `H6199`, `H6602`), `Lyra / Floor Lamp Pro` (`H6072`, `H6076`, `H6079`) et `Permanent Outdoor Lights` (`H705A`, `H706A`).
 
@@ -46,12 +46,12 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
 
 ## Fonctionnalités Détaillées
 
-### 1. Découverte Automatique 1-Clic & Assemblage de 3 Rideaux Curtain Lights Pro (`60×48 - 2880 LEDs`)
+### 1. Découverte Automatique 1-Clic & Assemblage de 3 Rideaux Curtain Lights Pro (`90×32 - 2880 LEDs`)
 - **Bouton `Scanner le réseau Govee`** :
   - Émet la requête Multicast UDP `scan` sur `239.255.255.250:4001` et écoute les réponses sur le port UDP `4002`.
   - Si une clé OpenAPI v2 optionnelle est renseignée dans la configuration du plugin, récupère également les noms personnalisés de vos équipements et leurs capacités.
 - **Bouton `Assembler Rideaux Pro (3x)` (Spécial Govee Curtain Lights Pro associés)** :
-  - Relie automatiquement vos **2 ou 3 rideaux Govee Curtain Lights Pro** sur le **Rideau Maître** (`spliced_count = 3`, topologie `60×48 = 2880 LEDs`).
+  - Relie automatiquement vos **2 ou 3 rideaux Govee Curtain Lights Pro** sur le **Rideau Maître** (`spliced_count = 3`, topologie `90×32 = 2880 LEDs`).
   - Configure la diffusion en mode **Fresque Panoramique Étendue 3x (`panorama_span`)** : chaque dégradé RGBIC ou animation procédurale UDP est découpé horizontalement sur les 3 rideaux (`Rideau #1 Gauche`, `Rideau #2 Centre`, `Rideau #3 Droite`) pour un rendu continu sur toute la baie vitrée ou le mur !
   - Propose de masquer automatiquement (`Visible = 0`) les rideaux esclaves #2 et #3 sur le Dashboard Jeedom et redirige tout ordre envoyé à un rideau secondaire vers le Maître (`autoRouteGroupMaster`).
 

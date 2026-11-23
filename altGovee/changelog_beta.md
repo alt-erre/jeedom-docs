@@ -1,5 +1,10 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.4] - 2026-11-23
+
+- **Mise à jour de la résolution matricielle Govee Curtain Lights Pro (`30×32` par rideau)** :
+  - Ajustement des dimensions matricielles exactes des panneaux Curtain Lights Pro (`30×32 = 960 LEDs` pour 1 rideau, `60×32 = 1920 LEDs` pour 2 rideaux associés et `90×32 = 2880 LEDs` pour 3 rideaux associés) ainsi que de la présélection du routage Maître.
+
 ## [0.1.0-beta.3] - 2026-11-23
 
 - **Correction d'erreur SQL lors de l'enregistrement des commandes** :
