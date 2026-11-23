@@ -1,5 +1,10 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.3] - 2026-11-23
+
+- **Correction d'erreur SQL lors de l'enregistrement des commandes** :
+  - Nettoyage automatique des éventuelles commandes orphelines en base de données empêchant l'erreur `Duplicate entry ...-Éteindre` lors de la création d'un équipement Govee.
+
 ## [0.1.0-beta.2] - 2026-11-23
 
 - **Correction de la création automatique des équipements lors du scan réseau** :
