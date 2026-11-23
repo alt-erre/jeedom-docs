@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.16] - 2026-11-23
+
+- Ajout du sélecteur rapide de plafond de luminosité (`Max 10%` à `Max 70%` / `Max 100%`) directement en bout de barre de luminosité sur le widget Dashboard des lampes, Hue Play, pièces et zones.
+
 ## [0.1.0-beta.15] - 2026-11-12
 
 - Correction de l'affichage du Dashboard Accueil sur petits écrans et tablettes (suppression de la superposition de la colonne Familles / Pièces avec les tuiles d'appareils lors du défilement).

@@ -8,7 +8,7 @@
   "altDenon": "0.1.0-beta.13",
   "altEducartable": "0.1.0-beta.10",
   "altGovee": "0.1.0-beta.5",
-  "altHue": "0.1.0-beta.15",
+  "altHue": "0.1.0-beta.16",
   "altIos": "0.1.0-beta.6",
   "altJvcProjector": "0.1.0-beta.20",
   "altNetGuard": "0.1.0-beta.11",
@@ -27,6 +27,6 @@
   "altTransit": "0.1.0-beta.6",
   "altTvDashboard": "0.1.0-beta.25",
   "altTwinkly": "0.2.0-beta.1",
-  "altTydom": "0.1.0-beta.49",
+  "altTydom": "0.1.0-beta.50",
   "altXbox": "0.1.0-beta.13"
 }

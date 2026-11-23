@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.50] - 2026-11-23
+
+- Ajout du plafond dynamique de luminosité par mode (`Luminosité maximum` / `Luminosité maximum niveau`) et de son sélecteur rapide (`Max 10%` à `Max 70%` / `Max 100%`) sur le widget des éclairages à variateur Tydom.
+
 ## [0.1.0-beta.49] - 2026-11-23
 
 - Suppression du passage par 100 % lors de l'allumage à faible luminosité (ex. 5 % la nuit) des variateurs d'éclairage Delta Dore TYXIA : l'extinction depuis Jeedom utilise désormais l'ordre natif d'extinction du variateur (comme l'interrupteur mural) afin de préserver sa mémoire interne et d'allumer la lampe directement au pourcentage souhaité sans flash à 100 %.

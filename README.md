@@ -21,7 +21,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt AVR Control (Denon / Marantz)** | `altDenon` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altDenon/) · [Changelog Stable](altDenon/changelog) · [Changelog Beta](altDenon/changelog_beta) |
 | **Alt Vie Scolaire (Educartable)** | `altEducartable` | Organisation | `0.1.0-beta.10` | `Beta` | [Documentation](altEducartable/) · [Changelog Stable](altEducartable/changelog) · [Changelog Beta](altEducartable/changelog_beta) |
 | **Alt Éclairages, Rubans RGBIC & Ambiances (Govee)** | `altGovee` | Lumière | `0.1.0-beta.5` | `Beta` | [Documentation](altGovee/) · [Changelog Stable](altGovee/changelog) · [Changelog Beta](altGovee/changelog_beta) |
-| **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.15` | `Beta` | [Documentation](altHue/) · [Changelog Stable](altHue/changelog) · [Changelog Beta](altHue/changelog_beta) |
+| **Alt Éclairage & Ambiance (Philips Hue)** | `altHue` | Lumière | `0.1.0-beta.16` | `Beta` | [Documentation](altHue/) · [Changelog Stable](altHue/changelog) · [Changelog Beta](altHue/changelog_beta) |
 | **Alt Contrôle Parental (iPhone & iPad)** | `altIos` | Multimédia | `0.1.0-beta.6` | `Beta` | [Documentation](altIos/) · [Changelog Stable](altIos/changelog) · [Changelog Beta](altIos/changelog_beta) |
 | **Alt Ciné Projector (JVC D-ILA)** | `altJvcProjector` | Multimédia | `0.1.0-beta.20` | `Beta` | [Documentation](altJvcProjector/) · [Changelog Stable](altJvcProjector/changelog) · [Changelog Beta](altJvcProjector/changelog_beta) |
 | **Alt Radar & Sécurité Réseau** | `altNetGuard` | Sécurité | `0.1.0-beta.11` | `Beta` | [Documentation](altNetGuard/) · [Changelog Stable](altNetGuard/changelog) · [Changelog Beta](altNetGuard/changelog_beta) |
@@ -40,7 +40,7 @@ Tous les plugins suivent notre [Politique de Numérotation de Version (SemVer)](
 | **Alt Transports & Mobilités Urbaines** | `altTransit` | Organisation | `0.1.0-beta.6` | `Beta` | [Documentation](altTransit/) · [Changelog Stable](altTransit/changelog) · [Changelog Beta](altTransit/changelog_beta) |
 | **Alt Dashboard & Kiosk TV** | `altTvDashboard` | Multimédia | `0.1.0-beta.25` | `Beta` | [Documentation](altTvDashboard/) · [Changelog Stable](altTvDashboard/changelog) · [Changelog Beta](altTvDashboard/changelog_beta) |
 | **Alt Éclairages & Effets LED (Twinkly)** | `altTwinkly` | Lumière | `0.2.0-beta.1` | `Beta` | [Documentation](altTwinkly/) · [Changelog Stable](altTwinkly/changelog) · [Changelog Beta](altTwinkly/changelog_beta) |
-| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.49` | `Beta` | [Documentation](altTydom/) · [Changelog Stable](altTydom/changelog) · [Changelog Beta](altTydom/changelog_beta) |
+| **Alt Habitat & Domotique (Delta Dore Tydom)** | `altTydom` | Protocole domotique | `0.1.0-beta.50` | `Beta` | [Documentation](altTydom/) · [Changelog Stable](altTydom/changelog) · [Changelog Beta](altTydom/changelog_beta) |
 | **Alt Contrôle Parental (Xbox)** | `altXbox` | Multimédia | `0.1.0-beta.13` | `Beta` | [Documentation](altXbox/) · [Changelog Stable](altXbox/changelog) · [Changelog Beta](altXbox/changelog_beta) |
 
 ---
