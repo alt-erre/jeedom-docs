@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.49] - 2026-11-23
+
+- Suppression du passage par 100 % lors de l'allumage à faible luminosité (ex. 5 % la nuit) des variateurs d'éclairage Delta Dore TYXIA : l'extinction depuis Jeedom utilise désormais l'ordre natif d'extinction du variateur (comme l'interrupteur mural) afin de préserver sa mémoire interne et d'allumer la lampe directement au pourcentage souhaité sans flash à 100 %.
+
 ## [0.1.0-beta.48] - 2026-11-18
 
 - Remplacement des équipements et commandes 100 % via les méthodes natives officielles du Core Jeedom (`migrateCmd`, `migrateEqlogic`, `massReplace` et sauvegarde directe du Core) pour une compatibilité totale avec le plugin officiel « Thermostat » en mode temporel.
