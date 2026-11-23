@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.27] - 2026-11-23
+
+- Ajout d'un bouton corbeille sur les widgets (Dashboard & Mobile) et d'une commande permettant de supprimer une œuvre ou photo de la mémoire du téléviseur Samsung **The Frame**, avec bascule automatique sur l'œuvre suivante.
+
 ## [0.1.0-beta.26] - 2026-11-22
 
 - Correction du renommage personnalisé des œuvres du Mode Art depuis le bouton crayon du widget Dashboard et ajout du renommage rapide sur le widget Mobile.
