@@ -1,5 +1,11 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.5] - 2026-11-23
+
+- **Refonte ergonomique du widget Dashboard** :
+  - Ajout d'une barre dédiée **Couleur Unie directe + 4 Blancs rapides (`2200K`, `2700K`, `4000K`, `6500K`)** et refonte de la barre **Studio RGBIC** (3 zones de couleur + bouton `Appliquer` compact sans accolades `{{...}}`).
+  - L'aperçu visuel des 3 rideaux sur le widget reflète désormais fidèlement la température de blanc active (ex. `Blanc 2000 K`), la couleur unie ou le dégradé RGBIC.
+
 ## [0.1.0-beta.4] - 2026-11-23
 
 - **Mise à jour de la résolution matricielle Govee Curtain Lights Pro (`30×32` par rideau)** :
