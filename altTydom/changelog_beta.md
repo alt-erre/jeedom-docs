@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.52] - 2026-11-25
+
+- La commande « Allumer » (`LIGHT_ON`) des variateurs utilise désormais l'ordre d'allumage natif Delta Dore (`levelCmd = ON`) afin de rallumer l'éclairage sur son dernier niveau mémorisé (exactement comme l'interrupteur mural) au lieu de forcer 100 %.
+
 ## [0.1.0-beta.51] - 2026-11-24
 
 - Correction du passage par 100 % lors d'une demande de variation à Siri / HomeKit (Homebridge) : fusion intelligente du double ordre envoyé par HomeKit (« Allumer » + « Variateur X % ») afin d'appliquer directement le pourcentage demandé (ex. de 20 % à 5 % ou de 0 % à 5 %) sans jamais monter à 100 %.
