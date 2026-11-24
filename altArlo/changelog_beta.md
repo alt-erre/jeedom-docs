@@ -5,6 +5,15 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.49] - 2026-11-24
+
+- Correction de la perte de session Arlo après quelques heures (`1024 - Saisissez à nouveau vos identifiants. sur session/v2`) :
+  - Lorsqu'un serveur Arlo recycle son cookie de navigation interne sur `session/v2` alors que le jeton d'accès principal est toujours valide sur `users/devices`, le démon conserve désormais la session active au lieu de la déclarer expirée.
+- Correction de l'erreur `Protection Cloudflare active sur ocapi-app.arlo.com (HTTP 403)` lors du renouvellement automatique :
+  - Suppression du conflit interne de cookies qui faisait échouer le moteur `curl_cffi` à la 2e étape d'authentification et empêchait l'enregistrement du « Navigateur de Confiance » (14 jours).
+- Fiabilisation de la réception du code 2FA par E-mail (IMAP SSL, notamment Yahoo Mail / `ymail.com`) :
+  - Lecture ultra-rapide des en-têtes d'e-mails sans téléchargement des pièces jointes des autres messages de la boîte de réception, prise en charge des dossiers `Bulk` / `Bulk Mail`, et extension du délai d'attente de 50 s à 90 s.
+
 ## [0.1.0-beta.48] - 2026-11-22
 
 - Correction de l'envoi répété d'un e-mail de vérification 2FA Arlo toutes les 2 heures :
