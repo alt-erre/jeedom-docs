@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.51] - 2026-11-24
+
+- Correction du passage par 100 % lors d'une demande de variation à Siri / HomeKit (Homebridge) : fusion intelligente du double ordre envoyé par HomeKit (« Allumer » + « Variateur X % ») afin d'appliquer directement le pourcentage demandé (ex. de 20 % à 5 % ou de 0 % à 5 %) sans jamais monter à 100 %.
+
 ## [0.1.0-beta.50] - 2026-11-23
 
 - Ajout du plafond dynamique de luminosité par mode (`Luminosité maximum` / `Luminosité maximum niveau`) et de son sélecteur rapide (`Max 10%` à `Max 70%` / `Max 100%`) sur le widget des éclairages à variateur Tydom.
