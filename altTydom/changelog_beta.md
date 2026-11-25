@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.53] - 2026-11-25
+
+- Correction du passage par 100 % avec Siri / HomeKit (Homebridge) : inhibition de l'ordre « Allumer » redondant lorsque la lampe est déjà allumée (ex. passage de 20 % à 5 %), élargissement de la fenêtre de fusion pour couvrir le délai interne de Homebridge, et restauration directe du dernier pourcentage mémorisé au lieu de `levelCmd = ON` (interprété comme 100 % par la box Tydom).
+
 ## [0.1.0-beta.52] - 2026-11-25
 
 - La commande « Allumer » (`LIGHT_ON`) des variateurs utilise désormais l'ordre d'allumage natif Delta Dore (`levelCmd = ON`) afin de rallumer l'éclairage sur son dernier niveau mémorisé (exactement comme l'interrupteur mural) au lieu de forcer 100 %.
