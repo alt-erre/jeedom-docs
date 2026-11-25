@@ -5,6 +5,14 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.50] - 2026-11-25
+
+- Correction de l'erreur `Session Cloud Arlo révoquée par le serveur Arlo (code 2015 sur users/devices_post_refresh)` survenant au bout de 6 heures :
+  - Suppression du rechargement complet d'inventaire toutes les 6 heures et de la tentative de ré-authentification anticipée qui ouvrait une seconde connexion concurrente et provoquait une auto-révocation (erreur 2015) ;
+  - Mise en cache locale de l'inventaire des équipements pour maintenir le flux temps réel SSE et la session actifs en continu sur la durée.
+- Correction de l'erreur `Paramètres IMAP incomplets (serveur, identifiant ou mot de passe manquant)` lors de l'auto-reconnexion 2FA par E-mail :
+  - Conservation automatique des paramètres IMAP enregistrés et déduction automatique du serveur IMAP à partir de l'adresse e-mail (Yahoo / `ymail.com`, Gmail, Outlook / Hotmail, iCloud, Orange, Free, SFR, La Poste, Bbox).
+
 ## [0.1.0-beta.49] - 2026-11-24
 
 - Correction de la perte de session Arlo après quelques heures (`1024 - Saisissez à nouveau vos identifiants. sur session/v2`) :
