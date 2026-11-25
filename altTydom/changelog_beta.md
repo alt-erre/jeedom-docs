@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.54] - 2026-11-26
+
+- Correction du passage par 100 % via Siri / HomeKit (Homebridge) : interception et annulation de l'ordre « Variateur = 100 % » envoyé en premier par Homebridge juste avant la vraie consigne « Variateur = 5 % » lors d'une commande vocale ou HomeKit.
+
 ## [0.1.0-beta.53] - 2026-11-25
 
 - Correction du passage par 100 % avec Siri / HomeKit (Homebridge) : inhibition de l'ordre « Allumer » redondant lorsque la lampe est déjà allumée (ex. passage de 20 % à 5 %), élargissement de la fenêtre de fusion pour couvrir le délai interne de Homebridge, et restauration directe du dernier pourcentage mémorisé au lieu de `levelCmd = ON` (interprété comme 100 % par la box Tydom).
