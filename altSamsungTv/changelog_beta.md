@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.28] - 2026-11-25
+
+- Correction d'une erreur de doublon de nom (`Duplicate entry`) lors de la sauvegarde d'un téléviseur ou vidéoprojecteur découvert dans une pièce où un équipement d'un autre plugin porte déjà le même nom.
+
 ## [0.1.0-beta.27] - 2026-11-23
 
 - Ajout d'un bouton corbeille sur les widgets (Dashboard & Mobile) et d'une commande permettant de supprimer une œuvre ou photo de la mémoire du téléviseur Samsung **The Frame**, avec bascule automatique sur l'œuvre suivante.
