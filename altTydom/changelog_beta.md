@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.55] - 2026-11-26
+
+- Réalignement automatique au démarrage du démon des types génériques Homebridge des éclairages (`État` = `LIGHT_STATE` binaire + `Niveau` = `LIGHT_BRIGHTNESS` numérique + `Variateur` = `LIGHT_SLIDER`) sur le modèle exact des plugins `altGovee`, `altHue` et `altTwinkly`, afin d'éliminer les doublons `LIGHT_STATE` hérités de l'ancien plugin lors de la migration.
+
 ## [0.1.0-beta.54] - 2026-11-26
 
 - Correction du passage par 100 % via Siri / HomeKit (Homebridge) : interception et annulation de l'ordre « Variateur = 100 % » envoyé en premier par Homebridge juste avant la vraie consigne « Variateur = 5 % » lors d'une commande vocale ou HomeKit.
