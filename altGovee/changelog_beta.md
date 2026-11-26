@@ -1,5 +1,12 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.6] - 2026-11-26
+
+- **Nouveau Studio GIF, Pixel-Art & Texte Défilant (`90×32`) avec Import en Mémoire** :
+  - Ajout d'un onglet **Studio GIF & Animations 90×32** sur la fiche équipement permettant d'**importer n'importe quel fichier `.gif` animé (ou `.png` / `.jpg`)**, de **dessiner pixel par pixel sur la grille `90×32` (`2880 LEDs`)**, de **générer un bandeau de texte défilant** ou de charger **6 modèles animés prêts à l'emploi** (*Pac-Man & Fantômes*, *Sapins & Flocons de Noël*, *Feux d'Artifice 3x*, *Cœurs Pulsants*, *Soleil Synthwave*, *Pluie Matrix*).
+  - **Enregistrement en mémoire dans le plugin** : chaque animation importée ou créée est sauvegardée dans la bibliothèque du plugin et ajoutée automatiquement aux listes déroulantes **`Ambiance / Fresque Panoramique`** et **`Lancer une Scène DIY`** pour être lancée en 1 clic depuis le widget ou un scénario Jeedom.
+  - **Export `.GIF` calibré (`90×32 px`)** : permet de télécharger en 1 clic toute création au format `.gif` animé calibré au pixel près pour les 1, 2 ou 3 rideaux Curtain Lights Pro.
+
 ## [0.1.0-beta.5] - 2026-11-23
 
 - **Refonte ergonomique du widget Dashboard** :

@@ -4,7 +4,7 @@
 **Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale **Govee LAN UDP** (`Multicast 239.255.255.250` ports `4001 / 4002 / 4003` + Trames binaires locales `ptReal`) + **OpenAPI v2 Govee** optionnelle (`openapi.api.govee.com`)  
-**Version :** `0.1.0-beta.5`  
+**Version :** `0.1.0-beta.6`  
 **Compatibilité :** Jeedom $\ge$ 4.2 (Luna, Atlas, Smart, Raspberry Pi, Docker, VM Debian 11 / 12, Python $\ge$ 3.9)
 
 ---
@@ -26,6 +26,7 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
 - **Pilotage 100 % Local LAN UDP (< 15 ms) + Protocole `ptReal` Multi-Segments** : fonctionnement immédiat en PHP direct sans démon (ports UDP `4001/4002/4003`) ou avec le démon Python Temps Réel (port socket local dédié **`55110`**) pour diffuser des ondes lumineuses continues sans solliciter le Cloud.
 - **Studio RGBIC Multi-Segments & 24 Ambiances / Fresques Panoramiques Calibrées** : définissez vos dégradés de 2 à 5 couleurs interpolées sur les 15 segments RGBIC ou lancez en 1 clic l'une des 24 ambiances locales (*Cyberpunk Neon 3x*, *Aurore Boréale*, *Coucher de Soleil*, *Feu de Cheminée Géant*, *Pluie Matricielle*, *Féerie de Noël 3x*, *Mode Cinéma 2200K 15%*).
 - **Synchronisation 1-Clic des Scènes Govee (`lightScene`), Scènes DIY (`diyScene`) & Modes Musicaux (`musicMode`)** via trames locales `ptReal` et OpenAPI v2 optionnelle.
+- **Studio GIF, Pixel-Art & Texte Défilant (`90×32` / `60×32` / `30×32`) avec Import en Mémoire du Plugin** : importez vos fichiers `.gif` animés, `.png` ou `.jpg`, dessinez pixel par pixel sur les 2 880 gouttes LED, générez des bandeaux de texte défilant ou chargez l'un des 6 modèles animés intégrés (*Pac-Man & Fantômes*, *Sapins & Flocons*, *Feux d'Artifice 3x*, *Cœurs Pulsants*, *Synthwave*, *Pluie Matrix*), enregistrez-les dans la mémoire persistante du plugin pour les lancer en 1 clic depuis vos scénarios et widgets, et exportez-les en `.gif` calibré `90×32 px`.
 - **Plafond Dynamique de Luminosité par Mode (`brightness_max` / `brightness_max_set`)** & **Association d'un Interrupteur Physique Amont (`upstreamStateCmd` avec badge `AMONT OFF`)**.
 - **Dashboard Global de Supervision dans le menu Accueil** (*Dark Glass* & *Light Glass v1.5 WCAG AAA*) et compatibilité native **Kiosk TV 10-Foot (`altTvDashboard`)**.
 
