@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.57] - 2026-11-26
+
+- Optimisation majeure des commandes de groupe Siri / HomeKit et scénarios (« Ferme tous les volets », « Éteins toutes les lumières », « Allume toutes les lumières ») : ajout d'une file d'émission radio X3D cadencée avec priorisation automatique des équipements actifs (les lampes allumées et volets ouverts partent en premier), synchronisation sur les acquittements de la box Tydom et reprise automatique en cas de collision radio afin qu'aucun volet ni éclairage ne soit oublié.
+
 ## [0.1.0-beta.56] - 2026-11-26
 
 - Accélération majeure du script de mise à jour du plugin (`install.php`) sur les installations comptant plus de 100 équipements afin d'éviter l'expiration du délai HTTP du navigateur (`TypeError: Load failed` sur `core/ajax/update.ajax.php`) lors des mises à jour depuis mobile ou tablette.
