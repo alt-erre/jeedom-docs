@@ -5,6 +5,13 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.51] - 2026-11-26
+
+- Correction du flux vidéo Direct (Live) 24 IPS / 12 IPS / 8 IPS / 6 IPS qui basculait en mode secours `CLICHÉS HD` :
+  - Correction de la négociation du flux vidéo direct RTSPS et de la transmission du jeton de flux lors de l'ouverture des pistes vidéo ;
+  - Diffusion du Direct via un flux vidéo HTTP continu unique (sans requêtes image par image répétées) pour restituer toute la fluidité 24 / 12 / 8 / 6 IPS sur iPhone, iPad, Mac et PC tout en ménageant le processeur de la box Jeedom Luna.
+- Correction de l'habillage graphique du sélecteur de mode (`24 IPS Natif`, `12 IPS`, etc.) et des boutons d'action dans la fenêtre Direct (Live).
+
 ## [0.1.0-beta.50] - 2026-11-25
 
 - Correction de l'erreur `Session Cloud Arlo révoquée par le serveur Arlo (code 2015 sur users/devices_post_refresh)` survenant au bout de 6 heures :
