@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.56] - 2026-11-26
+
+- Accélération majeure du script de mise à jour du plugin (`install.php`) sur les installations comptant plus de 100 équipements afin d'éviter l'expiration du délai HTTP du navigateur (`TypeError: Load failed` sur `core/ajax/update.ajax.php`) lors des mises à jour depuis mobile ou tablette.
+
 ## [0.1.0-beta.55] - 2026-11-26
 
 - Réalignement automatique au démarrage du démon des types génériques Homebridge des éclairages (`État` = `LIGHT_STATE` binaire + `Niveau` = `LIGHT_BRIGHTNESS` numérique + `Variateur` = `LIGHT_SLIDER`) sur le modèle exact des plugins `altGovee`, `altHue` et `altTwinkly`, afin d'éliminer les doublons `LIGHT_STATE` hérités de l'ancien plugin lors de la migration.
