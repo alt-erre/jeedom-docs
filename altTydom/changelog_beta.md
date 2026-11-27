@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.58] - 2026-11-27
+
+- Correction du passage du niveau précédent vers 100 % lors d'un allumage simple depuis HomeKit / Homebridge : le plugin ignore désormais l'ordre automatique « Variateur = 100 % » que HomeKit envoie ~750 ms après « Allumer » lorsque la luminosité affichée était à 0 % à l'état éteint, permettant à la lampe de rester sur son niveau précédent (et ajout de traces détaillées `[Homebridge/Light]` dans le log `altTydom_deamon`).
+
 ## [0.1.0-beta.57] - 2026-11-26
 
 - Optimisation majeure des commandes de groupe Siri / HomeKit et scénarios (« Ferme tous les volets », « Éteins toutes les lumières », « Allume toutes les lumières ») : ajout d'une file d'émission radio X3D cadencée avec priorisation automatique des équipements actifs (les lampes allumées et volets ouverts partent en premier), synchronisation sur les acquittements de la box Tydom et reprise automatique en cas de collision radio afin qu'aucun volet ni éclairage ne soit oublié.
