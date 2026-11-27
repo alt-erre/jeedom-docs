@@ -5,6 +5,10 @@ Pour les versions majeures du canal Stable, consultez le [Changelog Stable](http
 
 ---
 
+## [0.1.0-beta.59] - 2026-11-27
+
+- Conservation du dernier niveau de luminosité avant extinction sur la commande `Niveau / Intensité` (`LIGHT_BRIGHTNESS`) lorsque la lampe est éteinte (`État` = `0`), alignant le comportement HomeKit / Homebridge sur celui des équipements natifs HomeKit (Twinkly, Hue, Govee) pour que HomeKit garde en mémoire le dernier pourcentage même lampe éteinte.
+
 ## [0.1.0-beta.58] - 2026-11-27
 
 - Correction du passage du niveau précédent vers 100 % lors d'un allumage simple depuis HomeKit / Homebridge : le plugin ignore désormais l'ordre automatique « Variateur = 100 % » que HomeKit envoie ~750 ms après « Allumer » lorsque la luminosité affichée était à 0 % à l'état éteint, permettant à la lampe de rester sur son niveau précédent (et ajout de traces détaillées `[Homebridge/Light]` dans le log `altTydom_deamon`).
