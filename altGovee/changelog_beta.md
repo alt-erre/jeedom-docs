@@ -1,5 +1,12 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.9] - 2026-11-27
+
+- **Correction du rendu des animations GIF sur le rideau et ajout des GIFs en mémoire dans la liste des modèles** :
+  - Suppression de l'envoi d'une couleur moyenne unie (`colorwc`) qui écrasait les segments multicolores et figeait le rideau en lumière rose uniforme lors du lancement d'un GIF.
+  - Amélioration de l'extraction des couleurs des GIFs (conservation des teintes franches et saturées comme le rouge vif ou le vert au lieu d'une moyenne rose/grise) et démarrage automatique du démon d'animation temps réel.
+  - Les GIFs et animations enregistrés en mémoire apparaissent désormais directement en haut de la liste déroulante **« Charger un Modèle ou un GIF en Mémoire... »** dans le Studio 90×32.
+
 ## [0.1.0-beta.8] - 2026-11-27
 
 - **Correction du chargement JavaScript du Studio GIF 90×32** :
