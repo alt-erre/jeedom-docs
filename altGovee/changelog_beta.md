@@ -1,5 +1,10 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.8] - 2026-11-27
+
+- **Correction du chargement JavaScript du Studio GIF 90×32** :
+  - Correction d'une syntaxe de commentaire dans le script de la page équipement qui perturbait le préprocesseur de traduction de Jeedom lors du chargement du Studio GIF.
+
 ## [0.1.0-beta.7] - 2026-11-27
 
 - **Correction de l'import multi-frames des GIFs animés sur tous les navigateurs (Safari iOS/macOS & HTTP local)** :
