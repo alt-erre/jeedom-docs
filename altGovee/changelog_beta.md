@@ -1,5 +1,11 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.7] - 2026-11-27
+
+- **Correction de l'import multi-frames des GIFs animés sur tous les navigateurs (Safari iOS/macOS & HTTP local)** :
+  - Intégration d'un décodeur GIF multi-frames universel permettant d'extraire toutes les frames d'un fichier `.gif` animé importé (y compris sur Safari iPhone/iPad/Mac et en connexion locale `http://...`) au lieu de la seule première image.
+  - **Lecture automatique de l'animation** sur la grille `90×32` dès l'import d'un GIF, la génération d'un texte défilant ou la sélection d'un modèle, avec détection automatique de la vitesse (`FPS`) du GIF.
+
 ## [0.1.0-beta.6] - 2026-11-26
 
 - **Nouveau Studio GIF, Pixel-Art & Texte Défilant (`90×32`) avec Import en Mémoire** :

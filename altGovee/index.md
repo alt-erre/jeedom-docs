@@ -4,7 +4,7 @@
 **Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale **Govee LAN UDP** (`Multicast 239.255.255.250` ports `4001 / 4002 / 4003` + Trames binaires locales `ptReal`) + **OpenAPI v2 Govee** optionnelle (`openapi.api.govee.com`)  
-**Version :** `0.1.0-beta.6`  
+**Version :** `0.1.0-beta.7`  
 **Compatibilité :** Jeedom $\ge$ 4.2 (Luna, Atlas, Smart, Raspberry Pi, Docker, VM Debian 11 / 12, Python $\ge$ 3.9)
 
 ---
