@@ -1,5 +1,11 @@
 # Changelog Beta - Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)
 
+## [0.1.0-beta.10] - 2026-11-27
+
+- **Clarification de l'interface du Studio GIF 90×32 et de la documentation** :
+  - Renommage des boutons du Studio en **« Exporter le .GIF 90x32 (pour Govee Home DIY) »** et **« Sauvegarder dans Jeedom & Diffuser (15 zones LAN) »**, avec ajout d'un guide explicatif détaillant la différence entre l'affichage 2D pixel par pixel (`2880 LEDs` via import du `.gif` dans l'application *Govee Home -> DIY* puis synchronisation Jeedom) et la diffusion 100 % locale sur les 15 zones RGBIC du rideau.
+  - Correction du lien d'accès au Changelog Beta depuis la page Changelog principale de la documentation publique.
+
 ## [0.1.0-beta.9] - 2026-11-27
 
 - **Correction du rendu des animations GIF sur le rideau et ajout des GIFs en mémoire dans la liste des modèles** :

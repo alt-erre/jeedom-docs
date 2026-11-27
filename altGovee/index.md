@@ -4,7 +4,7 @@
 **Licence :** Propriétaire - Tous droits réservés  
 **Catégorie :** Lumière (`light`)  
 **Protocole :** API Locale **Govee LAN UDP** (`Multicast 239.255.255.250` ports `4001 / 4002 / 4003` + Trames binaires locales `ptReal`) + **OpenAPI v2 Govee** optionnelle (`openapi.api.govee.com`)  
-**Version :** `0.1.0-beta.9`  
+**Version :** `0.1.0-beta.10`  
 **Compatibilité :** Jeedom $\ge$ 4.2 (Luna, Atlas, Smart, Raspberry Pi, Docker, VM Debian 11 / 12, Python $\ge$ 3.9)
 
 ---
@@ -26,7 +26,7 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
 - **Pilotage 100 % Local LAN UDP (< 15 ms) + Protocole `ptReal` Multi-Segments** : fonctionnement immédiat en PHP direct sans démon (ports UDP `4001/4002/4003`) ou avec le démon Python Temps Réel (port socket local dédié **`55110`**) pour diffuser des ondes lumineuses continues sans solliciter le Cloud.
 - **Studio RGBIC Multi-Segments & 24 Ambiances / Fresques Panoramiques Calibrées** : définissez vos dégradés de 2 à 5 couleurs interpolées sur les 15 segments RGBIC ou lancez en 1 clic l'une des 24 ambiances locales (*Cyberpunk Neon 3x*, *Aurore Boréale*, *Coucher de Soleil*, *Feu de Cheminée Géant*, *Pluie Matricielle*, *Féerie de Noël 3x*, *Mode Cinéma 2200K 15%*).
 - **Synchronisation 1-Clic des Scènes Govee (`lightScene`), Scènes DIY (`diyScene`) & Modes Musicaux (`musicMode`)** via trames locales `ptReal` et OpenAPI v2 optionnelle.
-- **Studio GIF, Pixel-Art & Texte Défilant (`90×32` / `60×32` / `30×32`) avec Import en Mémoire du Plugin** : importez vos fichiers `.gif` animés, `.png` ou `.jpg`, dessinez pixel par pixel sur les 2 880 gouttes LED, générez des bandeaux de texte défilant ou chargez l'un des 6 modèles animés intégrés (*Pac-Man & Fantômes*, *Sapins & Flocons*, *Feux d'Artifice 3x*, *Cœurs Pulsants*, *Synthwave*, *Pluie Matrix*), enregistrez-les dans la mémoire persistante du plugin pour les lancer en 1 clic depuis vos scénarios et widgets, et exportez-les en `.gif` calibré `90×32 px`.
+- **Studio GIF 90×32, Pixel-Art & Texte Défilant (`90×32` / `60×32` / `30×32`)** : importez vos fichiers `.gif` animés, `.png` ou `.jpg`, dessinez pixel par pixel sur les 2 880 gouttes LED, générez des bandeaux de texte défilant ou chargez l'un des 6 modèles animés intégrés (*Pac-Man & Fantômes*, *Sapins & Flocons*, *Feux d'Artifice 3x*, *Cœurs Pulsants*, *Synthwave*, *Pluie Matrix*), puis **exportez-les en `.gif` calibré `90×32 px` (pour les charger dans Govee Home DIY)** ou **sauvegardez-les dans Jeedom pour une diffusion locale sur les 15 zones RGBIC**.
 - **Plafond Dynamique de Luminosité par Mode (`brightness_max` / `brightness_max_set`)** & **Association d'un Interrupteur Physique Amont (`upstreamStateCmd` avec badge `AMONT OFF`)**.
 - **Dashboard Global de Supervision dans le menu Accueil** (*Dark Glass* & *Light Glass v1.5 WCAG AAA*) et compatibilité native **Kiosk TV 10-Foot (`altTvDashboard`)**.
 
@@ -66,13 +66,30 @@ Le plugin **Alt Éclairages, Rubans RGBIC & Ambiances (Govee) (`altGovee`)** per
 - **Synchronisation 1-Clic des Scènes Matérielles (`lightScene`), Scènes DIY (`diyScene`) & Modes Musicaux (`musicMode`)** :
   - Bouton **`Synchroniser Profil & Scènes Govee`** peuplant automatiquement la liste déroulante des scènes propres au modèle `SKU`, avec navigation `Scène précédente` / `Scène suivante` et réglage de la sensibilité du microphone musical (`0–100 %`).
 
-### 3. Plafond Dynamique de Luminosité par Mode (`brightness_max` / `brightness_max_set`)
+### 3. Studio GIF 90×32 & Animations Jeedom : Limite Matérielle du Firmware Govee & 2 Modes de Diffusion
+
+> [!IMPORTANT]
+> **Pourquoi aucun système domotique ne peut écrire un fichier `.gif` 2D directement dans la mémoire flash du contrôleur Govee sans l'application Govee Home :**
+> Contrairement à un contrôleur Twinkly (qui embarque un serveur HTTP local `/xled/v1/led/movie/full` et un port de streaming vidéo UDP `7777` acceptant les pixels bruts en Wi-Fi), le firmware des **Govee Curtain Lights Pro (`H70B3` / `H70B4` / `H70B5`)** ne possède **aucun serveur d'upload d'image sur le réseau local**.
+> Lorsqu'un fichier `.gif` est chargé dans l'application mobile **Govee Home**, l'application l'envoie au compilateur Cloud privé de Govee (`app2.govee.com`), qui le transforme en un binaire propriétaire hébergé sur les serveurs AWS S3 de Govee, puis envoie au rideau une instruction interne `ptUrl` pour qu'il télécharge ce binaire dans sa mémoire DIY interne (`diyScene`).
+> Sur le réseau local Wi-Fi (port UDP `4003`), le contrôleur Govee accepte uniquement :
+> 1. L'animation de **15 zones de segments RGBIC** (`ptReal` `0x33 0x05 0x15 0x01`) ;
+> 2. L'activation par son identifiant d'une **Scène Govee** ou d'une **Scène DIY** préalablement enregistrée dans le contrôleur.
+
+L'onglet **`Studio GIF 90x32 & Animations Jeedom`** de la fiche équipement vous propose donc **deux modes complémentaires** :
+
+| Mode de diffusion | Rendu visuel sur le rideau | Nécessite l'app Govee Home ? | Procédure d'utilisation |
+| :--- | :--- | :---: | :--- |
+| **Mode 1 : Dessin 2D Pixel par Pixel (`90×32 = 2880 LEDs`) via Govee Home DIY** | **Dessin 2D complet au pixel près** (personnage qui marche, texte défilant lisible lettre par lettre, logo pixel-art sur les 2880 gouttes LED) | **Oui, 1 seule fois** (lors de l'import initial du `.gif` dans Govee Home DIY) | 1. Créez, dessinez, générez un texte défilant ou importez un GIF dans le Studio 90×32.<br>2. Cliquez sur **`Exporter le .GIF 90x32 (pour Govee Home DIY)`** pour télécharger le fichier `.gif` calibré au pixel près.<br>3. Importez ce `.gif` dans l'application **Govee Home** (*DIY -> Créer -> Mode GIF*).<br>4. Dans Jeedom, cliquez sur **`Synchroniser Profil & Scènes Govee`** (avec votre clé OpenAPI v2 Govee) : votre création 2D apparaît dans la commande **`Lancer une Scène DIY`** (et vous pouvez reporter son **`ID Slot DIY Matériel`** dans le Studio). |
+| **Mode 2 : Streaming 100 % Local LAN UDP (`15 Zones RGBIC`) via le démon `altGoveed`** | **Ondes et bandes chromatiques dynamiques (15 zones RGBIC)** animées aux couleurs vives dominantes extraites de chaque frame du GIF (*sans dessin 2D pixel par pixel*) | **Non (100 % Local sans Cloud)** | 1. Importez un GIF ou choisissez l'un des 6 modèles dans le Studio 90×32 (en laissant `ID Slot DIY Matériel = 0`).<br>2. Cliquez sur **`Sauvegarder dans Jeedom & Diffuser (15 zones LAN)`**.<br>3. L'animation est enregistrée sur votre box Jeedom et ajoutée aux commandes **`Ambiance / Fresque Panoramique`** et **`Lancer une Scène DIY`** (`custom_<id>`). |
+
+### 4. Plafond Dynamique de Luminosité par Mode (`brightness_max` / `brightness_max_set`)
 - Commandes **`Luminosité maximum`** (`brightness_max`, `0–100 %`) et **`Luminosité maximum niveau`** (`brightness_max_set`) avec protection à 3 niveaux :
   1. **Abaissement immédiat** de la luminosité des rideaux/rubans si elle dépasse le nouveau plafond lors d'un passage en mode *Nuit* ou *Cinéma*.
   2. **Bridage automatique** de toutes les commandes Jeedom (`brightness_set`, `brightness_up`, ambiances).
   3. **Écrêtage automatique en temps réel** (avec anti-rebond de 2 secondes en RAM) si la luminosité est relevée depuis l'application mobile Govee Home, et sélecteur rapide `Max 10%` à `Max 70%` / `Max 100%` directement en bout de barre sur le widget.
 
-### 4. Gestion de l'Interrupteur Physique Amont (`upstreamStateCmd`) & Flash de Notification (`alert_flash`)
+### 5. Gestion de l'Interrupteur Physique Amont (`upstreamStateCmd`) & Flash de Notification (`alert_flash`)
 - **Association d'un interrupteur ou prise connectée amont** :
   - Dès que l'alimentation amont est coupée (`0`), l'équipement bascule immédiatement à `État = 0` et `Luminosité = 0 %` avec un badge **`AMONT OFF`** sur le widget et sur le Dashboard global.
   - À l'allumage (`auto_on`), allume automatiquement l'interrupteur amont, attend l'amorçage Wi-Fi du contrôleur Govee (délai configurable, `1500 ms` par défaut) puis applique la commande lumineuse.
